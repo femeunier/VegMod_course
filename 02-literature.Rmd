@@ -1,5 +1,7 @@
 # (PART) Biophysical and physiological models {-}
 
 # Modelling light penetration, vegetation canopy representation and energy balance
+\chaptermark{Light}
 
 # Modelling basic processes for growth and the carbon cycle (fluxes)
+\chaptermark{Growth}

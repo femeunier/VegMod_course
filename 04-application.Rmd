@@ -1,6 +1,7 @@
 # (PART) Dynamic vegetation modelling {-}
 
 # Representing biodiversity in vegetation models
+\chaptermark{Biodiversity}
 
 ## Functional diversity
 
@@ -13,3 +14,4 @@
 ## Communities
 
 # Spatial heterogeneity, landscape scale, metapopulations
+\chaptermark{Heterogeneity}

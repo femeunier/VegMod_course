@@ -1,5 +1,7 @@
 # (PART) Modelling stand dynamics {-}
 
 # Modelling growth, timber production and C-allocation
+\chaptermark{Carbon cycle}
 
 # Modelling vegetation dynamics and demography
+\chaptermark{Demography}
