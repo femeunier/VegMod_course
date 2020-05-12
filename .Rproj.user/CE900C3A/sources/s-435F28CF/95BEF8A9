@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1589233195461.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1066054960",
+    "id" : "95BEF8A9",
+    "lastKnownWriteTime" : 1589233839,
+    "last_content_update" : 1589233839309,
+    "path" : "~/Documents/projects/VegMod_course/01-intro.Rmd",
+    "project_path" : "01-intro.Rmd",
+    "properties" : {
+        "cursorPosition" : "13,56",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
