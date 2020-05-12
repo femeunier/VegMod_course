@@ -3,5 +3,9 @@
 # Modelling light penetration, vegetation canopy representation and energy balance
 \chaptermark{Light}
 
+$$
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+$$
+
 # Modelling basic processes for growth and the carbon cycle (fluxes)
 \chaptermark{Growth}
