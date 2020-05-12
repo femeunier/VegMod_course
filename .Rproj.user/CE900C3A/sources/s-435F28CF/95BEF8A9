@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1066054960",
+    "hash" : "0",
     "id" : "95BEF8A9",
-    "lastKnownWriteTime" : 1589233839,
-    "last_content_update" : 1589233839309,
+    "lastKnownWriteTime" : 1589248984,
+    "last_content_update" : 1589248984938,
     "path" : "~/Documents/projects/VegMod_course/01-intro.Rmd",
     "project_path" : "01-intro.Rmd",
     "properties" : {
-        "cursorPosition" : "13,56",
-        "scrollLine" : "0"
+        "cursorPosition" : "19,3",
+        "scrollLine" : "9"
     },
     "relative_order" : 5,
     "source_on_save" : false,

@@ -1,3 +1,5 @@
-# Methods
+# (PART) Modelling stand dynamics {-}
 
-We describe our methods in this chapter.
+# Modelling growth, timber production and C-allocation
+
+# Modelling vegetation dynamics and demography

@@ -1,3 +1,5 @@
-# Literature
+# (PART) Biophysical and physiological models {-}
 
-Here is a review of existing methods.
+# Modelling light penetration, vegetation canopy representation and energy balance
+
+# Modelling basic processes for growth and the carbon cycle (fluxes)

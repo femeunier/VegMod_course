@@ -24,8 +24,8 @@
 \PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
 \usepackage[unicode=true]{hyperref}
 \hypersetup{
-            pdftitle={A Minimal Book Example},
-            pdfauthor={Yihui Xie},
+            pdftitle={Vegetation modelling},
+            pdfauthor={Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -110,8 +110,8 @@
 
 \usepackage{booktabs}
 
-\title{A Minimal Book Example}
-\author{Yihui Xie}
+\title{Vegetation modelling}
+\author{Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle}
 \date{2020-05-11}
 
 \begin{document}
@@ -121,37 +121,11 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\chapter{Prerequisites}\label{prerequisites}
-
-This is a \emph{sample} book written in \textbf{Markdown}. You can use
-anything that Pandoc's Markdown supports, e.g., a math equation
-\(a^2 + b^2 = c^2\).
-
-The \textbf{bookdown} package can be installed from CRAN or Github:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
-\CommentTok{# or the development version}
-\CommentTok{# devtools::install_github("rstudio/bookdown")}
-\end{Highlighting}
-\end{Shaded}
-
-Remember each Rmd file contains one and only one chapter, and a chapter
-is defined by the first-level heading \texttt{\#}.
-
-To compile this example to PDF, you need XeLaTeX. You are recommended to
-install TinyTeX (which includes XeLaTeX):
-\url{https://yihui.org/tinytex/}.
-
 \chapter{Introduction}\label{intro}
 
 You can label chapter and section titles using \texttt{\{\#label\}}
 after them, e.g., we can reference Chapter \ref{intro}. If you do not
-manually label them, there will be automatic labels anyway, e.g.,
-Chapter \ref{methods}.
-
-Camill est la plus jolie
+manually label them, there will be automatic labels anyway.
 
 Figures and tables with captions will be placed in \texttt{figure} and
 \texttt{table} environments, respectively.
@@ -170,6 +144,21 @@ Figures and tables with captions will be placed in \texttt{figure} and
 }
 
 \caption{Here is a nice figure!}\label{fig:nice-fig}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}\StringTok{'figures/Figure_course.png'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/Figure_course} 
+
+}
+
+\caption{Here is a second figure!}\label{fig:nice-fig2}
 \end{figure}
 
 Reference a figure by its code chunk label with the \texttt{fig:}
@@ -225,25 +214,44 @@ You can write citations, too. For example, we are using the
 \textbf{bookdown} package \citep{R-bookdown} in this sample book, which
 was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
 
-\chapter{Literature}\label{literature}
+\part{Biophysical and physiological
+models}\label{part-biophysical-and-physiological-models}
 
-Here is a review of existing methods.
+\chapter{Modelling light penetration, vegetation canopy representation
+and energy
+balance}\label{modelling-light-penetration-vegetation-canopy-representation-and-energy-balance}
 
-\chapter{Methods}\label{methods}
+\chapter{Modelling basic processes for growth and the carbon cycle
+(fluxes)}\label{modelling-basic-processes-for-growth-and-the-carbon-cycle-fluxes}
 
-We describe our methods in this chapter.
+\part{Modelling stand
+dynamics}\label{part-modelling-stand-dynamics}
 
-\chapter{Applications}\label{applications}
+\chapter{Modelling growth, timber production and
+C-allocation}\label{modelling-growth-timber-production-and-c-allocation}
 
-Some \emph{significant} applications are demonstrated in this chapter.
+\chapter{Modelling vegetation dynamics and
+demography}\label{modelling-vegetation-dynamics-and-demography}
 
-\section{Example one}\label{example-one}
+\part{Dynamic vegetation
+modelling}\label{part-dynamic-vegetation-modelling}
 
-\section{Example two}\label{example-two}
+\chapter{Representing biodiversity in vegetation
+models}\label{representing-biodiversity-in-vegetation-models}
 
-\chapter{Final Words}\label{final-words}
+\section{Functional diversity}\label{functional-diversity}
 
-We have finished a nice book.
+\subsection{Plant functional types,}\label{plant-functional-types}
+
+\subsection{Trait based models}\label{trait-based-models}
+
+\section{Competition models (competition and coexistence of
+species/PFTs)}\label{competition-models-competition-and-coexistence-of-speciespfts}
+
+\section{Communities}\label{communities}
+
+\chapter{Spatial heterogeneity, landscape scale,
+metapopulations}\label{spatial-heterogeneity-landscape-scale-metapopulations}
 
 \bibliography{book.bib,packages.bib}
 

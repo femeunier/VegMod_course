@@ -1,7 +1,15 @@
-# Applications
+# (PART) Dynamic vegetation modelling {-}
 
-Some _significant_ applications are demonstrated in this chapter.
+# Representing biodiversity in vegetation models
 
-## Example one
+## Functional diversity
 
-## Example two
+### Plant functional types, 
+
+### Trait based models
+
+## Competition models (competition and coexistence of species/PFTs)
+
+## Communities
+
+# Spatial heterogeneity, landscape scale, metapopulations
