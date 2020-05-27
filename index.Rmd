@@ -5,6 +5,7 @@ date: "`r Sys.Date()`"
 output: pdf_document
 geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 description: Syllabus associated to the course XX taught at Ghent University
+classoption: oneside
 documentclass: book
 link-citations: yes
 bibliography:
@@ -13,3 +14,4 @@ bibliography:
 site: bookdown::bookdown_site
 biblio-style: apalike
 ---
+

@@ -1,6 +1,18 @@
 \usepackage{booktabs}
 \usepackage{fancyhdr}
-\usepackage[utf8]{inputenc} % Required for inputting international characters
-\usepackage[T1]{fontenc} % Output font encoding for international characters
 
 \AtBeginDocument{\let\maketitle\relax} % To relax 
+
+% Remove page number on page parts
+\usepackage{etoolbox}
+\patchcmd{\part}{\thispagestyle{plain}}{\thispagestyle{empty}}{}{}
+
+% Header and font 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt} % Remove line
+
+\fancyhead[L,C,R]{} % Empty header
+\fancyfoot[C]{\thepage} % Footer, center, page number
+\fancyfoot[L,R]{} % Empty footer on left and right
