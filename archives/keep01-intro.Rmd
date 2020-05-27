@@ -5,6 +5,23 @@ output:
 ---
 
 # Introduction {#intro}
+## Soil-Plant-Atmosphere continuum: the central role of vegetation 
+
+## Ratione, why do we need modelling?
+
+## Components of a model
+
+## The history of vegetation models
+
+### Early history of vegetation modelling
+
+### The first DVGMs centered around carbon fluxes
+
+### A new generation of DGVMs centered around vegetation functioning
+
+## Model types
+
+## Structure of the course
 
 You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway.
 
@@ -15,17 +32,23 @@ par(mar = c(4, 4, .1, .1))
 plot(pressure, type = 'b', pch = 19)
 ```
 
-```{r nice-fig2, fig.cap='Here is a second figure!', out.width='80%', fig.asp=.75, fig.align='center'}
+```{r nice-fig2, fig.cap='Here is a second figure!', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/Figure_course.png')
 ```
 
 
+$$\begin{array}{ccc}
+x_{11} & x_{12} & x_{13}\\
+x_{21} & x_{22} & x_{23}
+\end{array}$$
+
+
 Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
 
-```{r nice-tab, tidy=FALSE}
+```{r nice-tab, tidy=FALSE,echo=FALSE}
 knitr::kable(
   head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
+  booktabs = FALSE
 )
 ```
 

@@ -1,0 +1,10 @@
+# Spatial heterogeneity, landscape scale, metapopulations
+\chaptermark{Heterogeneity}
+<!-- Not in UCL -->
+
+## Patch dynamics
+
+## Land-use changes
+
+## Fire and disturbance
+<!-- UCL 6 -->

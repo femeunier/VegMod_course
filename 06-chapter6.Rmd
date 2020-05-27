@@ -1,0 +1,9 @@
+# Modelling vegetation dynamics and demography
+\chaptermark{Dynamics}
+<!-- Not in UCL -->
+
+## Seed dispersal and recruitment
+
+## Mortality
+
+## Gap models, individual and cohort based models

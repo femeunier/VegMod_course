@@ -1,0 +1,16 @@
+# (PART) Upscaling and applications {-}
+<!-- UCL 4.3.1 -->
+
+# Representing biodiversity in vegetation models
+\chaptermark{Biodiversity}
+
+## Functional diversity
+<!-- UCL 4.3.2 -->
+
+## Competition models
+<!-- competition and coexistence of species/PFTs -->
+<!-- Not in UCL -->
+
+## Communities
+<!-- Application: Conservation, ecosystem resilience, vegetation-atmosphere feedbacks -->
+<!-- crops → not our focus but mention it -->

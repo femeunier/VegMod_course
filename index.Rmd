@@ -3,6 +3,7 @@ title: "Vegetation modelling"
 author: "Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle"
 date: "`r Sys.Date()`"
 output: pdf_document
+geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 description: Syllabus associated to the course XX taught at Ghent University
 documentclass: book
 link-citations: yes

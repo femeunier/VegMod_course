@@ -1,0 +1,13 @@
+# Temporal and seasonal dynamics
+\chaptermark{dynamics}
+
+## Leaf phenology
+<!-- UCL 4.5.4 -->
+<!-- -budburst models  -->
+<!-- -senescence models -->
+
+## Drivers of seasonality and phenology
+<!-- UCL 4.5.3 -->
+<!-- -temperature,  -->
+<!-- -light  -->
+<!-- -water -->

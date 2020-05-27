@@ -1,0 +1,20 @@
+# Modelling light penetration, vegetation canopy representation, and energy balance
+\chaptermark{Light}
+
+## Representing canopy structure in models
+<!-- Not in UCL -->
+<!-- -single layer  -->
+<!-- -multilayer canopy  -->
+<!-- -canopy packing -->
+<!-- -clumping  -->
+<!-- -3D models -->
+<!-- -LAI -->
+
+## Direct and diffuse light
+<!-- Not in UCL -->
+<!-- -solar angle -->
+<!-- -light penetration, Lambert Beer -->
+<!-- -Sun -shade leaves -->
+
+## Ecosystem energy balance
+<!-- UCL2.3 and 4.2 -->

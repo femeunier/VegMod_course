@@ -29,48 +29,9 @@
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{natbib}
 \bibliographystyle{apalike}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
@@ -109,10 +70,11 @@
 \makeatother
 
 \usepackage{booktabs}
+\usepackage{fancyhdr}
 
 \title{Vegetation modelling}
 \author{Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle}
-\date{2020-05-11}
+\date{2020-05-27}
 
 \begin{document}
 \maketitle
@@ -123,34 +85,28 @@
 }
 \chapter{Introduction}\label{intro}
 
-You can label chapter and section titles using \texttt{\{\#label\}}
-after them, e.g., we can reference Chapter \ref{intro}. If you do not
-manually label them, there will be automatic labels anyway.
+\section{Soil-Plant-Atmosphere continuum: the central role of
+vegetation}\label{soil-plant-atmosphere-continuum-the-central-role-of-vegetation}
 
-Figures and tables with captions will be placed in \texttt{figure} and
-\texttt{table} environments, respectively.
+\section{Why do we need modelling?}\label{why-do-we-need-modelling}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, .}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(pressure, }\DataTypeTok{type =} \StringTok{'b'}\NormalTok{, }\DataTypeTok{pch =} \DecValTok{19}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\section{Components of a model}\label{components-of-a-model}
 
-\begin{figure}
+\section{The history of vegetation
+models}\label{the-history-of-vegetation-models}
 
-{\centering \includegraphics[width=0.8\linewidth]{VegMod_course_files/figure-latex/nice-fig-1} 
+\subsection{Early history of vegetation
+modelling}\label{early-history-of-vegetation-modelling}
 
-}
+\subsection{The first DVGMs centered around carbon
+fluxes}\label{the-first-dvgms-centered-around-carbon-fluxes}
 
-\caption{Here is a nice figure!}\label{fig:nice-fig}
-\end{figure}
+\subsection{A new generation of DGVMs centered around vegetation
+functioning}\label{a-new-generation-of-dgvms-centered-around-vegetation-functioning}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}\StringTok{'figures/Figure_course.png'}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\section{Model types}\label{model-types}
+
+\section{Structure of the course}\label{structure-of-the-course}
 
 \begin{figure}
 
@@ -158,100 +114,221 @@ Figures and tables with captions will be placed in \texttt{figure} and
 
 }
 
-\caption{Here is a second figure!}\label{fig:nice-fig2}
+\caption{Here is the structure of the course!}\label{fig:nice-fig2}
 \end{figure}
-
-Reference a figure by its code chunk label with the \texttt{fig:}
-prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can
-reference tables generated from \texttt{knitr::kable()}, e.g., see Table
-\ref{tab:nice-tab}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{head}\NormalTok{(iris, }\DecValTok{20}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Here is a nice table!'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{table}
-
-\caption{\label{tab:nice-tab}Here is a nice table!}
-\centering
-\begin{tabular}[t]{rrrrl}
-\toprule
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
-\midrule
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
-\addlinespace
-5.4 & 3.9 & 1.7 & 0.4 & setosa\\
-4.6 & 3.4 & 1.4 & 0.3 & setosa\\
-5.0 & 3.4 & 1.5 & 0.2 & setosa\\
-4.4 & 2.9 & 1.4 & 0.2 & setosa\\
-4.9 & 3.1 & 1.5 & 0.1 & setosa\\
-\addlinespace
-5.4 & 3.7 & 1.5 & 0.2 & setosa\\
-4.8 & 3.4 & 1.6 & 0.2 & setosa\\
-4.8 & 3.0 & 1.4 & 0.1 & setosa\\
-4.3 & 3.0 & 1.1 & 0.1 & setosa\\
-5.8 & 4.0 & 1.2 & 0.2 & setosa\\
-\addlinespace
-5.7 & 4.4 & 1.5 & 0.4 & setosa\\
-5.4 & 3.9 & 1.3 & 0.4 & setosa\\
-5.1 & 3.5 & 1.4 & 0.3 & setosa\\
-5.7 & 3.8 & 1.7 & 0.3 & setosa\\
-5.1 & 3.8 & 1.5 & 0.3 & setosa\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-You can write citations, too. For example, we are using the
-\textbf{bookdown} package \citep{R-bookdown} in this sample book, which
-was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
 
 \part{Biophysical and physiological
 models}\label{part-biophysical-and-physiological-models}
 
-\chapter{Modelling light penetration, vegetation canopy representation
-and energy
-balance}\label{modelling-light-penetration-vegetation-canopy-representation-and-energy-balance}
+\chapter{Modelling plant basic
+processes}\label{modelling-plant-basic-processes}
 
-\chapter{Modelling basic processes for growth and the carbon cycle
-(fluxes)}\label{modelling-basic-processes-for-growth-and-the-carbon-cycle-fluxes}
+\chaptermark{photsynthesis}
 
-\part{Modelling stand
-dynamics}\label{part-modelling-stand-dynamics}
+\section{Photosynthesis and stomatal
+models}\label{photosynthesis-and-stomatal-models}
 
-\chapter{Modelling growth, timber production and
-C-allocation}\label{modelling-growth-timber-production-and-c-allocation}
+\section{Respiration models}\label{respiration-models}
+
+\section{Transpiration}\label{transpiration}
+
+\section{Upscaling from leaf to
+canopy}\label{upscaling-from-leaf-to-canopy}
+
+\chapter{Modelling light penetration, vegetation canopy representation,
+energy
+balance}\label{modelling-light-penetration-vegetation-canopy-representation-energy-balance}
+
+\chaptermark{Light}
+
+\section{Representing canopy structure in
+models}\label{representing-canopy-structure-in-models}
+
+\section{Direct and diffuse light}\label{direct-and-diffuse-light}
+
+\section{Ecosystem energy balance}\label{ecosystem-energy-balance}
+
+\chapter{Temporal and seasonal
+dynamics}\label{temporal-and-seasonal-dynamics}
+
+\chaptermark{dynamics}
+
+\section{Leaf phenology}\label{leaf-phenology}
+
+\section{Drivers of seasonality and
+phenology}\label{drivers-of-seasonality-and-phenology}
+
+\part{Modelling vegetation
+dynamics}\label{part-modelling-vegetation-dynamics}
+
+\chapter{Modelling growth, timber production and Carbon
+allocation}\label{modelling-growth-timber-production-and-carbon-allocation}
+
+\chaptermark{Growth}
+
+\section{Empirical growth modelling: growth
+curves}\label{empirical-growth-modelling-growth-curves}
+
+\section{Process-based growth modelling: C-allocation
+models}\label{process-based-growth-modelling-c-allocation-models}
 
 \chapter{Modelling vegetation dynamics and
 demography}\label{modelling-vegetation-dynamics-and-demography}
 
-\part{Dynamic vegetation
-modelling}\label{part-dynamic-vegetation-modelling}
+\chaptermark{Dynamics}
+
+\section{Seed dispersal and
+recruitment}\label{seed-dispersal-and-recruitment}
+
+\section{Mortality}\label{mortality}
+
+\section{Gap models, individual and cohort based
+models}\label{gap-models-individual-and-cohort-based-models}
+
+\chapter{Modelling biogeochemical cycles in
+vegetation}\label{modelling-biogeochemical-cycles-in-vegetation}
+
+\chaptermark{Biogeochemical}
+
+\section{Carbon cycle models: stocks and
+fluxes}\label{carbon-cycle-models-stocks-and-fluxes}
+
+\section{Nutrient cycle models: soil biogeochemical
+models}\label{nutrient-cycle-models-soil-biogeochemical-models}
+
+\section{Water balance}\label{water-balance}
+
+\part{Upscaling and
+applications}\label{part-upscaling-and-applications}
 
 \chapter{Representing biodiversity in vegetation
 models}\label{representing-biodiversity-in-vegetation-models}
 
+\chaptermark{Biodiversity}
+
 \section{Functional diversity}\label{functional-diversity}
 
-\subsection{Plant functional types,}\label{plant-functional-types}
-
-\subsection{Trait based models}\label{trait-based-models}
-
-\section{Competition models (competition and coexistence of
-species/PFTs)}\label{competition-models-competition-and-coexistence-of-speciespfts}
+\section{Competition models}\label{competition-models}
 
 \section{Communities}\label{communities}
 
 \chapter{Spatial heterogeneity, landscape scale,
 metapopulations}\label{spatial-heterogeneity-landscape-scale-metapopulations}
+
+\chaptermark{Heterogeneity}
+
+\section{Patch dynamics}\label{patch-dynamics}
+
+\section{Land-use changes}\label{land-use-changes}
+
+\section{Fire and disturbance}\label{fire-and-disturbance}
+
+\chapter{Upscaling from leaf/tree to
+globe}\label{upscaling-from-leaftree-to-globe}
+
+\chaptermark{Globe}
+
+\section{Land surface models}\label{land-surface-models}
+
+\section{DVGMs as a part of Earth system
+models}\label{dvgms-as-a-part-of-earth-system-models}
+
+\chapter{Model projections and scenario
+analysis}\label{model-projections-and-scenario-analysis}
+
+\chaptermark{Projections}
+
+\section{Climate scenarios}\label{climate-scenarios}
+
+\section{Land-use scenarios}\label{land-use-scenarios}
+
+\section{Management scenarios}\label{management-scenarios}
+
+\part{Practicals}\label{part-practicals}
+
+\chapter*{Supporting material}\label{supporting-material}
+\addcontentsline{toc}{chapter}{Supporting material}
+
+Crash course, basic programming (R), theory about model evaluation etc.
+
+\chapter*{Practical A}\label{practical-a}
+\addcontentsline{toc}{chapter}{Practical A}
+
+PC-room, supervised exercise
+
+Simple model on diurnal variation in solar angle, radiation extinction
+and photosynthesis in vegetation types with different and canopy
+structure and LAI: grassland, broadleaved forest, coniferous forest
+
+Scale: aggregated stand level (big leaf model)
+
+Methodological focus: model formulation: translating a few equations
+into code
+
+Methodological focus: compiling code, running model, reading
+input-output
+
+\chapter*{Practical B}\label{practical-b}
+\addcontentsline{toc}{chapter}{Practical B}
+
+Group work, report, PC room
+
+Modelling diurnal cycle of carbon and water fluxes for flux tower sites
+(Savanna's Sahel)
+
+Scale: aggregated stand level
+
+Methodological focus: model-data comparison (goodness-of-fit), simple
+parameter optimisation
+
+\chapter*{Practical C}\label{practical-c}
+\addcontentsline{toc}{chapter}{Practical C}
+
+PC-room, supervised exercise
+
+Modelling the size structure of a temperate forest (stand diameter
+distribution)
+
+Scale: forest stand
+
+Methodological focus: initial conditions
+
+\chapter*{Practical D}\label{practical-d}
+\addcontentsline{toc}{chapter}{Practical D}
+
+Group work, report, PC room
+
+Modelling carbon stocks (above and belowground) and fluxes
+
+Scale: ecosystem
+
+Methodological focus: Spinup and sensitivity analysis (testing which
+climate variables have strongest impact on stocks)
+
+\chapter*{Practical E}\label{practical-e}
+\addcontentsline{toc}{chapter}{Practical E}
+
+PC-room, supervised exercise
+
+Simulating forest succession, meta-analysis of trait dataset to
+prescribe vegetation functional composition (using PEcAn-framework)
+
+Scale: landscape
+
+Methodological focus: parameter meta-analysis (PFT construction), data
+assimilation
+
+\chapter*{Practical F}\label{practical-f}
+\addcontentsline{toc}{chapter}{Practical F}
+
+PC-room, group work, microteaching
+
+Climate/land use/management scenario analysis
+
+Scale: site/globe? (Pecan framework) each group choses a question and a
+model
+
+Methodological focus: sensitivity and uncertainty analysis
 
 \bibliography{book.bib,packages.bib}
 

@@ -1,0 +1,29 @@
+# (PART) Biophysical and physiological models {-}
+<!-- We could buid a schematic of what is a vegetation model throughout the course, starting with independent boxes that we link together as we upscale the processes?  -->
+
+# Modelling plant basic processes
+\chaptermark{photsynthesis}
+<!-- UCL 4.2 -->
+
+## Photosynthesis and stomatal models
+<!-- -LUE models -->
+<!-- -Farquhar model -->
+<!-- -stomatal models (Jarvis, Ball-Berry, Leuning, …) -->
+<!-- -drought stress, ... -->
+
+## Respiration models
+<!-- -Q10 etc... -->
+<!-- -leaf respiration -->
+<!-- -woody respiration  -->
+<!-- -Soil respiration → see chapter 7 -->
+
+## Transpiration
+<!-- -Penman Monteith, … -->
+<!-- -supply-demand -->
+<!-- -hydraulic models -->
+
+## Upscaling from leaf to canopy
+<!-- -the problem of scaling in ecology (review paper of Jerome Chave) -->
+<!-- -LAI -->
+<!-- -refer to chapter 6 for indiv, cohort, area based models -->
+

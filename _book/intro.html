@@ -24,7 +24,7 @@
 <meta name="author" content="Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle" />
 
 
-<meta name="date" content="2020-05-11" />
+<meta name="date" content="2020-05-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 
-<link rel="next" href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"/>
+<link rel="next" href="modelling-plant-basic-processes.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,43 +52,6 @@
 
 
 
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -106,24 +69,77 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#soil-plant-atmosphere-continuum-the-central-role-of-vegetation"><i class="fa fa-check"></i><b>1.1</b> Soil-Plant-Atmosphere continuum: the central role of vegetation</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#why-do-we-need-modelling"><i class="fa fa-check"></i><b>1.2</b> Why do we need modelling?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#components-of-a-model"><i class="fa fa-check"></i><b>1.3</b> Components of a model</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#the-history-of-vegetation-models"><i class="fa fa-check"></i><b>1.4</b> The history of vegetation models</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#early-history-of-vegetation-modelling"><i class="fa fa-check"></i><b>1.4.1</b> Early history of vegetation modelling</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#the-first-dvgms-centered-around-carbon-fluxes"><i class="fa fa-check"></i><b>1.4.2</b> The first DVGMs centered around carbon fluxes</a></li>
+<li class="chapter" data-level="1.4.3" data-path="intro.html"><a href="intro.html#a-new-generation-of-dgvms-centered-around-vegetation-functioning"><i class="fa fa-check"></i><b>1.4.3</b> A new generation of DGVMs centered around vegetation functioning</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#model-types"><i class="fa fa-check"></i><b>1.5</b> Model types</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#structure-of-the-course"><i class="fa fa-check"></i><b>1.6</b> Structure of the course</a></li>
+</ul></li>
 <li class="part"><span><b>I Biophysical and physiological models</b></span></li>
-<li class="chapter" data-level="2" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><i class="fa fa-check"></i><b>2</b> Modelling light penetration, vegetation canopy representation and energy balance</a></li>
-<li class="chapter" data-level="3" data-path="modelling-basic-processes-for-growth-and-the-carbon-cycle-fluxes.html"><a href="modelling-basic-processes-for-growth-and-the-carbon-cycle-fluxes.html"><i class="fa fa-check"></i><b>3</b> Modelling basic processes for growth and the carbon cycle (fluxes)</a></li>
-<li class="part"><span><b>II Modelling stand dynamics</b></span></li>
-<li class="chapter" data-level="4" data-path="modelling-growth-timber-production-and-c-allocation.html"><a href="modelling-growth-timber-production-and-c-allocation.html"><i class="fa fa-check"></i><b>4</b> Modelling growth, timber production and C-allocation</a></li>
-<li class="chapter" data-level="5" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html"><i class="fa fa-check"></i><b>5</b> Modelling vegetation dynamics and demography</a></li>
-<li class="part"><span><b>III Dynamic vegetation modelling</b></span></li>
-<li class="chapter" data-level="6" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html"><i class="fa fa-check"></i><b>6</b> Representing biodiversity in vegetation models</a><ul>
-<li class="chapter" data-level="6.1" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#functional-diversity"><i class="fa fa-check"></i><b>6.1</b> Functional diversity</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#plant-functional-types"><i class="fa fa-check"></i><b>6.1.1</b> Plant functional types,</a></li>
-<li class="chapter" data-level="6.1.2" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#trait-based-models"><i class="fa fa-check"></i><b>6.1.2</b> Trait based models</a></li>
+<li class="chapter" data-level="2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html"><i class="fa fa-check"></i><b>2</b> Modelling plant basic processes</a><ul>
+<li class="chapter" data-level="2.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#photosynthesis-and-stomatal-models"><i class="fa fa-check"></i><b>2.1</b> Photosynthesis and stomatal models</a></li>
+<li class="chapter" data-level="2.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#respiration-models"><i class="fa fa-check"></i><b>2.2</b> Respiration models</a></li>
+<li class="chapter" data-level="2.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#transpiration"><i class="fa fa-check"></i><b>2.3</b> Transpiration</a></li>
+<li class="chapter" data-level="2.4" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#upscaling-from-leaf-to-canopy"><i class="fa fa-check"></i><b>2.4</b> Upscaling from leaf to canopy</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#competition-models-competition-and-coexistence-of-speciespfts"><i class="fa fa-check"></i><b>6.2</b> Competition models (competition and coexistence of species/PFTs)</a></li>
-<li class="chapter" data-level="6.3" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#communities"><i class="fa fa-check"></i><b>6.3</b> Communities</a></li>
+<li class="chapter" data-level="3" data-path="modelling-light-penetration-vegetation-canopy-representation-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-energy-balance.html"><i class="fa fa-check"></i><b>3</b> Modelling light penetration, vegetation canopy representation, energy balance</a><ul>
+<li class="chapter" data-level="3.1" data-path="modelling-light-penetration-vegetation-canopy-representation-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-energy-balance.html#representing-canopy-structure-in-models"><i class="fa fa-check"></i><b>3.1</b> Representing canopy structure in models</a></li>
+<li class="chapter" data-level="3.2" data-path="modelling-light-penetration-vegetation-canopy-representation-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-energy-balance.html#direct-and-diffuse-light"><i class="fa fa-check"></i><b>3.2</b> Direct and diffuse light</a></li>
+<li class="chapter" data-level="3.3" data-path="modelling-light-penetration-vegetation-canopy-representation-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-energy-balance.html#ecosystem-energy-balance"><i class="fa fa-check"></i><b>3.3</b> Ecosystem energy balance</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html"><i class="fa fa-check"></i><b>7</b> Spatial heterogeneity, landscape scale, metapopulations</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="4" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html"><i class="fa fa-check"></i><b>4</b> Temporal and seasonal dynamics</a><ul>
+<li class="chapter" data-level="4.1" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#leaf-phenology"><i class="fa fa-check"></i><b>4.1</b> Leaf phenology</a></li>
+<li class="chapter" data-level="4.2" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#drivers-of-seasonality-and-phenology"><i class="fa fa-check"></i><b>4.2</b> Drivers of seasonality and phenology</a></li>
+</ul></li>
+<li class="part"><span><b>II Modelling vegetation dynamics</b></span></li>
+<li class="chapter" data-level="5" data-path="modelling-growth-timber-production-and-carbon-allocation.html"><a href="modelling-growth-timber-production-and-carbon-allocation.html"><i class="fa fa-check"></i><b>5</b> Modelling growth, timber production and Carbon allocation</a><ul>
+<li class="chapter" data-level="5.1" data-path="modelling-growth-timber-production-and-carbon-allocation.html"><a href="modelling-growth-timber-production-and-carbon-allocation.html#empirical-growth-modelling-growth-curves"><i class="fa fa-check"></i><b>5.1</b> Empirical growth modelling: growth curves</a></li>
+<li class="chapter" data-level="5.2" data-path="modelling-growth-timber-production-and-carbon-allocation.html"><a href="modelling-growth-timber-production-and-carbon-allocation.html#process-based-growth-modelling-c-allocation-models"><i class="fa fa-check"></i><b>5.2</b> Process-based growth modelling: C-allocation models</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html"><i class="fa fa-check"></i><b>6</b> Modelling vegetation dynamics and demography</a><ul>
+<li class="chapter" data-level="6.1" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#seed-dispersal-and-recruitment"><i class="fa fa-check"></i><b>6.1</b> Seed dispersal and recruitment</a></li>
+<li class="chapter" data-level="6.2" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#mortality"><i class="fa fa-check"></i><b>6.2</b> Mortality</a></li>
+<li class="chapter" data-level="6.3" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#gap-models-individual-and-cohort-based-models"><i class="fa fa-check"></i><b>6.3</b> Gap models, individual and cohort based models</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html"><i class="fa fa-check"></i><b>7</b> Modelling biogeochemical cycles in vegetation</a><ul>
+<li class="chapter" data-level="7.1" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html#carbon-cycle-models-stocks-and-fluxes"><i class="fa fa-check"></i><b>7.1</b> Carbon cycle models: stocks and fluxes</a></li>
+<li class="chapter" data-level="7.2" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html#nutrient-cycle-models-soil-biogeochemical-models"><i class="fa fa-check"></i><b>7.2</b> Nutrient cycle models: soil biogeochemical models</a></li>
+<li class="chapter" data-level="7.3" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html#water-balance"><i class="fa fa-check"></i><b>7.3</b> Water balance</a></li>
+</ul></li>
+<li class="part"><span><b>III Upscaling and applications</b></span></li>
+<li class="chapter" data-level="8" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html"><i class="fa fa-check"></i><b>8</b> Representing biodiversity in vegetation models</a><ul>
+<li class="chapter" data-level="8.1" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#functional-diversity"><i class="fa fa-check"></i><b>8.1</b> Functional diversity</a></li>
+<li class="chapter" data-level="8.2" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#competition-models"><i class="fa fa-check"></i><b>8.2</b> Competition models</a></li>
+<li class="chapter" data-level="8.3" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#communities"><i class="fa fa-check"></i><b>8.3</b> Communities</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html"><i class="fa fa-check"></i><b>9</b> Spatial heterogeneity, landscape scale, metapopulations</a><ul>
+<li class="chapter" data-level="9.1" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#patch-dynamics"><i class="fa fa-check"></i><b>9.1</b> Patch dynamics</a></li>
+<li class="chapter" data-level="9.2" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#land-use-changes"><i class="fa fa-check"></i><b>9.2</b> Land-use changes</a></li>
+<li class="chapter" data-level="9.3" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#fire-and-disturbance"><i class="fa fa-check"></i><b>9.3</b> Fire and disturbance</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="upscaling-from-leaftree-to-globe.html"><a href="upscaling-from-leaftree-to-globe.html"><i class="fa fa-check"></i><b>10</b> Upscaling from leaf/tree to globe</a><ul>
+<li class="chapter" data-level="10.1" data-path="upscaling-from-leaftree-to-globe.html"><a href="upscaling-from-leaftree-to-globe.html#land-surface-models"><i class="fa fa-check"></i><b>10.1</b> Land surface models</a></li>
+<li class="chapter" data-level="10.2" data-path="upscaling-from-leaftree-to-globe.html"><a href="upscaling-from-leaftree-to-globe.html#dvgms-as-a-part-of-earth-system-models"><i class="fa fa-check"></i><b>10.2</b> DVGMs as a part of Earth system models</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html"><i class="fa fa-check"></i><b>11</b> Model projections and scenario analysis</a><ul>
+<li class="chapter" data-level="11.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#climate-scenarios"><i class="fa fa-check"></i><b>11.1</b> Climate scenarios</a></li>
+<li class="chapter" data-level="11.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#land-use-scenarios"><i class="fa fa-check"></i><b>11.2</b> Land-use scenarios</a></li>
+<li class="chapter" data-level="11.3" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#management-scenarios"><i class="fa fa-check"></i><b>11.3</b> Management scenarios</a></li>
+</ul></li>
+<li class="part"><span><b>IV Practicals</b></span></li>
+<li class="chapter" data-level="" data-path="supporting-material.html"><a href="supporting-material.html"><i class="fa fa-check"></i>Supporting material</a></li>
+<li class="chapter" data-level="" data-path="practical-a.html"><a href="practical-a.html"><i class="fa fa-check"></i>Practical A</a></li>
+<li class="chapter" data-level="" data-path="practical-b.html"><a href="practical-b.html"><i class="fa fa-check"></i>Practical B</a></li>
+<li class="chapter" data-level="" data-path="practical-c.html"><a href="practical-c.html"><i class="fa fa-check"></i>Practical C</a></li>
+<li class="chapter" data-level="" data-path="practical-d.html"><a href="practical-d.html"><i class="fa fa-check"></i>Practical D</a></li>
+<li class="chapter" data-level="" data-path="practical-e.html"><a href="practical-e.html"><i class="fa fa-check"></i>Practical E</a></li>
+<li class="chapter" data-level="" data-path="practical-f.html"><a href="practical-f.html"><i class="fa fa-check"></i>Practical F</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -147,200 +163,82 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Vegetation modelling</h1>
 <p class="author"><em>Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle</em></p>
-<p class="date"><em>2020-05-11</em></p>
+<p class="date"><em>2020-05-27</em></p>
 </div>
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">1</a>. If you do not manually label them, there will be automatic labels anyway.</p>
-<p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))
-<span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
-<img src="VegMod_course_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
-<p class="caption">
-Figure 1.1: Here is a nice figure!
-</p>
+<div id="soil-plant-atmosphere-continuum-the-central-role-of-vegetation" class="section level2">
+<h2><span class="header-section-number">1.1</span> Soil-Plant-Atmosphere continuum: the central role of vegetation</h2>
+<!-- UCL chap 2 -->
+<!-- Start with a reminder here to insist on the key concept of modelling, i.e. reproducing complex systems with “simple” equations and knowledge gaps: -->
+<!-- - the 3 big components and their links, major stocks and fluxes -->
+<!-- - different biomes, different behaviors and complexity -->
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;figures/Figure_course.png&#39;</span>)</code></pre></div>
+<div id="why-do-we-need-modelling" class="section level2">
+<h2><span class="header-section-number">1.2</span> Why do we need modelling?</h2>
+<!-- UCL 2.2 -->
+<!-- -context of importance of vegetation modelling in climate change, anthropocene -->
+<!-- -Diagnostic models,  -->
+<!-- -predictive models,  -->
+<!-- -upscaling -->
+<!-- -models for data integration -->
+</div>
+<div id="components-of-a-model" class="section level2">
+<h2><span class="header-section-number">1.3</span> Components of a model</h2>
+<!-- not in UCL -->
+<!-- - model structure  -->
+<!-- - parameters -->
+<!-- - input/output variables -->
+<!-- - state variables -->
+</div>
+<div id="the-history-of-vegetation-models" class="section level2">
+<h2><span class="header-section-number">1.4</span> The history of vegetation models</h2>
+<!-- UCL 4.2.3 -->
+<div id="early-history-of-vegetation-modelling" class="section level3">
+<h3><span class="header-section-number">1.4.1</span> Early history of vegetation modelling</h3>
+<!-- 1 model for 1 problem + computation limits -->
+<!-- - starts with the MIAMI model for NPP -->
+<!-- - one-bucket hydrological model -->
+<!-- - Lotka-volterra equations for competition -->
+<!-- - allometry and forestry -->
+<!-- At the beginning all theses models were completely independent from each others and developed by different community working on soil, ecology, atmosphere, etc…, to answer specific questions. Vegetation functioning was not at all at the center -->
+</div>
+<div id="the-first-dvgms-centered-around-carbon-fluxes" class="section level3">
+<h3><span class="header-section-number">1.4.2</span> The first DVGMs centered around carbon fluxes</h3>
+<!-- - When we understood the utility of such models we started to couple each part together (~1980/1990) -->
+<!-- - Also correlates with the moment we had enough computing power allowing the coupling. -->
+</div>
+<div id="a-new-generation-of-dgvms-centered-around-vegetation-functioning" class="section level3">
+<h3><span class="header-section-number">1.4.3</span> A new generation of DGVMs centered around vegetation functioning</h3>
+<!-- All individual models were coupled to create DGVMs centered around carbon fluxes, not vegetation. Now we face new limits because of -->
+<!-- 1) The emerging questions with climate change -->
+<!-- 2) We realized that vegetation models were not initially developed to simulate vegetation in an integrated manner. -->
+<!-- 3) The need for more complexity to simulate acclimation/adaptation -->
+</div>
+</div>
+<div id="model-types" class="section level2">
+<h2><span class="header-section-number">1.5</span> Model types</h2>
+<!-- -Continuum of empirical to process-based models, temporal and spatial scales -->
+<!-- -Types of vegetation models (depending on the purpose, questions, scales) (e.g. timber, yield, biogeochemistry, …), indicating which type of models will be the focus of this course -->
+<!-- -Model development cycle (structure for the methodological focus of each application/practical) add fig of Dietze on model-data integration :  -->
+<!-- -scales of model: (plant), stand to globe -->
+<!-- -focus on this course on natural and managed vegetation (not on crops),  -->
+<!-- Potential natural vegetation, climate envelopes -->
+</div>
+<div id="structure-of-the-course" class="section level2">
+<h2><span class="header-section-number">1.6</span> Structure of the course</h2>
 <div class="figure" style="text-align: center"><span id="fig:nice-fig2"></span>
-<img src="figures/Figure_course.png" alt="Here is a second figure!" width="80%" />
+<img src="figures/Figure_course.png" alt="Here is the structure of the course!" width="80%" />
 <p class="caption">
-Figure 1.2: Here is a second figure!
+Figure 1.1: Here is the structure of the course!
 </p>
 </div>
-<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="intro.html#fig:nice-fig">1.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="intro.html#tab:nice-tab">1.1</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
-  <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,
-  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
-)</code></pre></div>
-<table>
-<caption><span id="tab:nice-tab">Table 1.1: </span>Here is a nice table!</caption>
-<thead>
-<tr class="header">
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-<th align="left">Species</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.7</td>
-<td align="right">3.2</td>
-<td align="right">1.3</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.6</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.0</td>
-<td align="right">3.6</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.7</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.6</td>
-<td align="right">3.4</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.0</td>
-<td align="right">3.4</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.4</td>
-<td align="right">2.9</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.7</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.8</td>
-<td align="right">3.4</td>
-<td align="right">1.6</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.8</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.3</td>
-<td align="right">3.0</td>
-<td align="right">1.1</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.8</td>
-<td align="right">4.0</td>
-<td align="right">1.2</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.7</td>
-<td align="right">4.4</td>
-<td align="right">1.5</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.3</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.7</td>
-<td align="right">3.8</td>
-<td align="right">1.7</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.8</td>
-<td align="right">1.5</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-</tbody>
-</table>
-<p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(Xie <a href="#ref-R-bookdown">2020</a>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015">2015</a>)</span>.</p>
 
+</div>
 </div>
 
 
 
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-xie2015">
-<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.org/knitr/" class="uri">http://yihui.org/knitr/</a>.</p>
-</div>
-<div id="ref-R-bookdown">
-<p>Xie, Yihui. 2020. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
-</div>
 </div>
             </section>
 
@@ -348,7 +246,7 @@ Figure 1.2: Here is a second figure!
         </div>
       </div>
 
-<a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modelling-plant-basic-processes.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

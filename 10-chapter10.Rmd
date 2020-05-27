@@ -1,0 +1,8 @@
+# Upscaling from leaf/tree to globe
+\chaptermark{Globe}
+
+## Land surface models
+<!-- Dependence to other disciplines (Biology, ecology, physics, chemistry (VOC, etc), hydrology, pedology, datascience and mathematics, etc…) -->
+
+## DVGMs as a part of Earth system models
+<!-- Partially in UCL 4.3.3 -->

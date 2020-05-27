@@ -1,0 +1,12 @@
+# (PART) Modelling vegetation dynamics {-}
+
+# Modelling growth, timber production and Carbon allocation
+\chaptermark{Growth}
+<!-- UCL 4.2.2 -->
+
+## Empirical growth modelling: growth curves
+<!-- short, link with inventory course -->
+
+## Process-based growth modelling: C-allocation models
+<!-- - C pools: Allocation to leaf, wood, fruit -->
+<!-- - types of allocation models (see Campioli et al 2013 and work of Fatichi et al. ) -->

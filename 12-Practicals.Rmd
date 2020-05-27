@@ -1,0 +1,65 @@
+# (PART) Practicals {-}
+
+# Supporting  material {-}
+Crash course, basic programming (R), theory about model evaluation etc.
+
+# Practical A {-}
+PC-room, supervised exercise
+
+Simple model on diurnal variation in solar angle, radiation extinction and photosynthesis in vegetation types with different and canopy structure and LAI: grassland, broadleaved forest, coniferous forest
+
+Scale: aggregated stand level (big leaf model)
+
+Methodological focus: model formulation: translating a few equations into code
+
+Methodological focus: compiling code, running model, reading input-output
+
+# Practical B {-}
+
+Group work, report, PC room
+
+Modelling diurnal cycle of carbon and water fluxes for flux tower sites (Savanna’s Sahel)
+
+Scale: aggregated stand level
+
+Methodological focus: model-data comparison (goodness-of-fit), simple parameter optimisation
+
+# Practical C {-}
+
+PC-room, supervised exercise
+
+Modelling the size structure of a temperate forest (stand diameter distribution)
+
+Scale: forest stand
+
+Methodological focus: initial conditions
+
+# Practical D {-}
+
+Group work, report, PC room
+
+Modelling carbon stocks (above and belowground) and fluxes
+
+Scale: ecosystem
+
+Methodological focus: Spinup and sensitivity analysis (testing which climate variables have strongest impact on stocks)
+
+# Practical E {-}
+
+PC-room, supervised exercise
+
+Simulating forest succession, meta-analysis of trait dataset to prescribe vegetation functional composition (using PEcAn-framework)
+
+Scale: landscape
+
+Methodological focus: parameter meta-analysis (PFT construction), data assimilation
+ 
+# Practical F {-}
+
+PC-room, group work, microteaching
+
+Climate/land use/management scenario analysis
+
+Scale: site/globe? (Pecan framework) each group choses a question and a model
+
+Methodological focus: sensitivity and uncertainty analysis
