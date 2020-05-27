@@ -1,4 +1,4 @@
-# Upscaling from leaf/tree to globe
+# Upscaling from leaf and tree to the globe
 \chaptermark{Globe}
 
 ## Land surface models
