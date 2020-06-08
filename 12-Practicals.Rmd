@@ -56,7 +56,7 @@ Push your changes to your github (when a feature is working, a set of bugs are f
 git push origin new_branch
 ```
 
-Open the PR online by visiting your github repository. To ease those previous steps you can take advantage of the git GUI in RStudio. To do so, create a new project from an existing directory.
+Before submitting code back to the main repository, make sure that book compiles (buikd book). Open the PR online by visiting your github repository. To ease those previous steps you can take advantage of the git GUI in RStudio. To do so, create a new project from an existing directory.
 
 # Supporting  material {-}
 Crash course, basic programming (R), theory about model evaluation etc.
