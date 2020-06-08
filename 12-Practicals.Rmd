@@ -1,5 +1,63 @@
 # (PART) Practicals {-}
 
+# Contributing to this document {-}
+
+## First steps {-}
+First, visit the course webpage on https://github.com/femeunier/VegMod_course, and fork it to your own github account. Open a RStudio session and (if it is your first time with git) introduce yourself:
+
+```{bash, eval = FALSE}
+git config --global user.name "FULLNAME"
+git config --global user.email you@yourdomain.example.com
+```
+
+Clone the newly forked folder to your local machine: 
+
+```{bash, eval = FALSE}
+git clone https://github.com/femeunier/VegMod_course.git
+```
+
+or using SSH (to set up first, see for instance https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
+
+```{bash, eval = FALSE}
+git clone git@github.com:femeunier/VegMod_course.git
+```
+
+Define upstream
+
+```{bash, eval = FALSE}
+cd VegMod_course
+git remote add upstream git@github.com:femeunier/VegMod_course.git
+```
+
+## New pull request {-}
+
+Get the latest code from the main repository
+
+```{bash, eval = FALSE}
+git pull upstream master
+```
+
+Create a new branch (here new_branch is the new branch's name)
+
+```{bash, eval = FALSE}
+git checkout -b new_branch
+```
+
+Do some coding, add files and commit them
+
+```{bash, eval = FALSE}
+git add filepath
+git commit -m “Message”
+```
+
+Push your changes to your github
+
+```{bash, eval = FALSE}
+git push origin new_branch
+```
+
+Open the PR online by visiting your github repository.
+
 # Supporting  material {-}
 Crash course, basic programming (R), theory about model evaluation etc.
 
