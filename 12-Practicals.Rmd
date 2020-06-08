@@ -10,13 +10,13 @@ git config --global user.name "FULLNAME"
 git config --global user.email you@yourdomain.example.com
 ```
 
-Clone the newly forked folder to your local machine: 
+Note that you can do every single step below using the terminal and the git tabs in RStudio. Clone the newly forked folder to your local machine: 
 
 ```{bash, eval = FALSE}
 git clone https://github.com/femeunier/VegMod_course.git
 ```
 
-or using SSH (to set up first, see for instance https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
+or using SSH (to set up it first, see for instance https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 
 ```{bash, eval = FALSE}
 git clone git@github.com:femeunier/VegMod_course.git
@@ -56,7 +56,7 @@ Push your changes to your github
 git push origin new_branch
 ```
 
-Open the PR online by visiting your github repository.
+Open the PR online by visiting your github repository. To ease those previous steps you can take advantage of the git GUI in RStudio. To do so, create a new project from an existing director
 
 # Supporting  material {-}
 Crash course, basic programming (R), theory about model evaluation etc.
