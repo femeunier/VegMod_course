@@ -50,7 +50,7 @@ git add filepath
 git commit -m “Message”
 ```
 
-Push your changes to your github
+Push your changes to your github (when a feature is working, a set of bugs are fixed, or you need to share progress with others).
 
 ```{bash, eval = FALSE}
 git push origin new_branch
