@@ -1,20 +1,71 @@
 # Modelling light penetration, vegetation canopy representation, and energy balance
 \chaptermark{Light}
+<!-- Mainly Chapter 14 from Bonan -->
+
+## Introduction
+<!-- Bonan, Chapter 14.1 -->
+
+## Radiative transfer modelling
+### Leaf optical properties
+<!-- Bonan, Chapter 14.2 -->
+
+### Light transmission without scattering
+<!-- The Beer-Bouguer-Lambert law -->
+<!-- Bonan, Chapter 14.3 -->
+
+### Direct beam extinction coefficient
+<!-- Could be skipped -->
+<!-- Bonan, Chapter 14.4 -->
+
+### Diffuse transmittance
+<!-- Bonan, Chapter 14.5 -->
+
+### The Norman Model
+<!-- Bonan, Chapter 14.6 -->
+<!-- Numerical -->
+
+### The Goudriaan and van Laar Model
+<!-- Bonan, Chapter 14.7 -->
+<!-- Analytical -->
+
+### The Two-Stream approximation
+<!-- Bonan, Chapter 14.8 -->
+
+### Surface Albedo
+<!-- Bonan, Chapter 14.9 -->
+
+### Longwave radiation
+<!-- Bonan, Chapter 14.10 -->
 
 ## Representing canopy structure in models
-<!-- Not in UCL -->
-<!-- -single layer  -->
-<!-- -multilayer canopy  -->
-<!-- -canopy packing -->
-<!-- -clumping  -->
-<!-- -3D models -->
-<!-- -LAI -->
 
-## Direct and diffuse light
-<!-- Not in UCL -->
-<!-- -solar angle -->
-<!-- -light penetration, Lambert Beer -->
-<!-- -Sun -shade leaves -->
+### Big-leaf models
+<!-- Bonan, Chapter 15.2 -->
+
+### Multilayer models
+<!-- Bonan, Chapter 15.4 -->
+
+<!-- First version of the structure -->
+<!-- ## Representing canopy structure in models -->
+<!-- <!-- -single layer  --> -->
+<!-- <!-- -multilayer canopy  --> -->
+<!-- <!-- -canopy packing --> -->
+<!-- <!-- -clumping  --> -->
+<!-- <!-- -3D models --> -->
+<!-- <!-- -LAI --> -->
 
 ## Ecosystem energy balance
-<!-- UCL2.3 and 4.2 -->
+<!-- UCL 2.3 and 4.2 -->
+<!-- Bonan, Chapter 7 -->
+### Basic principles
+<!-- UCL 2.3.1 and 4.2.1 -->
+
+### Atmospheric absoprtion
+<!-- UCL 2.3.2 -->
+
+### Radiative forcing
+<!-- UCL 2.3.3 -->
+
+### Land surface schemes
+<!-- UCL 4.2.3 -->
+<!-- First, second and third generation models -->

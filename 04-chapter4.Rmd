@@ -1,13 +1,21 @@
 # Temporal and seasonal dynamics
 \chaptermark{dynamics}
 
-## Leaf phenology
+## Crop phenology
+<!-- UCL 4.5.1 -->
+
+## Phenology
+<!-- UCL 4.5.2 -->
+
+## Mechanisms of phenology and evidence of changes
+<!-- UCL 4.5.3 -->
+<!-- temperature  -->
+<!-- light  -->
+<!-- water -->
+<!-- Drivers of seasonality and phenology -->
+
+## Models of phenology
 <!-- UCL 4.5.4 -->
 <!-- -budburst models  -->
 <!-- -senescence models -->
-
-## Drivers of seasonality and phenology
-<!-- UCL 4.5.3 -->
-<!-- -temperature,  -->
-<!-- -light  -->
-<!-- -water -->
+<!-- Phenology in DGVMs -->

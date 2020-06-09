@@ -3,13 +3,32 @@
 
 # Modelling plant basic processes
 \chaptermark{photsynthesis}
-<!-- UCL 4.2 -->
 
 ## Photosynthesis and stomatal models
-<!-- -LUE models -->
+
+### C3 photosynthesis
 <!-- -Farquhar model -->
-<!-- -stomatal models (Jarvis, Ball-Berry, Leuning, …) -->
-<!-- -drought stress, ... -->
+<!-- UCL 4.6.1 -->
+<!-- Bonan, Chapter 11.1 -->
+
+### C4 photosynthesis
+<!-- Bonan, Chapter 11.7 -->
+
+### Parameter and temperature dependencies
+<!-- Bonan, Chapter 11.2 -->
+
+## Stomatal conductance
+<!-- stomatal models (Jarvis, Ball-Berry, Leuning, …) -->
+<!-- Bonan, Chapter 12.2-3 -->
+### Empirical multiplicative models
+<!-- Bonan, Chapter 12.2 -->
+
+### Semiempirical photosynthesis-based models
+<!-- Bonan, Chapter 12.3 -->
+
+### Stomatal response to environmental factors
+<!-- Bonan, Chapter 12.5 -->
+<!-- Bonan, Chapter 12.7 -->
 
 ## Respiration models
 <!-- -Q10 etc... -->
@@ -18,12 +37,16 @@
 <!-- -Soil respiration → see chapter 7 -->
 
 ## Transpiration
-<!-- -Penman Monteith, … -->
-<!-- -supply-demand -->
-<!-- -hydraulic models -->
+
+### Penman-Monteith equation
+<!-- Bonan, Chapter 7.6 -->
+
+### Supply-demand model
+<!-- UCL 4.6.3 -->
+
+### The soil-plant-atmosphere model
+<!-- Bonan, Chapter 13.4-13.7 -->
 
 ## Upscaling from leaf to canopy
 <!-- -the problem of scaling in ecology (review paper of Jerome Chave) -->
-<!-- -LAI -->
 <!-- -refer to chapter 6 for indiv, cohort, area based models -->
-
