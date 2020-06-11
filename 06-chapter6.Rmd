@@ -2,8 +2,62 @@
 \chaptermark{Dynamics}
 <!-- Not in UCL -->
 
+I would make this chapter 7.
+Biogeochemical models first, then this
+
+
+Bonan Chapter 19.2
+Another class of models, known as individual plant or ecosystem demography models, retains the complexity of individual plants or cohorts of similar plants. In these models, ecosystem properties such as carbon storage are the outcome of demographic processes.
+
+- plant populations
+- community composition
+- ecosystem structure
+- driven by demographic processes of recruitment, establishment, growth, and mortality
+
+## Gap models, individual and cohort based models
+
+- small scale models;  landscape represented as a mosaic of hundreds of independent forest patches, each of which can differ in species composition and stage of development in response to disturbance that creates an opening in the canopy
+- models track the establishment, growth, and death of individual trees in an area of land.
+- Each tree is characterized by its species, stem diameter, height, and age.
+- trees compete for light, soil moisture, and nutrients.
+- patch undergoes temporal changes in the density, size, and composition of trees with the formation of a gap in the canopy
+- Community composition, biomass, productivity, and biogeochemical cycles are emergent outcomes of individual trees interacting among themselves and with the environment to acquire the resources necessary for growth and survival
+
+- cohort-based models define patches based on age since disturbance and simulate the dynamics of cohorts of similar plant functional types rather than tracking every individual.
+- Common to each model is the representation of vegetation demography, with age- and size-dependent growth and mortality and in which growth is constrained by allometric relationships of stem diameter with height, sapwood area, leaf area, and biomass.
+
+## Allometric relationships
+
+- allometric relationships are a critical driver of individual tree growth. 
+- Height is important for its effect on stem diameter increment, both directly through tree volume growth and indirectly through shading.
+- Biomass allocation: empirical equations that constrain foliage, stem, and root mass for a given size tree
+- relationship between stem diameter and leaf area drives light extinction in the canopy
+- annual growth of a tree is calculated from its diameter and height as modified by light, climate, and site conditions. Growth curves figure 19.5
+
+## Competition for light
+
+- critical driver of forest dynamics
+- shading of smaller individuals by taller trees
+- vertical profile of leaf area in the patch (vertical structure in which trees are arranged into canopy layers)
+- height of a tree determines its location in the cumulative leaf area profile
+- light extinction coefficient
+- figure 19.6: representation of plant canopies
+
 ## Seed dispersal and recruitment
+
+- regeneration: stochastic process
+- seeds of species are assumed to be present on-site
+- available light at the forest floor, climate tolerances, and other site conditions determine which species become established.
+- sprouting based on size
+
+-  Species are characterized by life history characteristics
 
 ## Mortality
 
-## Gap models, individual and cohort based models
+- stochastic process
+- Trees die with a constant probability each year
+- The probability of mortality increases when tree growth is less than some minimum
+
+- Wildfire and insect outbreaks can be included
+- The occurrence of fire is treated stochastically with an annual probability of burning. An individual patch may, for example, have a 1% change of burning in any given year.
+
