@@ -9,7 +9,10 @@
 <!-- - ENSEMBLE simulations, importance of experiments for historical and future simulation assessement (FLUXNET, paleo-climat, FACE, remote-sensing, etc…) -->
 
 ## Land-use scenarios
-<!-- - Hyde for historical land-use -->
-<!-- - scenario for future land-use -->
+- Hyde for historical land-use, https://themasites.pbl.nl/tridion/en/themasites/hyde/
+- Scenario for future land-use
 
 ## Management scenarios
+
+## Some concrete applications of vegetation models
+- As a conclusion ? gives example of models and applications other than IPCC and climate change?

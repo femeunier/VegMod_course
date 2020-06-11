@@ -3,8 +3,51 @@
 <!-- Not in UCL -->
 
 ## Patch dynamics
+- **again linked to chapter 6**
+- Book: The ecology of natual disturance and patch dynamics, Pickett & White, 2013
+
+### Spatial heterogeneity: Definitions
+- Definition of Patch Dynamics, Perturbation, Disturbance: 
+- Spatial heterogeneity 
+- Resilience and shifts
+- Application in the design of nature reserves for example
+
+### Heterogeneity is a matter of resolution
+- Imbricated levels of heterogeneity
+
+### Impact of heterogeneity on ecosystem fonctionning and environmental feedbacks
+
+### Disturbances and Patch dynamics
+- Link to land-use and disturbance
 
 ## Land-use changes
+- Land use is linked to spatial heterogeneity and patch dynamics
 
-## Fire and disturbance
-<!-- UCL 6 -->
+### Role of Land-use in global emissions
+
+### Role of land use in the water cycle
+
+### Monitoring land-use
+- remote sensing
+- 
+### How Land-use is represented in vegetation models? 
+- imposed
+- management
+- urban areas
+
+## Fires and disturbances
+### Modelling fires
+- In UCL Practical chap. 6
+- For estimating the impact on ecosystems
+- To be able to predict fires
+- Observation of fires and quantifications of fluxes
+- Fires and deposition
+- Effect on light
+
+### Wind and extrem events
+- Modelling storms
+- Modelling heat and cold waves
+
+### Herbivory
+
+
