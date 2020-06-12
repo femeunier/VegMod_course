@@ -8,7 +8,10 @@ output:
 
 # Introduction {#intro}
 ## Soil-Plant-Atmosphere continuum: the central role of vegetation 
-
+- Global change context
+- Terrestrial ecosystems are central to solving the environmental and socioeconomic threats posed by changes in climate, atmospheric composition, and air quality; land use and land-cover change; habitat loss, species extinction, and invasive species; appropriation of freshwater, net primary production, and other ecosystems goods and services for human uses; and anthropogenic addition of reactive nitrogen. (Bonan)
+- Earth System Models and climate models (Fig 1.1 Bonan). In climate models vegetation is just representing physical fluxes, in ESM vegetation is representing biogeochemical cycles, biogeography, and dynamic vegetation – typically the realm of ecosystem models
+- Land component continuum of terrestrial ecosystem models (vegetation models) (Fig 1.7)
 <!-- UCL chap 2 -->
 <!-- Start with a reminder here to insist on the key concept of modelling, i.e. reproducing complex systems with “simple” equations and knowledge gaps: -->
 <!-- - the 3 big components and their links, major stocks and fluxes -->
@@ -21,45 +24,45 @@ output:
 <!-- -predictive models,  -->
 <!-- -upscaling -->
 <!-- -models for data integration -->
-
-## Components of a model
-<!-- not in UCL -->
-<!-- - model structure  -->
-<!-- - parameters -->
-<!-- - input/output variables -->
-<!-- - state variables -->
-
-## The history of vegetation models
-<!-- UCL 4.2.3 -->
-
-### Early history of vegetation modelling
-<!-- 1 model for 1 problem + computation limits -->
-<!-- - starts with the MIAMI model for NPP -->
-<!-- - one-bucket hydrological model -->
-<!-- - Lotka-volterra equations for competition -->
-<!-- - allometry and forestry -->
-<!-- At the beginning all theses models were completely independent from each others and developed by different community working on soil, ecology, atmosphere, etc…, to answer specific questions. Vegetation functioning was not at all at the center -->
-
-### The first DVGMs centered around carbon fluxes
-<!-- - When we understood the utility of such models we started to couple each part together (~1980/1990) -->
-<!-- - Also correlates with the moment we had enough computing power allowing the coupling. -->
-
-### A new generation of DGVMs centered around vegetation functioning
-<!-- All individual models were coupled to create DGVMs centered around carbon fluxes, not vegetation. Now we face new limits because of -->
-<!-- 1) The emerging questions with climate change -->
-<!-- 2) We realized that vegetation models were not initially developed to simulate vegetation in an integrated manner. -->
-<!-- 3) The need for more complexity to simulate acclimation/adaptation -->
+- Devising suitable solutions to these global change challenges require not only strong empirically and experimentally based research at the local scale to understand how ecosystems are structured and how they function, but also sound theoretical foundations to generalize this understanding to regional, continental, and global scales and to make projections of the future. Computer models of terrestrial ecosystems are essential to this generalization. (Bonan)
+- 1. For prediction: study system behavior in conditions beyond which measurements can be made; to allow predictions of system behavior, especially in response to some imposed perturbation; and to inform management and policy decisions. These usages of models are particularly important in the context ofglobal change.
+- 2. For understanding: a formal organization of understanding; it originates from the knowledge of its developers about how the system operates. One purpose of modeling, then, is to identify the processes needed to adequately simulate the system. If a model replicates some observations, a scientist must ask why the model works correctly. If the model performs poorly, then the scientist
+must ask what is missing. It is testing hypotheses, just like you do with physical experiments. 
+- 3.  For data integration: to organize and link data in a structure way,  as a research tool to guide data collection. What are the critical parameters that need to be measured? How precisely must these parameters be measured to reduce model uncertainty? What new observations are needed to test the model? In this context, models inform data collection and experimental design to both test the model and advance process understanding.
 
 ## Model types
-<!-- -Continuum of empirical to process-based models, temporal and spatial scales -->
-<!-- -Types of vegetation models (depending on the purpose, questions, scales) (e.g. timber, yield, biogeochemistry, …), indicating which type of models will be the focus of this course -->
-<!-- -Model development cycle (structure for the methodological focus of each application/practical) add fig of Dietze on model-data integration :  -->
-<!-- -scales of model: (plant), stand to globe -->
-<!-- -focus on this course on natural and managed vegetation (not on crops),  -->
-<!-- Potential natural vegetation, climate envelopes -->
+- continuum of terrestrial ecosystem models, from models with emphasis on biogeochemical pools and fluxes, dynamic vegetation models with focus on individual plants or size cohorts, canopy models with focus on coupling leaf physiological processes with canopy physics, and global models of the land surface for climate simulation. (Table 1.1, Bonan)
+- Continuum of empirical to process-based models
+- Types of vegetation models (depending on the purpose, questions, scales) (e.g. timber, yield, biogeochemistry, …) (ecologists, foresters, climatologist, atmospheric chemists, hydrologist all have different vegetation models…)
+- Compare vegetation models to for example species distribution models…
+    
+## The history of vegetation models
+<!-- UCL 4.2.3 -->
+- Conceptualisation of ecosystem to mass and energy flows among various compartments  (refer to ecology course of Steppe in the Bio-ir Bachelors. ‘box models in the 1960’s and 1970’s current global biogeochemical models are still box-type of models (Fig 1.4)
+- In parallel individual based models of forest dynamics were developed, based on population dynamics, life cycle of species. They are also called “gap models” that simulate the demography in an area of 0.1 ha (size of a gap in the canopy) (Fig 1.5). Ecosystem properties such as carbon stocks are emerging from the demography simulation.
+- More recently  cohort based models
+- DGVMs: These models also simulate changes in community composition, biomass, productivity, and nutrient cycling. Because the models are applied globally, they do not recognize individual species. Rather, they employ plant functional types, Table 1.2
+- Fig 1.2 Bonan
+
+## Components of a vegetation model: definitions
+- Table 1.3 and Table 1.4
+- Model structure (constraints: resolving of fluxes on short time scales, conservation of mass and energy, 
+- Parameters
+- i/o variables, state variable
+- time steps (fluxes must be resolved on a short time interval, diurnal cycles) 
+- spatial structure (Fig 1.11)
+- Prognostic equations use time derivatives to describe the change in a state variable and are integrated forward in time from some initial condition. Prognostic variables must be numerically stepped forward from time n to n + 1 over the time interval dt.
+- Conservation equations
+- Diagnostic equations (e.g. ideal gas law) linking variables time-independent
+- Initial conditions
+- Model code, There is an enormous leap between seeing a mathematical equation in a research paper and actually using that equation in a model (Bonan Book).
+- Model uncertainty and complexity (fig 1.12) (+ fig from Dietze book)
 
 ## Structure of the course
-
+- a science that spans boundary layer meteorology, micrometeorology, atmospheric chemistry, plant physiology, ecosystem ecology, biogeochemistry, soil science, hydrology, and geochemistry … we will not discuss all the basics in this course, but we expect you to know from other courses (Ecology, plant physiology, forestry, hydrology, soil science …), but we will of course go into the processes, but focus on there mathematical formulation and translation into a workin model (code)
+- progression through the course (space-time figure, with chapters)
+- Model development cycle (structure for the methodological focus of each application/practical) (Dietze figure)
+    
 ```{r nice-fig2, fig.cap='Here is the structure of the course!', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/Figure_course.png')
 ```
