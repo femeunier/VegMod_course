@@ -2,8 +2,101 @@
 \chaptermark{Biogeochemical}
 <!-- UCL 4 -->
 
+i would make this chapter 6. First biogeochemical models, then gap models
+
+based on Bonan Chapter 17
+
 ## Carbon cycle models: stocks and fluxes
+
+This chapter will develop the ecological foundation and mathematics to describe ecosystem carbon dynamics using biogeochemical models.
+Biogeochemical models abstract an ecosystem as pools of carbon and the flows of carbon among these pools.
+
+Use specific model as an example to illustrate? In Bonan:  CASA-CNP model
+
+### Model structure
+
+Biogeochemical models simulate processes of allocation of photosynthetic carbon gain to plant parts (e.g., foliage, fine root, wood), turnover of plant biomass as litterfall, transformation of litter to soil organic matter, and carbon loss during respiration.
+
+Principles: 
+- net carbon input is equal to gross primary production minus autotrophic respiration;
+- carbon flows from donor to receiver pools at a rate that depends on the donor pool size and its chemical quality as modified by the environment;
+- mass balance is maintained as carbon flows through the system of interconnected pools;
+- decay of litter and soil organic matter releases CO 2 as heterotrophic respiration.
+
+Models:
+a system of first-order, linear differential equations to describe carbon pools and fluxes (typically time step of one day)
+
+Pools and fluxes to be included:
+- Carbon gain from gross primary production  minus autotrophic respiration
+- Allocation of carbon to growth of leaves, wood, and roots pools (partitioning varies with light availability, soil temperature, soil moisture, and nutrients + temporal for leaves (ref to phenology)
+- Carbon turnover (comprising litterfall, background mortality, and disturbances) + turnover rates depending on the plant material
+- litter pools: metabolic litter, structural litter, coarse woody debris (vary in chemical quality and turnover rate; base turnover rates are modified for soil temperature and soil moisture (environmental scaling factors))
+- decomposition to soil organic matter pools: fast SOM, slow SOM, passive SOM (vary in chemical quality and turnover time)
+- portion of the decomposition flow lost as heterotrophic respiration
+
+Bonan
+- Figure 17.2: structure of a typical biogeochemical model
+- equations 17.1 – 17.10
+
+Additional details?
+- maintenance respiration and growth respiration
+- storage pool of nonstructural carbohydrates
+- some models separate wood into live stems (sapwood) and dead stems, roots into fine roots and coarse roots, and coarse roots into live pools and dead pools to account for the different physiological functioning of these biomass components
+
+### Allocation and turnover parameterization
+
+- allocation parameters
+- fixed allocation and dynamic allocation (specified by biome or based on environmental conditions)
+- Optimality models: plants optimally allocate resources to balance light acquisition (foliage), structural support and water transport (stems), and water and nutrient uptake (roots).
+- allocation based on scaling relationships among plant components (specified ratios of foliage, root, and wood biomass)
+
+- Turnover rates vary depending on plant material and are specified as a fraction of biomass.
+- Turnover rates are commonly estimated as the inverse of residence time or longevity
+
+-  biogeochemical models can be applied to any type of ecosystem such as grassland, savanna, forest, shrubland, and tundra
 
 ## Nutrient cycle models: soil biogeochemical models
 
+### Nitrogen cycle
+
+- Bonan Chapter 17.6 Nitrogen Cycle
+- Bonan Figure 17.8: Depiction of the nitrogen cycle
+
+- only ~recently added in most biogeochemical models
+- closely coupled to carbon cycle
+- important role to limit plant productivity
+
+- similar to carbon with an associated nitrogen pool and transfer.
+- cycling of nitrogen can be represented by a system of linear differential equations similar to that for carbon.
+
+- allocation of plant nitrogen uptake  up to plant pools
+- loss of nitrogen in litterfall +  portion is reabsorbed
+
+- soil nitrogen cycle is more complex (various forms)
+- decomposition of litter and soil organic matter, (mineralization and immobilization)
+- nitrification, denitrification, leaching, ammonia volatilization
+
+- additional inputs from biological nitrogen fixation, atmospheric deposition, and fertilizer
+
+- some examples of models? CLM?
+- All models simulate a decrease in plant growth when soil mineral nitrogen is insufficient to meet demand, but they differ in the manner in which this is implemented.
+- discuss different approaches?
+
+### Phosphorus cycle
+
+Not in Bonan
+- Some models additionally include phosphorus (Wang et al. 2010; Yang et al. 2014; Goll et al. 2017)
+- ORCHIDEE, CLM-CNP
+
+### Other nutrients?
+
 ## Water balance
+
+- focus on the surface energy balance and vertical water movement in the soil–plant atmosphere system (e.g., soil moisture control of evapotranspiration)
+
+- Specific components in terrestrial biosphere models:  
+Interception, throughfall, stemflow, infiltration, surface runoff, soil water redistribution, subsurface runoff, snow melt, evaporation, transpiration, plant water uptake, stomatal conductance
+
+7.3.1 A bucket model hydrologic cycle
+- change in soil water is the difference between precipitation and evapotranspiration, excess runs off
+- based on maximum water-holding capacity

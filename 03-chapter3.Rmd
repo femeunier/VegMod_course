@@ -4,14 +4,21 @@
 
 ## Introduction
 <!-- Bonan, Chapter 14.1 -->
+Figure 14.1
+Figure 14.2
 
 ## Radiative transfer modelling
 ### Leaf optical properties
 <!-- Bonan, Chapter 14.2 -->
+Example of leaf spectrum
+Prospect model
+Example of parameters 14.2 + simulations/analysis of sensitivity
 
 ### Light transmission without scattering
 <!-- The Beer-Bouguer-Lambert law -->
 <!-- Bonan, Chapter 14.3 -->
+Most of quations 14.2-14.17 for model description
+Figure 14.4 and Figure 14.5
 
 ### Direct beam extinction coefficient
 <!-- Could be skipped -->
@@ -19,20 +26,25 @@
 
 ### Diffuse transmittance
 <!-- Bonan, Chapter 14.5 -->
+Figure 14.12
 
 ### The Norman Model
 <!-- Bonan, Chapter 14.6 -->
 <!-- Numerical -->
+Figure 14.15
 
 ### The Goudriaan and van Laar Model
 <!-- Bonan, Chapter 14.7 -->
 <!-- Analytical -->
+Figure 14.16 + 14.15 and 14.17 for comparison with the Norman model
 
 ### The Two-Stream approximation
 <!-- Bonan, Chapter 14.8 -->
+Figure 14.19 + simulations
 
 ### Surface Albedo
 <!-- Bonan, Chapter 14.9 -->
+Figure 14.20 and Figure 14.21
 
 ### Longwave radiation
 <!-- Bonan, Chapter 14.10 -->
@@ -45,18 +57,10 @@
 ### Multilayer models
 <!-- Bonan, Chapter 15.4 -->
 
-<!-- First version of the structure -->
-<!-- ## Representing canopy structure in models -->
-<!-- <!-- -single layer  --> -->
-<!-- <!-- -multilayer canopy  --> -->
-<!-- <!-- -canopy packing --> -->
-<!-- <!-- -clumping  --> -->
-<!-- <!-- -3D models --> -->
-<!-- <!-- -LAI --> -->
-
 ## Ecosystem energy balance
 <!-- UCL 2.3 and 4.2 -->
 <!-- Bonan, Chapter 7 -->
+
 ### Basic principles
 <!-- UCL 2.3.1 and 4.2.1 -->
 

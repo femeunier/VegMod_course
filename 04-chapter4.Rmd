@@ -3,9 +3,13 @@
 
 ## Crop phenology
 <!-- UCL 4.5.1 -->
+Definition +Simple example of phenology (wheat for example: germination + spread + full coverage + allocation to storage organs + ripening)
 
 ## Phenology
 <!-- UCL 4.5.2 -->
+Broader sense of phenology.
+Applies to most plant. Circadian to seasonal cycles
+Tissue turnover and senescence
 
 ## Mechanisms of phenology and evidence of changes
 <!-- UCL 4.5.3 -->
@@ -13,9 +17,11 @@
 <!-- light  -->
 <!-- water -->
 <!-- Drivers of seasonality and phenology -->
+<!-- Vegeation index and changes over time -->
 
 ## Models of phenology
 <!-- UCL 4.5.4 -->
-<!-- -budburst models  -->
-<!-- -senescence models -->
+<!-- budburst models  -->
+<!-- senescence models -->
 <!-- Phenology in DGVMs -->
+<!-- Figures from Zhang et al. 2003 -->
