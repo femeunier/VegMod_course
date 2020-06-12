@@ -65,7 +65,7 @@ Plant water uptake
 Resistance analogy
 Multinode models
 
-#### Stomatal response to environmental factors
+### Stomatal response to environmental factors
 <!-- Bonan, Chapter 12.5 -->
 <!-- Bonan, Chapter 12.7 -->
 

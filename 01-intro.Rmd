@@ -63,7 +63,7 @@ must ask what is missing. It is testing hypotheses, just like you do with physic
 -i/o variables, state variable
 -time steps (fluxes must be resolved on a short time interval, diurnal cycles) 
 -spatial structure (Fig 1.11)
--Prognostic equations use time derivatives to describe the change in a state variable and are integrated forward in time from some initial condition. Prognostic variables must be numerically stepped forward from time n to n + 1 over the time interval Δt.
+-Prognostic equations use time derivatives to describe the change in a state variable and are integrated forward in time from some initial condition. Prognostic variables must be numerically stepped forward from time n to n + 1 over the time interval deltat.
 -Conservation equations
 -Diagnostic equations (e.g. ideal gas law) linking variables time-independent
 -Initial conditions
