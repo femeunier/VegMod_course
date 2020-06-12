@@ -16,6 +16,6 @@
 
 ## Models of phenology
 <!-- UCL 4.5.4 -->
-<!-- -budburst models  -->
-<!-- -senescence models -->
+<!-- budburst models  -->
+<!-- senescence models -->
 <!-- Phenology in DGVMs -->
