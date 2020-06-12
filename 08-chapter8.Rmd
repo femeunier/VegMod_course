@@ -17,7 +17,7 @@ Biodiversity refers here to functional diversity.
     - PFT
     - Fire and disturbances
     - upscalling
-    - construction, evaluation and examples of DGVMs
+    - construction, evaluation and examples of DGVM applications
     
 ### Definition of funcional diversity and plant functional traits
 Any morphological, physiological or phenological feature measurable at the individual level, from the cell to the whole-organism level, without reference to the environment or any other level of organization. 
@@ -44,7 +44,8 @@ No description in Bonan
 - PFT mapping: multi-obs approach based on remote sensing. 
 - First use of PFTs managed to reproduce well the gradients at the global scale, but now it is unsuficcient. 
 
-### Limits of the PFT representation in the context of global changes
+
+### Limits of the PFT representation in the context of global change
 - Including acclimation and adaptation processes
 - Dynamic vegetation: Accounting for non-random species turnover
 - Quantifying vegetation-environment feedbacks
@@ -53,8 +54,9 @@ No description in Bonan
 ### From model parameters to plant traits
 - Reconciliating modelling with functional ecology. 
 - Existing databases (TRY)
-- Empirical approach: trait-trait, trait-environment relationships
+- Empirical approach: More PFTs with traits instead of model-specific parameters, trait-trait, trait-environment relationships
 - Trade-offs: modeling plant strategies --> LES, PES, RES, all the ES :D
+- Role of data assimilation in regions without data and to assess spatial variability of vegetation properties
 - But: requires lots of observations in space and time. 
 
 ### Eco-evolutive optimality approaches
@@ -69,6 +71,7 @@ Not in Bonan nor UCL
 In Bonan Chapter 19 on demography, gap models, etc... which is a part of competition. 
 
 ### Representation of PFTs in vegetation models
+- Parameterization and calibration of PFTs--> data assimilation, traits, model-specific parameters
 - representation by pixels
 - shared processes, different processes
 - interaction between PFTs
@@ -77,16 +80,19 @@ In Bonan Chapter 19 on demography, gap models, etc... which is a part of competi
 ### Competition for ressources / Plant strategy? 
 - In fact we can extend the trait based approach and plant strategy (PES, etc) 
 in the competition and community section? 
+- Mortality, turnover, etc..
 
 ### Representation of trait distributions 
+- Trade-offs
 
 <!-- _____________________ COMMUNITIES ________________________ -->
 ## Communities
-- Trade-offs and community structure? 
 - I don't remember what we discussed on this point, kind of redundant with chapter 6? 
 
 ## What about crops? 
-Not our focus but we don't forget it. A few words to say that specific crop models exist
-Plant functional traits are still central to crop modelling, but competition and diversity are no more an issue. 
+- Not our focus but we don't forget it. A few words to say that specific crop models exists
+- Diversity is not a problem anymore
+- Plant functional traits are still central to crop modelling, but competition and diversity are no more an issue. 
+- Other problematics specific to agriculture, such as agro-ecosystems where we have multi layers of vegetation (Trees over crops) --> Very interesting modelling problem and application especially in arid/semi-arid and tropical regions
 
 

@@ -12,24 +12,40 @@
 - Resilience and shifts
 - Application in the design of nature reserves for example
 
-### Heterogeneity is a matter of resolution
-- Imbricated levels of heterogeneity
-
 ### Impact of heterogeneity on ecosystem fonctionning and environmental feedbacks
+- Show examples here of the impact of heterogeneity
+
+### Heterogeneity is a matter of resolution
+- Imbricated levels of heterogeneity depending on spatial and temporal resolution 
+- Heterogeneity is also a matter of the studied question: important in term of modelling since it will govern how processes are implemented
+
+### Representation in Vegetation models: what are the drivers of spatial heterogeneity?
+- List here the different drivers
+- Heterogeneity is a patchwork of homogeneity in most models
+- Dynamics in heterogeneity --> mortality, growth and shifts in
 
 ### Disturbances and Patch dynamics
+- We listed the different drivers above, we will now discuss in detail the most important aspects affecting patch dynamics
 - Link to land-use and disturbance
 
 ## Land-use changes
 - Land use is linked to spatial heterogeneity and patch dynamics
 
-### Role of Land-use in global emissions
+### Role of Land-use in global emissions and biogeochemicel cycles
+- impact C stocks and fluxes
+- impact on nutrients (depletion over rotations, etc...)
+- important impact on respiration
+- vegetation cover and biophysical impact: albedo, etc...
+- Specific case of deforestation, one of the most important imapct (make a paragraph on that?)
+- How are fluxes attributed to land use in gas emission assessments? --> central role of vegetation modeling
 
-### Role of land use in the water cycle
+### The important role of land use in the water cycle
+- Affects regional precipitations
+- Affects water routing
 
 ### Monitoring land-use
 - remote sensing
-- 
+
 ### How Land-use is represented in vegetation models? 
 - imposed
 - management
@@ -42,12 +58,24 @@
 - To be able to predict fires
 - Observation of fires and quantifications of fluxes
 - Fires and deposition
-- Effect on light
+- Aerosols
+- Modelling "fire" traits, drought and temperature stress in models to simulate fires
 
 ### Wind and extrem events
 - Modelling storms
-- Modelling heat and cold waves
+- Modelling heat and cold waves, frost impact
 
 ### Herbivory
+- Yes herbivory is represented in vegetation models :D
+- Palability traits/ fixed fraction/ insects
 
+### Human activity: Management and urban areas
+- Forest management: existing models, representation of forestry and use of models
+- Fertilization and irrigation in vegetation models
+- Urban areas in vegetation models
+- Concrete application: Paper of Luyssaert: forest management in Europe did not help in mitigating climate change. 
 
+### The specific case of CO2 and temperature increase
+- conclude the chapter here by refering to climate change, one of the biggest "Continuous" distrubance compared to discrete disturbances
+- Simulating acclimation and adaptation
+- refers to chapter 11 for scenarios
