@@ -1,102 +1,93 @@
-# Modelling biogeochemical cycles in vegetation
-\chaptermark{Biogeochemical}
-<!-- UCL 4 -->
+# Representing biodiversity in vegetation models
+\chaptermark{Biodiversity}
 
-i would make this chapter 6. First biogeochemical models, then gap models
+## Why and how representing biodiversity in vegetation models?  
+We can start with the applications? I think it is more interesting than finishing with the applications. 
+Application: Conservation, ecosystem resilience, vegetation-atmosphere feedbacks
 
-based on Bonan Chapter 17
+Biodiversity refers here to functional diversity. 
 
-## Carbon cycle models: stocks and fluxes
+## Functional diversity
+- check the book " Terrestrial Ecosystems in a changing world" from P. Canadell (2007)
+- Part C: Landscapes under changing disturbance regimes:
+    - PFT
+    - Fire and disturbances
+    - upscalling
+    - construction, evaluation and examples of DGVM applications
+    
+### Definition of funcional diversity and plant functional traits
+Any morphological, physiological or phenological feature measurable at the individual level, from the cell to the whole-organism level, without reference to the environment or any other level of organization. 
+It is functional if it affects fitness indirectly via its effects on growth, reproduction and survival.
 
-This chapter will develop the ecological foundation and mathematics to describe ecosystem carbon dynamics using biogeochemical models.
-Biogeochemical models abstract an ecosystem as pools of carbon and the flows of carbon among these pools.
+- Seminal papers from the plant functional trait community Violle 2007, Lavorel, garnier, Shipley, etc...
 
-Use specific model as an example to illustrate? In Bonan:  CASA-CNP model
+```{r figViolle, fig.cap='Functional diversity', echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics('figures/Violle2007.jpg')
+```
+- Mention here the interesting summer school: http://www.cef-cfr.ca/index.php?n=MEmbres.AlisonMunsonPlantTraits?userlang=en
+- List of reference papers in the link above
+- 3 types of traits: dynamic, response & constant, that are linked to the processes we studied in the previous chapter (slow/fast processes)
 
-### Model structure
+### Representing 400 000 plant species in a single model: the Plant Functional Type approach
+Short description in UCL 4.3.2  
+No description in Bonan
 
-Biogeochemical models simulate processes of allocation of photosynthetic carbon gain to plant parts (e.g., foliage, fine root, wood), turnover of plant biomass as litterfall, transformation of litter to soil organic matter, and carbon loss during respiration.
+- Lack of observations for every species
+- Computing resources problem (refers to the history of DGVMs from the introduction)
+- A simplification based on biome description and plant functionning at the ecosystem level 
+- Different definitions of PFT: statistical classification, etc.
+- Table of classical PFTs used in models here. 
+- PFT mapping: multi-obs approach based on remote sensing. 
+- First use of PFTs managed to reproduce well the gradients at the global scale, but now it is unsuficcient. 
 
-Principles: 
-- net carbon input is equal to gross primary production minus autotrophic respiration;
-- carbon flows from donor to receiver pools at a rate that depends on the donor pool size and its chemical quality as modified by the environment;
-- mass balance is maintained as carbon flows through the system of interconnected pools;
-- decay of litter and soil organic matter releases CO 2 as heterotrophic respiration.
 
-Models:
-a system of first-order, linear differential equations to describe carbon pools and fluxes (typically time step of one day)
+### Limits of the PFT representation in the context of global change
+- Including acclimation and adaptation processes
+- Dynamic vegetation: Accounting for non-random species turnover
+- Quantifying vegetation-environment feedbacks
+- Quantifying impacts of biodiversity on ecosytem functioning and climate
 
-Pools and fluxes to be included:
-- Carbon gain from gross primary production  minus autotrophic respiration
-- Allocation of carbon to growth of leaves, wood, and roots pools (partitioning varies with light availability, soil temperature, soil moisture, and nutrients + temporal for leaves (ref to phenology)
-- Carbon turnover (comprising litterfall, background mortality, and disturbances) + turnover rates depending on the plant material
-- litter pools: metabolic litter, structural litter, coarse woody debris (vary in chemical quality and turnover rate; base turnover rates are modified for soil temperature and soil moisture (environmental scaling factors))
-- decomposition to soil organic matter pools: fast SOM, slow SOM, passive SOM (vary in chemical quality and turnover time)
-- portion of the decomposition flow lost as heterotrophic respiration
+### From model parameters to plant traits
+- Reconciliating modelling with functional ecology. 
+- Existing databases (TRY)
+- Empirical approach: More PFTs with traits instead of model-specific parameters, trait-trait, trait-environment relationships
+- Trade-offs: modeling plant strategies --> LES, PES, RES, all the ES :D
+- Role of data assimilation in regions without data and to assess spatial variability of vegetation properties
+- But: requires lots of observations in space and time. 
 
-Bonan
-- Figure 17.2: structure of a typical biogeochemical model
-- equations 17.1 – 17.10
+### Eco-evolutive optimality approaches
+- New generation of models 
+- PPA, coordination, ect... 
+- Paper from Oskar. 
 
-Additional details?
-- maintenance respiration and growth respiration
-- storage pool of nonstructural carbohydrates
-- some models separate wood into live stems (sapwood) and dead stems, roots into fine roots and coarse roots, and coarse roots into live pools and dead pools to account for the different physiological functioning of these biomass components
+<!-- _____________________ COMPETITION MODELS ________________________ -->
+## Competition models
+**!!! Redundancy with Chapter 6 !!!**
+Not in Bonan nor UCL  
+In Bonan Chapter 19 on demography, gap models, etc... which is a part of competition. 
 
-### Allocation and turnover parameterization
+### Representation of PFTs in vegetation models
+- Parameterization and calibration of PFTs--> data assimilation, traits, model-specific parameters
+- representation by pixels
+- shared processes, different processes
+- interaction between PFTs
+- Depend on the model: individual/cohort/big leaf
 
-- allocation parameters
-- fixed allocation and dynamic allocation (specified by biome or based on environmental conditions)
-- Optimality models: plants optimally allocate resources to balance light acquisition (foliage), structural support and water transport (stems), and water and nutrient uptake (roots).
-- allocation based on scaling relationships among plant components (specified ratios of foliage, root, and wood biomass)
+### Competition for ressources / Plant strategy? 
+- In fact we can extend the trait based approach and plant strategy (PES, etc) 
+in the competition and community section? 
+- Mortality, turnover, etc..
 
-- Turnover rates vary depending on plant material and are specified as a fraction of biomass.
-- Turnover rates are commonly estimated as the inverse of residence time or longevity
+### Representation of trait distributions 
+- Trade-offs
 
--  biogeochemical models can be applied to any type of ecosystem such as grassland, savanna, forest, shrubland, and tundra
+<!-- _____________________ COMMUNITIES ________________________ -->
+## Communities
+- Successions and impact on cycles, species composition etc. 
 
-## Nutrient cycle models: soil biogeochemical models
+## What about crops? 
+- Not our focus but we don't forget it. A few words to say that specific crop models exists
+- Diversity is not a problem anymore
+- Plant functional traits are still central to crop modelling, but competition and diversity are no more an issue. 
+- Other problematics specific to agriculture, such as agro-ecosystems where we have multi layers of vegetation (Trees over crops) --> Very interesting modelling problem and application especially in arid/semi-arid and tropical regions
 
-### Nitrogen cycle
-
-- Bonan Chapter 17.6 Nitrogen Cycle
-- Bonan Figure 17.8: Depiction of the nitrogen cycle
-
-- only ~recently added in most biogeochemical models
-- closely coupled to carbon cycle
-- important role to limit plant productivity
-
-- similar to carbon with an associated nitrogen pool and transfer.
-- cycling of nitrogen can be represented by a system of linear differential equations similar to that for carbon.
-
-- allocation of plant nitrogen uptake  up to plant pools
-- loss of nitrogen in litterfall +  portion is reabsorbed
-
-- soil nitrogen cycle is more complex (various forms)
-- decomposition of litter and soil organic matter, (mineralization and immobilization)
-- nitrification, denitrification, leaching, ammonia volatilization
-
-- additional inputs from biological nitrogen fixation, atmospheric deposition, and fertilizer
-
-- some examples of models? CLM?
-- All models simulate a decrease in plant growth when soil mineral nitrogen is insufficient to meet demand, but they differ in the manner in which this is implemented.
-- discuss different approaches?
-
-### Phosphorus cycle
-
-Not in Bonan
-- Some models additionally include phosphorus (Wang et al. 2010; Yang et al. 2014; Goll et al. 2017)
-- ORCHIDEE, CLM-CNP
-
-### Other nutrients?
-
-## Water balance
-
-- focus on the surface energy balance and vertical water movement in the soil–plant atmosphere system (e.g., soil moisture control of evapotranspiration)
-
-- Specific components in terrestrial biosphere models:  
-Interception, throughfall, stemflow, infiltration, surface runoff, soil water redistribution, subsurface runoff, snow melt, evaporation, transpiration, plant water uptake, stomatal conductance
-
-7.3.1 A bucket model hydrologic cycle
-- change in soil water is the difference between precipitation and evapotranspiration, excess runs off
-- based on maximum water-holding capacity
