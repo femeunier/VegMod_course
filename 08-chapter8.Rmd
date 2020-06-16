@@ -25,9 +25,10 @@ It is functional if it affects fitness indirectly via its effects on growth, rep
 
 - Seminal papers from the plant functional trait community Violle 2007, Lavorel, garnier, Shipley, etc...
 
-```{r figViolle, fig.cap='Functional diversity', echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics('figures/Violle2007.jpg')
-```
+<!-- ```{r figViolle, fig.cap='Functional diversity', echo=FALSE, message=FALSE, warning=FALSE} -->
+<!-- knitr::include_graphics('figures/Violle2007.jpg') -->
+<!-- ``` -->
+
 - Mention here the interesting summer school: http://www.cef-cfr.ca/index.php?n=MEmbres.AlisonMunsonPlantTraits?userlang=en
 - List of reference papers in the link above
 - 3 types of traits: dynamic, response & constant, that are linked to the processes we studied in the previous chapter (slow/fast processes)

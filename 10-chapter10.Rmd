@@ -27,8 +27,9 @@
 
 --> Solution depends on the application, show some examples here
 ```{r figHarvey, fig.cap='Functional diversity', echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics('figures/Harvey2000.jpg')
+#knitr::include_graphics('figures/Harvey2000.jpg')
 ```
+
 ### Soil-Vegetation-Atmosphere-Transer models
 
 ## DVGMs as a part of Earth System Models
