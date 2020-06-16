@@ -12,7 +12,6 @@
 - The central role of ESM: coupling to Atmosphere and Ocean and feedbacks
 - Here refers to preivous Chapter 10
 - list some examples and differences: IPSL, HadGEM, etc...
-- <!-- - ENSEMBLE simulations, importance of experiments for historical and future simulation assessement (FLUXNET, paleo-climat, FACE, remote-sensing, etc…) -->
 
 ### Use of RCP in vegetation modelling
 - ENSEMBLE simulations
@@ -24,8 +23,9 @@
 - Rainfall exclusion experiments
 - Natural gradient (Iceland and soil temperature based on volcano and geothermy)
 
-### The central role of Paleo-climatology and historical datasets. 
+### The central role of Paleo studies and historical datasets. 
 - Good performance for past and current conditions is mandatory to evaluate future scenarios
+- Here remind the central role of experiments and monitoring
 
 ## Land-use scenarios
 ### Construction of Land-use scenarios
@@ -42,7 +42,6 @@
 ### Construction of Land-use scenarios
 
 ### How can we evaluate management scenarios? 
-- 
 
 ## Some concrete applications of vegetation models
 - As a conclusion of the whole course I see a nice diagram that we constructed throughout the course with small boxes added to each others and we link that to all the possible application 
