@@ -1,63 +1,103 @@
-# Modelling vegetation dynamics and demography
-\chaptermark{Dynamics}
-<!-- Not in UCL -->
+# Modelling plant growth and biogeochemical cycles in vegetation models
+\chaptermark{Biogeochemical}
+<!-- UCL 4 -->
+based on Bonan Chapter 17
 
-I would make this chapter 7.
-Biogeochemical models first, then this
+**Now this chapter is empty, I merged chap 5 and 6, tell me if it is ok? we can still split it later**
+**Might be a problem for the practicals???**
 
+<!-- ## Carbon cycle models: stocks and fluxes -->
 
-Bonan Chapter 19.2
-Another class of models, known as individual plant or ecosystem demography models, retains the complexity of individual plants or cohorts of similar plants. In these models, ecosystem properties such as carbon storage are the outcome of demographic processes.
+<!-- This chapter will develop the ecological foundation and mathematics to describe ecosystem carbon dynamics using biogeochemical models. -->
+<!-- Biogeochemical models abstract an ecosystem as pools of carbon and the flows of carbon among these pools. -->
 
-- plant populations
-- community composition
-- ecosystem structure
-- driven by demographic processes of recruitment, establishment, growth, and mortality
+<!-- Use specific model as an example to illustrate? In Bonan:  CASA-CNP model -->
 
-## Gap models, individual and cohort based models
+<!-- ### Model structure -->
 
-- small scale models;  landscape represented as a mosaic of hundreds of independent forest patches, each of which can differ in species composition and stage of development in response to disturbance that creates an opening in the canopy
-- models track the establishment, growth, and death of individual trees in an area of land.
-- Each tree is characterized by its species, stem diameter, height, and age.
-- trees compete for light, soil moisture, and nutrients.
-- patch undergoes temporal changes in the density, size, and composition of trees with the formation of a gap in the canopy
-- Community composition, biomass, productivity, and biogeochemical cycles are emergent outcomes of individual trees interacting among themselves and with the environment to acquire the resources necessary for growth and survival
+<!-- Biogeochemical models simulate processes of allocation of photosynthetic carbon gain to plant parts (e.g., foliage, fine root, wood), turnover of plant biomass as litterfall, transformation of litter to soil organic matter, and carbon loss during respiration. -->
 
-- cohort-based models define patches based on age since disturbance and simulate the dynamics of cohorts of similar plant functional types rather than tracking every individual.
-- Common to each model is the representation of vegetation demography, with age- and size-dependent growth and mortality and in which growth is constrained by allometric relationships of stem diameter with height, sapwood area, leaf area, and biomass.
+<!-- Principles:  -->
+<!-- - net carbon input is equal to gross primary production minus autotrophic respiration; -->
+<!-- - carbon flows from donor to receiver pools at a rate that depends on the donor pool size and its chemical quality as modified by the environment; -->
+<!-- - mass balance is maintained as carbon flows through the system of interconnected pools; -->
+<!-- - decay of litter and soil organic matter releases CO 2 as heterotrophic respiration. -->
 
-## Allometric relationships
+<!-- Models: -->
+<!-- a system of first-order, linear differential equations to describe carbon pools and fluxes (typically time step of one day) -->
 
-- allometric relationships are a critical driver of individual tree growth. 
-- Height is important for its effect on stem diameter increment, both directly through tree volume growth and indirectly through shading.
-- Biomass allocation: empirical equations that constrain foliage, stem, and root mass for a given size tree
-- relationship between stem diameter and leaf area drives light extinction in the canopy
-- annual growth of a tree is calculated from its diameter and height as modified by light, climate, and site conditions. Growth curves figure 19.5
+<!-- Pools and fluxes to be included: -->
+<!-- - Carbon gain from gross primary production  minus autotrophic respiration -->
+<!-- - Allocation of carbon to growth of leaves, wood, and roots pools (partitioning varies with light availability, soil temperature, soil moisture, and nutrients + temporal for leaves (ref to phenology) -->
+<!-- - Carbon turnover (comprising litterfall, background mortality, and disturbances) + turnover rates depending on the plant material -->
+<!-- - litter pools: metabolic litter, structural litter, coarse woody debris (vary in chemical quality and turnover rate; base turnover rates are modified for soil temperature and soil moisture (environmental scaling factors)) -->
+<!-- - decomposition to soil organic matter pools: fast SOM, slow SOM, passive SOM (vary in chemical quality and turnover time) -->
+<!-- - portion of the decomposition flow lost as heterotrophic respiration -->
 
-## Competition for light
+<!-- Bonan -->
+<!-- - Figure 17.2: structure of a typical biogeochemical model -->
+<!-- - equations 17.1 – 17.10 -->
 
-- critical driver of forest dynamics
-- shading of smaller individuals by taller trees
-- vertical profile of leaf area in the patch (vertical structure in which trees are arranged into canopy layers)
-- height of a tree determines its location in the cumulative leaf area profile
-- light extinction coefficient
-- figure 19.6: representation of plant canopies
+<!-- Additional details? -->
+<!-- - maintenance respiration and growth respiration -->
+<!-- - storage pool of nonstructural carbohydrates -->
+<!-- - some models separate wood into live stems (sapwood) and dead stems, roots into fine roots and coarse roots, and coarse roots into live pools and dead pools to account for the different physiological functioning of these biomass components -->
 
-## Seed dispersal and recruitment
+<!-- ### Allocation and turnover parameterization -->
 
-- regeneration: stochastic process
-- seeds of species are assumed to be present on-site
-- available light at the forest floor, climate tolerances, and other site conditions determine which species become established.
-- sprouting based on size
+<!-- - allocation parameters -->
+<!-- - fixed allocation and dynamic allocation (specified by biome or based on environmental conditions) -->
+<!-- - Optimality models: plants optimally allocate resources to balance light acquisition (foliage), structural support and water transport (stems), and water and nutrient uptake (roots). -->
+<!-- - allocation based on scaling relationships among plant components (specified ratios of foliage, root, and wood biomass) -->
 
--  Species are characterized by life history characteristics
+<!-- - Turnover rates vary depending on plant material and are specified as a fraction of biomass. -->
+<!-- - Turnover rates are commonly estimated as the inverse of residence time or longevity -->
 
-## Mortality
+<!-- -  biogeochemical models can be applied to any type of ecosystem such as grassland, savanna, forest, shrubland, and tundra -->
 
-- stochastic process
-- Trees die with a constant probability each year
-- The probability of mortality increases when tree growth is less than some minimum
+<!-- ## Nutrient cycle models: soil biogeochemical models -->
 
-- Wildfire and insect outbreaks can be included
-- The occurrence of fire is treated stochastically with an annual probability of burning. An individual patch may, for example, have a 1% change of burning in any given year.
+<!-- ### Nitrogen cycle -->
+
+<!-- - Bonan Chapter 17.6 Nitrogen Cycle -->
+<!-- - Bonan Figure 17.8: Depiction of the nitrogen cycle -->
+
+<!-- - only ~recently added in most biogeochemical models -->
+<!-- - closely coupled to carbon cycle -->
+<!-- - important role to limit plant productivity -->
+
+<!-- - similar to carbon with an associated nitrogen pool and transfer. -->
+<!-- - cycling of nitrogen can be represented by a system of linear differential equations similar to that for carbon. -->
+
+<!-- - allocation of plant nitrogen uptake  up to plant pools -->
+<!-- - loss of nitrogen in litterfall +  portion is reabsorbed -->
+
+<!-- - soil nitrogen cycle is more complex (various forms) -->
+<!-- - decomposition of litter and soil organic matter, (mineralization and immobilization) -->
+<!-- - nitrification, denitrification, leaching, ammonia volatilization -->
+
+<!-- - additional inputs from biological nitrogen fixation, atmospheric deposition, and fertilizer -->
+
+<!-- - some examples of models? CLM? -->
+<!-- - All models simulate a decrease in plant growth when soil mineral nitrogen is insufficient to meet demand, but they differ in the manner in which this is implemented. -->
+<!-- - discuss different approaches? -->
+
+<!-- ### Phosphorus cycle -->
+
+<!-- Not in Bonan -->
+<!-- - Some models additionally include phosphorus (Wang et al. 2010; Yang et al. 2014; Goll et al. 2017) -->
+<!-- - ORCHIDEE, CLM-CNP -->
+
+<!-- ### Other nutrients? -->
+
+<!-- ## Water balance -->
+
+<!-- - focus on the surface energy balance and vertical water movement in the soil–plant atmosphere system (e.g., soil moisture control of evapotranspiration) -->
+
+<!-- - Specific components in terrestrial biosphere models:   -->
+<!-- Interception, throughfall, stemflow, infiltration, surface runoff, soil water redistribution, subsurface runoff, snow melt, evaporation, transpiration, plant water uptake, stomatal conductance -->
+
+<!-- 7.3.1 A bucket model hydrologic cycle -->
+<!-- - change in soil water is the difference between precipitation and evapotranspiration, excess runs off -->
+<!-- - based on maximum water-holding capacity -->
 

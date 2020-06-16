@@ -4,12 +4,14 @@
 # Modelling plant basic processes
 \chaptermark{photsynthesis}
 
+**For all processes, we provide an overview of existing models and approaches and we will detail only one of them for the practical course. This also apply for the other chapters, the idea of the course is to be more conceptual about how we model vegetation and the different applications and assumptions.**
+
 ## Photosynthesis and stomatal models
 
 ### C3 photosynthesis
-<!-- -Farquhar model -->
-<!-- UCL 4.6.1 -->
-<!-- Bonan, Chapter 11.1 -->
+
+- UCL 4.6.1
+- Bonan, Chapter 11.1
 The FvCB model
 Most equations between 11.1 and 11.31
 Figure 11.2 a and b
@@ -17,7 +19,7 @@ Table 11.1 for parameters values + a few simulations to illustrate
 Table 11.4
 
 ### Parameter and temperature dependencies
-<!-- Bonan, Chapter 11.2 -->
+- Bonan, Chapter 11.2
 Equations 11.34-11.37
 Table 11.2
 Figure 11.3 for illustration
@@ -25,37 +27,37 @@ Figure 11.3 for illustration
 Summary with Table 11.5 and Figure 11.4
 
 ### C4 photosynthesis
-<!-- Bonan, Chapter 11.7 -->
+- Bonan, Chapter 11.7
 PEP carboxylase
 Equations 11.69-11.74
 Find an illustration
 
 ## Respiration models
-<!-- -Q10 etc... -->
-<!-- -leaf respiration -->
-<!-- -woody respiration  -->
-<!-- -Soil respiration → see chapter 7 -->
+-Q10 etc...
+-leaf respiration
+-woody respiration
+-Soil respiration → see chapter 7
 
 ## Transpiration
 
 ### Penman-Monteith equation
-<!-- Bonan, Chapter 7.6 -->
+- Bonan, Chapter 7.6
 
 ### Stomatal conductance
-<!-- stomatal models (Jarvis, Ball-Berry, Leuning, …) -->
-<!-- Bonan, Chapter 12.2-3 -->
+- stomatal models (Jarvis, Ball-Berry, Leuning, …)
+- Bonan, Chapter 12.2-3
 
 Figure 12.1-12.2 and Equations 12.1-12.5
 Summary Table 12.1
 
 #### Empirical multiplicative models
-<!-- Bonan, Chapter 12.2 -->
+- Bonan, Chapter 12.2
 
 #### Semiempirical photosynthesis-based models
-<!-- Bonan, Chapter 12.3 -->
+- Bonan, Chapter 12.3
 
 #### WUE model
-<!-- Bonan, Chapter 12.4 -->
+- Bonan, Chapter 12.4
 
 #### Hydraulic models
 Figure 13.1
@@ -66,9 +68,11 @@ Resistance analogy
 Multinode models
 
 ### Stomatal response to environmental factors
-<!-- Bonan, Chapter 12.5 -->
-<!-- Bonan, Chapter 12.7 -->
+- Bonan, Chapter 12.5
+- Bonan, Chapter 12.7
 
 ## Upscaling from leaf to canopy
-<!-- -the problem of scaling in ecology (review paper of Jerome Chave) -->
-<!-- -refer to chapter 6 for indiv, cohort, area based models -->
+- Quickly introduce the problem of scaling in ecology (review paper of Jerome Chave) and refer to chapter 10 on upscalling
+- Canopy integration: LAI layers, etc... Nice transition to chap 3 with the interception of light by the canopy
+
+

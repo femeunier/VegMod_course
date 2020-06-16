@@ -1,19 +1,23 @@
+# (PART) Upscaling and applications {-}
+<!-- UCL 4.3.1 -->
+
 # Spatial heterogeneity, landscape scale, metapopulations
 \chaptermark{Heterogeneity}
 <!-- Not in UCL -->
+**One of the most interesting chapter for the students, go fast on plant processes that they already know, take more time for chapters 9-11.=**
 
 ## Patch dynamics
-- **again linked to chapter 6**
+Some references:
 - Book: The ecology of natual disturance and patch dynamics, Pickett & White, 2013
 
 ### Spatial heterogeneity: Definitions
 - Definition of Patch Dynamics, Perturbation, Disturbance: 
 - Spatial heterogeneity 
 - Resilience and shifts
-- Application in the design of nature reserves for example
 
 ### Impact of heterogeneity on ecosystem fonctionning and environmental feedbacks
 - Show examples here of the impact of heterogeneity
+- Application in the design of nature reserves for example
 
 ### Heterogeneity is a matter of resolution
 - Imbricated levels of heterogeneity depending on spatial and temporal resolution 
@@ -22,7 +26,7 @@
 ### Representation in Vegetation models: what are the drivers of spatial heterogeneity?
 - List here the different drivers
 - Heterogeneity is a patchwork of homogeneity in most models
-- Dynamics in heterogeneity --> mortality, growth and shifts in
+- But we can still represent dynamics in heterogeneity --> mortality, growth and shifts in species composition
 
 ### Disturbances and Patch dynamics
 - We listed the different drivers above, we will now discuss in detail the most important aspects affecting patch dynamics
@@ -42,24 +46,18 @@
 ### The important role of land use in the water cycle
 - Affects regional precipitations
 - Affects water routing
+--> Compared to the local impact on vegetation, here we touch something that will have an impact for the surrounding regions
 
 ### Monitoring land-use
-- remote sensing
+- remote sensing, rapid link to other courses
 
 ### How Land-use is represented in vegetation models? 
-- imposed
+- Compared to vegetation dynamic which is process-based, here land use is imposed.
 - management
 - urban areas
 
-## Fires and disturbances
-### Modelling fires
-- In UCL Practical chap. 6
-- For estimating the impact on ecosystems
-- To be able to predict fires
-- Observation of fires and quantifications of fluxes
-- Fires and deposition
-- Aerosols
-- Modelling "fire" traits, drought and temperature stress in models to simulate fires
+## Natural and Anthropogenic disturbances
+- We provide an overview of disturbances but we will detail only one of each: Fires and Management
 
 ### Wind and extrem events
 - Modelling storms
@@ -69,6 +67,15 @@
 - Yes herbivory is represented in vegetation models :D
 - Palability traits/ fixed fraction/ insects
 
+### Modelling fires
+- In UCL Practical chap. 6
+- For estimating the impact on ecosystems
+- To be able to predict fires
+- Observation of fires and quantifications of fluxes
+- Fires and deposition
+- Aerosols
+- Modelling "fire" traits, drought and temperature stress in models to simulate fires
+
 ### Human activity: Management and urban areas
 - Forest management: existing models, representation of forestry and use of models
 - Fertilization and irrigation in vegetation models
@@ -76,6 +83,7 @@
 - Concrete application: Paper of Luyssaert: forest management in Europe did not help in mitigating climate change. 
 
 ### The specific case of CO2 and temperature increase
-- conclude the chapter here by refering to climate change, one of the biggest "Continuous" distrubance compared to discrete disturbances
+- conclude the chapter here by refering to climate change, one of the biggest "Continuous" distrubance compared to previous "discrete" disturbances
 - Simulating acclimation and adaptation
+- refers to chapter 2 for acclimation of processes
 - refers to chapter 11 for scenarios

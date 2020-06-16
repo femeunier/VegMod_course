@@ -1,27 +1,42 @@
 # Temporal and seasonal dynamics
 \chaptermark{dynamics}
 
-## Crop phenology
-<!-- UCL 4.5.1 -->
-Definition +Simple example of phenology (wheat for example: germination + spread + full coverage + allocation to storage organs + ripening)
-
 ## Phenology
-<!-- UCL 4.5.2 -->
+- UCL 4.5.2
+The study of life-cycle events. Here refers to the temporal dynamics of vegetation.
 Broader sense of phenology.
 Applies to most plant. Circadian to seasonal cycles
 Tissue turnover and senescence
 
+
+
+### The example of crop phenology
+- UCL 4.5.1
+Definition +Simple example of phenology (wheat for example: germination + spread + full coverage + allocation to storage organs + ripening)
+
 ## Mechanisms of phenology and evidence of changes
-<!-- UCL 4.5.3 -->
-<!-- temperature  -->
-<!-- light  -->
-<!-- water -->
-<!-- Drivers of seasonality and phenology -->
-<!-- Vegeation index and changes over time -->
+- UCL 4.5.3
+
+### Overview of controls at different levels
+- temperature 
+- light
+- water
+- Nutrients
+- Drivers of seasonality and phenology
+
+### Vegeation index and changes over time
+- This is also why phenology is a "metrics" of climate change
+
+### Seasonality feedbacks
+- Phenology affects phenology (phenophases are linked, one perturbation will affect the next phenophase in the cycle)
+- The control of phenology on climate: example, early spring leaf unfolding excacerbates drought in summer
 
 ## Models of phenology
-<!-- UCL 4.5.4 -->
-<!-- budburst models  -->
-<!-- senescence models -->
-<!-- Phenology in DGVMs -->
-<!-- Figures from Zhang et al. 2003 -->
+- UCL 4.5.4
+
+### budburst models
+
+### senescence models
+
+### Phenology in DGVMs
+- Figures from Zhang et al. 2003
