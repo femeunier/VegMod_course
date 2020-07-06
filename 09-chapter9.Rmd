@@ -1,89 +1,52 @@
-# (PART) Upscaling and applications {-}
-<!-- UCL 4.3.1 -->
-
-# Spatial heterogeneity, landscape scale, metapopulations
-\chaptermark{Heterogeneity}
-<!-- Not in UCL -->
-**One of the most interesting chapter for the students, go fast on plant processes that they already know, take more time for chapters 9-11.=**
-
-## Patch dynamics
+# Upscaling from the leaf to the globe
+\chaptermark{Globe}
 Some references:
-- Book: The ecology of natual disturance and patch dynamics, Pickett & White, 2013
+ - Scalling processes and problems, Jarvis 1995
+ - upscalling in global change research, Harvey 2000
+ 
+## Spatial and temporal non-linearities: Cascading effect in the Earth system
+- spatial upscalling
+- temporal upscalling
+- classification of upscalling problems:
+  - Spatial variability + process nonlinearity
+  - Minimim scale to observe the process
+  - Different processes dominate at different scales
+  - Feedbacks between scales
+  - Development of emergent properties
+  - Edge effects
+  - Temporal lag dependent on spatial scale change
+  - Collective response with differential effects
+- Solutions to upscaling problems: 
+  - Ignore (easy solution)
+  - Increase model resolution (now more and more possible thanks to computing ressources, and data assimilation)
+  - etc... ** Nice review in Harvey 2000 **
 
-### Spatial heterogeneity: Definitions
-- Definition of Patch Dynamics, Perturbation, Disturbance: 
-- Spatial heterogeneity 
-- Resilience and shifts
+--> Solution depends on the application, show some examples here
+```{r figHarvey, fig.cap='Functional diversity', echo=FALSE, message=FALSE, warning=FALSE}
+#knitr::include_graphics('figures/Harvey2000.jpg')
+```
 
-### Impact of heterogeneity on ecosystem fonctionning and environmental feedbacks
-- Show examples here of the impact of heterogeneity
-- Application in the design of nature reserves for example
+## Land surface models
+- Dependence to other disciplines (Biology, ecology, physics, chemistry (VOC, etc), hydrology, pedology, datascience and mathematics, etc…)
+- Figure 1.7 from Bonan
+- UCL 4.2: Land surface schemes
+- Focus on the coupling of different models and what it implies, not the technical aspects
+### Soil-Vegetation-Atmosphere-Transer models
+- Description of SVAT models, regroups what we studied in Chap1-9
 
-### Heterogeneity is a matter of resolution
-- Imbricated levels of heterogeneity depending on spatial and temporal resolution 
-- Heterogeneity is also a matter of the studied question: important in term of modelling since it will govern how processes are implemented
 
-### Representation in Vegetation models: what are the drivers of spatial heterogeneity?
-- List here the different drivers
-- Heterogeneity is a patchwork of homogeneity in most models
-- But we can still represent dynamics in heterogeneity --> mortality, growth and shifts in species composition
+## DVGMs as a part of Earth System Models
+- Partially in UCL 4.3.3
 
-### Disturbances and Patch dynamics
-- We listed the different drivers above, we will now discuss in detail the most important aspects affecting patch dynamics
-- Link to land-use and disturbance
+### One Biosphere
+- Chapter 1 of Bonan, specifically 1.5
+- Coupling to other components
 
-## Land-use changes
-- Land use is linked to spatial heterogeneity and patch dynamics
+### Atmosphere, Ocean, lakes and urban areas
+- Rapid desciption of other models 
+- Reference here to previous chapter on heterogeneity
 
-### Role of Land-use in global emissions and biogeochemicel cycles
-- impact C stocks and fluxes
-- impact on nutrients (depletion over rotations, etc...)
-- important impact on respiration
-- vegetation cover and biophysical impact: albedo, etc...
-- Specific case of deforestation, one of the most important imapct (make a paragraph on that?)
-- How are fluxes attributed to land use in gas emission assessments? --> central role of vegetation modeling
+### Coupling of processes with different time steps and regional scale
 
-### The important role of land use in the water cycle
-- Affects regional precipitations
-- Affects water routing
---> Compared to the local impact on vegetation, here we touch something that will have an impact for the surrounding regions
-
-### Monitoring land-use
-- remote sensing, rapid link to other courses
-
-### How Land-use is represented in vegetation models? 
-- Compared to vegetation dynamic which is process-based, here land use is imposed.
-- management
-- urban areas
-
-## Natural and Anthropogenic disturbances
-- We provide an overview of disturbances but we will detail only one of each: Fires and Management
-
-### Wind and extrem events
-- Modelling storms
-- Modelling heat and cold waves, frost impact
-
-### Herbivory
-- Yes herbivory is represented in vegetation models :D
-- Palability traits/ fixed fraction/ insects
-
-### Modelling fires
-- In UCL Practical chap. 6
-- For estimating the impact on ecosystems
-- To be able to predict fires
-- Observation of fires and quantifications of fluxes
-- Fires and deposition
-- Aerosols
-- Modelling "fire" traits, drought and temperature stress in models to simulate fires
-
-### Human activity: Management and urban areas
-- Forest management: existing models, representation of forestry and use of models
-- Fertilization and irrigation in vegetation models
-- Urban areas in vegetation models
-- Concrete application: Paper of Luyssaert: forest management in Europe did not help in mitigating climate change. 
-
-### The specific case of CO2 and temperature increase
-- conclude the chapter here by refering to climate change, one of the biggest "Continuous" distrubance compared to previous "discrete" disturbances
-- Simulating acclimation and adaptation
-- refers to chapter 2 for acclimation of processes
-- refers to chapter 11 for scenarios
+### Simulating feedbacks
+- Nice transition to chap 11 with future scenarii

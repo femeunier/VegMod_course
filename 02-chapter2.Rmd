@@ -6,7 +6,7 @@
 
 **For all processes, we provide an overview of existing models and approaches and we will detail only one of them for the practical course. This also apply for the other chapters, the idea of the course is to be more conceptual about how we model vegetation and the different applications and assumptions.**
 
-## Photosynthesis and stomatal models
+## Photosynthesis
 
 ### C3 photosynthesis
 
@@ -38,7 +38,7 @@ Find an illustration
 -woody respiration
 -Soil respiration → see chapter 7
 
-## Transpiration
+## Transpiration and stomatal models
 
 ### Penman-Monteith equation
 - Bonan, Chapter 7.6
@@ -57,7 +57,7 @@ Summary Table 12.1
 - Bonan, Chapter 12.3
 
 #### WUE model
-- Bonan, Chapter 12.4
+- Bonan, Chapter 12.4 + add optimality approach from Prentice et al.
 
 #### Hydraulic models
 Figure 13.1

@@ -10,7 +10,6 @@ based on Bonan Chapter 17
 ## Process-based growth modelling
 ### C-allocation models
 - C pools: Allocation to leaf, wood, fruit
-- types of allocation models (see Campioli et al 2013 and work of Fatichi et al. )
 
 ### Applications of growth modelling in forestry and agriculture
 - short, link with inventory course
@@ -53,6 +52,7 @@ Additional details?
 - some models separate wood into live stems (sapwood) and dead stems, roots into fine roots and coarse roots, and coarse roots into live pools and dead pools to account for the different physiological functioning of these biomass components
 
 ### Allocation and turnover parameterization
+- types of allocation models (see Campioli et al 2013 and work of Fatichi et al. )
 
 - allocation parameters
 - fixed allocation and dynamic allocation (specified by biome or based on environmental conditions)
@@ -89,6 +89,7 @@ Additional details?
 
 - some examples of models? CLM?
 - All models simulate a decrease in plant growth when soil mineral nitrogen is insufficient to meet demand, but they differ in the manner in which this is implemented.
+- maybe also more soil oriented model (CENTURY , ....)
 - discuss different approaches?
 
 ### Phosphorus cycle
@@ -107,7 +108,8 @@ Not in Bonan
 - Specific components in terrestrial biosphere models:  
 Interception, throughfall, stemflow, infiltration, surface runoff, soil water redistribution, subsurface runoff, snow melt, evaporation, transpiration, plant water uptake, stomatal conductance
 
-7.3.1 A bucket model hydrologic cycle
+### A bucket model hydrologic cycle
+- refer to hydrology courses in the program
 - change in soil water is the difference between precipitation and evapotranspiration, excess runs off
 - based on maximum water-holding capacity
 
