@@ -1,64 +1,89 @@
-# Modelling vegetation dynamics and demography
-\chaptermark{Dynamics}
+# (PART) Upscaling and applications {-}
+<!-- UCL 4.3.1 -->
+
+# Spatial heterogeneity, landscape scale, metapopulations
+\chaptermark{Heterogeneity}
 <!-- Not in UCL -->
 
-I would make this chapter 7.
-Biogeochemical models first, then this
 
+## Patch dynamics
+Some references:
+- Book: The ecology of natual disturance and patch dynamics, Pickett & White, 2013
 
-Bonan Chapter 19.2
-Another class of models, known as individual plant or ecosystem demography models, retains the complexity of individual plants or cohorts of similar plants. In these models, ecosystem properties such as carbon storage are the outcome of demographic processes.
+### Spatial heterogeneity: Definitions
+- Definition of Patch Dynamics, Perturbation, Disturbance: 
+- Spatial heterogeneity 
+- Resilience and shifts
 
-- plant populations
-- community composition
-- ecosystem structure
-- driven by demographic processes of recruitment, establishment, growth, and mortality
+### Impact of heterogeneity on ecosystem fonctionning and environmental feedbacks
+- Show examples here of the impact of heterogeneity
+- Application in the design of nature reserves for example
 
-## Gap models, individual and cohort based models
+### Heterogeneity is a matter of resolution
+- Imbricated levels of heterogeneity depending on spatial and temporal resolution 
+- Heterogeneity is also a matter of the studied question: important in term of modelling since it will govern how processes are implemented
 
-- small scale models;  landscape represented as a mosaic of hundreds of independent forest patches, each of which can differ in species composition and stage of development in response to disturbance that creates an opening in the canopy
-- models track the establishment, growth, and death of individual trees in an area of land.
-- Each tree is characterized by its species, stem diameter, height, and age.
-- trees compete for light, soil moisture, and nutrients.
-- patch undergoes temporal changes in the density, size, and composition of trees with the formation of a gap in the canopy
-- Community composition, biomass, productivity, and biogeochemical cycles are emergent outcomes of individual trees interacting among themselves and with the environment to acquire the resources necessary for growth and survival
+### Representation in Vegetation models: what are the drivers of spatial heterogeneity?
+- List here the different drivers
+- Heterogeneity is a patchwork of homogeneity in most models
+- But we can still represent dynamics in heterogeneity --> mortality, growth and shifts in species composition
 
-- cohort-based models define patches based on age since disturbance and simulate the dynamics of cohorts of similar plant functional types rather than tracking every individual.
-- Common to each model is the representation of vegetation demography, with age- and size-dependent growth and mortality and in which growth is constrained by allometric relationships of stem diameter with height, sapwood area, leaf area, and biomass.
+### Disturbances and Patch dynamics
+- We listed the different drivers above, we will now discuss in detail the most important aspects affecting patch dynamics
+- Link to land-use and disturbance
 
-## Allometric relationships
+## Land-use changes
+- Land use is linked to spatial heterogeneity and patch dynamics
 
-- allometric relationships are a critical driver of individual tree growth. 
-- Height is important for its effect on stem diameter increment, both directly through tree volume growth and indirectly through shading.
-- Biomass allocation: empirical equations that constrain foliage, stem, and root mass for a given size tree
-- relationship between stem diameter and leaf area drives light extinction in the canopy
-- annual growth of a tree is calculated from its diameter and height as modified by light, climate, and site conditions. Growth curves figure 19.5
+### Role of Land-use in global emissions and biogeochemicel cycles
+- impact C stocks and fluxes
+- impact on nutrients (depletion over rotations, etc...)
+- important impact on respiration
+- vegetation cover and biophysical impact: albedo, etc...
+- Specific case of deforestation, one of the most important imapct (make a paragraph on that?)
+- How are fluxes attributed to land use in gas emission assessments? --> central role of vegetation modeling
 
-## Competition for light
+### The important role of land use in the water cycle
+- Affects regional precipitations
+- Affects water routing
+--> Compared to the local impact on vegetation, here we touch something that will have an impact for the surrounding regions
 
-- critical driver of forest dynamics
-- shading of smaller individuals by taller trees
-- vertical profile of leaf area in the patch (vertical structure in which trees are arranged into canopy layers)
-- height of a tree determines its location in the cumulative leaf area profile
-- light extinction coefficient
-- figure 19.6: representation of plant canopies
+### Monitoring land-use
+- remote sensing, rapid link to other courses
 
-## Seed dispersal and recruitment
+### How Land-use is represented in vegetation models? 
+- Compared to vegetation dynamic which is process-based, here land use is imposed.
+- management
+- urban areas
 
-- regeneration: stochastic process
-- seeds of species are assumed to be present on-site
-- available light at the forest floor, climate tolerances, and other site conditions determine which species become established.
-- sprouting based on size
+## Natural and Anthropogenic disturbances
+- We provide an overview of disturbances but we will detail only one of each: Fires and Management
 
--  Species are characterized by life history characteristics
+### Wind and extrem events
+- Modelling storms
+- Modelling heat and cold waves, frost impact
 
-## Mortality
+### Herbivory
+- Yes herbivory is represented in vegetation models :D
+- Palability traits/ fixed fraction/ insects
 
-- stochastic process
-- Trees die with a constant probability each year
-- The probability of mortality increases when tree growth is less than some minimum
+### Modelling fires
+- In UCL Practical chap. 6
+- For estimating the impact on ecosystems
+- To be able to predict fires
+- Observation of fires and quantifications of fluxes
+- Fires and deposition
+- Aerosols
+- Modelling "fire" traits, drought and temperature stress in models to simulate fires
 
-- Wildfire and insect outbreaks can be included
-- The occurrence of fire is treated stochastically with an annual probability of burning. An individual patch may, for example, have a 1% change of burning in any given year.
+### Human activity: Management and urban areas
+- Forest management: existing models, representation of forestry and use of models
+- Fertilization and irrigation in vegetation models
+- Urban areas in vegetation models
+- Concrete application: Paper of Luyssaert: forest management in Europe did not help in mitigating climate change. 
 
-
+### The specific case of CO2 and temperature increase
+- conclude the chapter here by refering to climate change, one of the biggest "Continuous" distrubance compared to previous "discrete" disturbances
+- Simulating acclimation and adaptation
+- refers to chapter 2 for acclimation of processes
+- refers to chapter 11 for scenarios

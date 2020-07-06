@@ -1,93 +1,60 @@
-# Representing biodiversity in vegetation models
-\chaptermark{Biodiversity}
+# Modelling vegetation dynamics and demography
+\chaptermark{Dynamics}
+<!-- Not in UCL -->
 
-## Why and how representing biodiversity in vegetation models?  
-We can start with the applications? I think it is more interesting than finishing with the applications. 
-Application: Conservation, ecosystem resilience, vegetation-atmosphere feedbacks
+Bonan Chapter 19.2
+Another class of models, known as individual plant or ecosystem demography models, retains the complexity of individual plants or cohorts of similar plants. In these models, ecosystem properties such as carbon storage are the outcome of demographic processes.
 
-Biodiversity refers here to functional diversity. 
+- plant populations
+- community composition
+- ecosystem structure
+- driven by demographic processes of recruitment, establishment, growth, and mortality
 
-## Functional diversity
-- check the book " Terrestrial Ecosystems in a changing world" from P. Canadell (2007)
-- Part C: Landscapes under changing disturbance regimes:
-    - PFT
-    - Fire and disturbances
-    - upscalling
-    - construction, evaluation and examples of DGVM applications
-    
-### Definition of funcional diversity and plant functional traits
-Any morphological, physiological or phenological feature measurable at the individual level, from the cell to the whole-organism level, without reference to the environment or any other level of organization. 
-It is functional if it affects fitness indirectly via its effects on growth, reproduction and survival.
+## Gap models, individual and cohort based models
 
-- Seminal papers from the plant functional trait community Violle 2007, Lavorel, garnier, Shipley, etc...
+- small scale models;  landscape represented as a mosaic of hundreds of independent forest patches, each of which can differ in species composition and stage of development in response to disturbance that creates an opening in the canopy
+- models track the establishment, growth, and death of individual trees in an area of land.
+- Each tree is characterized by its species, stem diameter, height, and age.
+- trees compete for light, soil moisture, and nutrients.
+- patch undergoes temporal changes in the density, size, and composition of trees with the formation of a gap in the canopy
+- Community composition, biomass, productivity, and biogeochemical cycles are emergent outcomes of individual trees interacting among themselves and with the environment to acquire the resources necessary for growth and survival
 
-```{r figViolle, fig.cap='Functional diversity', echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics('figures/Violle2007.jpg')
-```
-- Mention here the interesting summer school: http://www.cef-cfr.ca/index.php?n=MEmbres.AlisonMunsonPlantTraits?userlang=en
-- List of reference papers in the link above
-- 3 types of traits: dynamic, response & constant, that are linked to the processes we studied in the previous chapter (slow/fast processes)
+- cohort-based models define patches based on age since disturbance and simulate the dynamics of cohorts of similar plant functional types rather than tracking every individual.
+- Common to each model is the representation of vegetation demography, with age- and size-dependent growth and mortality and in which growth is constrained by allometric relationships of stem diameter with height, sapwood area, leaf area, and biomass. cohort models --> modelling size distributions
 
-### Representing 400 000 plant species in a single model: the Plant Functional Type approach
-Short description in UCL 4.3.2  
-No description in Bonan
+## Allometric relationships
+- link with growth modelling of previuous chapter
+- allometric relationships are a critical driver of individual tree growth. 
+- Height is important for its effect on stem diameter increment, both directly through tree volume growth and indirectly through shading.
+- Biomass allocation: empirical equations that constrain foliage, stem, and root mass for a given size tree
+- relationship between stem diameter and leaf area drives light extinction in the canopy
+- annual growth of a tree is calculated from its diameter and height as modified by light, climate, and site conditions. Growth curves figure 19.5
 
-- Lack of observations for every species
-- Computing resources problem (refers to the history of DGVMs from the introduction)
-- A simplification based on biome description and plant functionning at the ecosystem level 
-- Different definitions of PFT: statistical classification, etc.
-- Table of classical PFTs used in models here. 
-- PFT mapping: multi-obs approach based on remote sensing. 
-- First use of PFTs managed to reproduce well the gradients at the global scale, but now it is unsuficcient. 
+## Competition for light
 
+- critical driver of forest dynamics
+- shading of smaller individuals by taller trees
+- vertical profile of leaf area in the patch (vertical structure in which trees are arranged into canopy layers)
+- height of a tree determines its location in the cumulative leaf area profile
+- light extinction coefficient
+- figure 19.6: representation of plant canopies
 
-### Limits of the PFT representation in the context of global change
-- Including acclimation and adaptation processes
-- Dynamic vegetation: Accounting for non-random species turnover
-- Quantifying vegetation-environment feedbacks
-- Quantifying impacts of biodiversity on ecosytem functioning and climate
+## Seed dispersal and recruitment
 
-### From model parameters to plant traits
-- Reconciliating modelling with functional ecology. 
-- Existing databases (TRY)
-- Empirical approach: More PFTs with traits instead of model-specific parameters, trait-trait, trait-environment relationships
-- Trade-offs: modeling plant strategies --> LES, PES, RES, all the ES :D
-- Role of data assimilation in regions without data and to assess spatial variability of vegetation properties
-- But: requires lots of observations in space and time. 
+- regeneration: stochastic process
+- seeds of species are assumed to be present on-site
+- available light at the forest floor, climate tolerances, and other site conditions determine which species become established.
+- sprouting based on size
 
-### Eco-evolutive optimality approaches
-- New generation of models 
-- PPA, coordination, ect... 
-- Paper from Oskar. 
+-  Species are characterized by life history characteristics + maybe add example of herb layer models of FORNALAB
 
-<!-- _____________________ COMPETITION MODELS ________________________ -->
-## Competition models
-**!!! Redundancy with Chapter 6 !!!**
-Not in Bonan nor UCL  
-In Bonan Chapter 19 on demography, gap models, etc... which is a part of competition. 
+## Mortality
 
-### Representation of PFTs in vegetation models
-- Parameterization and calibration of PFTs--> data assimilation, traits, model-specific parameters
-- representation by pixels
-- shared processes, different processes
-- interaction between PFTs
-- Depend on the model: individual/cohort/big leaf
+- stochastic process
+- Trees die with a constant probability each year
+- The probability of mortality increases when tree growth is less than some minimum
 
-### Competition for ressources / Plant strategy? 
-- In fact we can extend the trait based approach and plant strategy (PES, etc) 
-in the competition and community section? 
-- Mortality, turnover, etc..
+- disturbance related mortality : Wildfire and insect outbreaks can be included
+- The occurrence of fire is treated stochastically with an annual probability of burning. An individual patch may, for example, have a 1% change of burning in any given year.
 
-### Representation of trait distributions 
-- Trade-offs
-
-<!-- _____________________ COMMUNITIES ________________________ -->
-## Communities
-- Successions and impact on cycles, species composition etc. 
-
-## What about crops? 
-- Not our focus but we don't forget it. A few words to say that specific crop models exists
-- Diversity is not a problem anymore
-- Plant functional traits are still central to crop modelling, but competition and diversity are no more an issue. 
-- Other problematics specific to agriculture, such as agro-ecosystems where we have multi layers of vegetation (Trees over crops) --> Very interesting modelling problem and application especially in arid/semi-arid and tropical regions
 
