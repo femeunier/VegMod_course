@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Practical C | Vegetation modelling</title>
+  <title>Chapter 5 Modelling plant growth and biogeochemical cycles in vegetation models | Vegetation modelling</title>
   <meta name="description" content="Syllabus associated to the course XX taught at Ghent University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Practical C | Vegetation modelling" />
+  <meta property="og:title" content="Chapter 5 Modelling plant growth and biogeochemical cycles in vegetation models | Vegetation modelling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Practical C | Vegetation modelling" />
+  <meta name="twitter:title" content="Chapter 5 Modelling plant growth and biogeochemical cycles in vegetation models | Vegetation modelling" />
   
   <meta name="twitter:description" content="Syllabus associated to the course XX taught at Ghent University" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="practical-b.html"/>
-<link rel="next" href="practical-d.html"/>
+<link rel="prev" href="temporal-and-seasonal-dynamics.html"/>
+<link rel="next" href="representing-biodiversity-in-vegetation-models.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -295,20 +295,112 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="practical-c" class="section level1 unnumbered">
-<h1>Practical C</h1>
-<p>PC-room, supervised exercise</p>
-<p>Modelling the size structure of a temperate forest (stand diameter distribution)</p>
-<p>Scale: forest stand</p>
-<p>Methodological focus: initial conditions</p>
+<div id="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Modelling plant growth and biogeochemical cycles in vegetation models</h1>
+<p> <!-- UCL 4 --> - UCL 4.2.2</p>
+<p>based on Bonan Chapter 17</p>
+<div id="process-based-growth-modelling" class="section level2">
+<h2><span class="header-section-number">5.1</span> Process-based growth modelling</h2>
+<div id="c-allocation-models" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> C-allocation models</h3>
+<ul>
+<li>C pools: Allocation to leaf, wood, fruit</li>
+</ul>
+</div>
+<div id="applications-of-growth-modelling-in-forestry-and-agriculture" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Applications of growth modelling in forestry and agriculture</h3>
+<ul>
+<li>short, link with inventory course</li>
+</ul>
+</div>
+</div>
+<div id="carbon-cycle-models-stocks-and-fluxes" class="section level2">
+<h2><span class="header-section-number">5.2</span> Carbon cycle models: stocks and fluxes</h2>
+<p>This chapter will develop the ecological foundation and mathematics to describe ecosystem carbon dynamics using biogeochemical models. Biogeochemical models abstract an ecosystem as pools of carbon and the flows of carbon among these pools.</p>
+<p>Use specific model as an example to illustrate? In Bonan: CASA-CNP model</p>
+<div id="model-structure" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Model structure</h3>
+<p>Biogeochemical models simulate processes of allocation of photosynthetic carbon gain to plant parts (e.g., foliage, fine root, wood), turnover of plant biomass as litterfall, transformation of litter to soil organic matter, and carbon loss during respiration.</p>
+<p>Principles: - net carbon input is equal to gross primary production minus autotrophic respiration; - carbon flows from donor to receiver pools at a rate that depends on the donor pool size and its chemical quality as modified by the environment; - mass balance is maintained as carbon flows through the system of interconnected pools; - decay of litter and soil organic matter releases CO 2 as heterotrophic respiration.</p>
+<p>Models: a system of first-order, linear differential equations to describe carbon pools and fluxes (typically time step of one day)</p>
+<p>Pools and fluxes to be included: - Carbon gain from gross primary production minus autotrophic respiration - Allocation of carbon to growth of leaves, wood, and roots pools (partitioning varies with light availability, soil temperature, soil moisture, and nutrients + temporal for leaves (ref to phenology) - Carbon turnover (comprising litterfall, background mortality, and disturbances) + turnover rates depending on the plant material - litter pools: metabolic litter, structural litter, coarse woody debris (vary in chemical quality and turnover rate; base turnover rates are modified for soil temperature and soil moisture (environmental scaling factors)) - decomposition to soil organic matter pools: fast SOM, slow SOM, passive SOM (vary in chemical quality and turnover time) - portion of the decomposition flow lost as heterotrophic respiration</p>
+<p>Bonan - Figure 17.2: structure of a typical biogeochemical model - equations 17.1 – 17.10</p>
+<p>Additional details? - maintenance respiration and growth respiration - storage pool of nonstructural carbohydrates - some models separate wood into live stems (sapwood) and dead stems, roots into fine roots and coarse roots, and coarse roots into live pools and dead pools to account for the different physiological functioning of these biomass components</p>
+</div>
+<div id="allocation-and-turnover-parameterization" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Allocation and turnover parameterization</h3>
+<ul>
+<li><p>types of allocation models (see Campioli et al 2013 and work of Fatichi et al. )</p></li>
+<li>allocation parameters</li>
+<li>fixed allocation and dynamic allocation (specified by biome or based on environmental conditions)</li>
+<li>Optimality models: plants optimally allocate resources to balance light acquisition (foliage), structural support and water transport (stems), and water and nutrient uptake (roots).</li>
+<li><p>allocation based on scaling relationships among plant components (specified ratios of foliage, root, and wood biomass)</p></li>
+<li>Turnover rates vary depending on plant material and are specified as a fraction of biomass.</li>
+<li><p>Turnover rates are commonly estimated as the inverse of residence time or longevity</p></li>
+<li><p>biogeochemical models can be applied to any type of ecosystem such as grassland, savanna, forest, shrubland, and tundra</p></li>
+</ul>
+</div>
+</div>
+<div id="nutrient-cycle-models-soil-biogeochemical-models" class="section level2">
+<h2><span class="header-section-number">5.3</span> Nutrient cycle models: soil biogeochemical models</h2>
+<div id="nitrogen-cycle" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Nitrogen cycle</h3>
+<ul>
+<li>Bonan Chapter 17.6 Nitrogen Cycle</li>
+<li><p>Bonan Figure 17.8: Depiction of the nitrogen cycle</p></li>
+<li>only ~recently added in most biogeochemical models</li>
+<li>closely coupled to carbon cycle</li>
+<li><p>important role to limit plant productivity</p></li>
+<li>similar to carbon with an associated nitrogen pool and transfer.</li>
+<li><p>cycling of nitrogen can be represented by a system of linear differential equations similar to that for carbon.</p></li>
+<li>allocation of plant nitrogen uptake up to plant pools</li>
+<li><p>loss of nitrogen in litterfall + portion is reabsorbed</p></li>
+<li>soil nitrogen cycle is more complex (various forms)</li>
+<li>decomposition of litter and soil organic matter, (mineralization and immobilization)</li>
+<li><p>nitrification, denitrification, leaching, ammonia volatilization</p></li>
+<li><p>additional inputs from biological nitrogen fixation, atmospheric deposition, and fertilizer</p></li>
+<li>some examples of models? CLM?</li>
+<li>All models simulate a decrease in plant growth when soil mineral nitrogen is insufficient to meet demand, but they differ in the manner in which this is implemented.</li>
+<li>maybe also more soil oriented model (CENTURY , ....)</li>
+<li><p>discuss different approaches?</p></li>
+</ul>
+</div>
+<div id="phosphorus-cycle" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Phosphorus cycle</h3>
+<p>Not in Bonan - Some models additionally include phosphorus (Wang et al. 2010; Yang et al. 2014; Goll et al. 2017) - ORCHIDEE, CLM-CNP</p>
+</div>
+<div id="other-nutrients" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> Other nutrients</h3>
+<ul>
+<li>K and Mg in Eucalyptus and other tropical plantations</li>
+</ul>
+</div>
+</div>
+<div id="water-balance" class="section level2">
+<h2><span class="header-section-number">5.4</span> Water balance</h2>
+<ul>
+<li><p>focus on the surface energy balance and vertical water movement in the soil–plant atmosphere system (e.g., soil moisture control of evapotranspiration)</p></li>
+<li><p>Specific components in terrestrial biosphere models:<br />
+Interception, throughfall, stemflow, infiltration, surface runoff, soil water redistribution, subsurface runoff, snow melt, evaporation, transpiration, plant water uptake, stomatal conductance</p></li>
+</ul>
+<div id="a-bucket-model-hydrologic-cycle" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> A bucket model hydrologic cycle</h3>
+<ul>
+<li>refer to hydrology courses in the program</li>
+<li>change in soil water is the difference between precipitation and evapotranspiration, excess runs off</li>
+<li>based on maximum water-holding capacity</li>
+</ul>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="practical-b.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="practical-d.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="temporal-and-seasonal-dynamics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="representing-biodiversity-in-vegetation-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

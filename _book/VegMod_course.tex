@@ -32,6 +32,46 @@
 \usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{natbib}
 \bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
@@ -90,7 +130,7 @@
 
 \title{Vegetation modelling}
 \author{Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle}
-\date{2020-05-27}
+\date{2021-01-18}
 
 \begin{document}
 \maketitle
@@ -111,7 +151,7 @@
 	%	Title
 	%------------------------------------------------
 	
-	\vspace{8\baselineskip}
+	\vspace{12\baselineskip}
 	
 	\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal rule
 	\rule{\textwidth}{0.4pt} % Thin horizontal rule
@@ -157,7 +197,7 @@
 	
 	%\plogo % Publisher logo
 	
-	\includegraphics[width=40mm]{figures/UGhent.png}
+	\includegraphics[width = 50mm]{figures/UGhent2.png}
 	
 	\vspace{0.3\baselineskip} % Whitespace under the publisher logo
 	
@@ -175,28 +215,182 @@
 
 \chapter{Introduction}\label{intro}
 
-\section{Soil-Plant-Atmosphere continuum: the central role of
-vegetation}\label{soil-plant-atmosphere-continuum-the-central-role-of-vegetation}
+\section{Soil-plant-atmosphere continuum: the central role of vegetation
+in the earth
+system}\label{soil-plant-atmosphere-continuum-the-central-role-of-vegetation-in-the-earth-system}
+
+\begin{itemize}
+\tightlist
+\item
+  Global change context
+\item
+  Terrestrial ecosystems are central to solving the environmental and
+  socioeconomic threats posed by changes in climate, atmospheric
+  composition, and air quality; land use and land-cover change; habitat
+  loss, species extinction, and invasive species; appropriation of
+  freshwater, net primary production, and other ecosystems goods and
+  services for human uses; and anthropogenic addition of reactive
+  nitrogen. (Bonan)
+\item
+  Earth System Models and climate models (Fig 1.1 Bonan). In climate
+  models vegetation is just representing physical fluxes, in ESM
+  vegetation is representing biogeochemical cycles, biogeography, and
+  dynamic vegetation -- typically the realm of ecosystem models
+\item
+  Land component continuum of terrestrial ecosystem models (vegetation
+  models) (Fig 1.7)
+\end{itemize}
 
 \section{Why do we need modelling?}\label{why-do-we-need-modelling}
 
-\section{Components of a model}\label{components-of-a-model}
+\begin{itemize}
+\tightlist
+\item
+  Devising suitable solutions to these global change challenges require
+  not only strong empirically and experimentally based research at the
+  local scale to understand how ecosystems are structured and how they
+  function, but also sound theoretical foundations to generalize this
+  understanding to regional, continental, and global scales and to make
+  projections of the future. Computer models of terrestrial ecosystems
+  are essential to this generalization. (Bonan)
+\item
+  For prediction: study system behavior in conditions beyond which
+  measurements can be made; to allow predictions of system behavior,
+  especially in response to some imposed perturbation; and to inform
+  management and policy decisions. These usages of models are
+  particularly important in the context ofglobal change.
+\item
+  For understanding: a formal organization of understanding; it
+  originates from the knowledge of its developers about how the system
+  operates. One purpose of modeling, then, is to identify the processes
+  needed to adequately simulate the system. If a model replicates some
+  observations, a scientist must ask why the model works correctly. If
+  the model performs poorly, then the scientist must ask what is
+  missing. It is testing hypotheses, just like you do with physical
+  experiments.
+\item
+  For data integration: to organize and link data in a structure way, as
+  a research tool to guide data collection. What are the critical
+  parameters that need to be measured? How precisely must these
+  parameters be measured to reduce model uncertainty? What new
+  observations are needed to test the model? In this context, models
+  inform data collection and experimental design to both test the model
+  and advance process understanding.
+\end{itemize}
+
+\section{Model types}\label{model-types}
+
+\begin{itemize}
+\tightlist
+\item
+  continuum of terrestrial ecosystem models, from models with emphasis
+  on biogeochemical pools and fluxes, dynamic vegetation models with
+  focus on individual plants or size cohorts, canopy models with focus
+  on coupling leaf physiological processes with canopy physics, and
+  global models of the land surface for climate simulation. (Table 1.1,
+  Bonan)
+\item
+  Continuum of empirical to process-based models
+\item
+  Types of vegetation models (depending on the purpose, questions,
+  scales) (e.g.~timber, yield, biogeochemistry, \ldots{}) (ecologists,
+  foresters, climatologist, atmospheric chemists, hydrologist all have
+  different vegetation models\ldots{})
+\item
+  Compare vegetation models to for example species distribution
+  models\ldots{}
+\end{itemize}
 
 \section{The history of vegetation
 models}\label{the-history-of-vegetation-models}
 
-\subsection{Early history of vegetation
-modelling}\label{early-history-of-vegetation-modelling}
+\begin{itemize}
+\tightlist
+\item
+  Conceptualisation of ecosystem to mass and energy flows among various
+  compartments (refer to ecology course of Steppe in the Bio-ir
+  Bachelors. `box models in the 1960's and 1970's current global
+  biogeochemical models are still box-type of models (Fig 1.4)
+\item
+  In parallel individual based models of forest dynamics were developed,
+  based on population dynamics, life cycle of species. They are also
+  called ``gap models'' that simulate the demography in an area of 0.1
+  ha (size of a gap in the canopy) (Fig 1.5). Ecosystem properties such
+  as carbon stocks are emerging from the demography simulation.
+\item
+  More recently cohort based models
+\item
+  DGVMs: These models also simulate changes in community composition,
+  biomass, productivity, and nutrient cycling. Because the models are
+  applied globally, they do not recognize individual species. Rather,
+  they employ plant functional types, Table 1.2
+\item
+  Fig 1.2 Bonan
+\end{itemize}
 
-\subsection{The first DVGMs centered around carbon
-fluxes}\label{the-first-dvgms-centered-around-carbon-fluxes}
+\section{Components of a model}\label{components-of-a-model}
 
-\subsection{A new generation of DGVMs centered around vegetation
-functioning}\label{a-new-generation-of-dgvms-centered-around-vegetation-functioning}
-
-\section{Model types}\label{model-types}
+\begin{itemize}
+\tightlist
+\item
+  Table 1.3 and Table 1.4
+\item
+  Model structure (constraints: resolving of fluxes on short time
+  scales, conservation of mass and energy,
+\item
+  Parameters
+\item
+  i/o variables, state variable
+\item
+  time steps (fluxes must be resolved on a short time interval, diurnal
+  cycles)
+\item
+  spatial structure (Fig 1.11)
+\item
+  Prognostic equations use time derivatives to describe the change in a
+  state variable and are integrated forward in time from some initial
+  condition. Prognostic variables must be numerically stepped forward
+  from time n to n + 1 over the time interval deltat.
+\item
+  Conservation equations
+\item
+  Diagnostic equations (e.g.~ideal gas law) linking variables
+  time-independent
+\item
+  Initial conditions
+\item
+  Model code, There is an enormous leap between seeing a mathematical
+  equation in a research paper and actually using that equation in a
+  model (Bonan Book).
+\item
+  Model uncertainty and complexity (fig 1.12) (+ fig from Dietze book)
+\end{itemize}
 
 \section{Structure of the course}\label{structure-of-the-course}
+
+\begin{itemize}
+\tightlist
+\item
+  a science that spans boundary layer meteorology, micrometeorology,
+  atmospheric chemistry, plant physiology, ecosystem ecology,
+  biogeochemistry, soil science, hydrology, and geochemistry \ldots{} we
+  will not discuss all the basics in this course, but we expect you to
+  know from other courses (Ecology, plant physiology, forestry,
+  hydrology, soil science \ldots{}), but we will of course go into the
+  processes, but focus on there mathematical formulation and translation
+  into a workin model (code)
+\item
+  progression through the course (space-time figure, with chapters)
+\item
+  Model development cycle (structure for the methodological focus of
+  each application/practical) (Dietze figure)
+\end{itemize}
+
+\textbf{to test: Idea of a conceptual figure that we will build block by
+block as we go deeper in the course. It represents the concept that
+vegetation modelling is to have an integrated representation of the
+plant functioning and all the underlying processes at different scales.
+}
 
 \begin{figure}
 
@@ -215,92 +409,943 @@ processes}\label{modelling-plant-basic-processes}
 
 \chaptermark{photsynthesis}
 
-\section{Photosynthesis and stomatal
-models}\label{photosynthesis-and-stomatal-models}
+\textbf{For all processes, we provide an overview of existing models and
+approaches and we will detail only one of them for the practical course.
+This also apply for the other chapters, the idea of the course is to be
+more conceptual about how we model vegetation and the different
+applications and assumptions.}
+
+\section{Photosynthesis}\label{photosynthesis}
+
+\subsection{C3 photosynthesis}\label{c3-photosynthesis}
+
+\begin{itemize}
+\tightlist
+\item
+  UCL 4.6.1
+\item
+  Bonan, Chapter 11.1 The FvCB model Most equations between 11.1 and
+  11.31 Figure 11.2 a and b Table 11.1 for parameters values + a few
+  simulations to illustrate Table 11.4
+\end{itemize}
+
+\subsection{Parameter and temperature
+dependencies}\label{parameter-and-temperature-dependencies}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 11.2 Equations 11.34-11.37 Table 11.2 Figure 11.3 for
+  illustration
+\end{itemize}
+
+Summary with Table 11.5 and Figure 11.4
+
+\subsection{C4 photosynthesis}\label{c4-photosynthesis}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 11.7 PEP carboxylase Equations 11.69-11.74 Find an
+  illustration
+\end{itemize}
 
 \section{Respiration models}\label{respiration-models}
 
-\section{Transpiration}\label{transpiration}
+-Q10 etc\ldots{} -leaf respiration -woody respiration -Soil respiration
+→ see chapter 7
+
+\section{Transpiration and stomatal
+models}\label{transpiration-and-stomatal-models}
+
+\subsection{Penman-Monteith equation}\label{penman-monteith-equation}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 7.6
+\end{itemize}
+
+\subsection{Stomatal conductance}\label{stomatal-conductance}
+
+\begin{itemize}
+\tightlist
+\item
+  stomatal models (Jarvis, Ball-Berry, Leuning, \ldots{})
+\item
+  Bonan, Chapter 12.2-3
+\end{itemize}
+
+Figure 12.1-12.2 and Equations 12.1-12.5 Summary Table 12.1
+
+\subsubsection{Empirical multiplicative
+models}\label{empirical-multiplicative-models}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 12.2
+\end{itemize}
+
+\subsubsection{Semiempirical photosynthesis-based
+models}\label{semiempirical-photosynthesis-based-models}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 12.3
+\end{itemize}
+
+\subsubsection{WUE model}\label{wue-model}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 12.4 + add optimality approach from Prentice et al.
+\end{itemize}
+
+\subsubsection{Hydraulic models}\label{hydraulic-models}
+
+Figure 13.1 The soil-plant-atmosphere model Leaf water potential Plant
+water uptake Resistance analogy Multinode models
+
+\subsection{Stomatal response to environmental
+factors}\label{stomatal-response-to-environmental-factors}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 12.5
+\item
+  Bonan, Chapter 12.7
+\end{itemize}
 
 \section{Upscaling from leaf to
 canopy}\label{upscaling-from-leaf-to-canopy}
+
+\begin{itemize}
+\tightlist
+\item
+  Quickly introduce the problem of scaling in ecology (review paper of
+  Jerome Chave) and refer to chapter 10 on upscalling
+\item
+  Canopy integration: LAI layers, etc\ldots{} Nice transition to chap 3
+  with the interception of light by the canopy
+\end{itemize}
 
 \chapter{Modelling light penetration, vegetation canopy representation,
 and energy
 balance}\label{modelling-light-penetration-vegetation-canopy-representation-and-energy-balance}
 
-\chaptermark{Light}
+\chaptermark{Light} - Mainly Chapter 14 from Bonan
+
+\section{Introduction}\label{introduction}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 14.1 Figure 14.1 Figure 14.2
+\end{itemize}
+
+\section{Radiative transfer
+modelling}\label{radiative-transfer-modelling}
+
+\subsection{Leaf optical properties}\label{leaf-optical-properties}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 14.2 Example of leaf spectrum Prospect model Example of
+  parameters 14.2 + simulations/analysis of sensitivity
+\end{itemize}
+
+\subsection{Light transmission without
+scattering}\label{light-transmission-without-scattering}
+
+\begin{itemize}
+\tightlist
+\item
+  The Beer-Bouguer-Lambert law
+\item
+  Bonan, Chapter 14.3 Most of quations 14.2-14.17 for model description
+  Figure 14.4 and Figure 14.5
+\end{itemize}
+
+\subsection{Direct beam extinction
+coefficient}\label{direct-beam-extinction-coefficient}
+
+\begin{itemize}
+\tightlist
+\item
+  Could be skipped
+\item
+  Bonan, Chapter 14.4
+\end{itemize}
+
+\subsection{Diffuse transmittance}\label{diffuse-transmittance}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 14.5 Figure 14.12
+\end{itemize}
+
+\subsection{The Norman Model}\label{the-norman-model}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 14.6
+\item
+  Numerical Figure 14.15
+\end{itemize}
+
+\subsection{The Goudriaan and van Laar
+Model}\label{the-goudriaan-and-van-laar-model}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 14.7
+\item
+  Analytical Figure 14.16 + 14.15 and 14.17 for comparison with the
+  Norman model
+\end{itemize}
+
+\subsection{The Two-Stream
+approximation}\label{the-two-stream-approximation}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 14.8 Figure 14.19 + simulations
+\end{itemize}
+
+\subsection{Surface Albedo}\label{surface-albedo}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 14.9 Figure 14.20 and Figure 14.21
+\end{itemize}
+
+\subsection{Longwave radiation}\label{longwave-radiation}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 14.10
+\end{itemize}
 
 \section{Representing canopy structure in
 models}\label{representing-canopy-structure-in-models}
 
-\section{Direct and diffuse light}\label{direct-and-diffuse-light}
+\subsection{Big-leaf models}\label{big-leaf-models}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 15.2
+\end{itemize}
+
+\subsection{Multilayer models}\label{multilayer-models}
+
+\begin{itemize}
+\tightlist
+\item
+  Bonan, Chapter 15.4
+\end{itemize}
 
 \section{Ecosystem energy balance}\label{ecosystem-energy-balance}
+
+\begin{itemize}
+\tightlist
+\item
+  UCL 2.3 and 4.2
+\item
+  Bonan, Chapter 7
+\end{itemize}
+
+\subsection{Basic principles}\label{basic-principles}
+
+\begin{itemize}
+\tightlist
+\item
+  UCL 2.3.1 and 4.2.1
+\end{itemize}
+
+\subsection{Atmospheric absoprtion}\label{atmospheric-absoprtion}
+
+\begin{itemize}
+\tightlist
+\item
+  UCL 2.3.2
+\end{itemize}
+
+\subsection{Radiative forcing}\label{radiative-forcing}
+
+\begin{itemize}
+\tightlist
+\item
+  UCL 2.3.3
+\end{itemize}
+
+\subsection{Land surface schemes}\label{land-surface-schemes}
+
+\begin{itemize}
+\tightlist
+\item
+  UCL 4.2.3
+\item
+  First, second and third generation models
+\end{itemize}
 
 \chapter{Temporal and seasonal
 dynamics}\label{temporal-and-seasonal-dynamics}
 
 \chaptermark{dynamics}
 
-\section{Leaf phenology}\label{leaf-phenology}
+\section{Phenology}\label{phenology}
 
-\section{Drivers of seasonality and
-phenology}\label{drivers-of-seasonality-and-phenology}
+\begin{itemize}
+\tightlist
+\item
+  UCL 4.5.2 The study of life-cycle events. Here refers to the temporal
+  dynamics of vegetation. Broader sense of phenology. Applies to most
+  plant. Circadian to seasonal cycles Tissue turnover and senescence
+\end{itemize}
+
+\subsection{The example of crop
+phenology}\label{the-example-of-crop-phenology}
+
+\begin{itemize}
+\tightlist
+\item
+  UCL 4.5.1 Definition +Simple example of phenology (wheat for example:
+  germination + spread + full coverage + allocation to storage organs +
+  ripening)
+\end{itemize}
+
+\section{Mechanisms of phenology and evidence of
+changes}\label{mechanisms-of-phenology-and-evidence-of-changes}
+
+\begin{itemize}
+\tightlist
+\item
+  UCL 4.5.3
+\end{itemize}
+
+\subsection{Overview of controls at different
+levels}\label{overview-of-controls-at-different-levels}
+
+\begin{itemize}
+\tightlist
+\item
+  temperature
+\item
+  light
+\item
+  water
+\item
+  Nutrients
+\item
+  Drivers of seasonality and phenology
+\end{itemize}
+
+\subsection{Vegeation index and changes over
+time}\label{vegeation-index-and-changes-over-time}
+
+\begin{itemize}
+\tightlist
+\item
+  This is also why phenology is a ``metrics'' of climate change
+\end{itemize}
+
+\subsection{Seasonality feedbacks}\label{seasonality-feedbacks}
+
+\begin{itemize}
+\tightlist
+\item
+  Phenology affects phenology (phenophases are linked, one perturbation
+  will affect the next phenophase in the cycle)
+\item
+  The control of phenology on climate: example, early spring leaf
+  unfolding excacerbates drought in summer
+\end{itemize}
+
+\section{Models of phenology}\label{models-of-phenology}
+
+\begin{itemize}
+\tightlist
+\item
+  UCL 4.5.4
+\end{itemize}
+
+\subsection{budburst models}\label{budburst-models}
+
+\subsection{senescence models}\label{senescence-models}
+
+\subsection{Phenology in DGVMs}\label{phenology-in-dgvms}
+
+\begin{itemize}
+\tightlist
+\item
+  Figures from Zhang et al. 2003
+\end{itemize}
 
 \part{Modelling vegetation
 dynamics}\label{part-modelling-vegetation-dynamics}
 
-\chapter{Modelling growth, timber production and Carbon
-allocation}\label{modelling-growth-timber-production-and-carbon-allocation}
+\chapter{Modelling plant growth and biogeochemical cycles in vegetation
+models}\label{modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models}
 
-\chaptermark{Growth}
+\chaptermark{Grotwh} - UCL 4.2.2
 
-\section{Empirical growth modelling: growth
-curves}\label{empirical-growth-modelling-growth-curves}
+based on Bonan Chapter 17
 
-\section{Process-based growth modelling: C-allocation
-models}\label{process-based-growth-modelling-c-allocation-models}
+\section{Process-based growth
+modelling}\label{process-based-growth-modelling}
 
-\chapter{Modelling vegetation dynamics and
-demography}\label{modelling-vegetation-dynamics-and-demography}
+\subsection{C-allocation models}\label{c-allocation-models}
 
-\chaptermark{Dynamics}
+\begin{itemize}
+\tightlist
+\item
+  C pools: Allocation to leaf, wood, fruit
+\end{itemize}
 
-\section{Seed dispersal and
-recruitment}\label{seed-dispersal-and-recruitment}
+\subsection{Applications of growth modelling in forestry and
+agriculture}\label{applications-of-growth-modelling-in-forestry-and-agriculture}
 
-\section{Mortality}\label{mortality}
-
-\section{Gap models, individual and cohort based
-models}\label{gap-models-individual-and-cohort-based-models}
-
-\chapter{Modelling biogeochemical cycles in
-vegetation}\label{modelling-biogeochemical-cycles-in-vegetation}
-
-\chaptermark{Biogeochemical}
+\begin{itemize}
+\tightlist
+\item
+  short, link with inventory course
+\end{itemize}
 
 \section{Carbon cycle models: stocks and
 fluxes}\label{carbon-cycle-models-stocks-and-fluxes}
 
+This chapter will develop the ecological foundation and mathematics to
+describe ecosystem carbon dynamics using biogeochemical models.
+Biogeochemical models abstract an ecosystem as pools of carbon and the
+flows of carbon among these pools.
+
+Use specific model as an example to illustrate? In Bonan: CASA-CNP model
+
+\subsection{Model structure}\label{model-structure}
+
+Biogeochemical models simulate processes of allocation of photosynthetic
+carbon gain to plant parts (e.g., foliage, fine root, wood), turnover of
+plant biomass as litterfall, transformation of litter to soil organic
+matter, and carbon loss during respiration.
+
+Principles: - net carbon input is equal to gross primary production
+minus autotrophic respiration; - carbon flows from donor to receiver
+pools at a rate that depends on the donor pool size and its chemical
+quality as modified by the environment; - mass balance is maintained as
+carbon flows through the system of interconnected pools; - decay of
+litter and soil organic matter releases CO 2 as heterotrophic
+respiration.
+
+Models: a system of first-order, linear differential equations to
+describe carbon pools and fluxes (typically time step of one day)
+
+Pools and fluxes to be included: - Carbon gain from gross primary
+production minus autotrophic respiration - Allocation of carbon to
+growth of leaves, wood, and roots pools (partitioning varies with light
+availability, soil temperature, soil moisture, and nutrients + temporal
+for leaves (ref to phenology) - Carbon turnover (comprising litterfall,
+background mortality, and disturbances) + turnover rates depending on
+the plant material - litter pools: metabolic litter, structural litter,
+coarse woody debris (vary in chemical quality and turnover rate; base
+turnover rates are modified for soil temperature and soil moisture
+(environmental scaling factors)) - decomposition to soil organic matter
+pools: fast SOM, slow SOM, passive SOM (vary in chemical quality and
+turnover time) - portion of the decomposition flow lost as heterotrophic
+respiration
+
+Bonan - Figure 17.2: structure of a typical biogeochemical model -
+equations 17.1 -- 17.10
+
+Additional details? - maintenance respiration and growth respiration -
+storage pool of nonstructural carbohydrates - some models separate wood
+into live stems (sapwood) and dead stems, roots into fine roots and
+coarse roots, and coarse roots into live pools and dead pools to account
+for the different physiological functioning of these biomass components
+
+\subsection{Allocation and turnover
+parameterization}\label{allocation-and-turnover-parameterization}
+
+\begin{itemize}
+\item
+  types of allocation models (see Campioli et al 2013 and work of
+  Fatichi et al. )
+\item
+  allocation parameters
+\item
+  fixed allocation and dynamic allocation (specified by biome or based
+  on environmental conditions)
+\item
+  Optimality models: plants optimally allocate resources to balance
+  light acquisition (foliage), structural support and water transport
+  (stems), and water and nutrient uptake (roots).
+\item
+  allocation based on scaling relationships among plant components
+  (specified ratios of foliage, root, and wood biomass)
+\item
+  Turnover rates vary depending on plant material and are specified as a
+  fraction of biomass.
+\item
+  Turnover rates are commonly estimated as the inverse of residence time
+  or longevity
+\item
+  biogeochemical models can be applied to any type of ecosystem such as
+  grassland, savanna, forest, shrubland, and tundra
+\end{itemize}
+
 \section{Nutrient cycle models: soil biogeochemical
 models}\label{nutrient-cycle-models-soil-biogeochemical-models}
 
+\subsection{Nitrogen cycle}\label{nitrogen-cycle}
+
+\begin{itemize}
+\item
+  Bonan Chapter 17.6 Nitrogen Cycle
+\item
+  Bonan Figure 17.8: Depiction of the nitrogen cycle
+\item
+  only \textasciitilde{}recently added in most biogeochemical models
+\item
+  closely coupled to carbon cycle
+\item
+  important role to limit plant productivity
+\item
+  similar to carbon with an associated nitrogen pool and transfer.
+\item
+  cycling of nitrogen can be represented by a system of linear
+  differential equations similar to that for carbon.
+\item
+  allocation of plant nitrogen uptake up to plant pools
+\item
+  loss of nitrogen in litterfall + portion is reabsorbed
+\item
+  soil nitrogen cycle is more complex (various forms)
+\item
+  decomposition of litter and soil organic matter, (mineralization and
+  immobilization)
+\item
+  nitrification, denitrification, leaching, ammonia volatilization
+\item
+  additional inputs from biological nitrogen fixation, atmospheric
+  deposition, and fertilizer
+\item
+  some examples of models? CLM?
+\item
+  All models simulate a decrease in plant growth when soil mineral
+  nitrogen is insufficient to meet demand, but they differ in the manner
+  in which this is implemented.
+\item
+  maybe also more soil oriented model (CENTURY , \ldots{}.)
+\item
+  discuss different approaches?
+\end{itemize}
+
+\subsection{Phosphorus cycle}\label{phosphorus-cycle}
+
+Not in Bonan - Some models additionally include phosphorus (Wang et al.
+2010; Yang et al. 2014; Goll et al. 2017) - ORCHIDEE, CLM-CNP
+
+\subsection{Other nutrients}\label{other-nutrients}
+
+\begin{itemize}
+\tightlist
+\item
+  K and Mg in Eucalyptus and other tropical plantations
+\end{itemize}
+
 \section{Water balance}\label{water-balance}
 
-\part{Upscaling and
-applications}\label{part-upscaling-and-applications}
+\begin{itemize}
+\item
+  focus on the surface energy balance and vertical water movement in the
+  soil--plant atmosphere system (e.g., soil moisture control of
+  evapotranspiration)
+\item
+  Specific components in terrestrial biosphere models:\\
+  Interception, throughfall, stemflow, infiltration, surface runoff,
+  soil water redistribution, subsurface runoff, snow melt, evaporation,
+  transpiration, plant water uptake, stomatal conductance
+\end{itemize}
+
+\subsection{A bucket model hydrologic
+cycle}\label{a-bucket-model-hydrologic-cycle}
+
+\begin{itemize}
+\tightlist
+\item
+  refer to hydrology courses in the program
+\item
+  change in soil water is the difference between precipitation and
+  evapotranspiration, excess runs off
+\item
+  based on maximum water-holding capacity
+\end{itemize}
 
 \chapter{Representing biodiversity in vegetation
 models}\label{representing-biodiversity-in-vegetation-models}
 
 \chaptermark{Biodiversity}
 
+\section{Why and how representing biodiversity in vegetation
+models?}\label{why-and-how-representing-biodiversity-in-vegetation-models}
+
+We can start with the applications? I think it is more interesting than
+finishing with the applications. Application: Conservation, ecosystem
+resilience, vegetation-atmosphere feedbacks
+
+Biodiversity refers here to functional diversity.
+
 \section{Functional diversity}\label{functional-diversity}
+
+\begin{itemize}
+\tightlist
+\item
+  check the book " Terrestrial Ecosystems in a changing world" from P.
+  Canadell (2007)
+\item
+  Part C: Landscapes under changing disturbance regimes:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    PFT
+  \item
+    Fire and disturbances
+  \item
+    upscalling
+  \item
+    construction, evaluation and examples of DGVM applications
+  \end{itemize}
+\end{itemize}
+
+\subsection{Definition of funcional diversity and plant functional
+traits}\label{definition-of-funcional-diversity-and-plant-functional-traits}
+
+Any morphological, physiological or phenological feature measurable at
+the individual level, from the cell to the whole-organism level, without
+reference to the environment or any other level of organization. It is
+functional if it affects fitness indirectly via its effects on growth,
+reproduction and survival.
+
+\begin{itemize}
+\tightlist
+\item
+  Seminal papers from the plant functional trait community Violle 2007,
+  Lavorel, garnier, Shipley, etc\ldots{}
+\end{itemize}
+
+\includegraphics{figures/Violle2007.jpg} - Mention here the interesting
+summer school:
+\url{http://www.cef-cfr.ca/index.php?n=MEmbres.AlisonMunsonPlantTraits?userlang=en}
+- List of reference papers in the link above - 3 types of traits:
+dynamic, response \& constant, that are linked to the processes we
+studied in the previous chapter (slow/fast processes)
+
+\subsection{Representing 400 000 plant species in a single model: the
+Plant Functional Type
+approach}\label{representing-400-000-plant-species-in-a-single-model-the-plant-functional-type-approach}
+
+Short description in UCL 4.3.2\\
+No description in Bonan
+
+\begin{itemize}
+\tightlist
+\item
+  Lack of observations for every species
+\item
+  Computing resources problem (refers to the history of DGVMs from the
+  introduction)
+\item
+  A simplification based on biome description and plant functionning at
+  the ecosystem level
+\item
+  Different definitions of PFT: statistical classification, etc.
+\item
+  Table of classical PFTs used in models here.
+\item
+  PFT mapping: multi-obs approach based on remote sensing.
+\item
+  First use of PFTs managed to reproduce well the gradients at the
+  global scale, but now it is unsuficcient.
+\end{itemize}
+
+\subsection{Limits of the PFT representation in the context of global
+change}\label{limits-of-the-pft-representation-in-the-context-of-global-change}
+
+\begin{itemize}
+\tightlist
+\item
+  Including acclimation and adaptation processes
+\item
+  Dynamic vegetation: Accounting for non-random species turnover
+\item
+  Quantifying vegetation-environment feedbacks
+\item
+  Quantifying impacts of biodiversity on ecosytem functioning and
+  climate
+\end{itemize}
+
+\subsection{From model parameters to plant
+traits}\label{from-model-parameters-to-plant-traits}
+
+\begin{itemize}
+\tightlist
+\item
+  Reconciliating modelling with functional ecology.
+\item
+  Existing databases (TRY)
+\item
+  Empirical approach: More PFTs with traits instead of model-specific
+  parameters, trait-trait, trait-environment relationships
+\item
+  Trade-offs: modeling plant strategies --\textgreater{} LES, PES, RES,
+  all the ES :D
+\item
+  Role of data assimilation in regions without data and to assess
+  spatial variability of vegetation properties
+\item
+  But: requires lots of observations in space and time.
+\end{itemize}
+
+\subsection{Eco-evolutive optimality
+approaches}\label{eco-evolutive-optimality-approaches}
+
+\begin{itemize}
+\tightlist
+\item
+  New generation of models
+\item
+  PPA, coordination, ect\ldots{}
+\item
+  Paper from Oskar.
+\end{itemize}
 
 \section{Competition models}\label{competition-models}
 
+Not in Bonan nor UCL\\
+In Bonan Chapter 19 on demography, gap models, etc\ldots{} which is a
+part of competition.
+
+\subsection{Representation of PFTs in vegetation
+models}\label{representation-of-pfts-in-vegetation-models}
+
+\begin{itemize}
+\tightlist
+\item
+  Parameterization and calibration of PFTs--\textgreater{} data
+  assimilation, traits, model-specific parameters
+\item
+  representation by pixels
+\item
+  shared processes, different processes
+\item
+  interaction between PFTs
+\item
+  Depend on the model: individual/cohort/big leaf
+\end{itemize}
+
+\subsection{Competition for ressources / Plant
+strategy?}\label{competition-for-ressources-plant-strategy}
+
+\begin{itemize}
+\tightlist
+\item
+  In fact we can extend the trait based approach and plant strategy
+  (PES, etc) in the competition and community section?
+\item
+  Mortality, turnover, etc..
+\end{itemize}
+
+\subsection{Representation of trait
+distributions}\label{representation-of-trait-distributions}
+
+\begin{itemize}
+\tightlist
+\item
+  Trade-offs
+\end{itemize}
+
 \section{Communities}\label{communities}
+
+\begin{itemize}
+\tightlist
+\item
+  Successions and impact on cycles, species composition etc.
+\end{itemize}
+
+\section{What about crops?}\label{what-about-crops}
+
+\begin{itemize}
+\tightlist
+\item
+  Not our focus but we don't forget it. A few words to say that specific
+  crop models exists
+\item
+  Diversity is not a problem anymore
+\item
+  Plant functional traits are still central to crop modelling, but
+  competition and diversity are no more an issue.
+\item
+  Other problematics specific to agriculture, such as agro-ecosystems
+  where we have multi layers of vegetation (Trees over crops)
+  --\textgreater{} Very interesting modelling problem and application
+  especially in arid/semi-arid and tropical regions
+\end{itemize}
+
+\chapter{Modelling vegetation dynamics and
+demography}\label{modelling-vegetation-dynamics-and-demography}
+
+\chaptermark{Dynamics}
+
+Bonan Chapter 19.2 Another class of models, known as individual plant or
+ecosystem demography models, retains the complexity of individual plants
+or cohorts of similar plants. In these models, ecosystem properties such
+as carbon storage are the outcome of demographic processes.
+
+\begin{itemize}
+\tightlist
+\item
+  plant populations
+\item
+  community composition
+\item
+  ecosystem structure
+\item
+  driven by demographic processes of recruitment, establishment, growth,
+  and mortality
+\end{itemize}
+
+\section{Gap models, individual and cohort based
+models}\label{gap-models-individual-and-cohort-based-models}
+
+\begin{itemize}
+\item
+  small scale models; landscape represented as a mosaic of hundreds of
+  independent forest patches, each of which can differ in species
+  composition and stage of development in response to disturbance that
+  creates an opening in the canopy
+\item
+  models track the establishment, growth, and death of individual trees
+  in an area of land.
+\item
+  Each tree is characterized by its species, stem diameter, height, and
+  age.
+\item
+  trees compete for light, soil moisture, and nutrients.
+\item
+  patch undergoes temporal changes in the density, size, and composition
+  of trees with the formation of a gap in the canopy
+\item
+  Community composition, biomass, productivity, and biogeochemical
+  cycles are emergent outcomes of individual trees interacting among
+  themselves and with the environment to acquire the resources necessary
+  for growth and survival
+\item
+  cohort-based models define patches based on age since disturbance and
+  simulate the dynamics of cohorts of similar plant functional types
+  rather than tracking every individual.
+\item
+  Common to each model is the representation of vegetation demography,
+  with age- and size-dependent growth and mortality and in which growth
+  is constrained by allometric relationships of stem diameter with
+  height, sapwood area, leaf area, and biomass. cohort models
+  --\textgreater{} modelling size distributions
+\end{itemize}
+
+\section{Allometric relationships}\label{allometric-relationships}
+
+\begin{itemize}
+\tightlist
+\item
+  link with growth modelling of previuous chapter
+\item
+  allometric relationships are a critical driver of individual tree
+  growth.
+\item
+  Height is important for its effect on stem diameter increment, both
+  directly through tree volume growth and indirectly through shading.
+\item
+  Biomass allocation: empirical equations that constrain foliage, stem,
+  and root mass for a given size tree
+\item
+  relationship between stem diameter and leaf area drives light
+  extinction in the canopy
+\item
+  annual growth of a tree is calculated from its diameter and height as
+  modified by light, climate, and site conditions. Growth curves figure
+  19.5
+\end{itemize}
+
+\section{Competition for light}\label{competition-for-light}
+
+\begin{itemize}
+\tightlist
+\item
+  critical driver of forest dynamics
+\item
+  shading of smaller individuals by taller trees
+\item
+  vertical profile of leaf area in the patch (vertical structure in
+  which trees are arranged into canopy layers)
+\item
+  height of a tree determines its location in the cumulative leaf area
+  profile
+\item
+  light extinction coefficient
+\item
+  figure 19.6: representation of plant canopies
+\end{itemize}
+
+\section{Seed dispersal and
+recruitment}\label{seed-dispersal-and-recruitment}
+
+\begin{itemize}
+\item
+  regeneration: stochastic process
+\item
+  seeds of species are assumed to be present on-site
+\item
+  available light at the forest floor, climate tolerances, and other
+  site conditions determine which species become established.
+\item
+  sprouting based on size
+\item
+  Species are characterized by life history characteristics + maybe add
+  example of herb layer models of FORNALAB
+\end{itemize}
+
+\section{Mortality}\label{mortality}
+
+\begin{itemize}
+\item
+  stochastic process
+\item
+  Trees die with a constant probability each year
+\item
+  The probability of mortality increases when tree growth is less than
+  some minimum
+\item
+  disturbance related mortality : Wildfire and insect outbreaks can be
+  included
+\item
+  The occurrence of fire is treated stochastically with an annual
+  probability of burning. An individual patch may, for example, have a
+  1\% change of burning in any given year.
+\end{itemize}
+
+\part{Upscaling and
+applications}\label{part-upscaling-and-applications}
 
 \chapter{Spatial heterogeneity, landscape scale,
 metapopulations}\label{spatial-heterogeneity-landscape-scale-metapopulations}
@@ -309,19 +1354,330 @@ metapopulations}\label{spatial-heterogeneity-landscape-scale-metapopulations}
 
 \section{Patch dynamics}\label{patch-dynamics}
 
+Some references: - Book: The ecology of natual disturance and patch
+dynamics, Pickett \& White, 2013
+
+\subsection{Spatial heterogeneity:
+Definitions}\label{spatial-heterogeneity-definitions}
+
+\begin{itemize}
+\tightlist
+\item
+  Definition of Patch Dynamics, Perturbation, Disturbance:
+\item
+  Spatial heterogeneity
+\item
+  Resilience and shifts
+\end{itemize}
+
+\subsection{Impact of heterogeneity on ecosystem fonctionning and
+environmental
+feedbacks}\label{impact-of-heterogeneity-on-ecosystem-fonctionning-and-environmental-feedbacks}
+
+\begin{itemize}
+\tightlist
+\item
+  Show examples here of the impact of heterogeneity
+\item
+  Application in the design of nature reserves for example
+\end{itemize}
+
+\subsection{Heterogeneity is a matter of
+resolution}\label{heterogeneity-is-a-matter-of-resolution}
+
+\begin{itemize}
+\tightlist
+\item
+  Imbricated levels of heterogeneity depending on spatial and temporal
+  resolution
+\item
+  Heterogeneity is also a matter of the studied question: important in
+  term of modelling since it will govern how processes are implemented
+\end{itemize}
+
+\subsection{Representation in Vegetation models: what are the drivers of
+spatial
+heterogeneity?}\label{representation-in-vegetation-models-what-are-the-drivers-of-spatial-heterogeneity}
+
+\begin{itemize}
+\tightlist
+\item
+  List here the different drivers
+\item
+  Heterogeneity is a patchwork of homogeneity in most models
+\item
+  But we can still represent dynamics in heterogeneity --\textgreater{}
+  mortality, growth and shifts in species composition
+\end{itemize}
+
+\subsection{Disturbances and Patch
+dynamics}\label{disturbances-and-patch-dynamics}
+
+\begin{itemize}
+\tightlist
+\item
+  We listed the different drivers above, we will now discuss in detail
+  the most important aspects affecting patch dynamics
+\item
+  Link to land-use and disturbance
+\end{itemize}
+
 \section{Land-use changes}\label{land-use-changes}
 
-\section{Fire and disturbance}\label{fire-and-disturbance}
+\begin{itemize}
+\tightlist
+\item
+  Land use is linked to spatial heterogeneity and patch dynamics
+\end{itemize}
 
-\chapter{Upscaling from leaf/tree to
-globe}\label{upscaling-from-leaftree-to-globe}
+\subsection{Role of Land-use in global emissions and biogeochemicel
+cycles}\label{role-of-land-use-in-global-emissions-and-biogeochemicel-cycles}
 
-\chaptermark{Globe}
+\begin{itemize}
+\tightlist
+\item
+  impact C stocks and fluxes
+\item
+  impact on nutrients (depletion over rotations, etc\ldots{})
+\item
+  important impact on respiration
+\item
+  vegetation cover and biophysical impact: albedo, etc\ldots{}
+\item
+  Specific case of deforestation, one of the most important imapct (make
+  a paragraph on that?)
+\item
+  How are fluxes attributed to land use in gas emission assessments?
+  --\textgreater{} central role of vegetation modeling
+\end{itemize}
+
+\subsection{The important role of land use in the water
+cycle}\label{the-important-role-of-land-use-in-the-water-cycle}
+
+\begin{itemize}
+\tightlist
+\item
+  Affects regional precipitations
+\item
+  Affects water routing --\textgreater{} Compared to the local impact on
+  vegetation, here we touch something that will have an impact for the
+  surrounding regions
+\end{itemize}
+
+\subsection{Monitoring land-use}\label{monitoring-land-use}
+
+\begin{itemize}
+\tightlist
+\item
+  remote sensing, rapid link to other courses
+\end{itemize}
+
+\subsection{How Land-use is represented in vegetation
+models?}\label{how-land-use-is-represented-in-vegetation-models}
+
+\begin{itemize}
+\tightlist
+\item
+  Compared to vegetation dynamic which is process-based, here land use
+  is imposed.
+\item
+  management
+\item
+  urban areas
+\end{itemize}
+
+\section{Natural and Anthropogenic
+disturbances}\label{natural-and-anthropogenic-disturbances}
+
+\begin{itemize}
+\tightlist
+\item
+  We provide an overview of disturbances but we will detail only one of
+  each: Fires and Management
+\end{itemize}
+
+\subsection{Wind and extrem events}\label{wind-and-extrem-events}
+
+\begin{itemize}
+\tightlist
+\item
+  Modelling storms
+\item
+  Modelling heat and cold waves, frost impact
+\end{itemize}
+
+\subsection{Herbivory}\label{herbivory}
+
+\begin{itemize}
+\tightlist
+\item
+  Yes herbivory is represented in vegetation models :D
+\item
+  Palability traits/ fixed fraction/ insects
+\end{itemize}
+
+\subsection{Modelling fires}\label{modelling-fires}
+
+\begin{itemize}
+\tightlist
+\item
+  In UCL Practical chap. 6
+\item
+  For estimating the impact on ecosystems
+\item
+  To be able to predict fires
+\item
+  Observation of fires and quantifications of fluxes
+\item
+  Fires and deposition
+\item
+  Aerosols
+\item
+  Modelling ``fire'' traits, drought and temperature stress in models to
+  simulate fires
+\end{itemize}
+
+\subsection{Human activity: Management and urban
+areas}\label{human-activity-management-and-urban-areas}
+
+\begin{itemize}
+\tightlist
+\item
+  Forest management: existing models, representation of forestry and use
+  of models
+\item
+  Fertilization and irrigation in vegetation models
+\item
+  Urban areas in vegetation models
+\item
+  Concrete application: Paper of Luyssaert: forest management in Europe
+  did not help in mitigating climate change.
+\end{itemize}
+
+\subsection{The specific case of CO2 and temperature
+increase}\label{the-specific-case-of-co2-and-temperature-increase}
+
+\begin{itemize}
+\tightlist
+\item
+  conclude the chapter here by refering to climate change, one of the
+  biggest ``Continuous'' distrubance compared to previous ``discrete''
+  disturbances
+\item
+  Simulating acclimation and adaptation
+\item
+  refers to chapter 2 for acclimation of processes
+\item
+  refers to chapter 11 for scenarios
+\end{itemize}
+
+\chapter{Upscaling from the leaf to the
+globe}\label{upscaling-from-the-leaf-to-the-globe}
+
+\chaptermark{Globe} Some references: - Scalling processes and problems,
+Jarvis 1995 - upscalling in global change research, Harvey 2000
+
+\section{Spatial and temporal non-linearities: Cascading effect in the
+Earth
+system}\label{spatial-and-temporal-non-linearities-cascading-effect-in-the-earth-system}
+
+\begin{itemize}
+\tightlist
+\item
+  spatial upscalling
+\item
+  temporal upscalling
+\item
+  classification of upscalling problems:
+\item
+  Spatial variability + process nonlinearity
+\item
+  Minimim scale to observe the process
+\item
+  Different processes dominate at different scales
+\item
+  Feedbacks between scales
+\item
+  Development of emergent properties
+\item
+  Edge effects
+\item
+  Temporal lag dependent on spatial scale change
+\item
+  Collective response with differential effects
+\item
+  Solutions to upscaling problems:
+\item
+  Ignore (easy solution)
+\item
+  Increase model resolution (now more and more possible thanks to
+  computing ressources, and data assimilation)
+\item
+  etc\ldots{} ** Nice review in Harvey 2000 **
+\end{itemize}
+
+--\textgreater{} Solution depends on the application, show some examples
+here
 
 \section{Land surface models}\label{land-surface-models}
 
-\section{DVGMs as a part of Earth system
-models}\label{dvgms-as-a-part-of-earth-system-models}
+\begin{itemize}
+\tightlist
+\item
+  Dependence to other disciplines (Biology, ecology, physics, chemistry
+  (VOC, etc), hydrology, pedology, datascience and mathematics,
+  etc\ldots{})
+\item
+  Figure 1.7 from Bonan
+\item
+  UCL 4.2: Land surface schemes
+\item
+  Focus on the coupling of different models and what it implies, not the
+  technical aspects \#\#\# Soil-Vegetation-Atmosphere-Transer models
+\item
+  Description of SVAT models, regroups what we studied in Chap1-9
+\end{itemize}
+
+\section{DVGMs as a part of Earth System
+Models}\label{dvgms-as-a-part-of-earth-system-models}
+
+\begin{itemize}
+\tightlist
+\item
+  Partially in UCL 4.3.3
+\end{itemize}
+
+\subsection{One Biosphere}\label{one-biosphere}
+
+\begin{itemize}
+\tightlist
+\item
+  Chapter 1 of Bonan, specifically 1.5
+\item
+  Coupling to other components
+\end{itemize}
+
+\subsection{Atmosphere, Ocean, lakes and urban
+areas}\label{atmosphere-ocean-lakes-and-urban-areas}
+
+\begin{itemize}
+\tightlist
+\item
+  Rapid desciption of other models
+\item
+  Reference here to previous chapter on heterogeneity
+\end{itemize}
+
+\subsection{Coupling of processes with different time steps and regional
+scale}\label{coupling-of-processes-with-different-time-steps-and-regional-scale}
+
+\subsection{Simulating feedbacks}\label{simulating-feedbacks}
+
+\begin{itemize}
+\tightlist
+\item
+  Nice transition to chap 11 with future scenarii
+\end{itemize}
 
 \chapter{Model projections and scenario
 analysis}\label{model-projections-and-scenario-analysis}
@@ -330,16 +1686,215 @@ analysis}\label{model-projections-and-scenario-analysis}
 
 \section{Climate scenarios}\label{climate-scenarios}
 
+\subsection{Representative Concentration Pathway (RCP
+scenarios)}\label{representative-concentration-pathway-rcp-scenarios}
+
+\begin{itemize}
+\tightlist
+\item
+  How scenarios are defined
+\item
+  How current emissions are measured and attributed to different
+  factors?
+\end{itemize}
+
+\subsection{Different models, different
+RCP}\label{different-models-different-rcp}
+
+\begin{itemize}
+\tightlist
+\item
+  The central role of ESM: coupling to Atmosphere and Ocean and
+  feedbacks
+\item
+  Here refers to preivous Chapter 10
+\item
+  list some examples and differences: IPSL, HadGEM, etc\ldots{}
+\end{itemize}
+
+\subsection{Use of RCP in vegetation
+modelling}\label{use-of-rcp-in-vegetation-modelling}
+
+\begin{itemize}
+\tightlist
+\item
+  ENSEMBLE simulations
+\item
+  IPCC
+\item
+  Example of applications
+\end{itemize}
+
+\subsection{How can we evaluate future
+scenarios?}\label{how-can-we-evaluate-future-scenarios}
+
+\begin{itemize}
+\tightlist
+\item
+  FACE
+\item
+  Rainfall exclusion experiments
+\item
+  Natural gradient (Iceland and soil temperature based on volcano and
+  geothermy)
+\end{itemize}
+
+\subsection{The central role of Paleo studies and historical
+datasets.}\label{the-central-role-of-paleo-studies-and-historical-datasets.}
+
+\begin{itemize}
+\tightlist
+\item
+  Good performance for past and current conditions is mandatory to
+  evaluate future scenarios
+\item
+  Here remind the central role of experiments and monitoring
+\end{itemize}
+
 \section{Land-use scenarios}\label{land-use-scenarios}
+
+\subsection{Construction of Land-use
+scenarios}\label{construction-of-land-use-scenarios}
+
+\begin{itemize}
+\tightlist
+\item
+  Hyde for historical land-use,
+  \url{https://themasites.pbl.nl/tridion/en/themasites/hyde/}
+\item
+  Scenario for future land-use
+\end{itemize}
+
+--\textgreater{} We can follow the same structure as for RCP?
+
+\subsection{How can we evaluate land use
+scenarios?}\label{how-can-we-evaluate-land-use-scenarios}
+
+\begin{itemize}
+\tightlist
+\item
+  Based on historical data
+\item
+  Remote sensing
+\end{itemize}
 
 \section{Management scenarios}\label{management-scenarios}
 
-\part{Practicals}\label{part-practicals}
+\subsection{Construction of Land-use
+scenarios}\label{construction-of-land-use-scenarios-1}
+
+\subsection{How can we evaluate management
+scenarios?}\label{how-can-we-evaluate-management-scenarios}
+
+\section{Some concrete applications of vegetation
+models}\label{some-concrete-applications-of-vegetation-models}
+
+\begin{itemize}
+\tightlist
+\item
+  As a conclusion of the whole course I see a nice diagram that we
+  constructed throughout the course with small boxes added to each
+  others and we link that to all the possible application
+\end{itemize}
+
+\part{Appendix}\label{part-appendix}
+
+\chapter*{Contributing to this
+document}\label{contributing-to-this-document}
+\addcontentsline{toc}{chapter}{Contributing to this document}
+
+\section*{First steps}\label{first-steps}
+\addcontentsline{toc}{section}{First steps}
+
+First, visit the course webpage on
+\url{https://github.com/femeunier/VegMod_course}, and fork it to your
+own github account. Open a RStudio session and (if it is your first time
+with git) introduce yourself:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ config --global user.name }\StringTok{"FULLNAME"}
+\FunctionTok{git}\NormalTok{ config --global user.email you@yourdomain.example.com}
+\end{Highlighting}
+\end{Shaded}
+
+Note that you can do every single step below using the terminal and the
+git tabs in RStudio. Clone the newly forked folder to your local
+machine:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ clone https://github.com/femeunier/VegMod_course.git}
+\end{Highlighting}
+\end{Shaded}
+
+or using SSH (to set up it first, see for instance
+\url{https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ clone git@github.com:femeunier/VegMod_course.git}
+\end{Highlighting}
+\end{Shaded}
+
+Define upstream
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ VegMod_course}
+\FunctionTok{git}\NormalTok{ remote add upstream git@github.com:femeunier/VegMod_course.git}
+\end{Highlighting}
+\end{Shaded}
+
+\section*{New pull request}\label{new-pull-request}
+\addcontentsline{toc}{section}{New pull request}
+
+Get the latest code from the main repository
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ pull upstream master}
+\end{Highlighting}
+\end{Shaded}
+
+Create a new branch (here new\_branch is the new branch's name)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ checkout -b new_branch}
+\end{Highlighting}
+\end{Shaded}
+
+Do some coding, add files and commit them
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ add filepath}
+\FunctionTok{git}\NormalTok{ commit -m “Message”}
+\end{Highlighting}
+\end{Shaded}
+
+Push your changes to your github (when a feature is working, a set of
+bugs are fixed, or you need to share progress with others).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ push origin new_branch}
+\end{Highlighting}
+\end{Shaded}
+
+Before submitting code back to the main repository, make sure that book
+compiles (buikd book). Open the PR online by visiting your github
+repository. To ease those previous steps you can take advantage of the
+git GUI in RStudio. To do so, create a new project from an existing
+directory.
 
 \chapter*{Supporting material}\label{supporting-material}
 \addcontentsline{toc}{chapter}{Supporting material}
 
 Crash course, basic programming (R), theory about model evaluation etc.
+
+\part{Practicals}\label{part-practicals}
 
 \chapter*{Practical A}\label{practical-a}
 \addcontentsline{toc}{chapter}{Practical A}

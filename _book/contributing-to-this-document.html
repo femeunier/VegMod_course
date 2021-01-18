@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Practical C | Vegetation modelling</title>
+  <title>Contributing to this document | Vegetation modelling</title>
   <meta name="description" content="Syllabus associated to the course XX taught at Ghent University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Practical C | Vegetation modelling" />
+  <meta property="og:title" content="Contributing to this document | Vegetation modelling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Practical C | Vegetation modelling" />
+  <meta name="twitter:title" content="Contributing to this document | Vegetation modelling" />
   
   <meta name="twitter:description" content="Syllabus associated to the course XX taught at Ghent University" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="practical-b.html"/>
-<link rel="next" href="practical-d.html"/>
+<link rel="prev" href="model-projections-and-scenario-analysis.html"/>
+<link rel="next" href="supporting-material.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -295,20 +295,42 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="practical-c" class="section level1 unnumbered">
-<h1>Practical C</h1>
-<p>PC-room, supervised exercise</p>
-<p>Modelling the size structure of a temperate forest (stand diameter distribution)</p>
-<p>Scale: forest stand</p>
-<p>Methodological focus: initial conditions</p>
+<div id="contributing-to-this-document" class="section level1 unnumbered">
+<h1>Contributing to this document</h1>
+<div id="first-steps" class="section level2 unnumbered">
+<h2>First steps</h2>
+<p>First, visit the course webpage on <a href="https://github.com/femeunier/VegMod_course" class="uri">https://github.com/femeunier/VegMod_course</a>, and fork it to your own github account. Open a RStudio session and (if it is your first time with git) introduce yourself:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> config --global user.name <span class="st">&quot;FULLNAME&quot;</span>
+<span class="fu">git</span> config --global user.email you@yourdomain.example.com</code></pre></div>
+<p>Note that you can do every single step below using the terminal and the git tabs in RStudio. Clone the newly forked folder to your local machine:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> clone https://github.com/femeunier/VegMod_course.git</code></pre></div>
+<p>or using SSH (to set up it first, see for instance <a href="https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh" class="uri">https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh</a>)</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> clone git@github.com:femeunier/VegMod_course.git</code></pre></div>
+<p>Define upstream</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> VegMod_course
+<span class="fu">git</span> remote add upstream git@github.com:femeunier/VegMod_course.git</code></pre></div>
+</div>
+<div id="new-pull-request" class="section level2 unnumbered">
+<h2>New pull request</h2>
+<p>Get the latest code from the main repository</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> pull upstream master</code></pre></div>
+<p>Create a new branch (here new_branch is the new branch's name)</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> checkout -b new_branch</code></pre></div>
+<p>Do some coding, add files and commit them</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> add filepath
+<span class="fu">git</span> commit -m “Message”</code></pre></div>
+<p>Push your changes to your github (when a feature is working, a set of bugs are fixed, or you need to share progress with others).</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> push origin new_branch</code></pre></div>
+<p>Before submitting code back to the main repository, make sure that book compiles (buikd book). Open the PR online by visiting your github repository. To ease those previous steps you can take advantage of the git GUI in RStudio. To do so, create a new project from an existing directory.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="practical-b.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="practical-d.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="model-projections-and-scenario-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="supporting-material.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

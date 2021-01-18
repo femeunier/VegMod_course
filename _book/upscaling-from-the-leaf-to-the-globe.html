@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Practical C | Vegetation modelling</title>
+  <title>Chapter 9 Upscaling from the leaf to the globe | Vegetation modelling</title>
   <meta name="description" content="Syllabus associated to the course XX taught at Ghent University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Practical C | Vegetation modelling" />
+  <meta property="og:title" content="Chapter 9 Upscaling from the leaf to the globe | Vegetation modelling" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Practical C | Vegetation modelling" />
+  <meta name="twitter:title" content="Chapter 9 Upscaling from the leaf to the globe | Vegetation modelling" />
   
   <meta name="twitter:description" content="Syllabus associated to the course XX taught at Ghent University" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="practical-b.html"/>
-<link rel="next" href="practical-d.html"/>
+<link rel="prev" href="spatial-heterogeneity-landscape-scale-metapopulations.html"/>
+<link rel="next" href="model-projections-and-scenario-analysis.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -295,20 +295,78 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="practical-c" class="section level1 unnumbered">
-<h1>Practical C</h1>
-<p>PC-room, supervised exercise</p>
-<p>Modelling the size structure of a temperate forest (stand diameter distribution)</p>
-<p>Scale: forest stand</p>
-<p>Methodological focus: initial conditions</p>
+<div id="upscaling-from-the-leaf-to-the-globe" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Upscaling from the leaf to the globe</h1>
+<p> Some references: - Scalling processes and problems, Jarvis 1995 - upscalling in global change research, Harvey 2000</p>
+<div id="spatial-and-temporal-non-linearities-cascading-effect-in-the-earth-system" class="section level2">
+<h2><span class="header-section-number">9.1</span> Spatial and temporal non-linearities: Cascading effect in the Earth system</h2>
+<ul>
+<li>spatial upscalling</li>
+<li>temporal upscalling</li>
+<li>classification of upscalling problems:</li>
+<li>Spatial variability + process nonlinearity</li>
+<li>Minimim scale to observe the process</li>
+<li>Different processes dominate at different scales</li>
+<li>Feedbacks between scales</li>
+<li>Development of emergent properties</li>
+<li>Edge effects</li>
+<li>Temporal lag dependent on spatial scale change</li>
+<li>Collective response with differential effects</li>
+<li>Solutions to upscaling problems:</li>
+<li>Ignore (easy solution)</li>
+<li>Increase model resolution (now more and more possible thanks to computing ressources, and data assimilation)</li>
+<li>etc... ** Nice review in Harvey 2000 **</li>
+</ul>
+<p>--&gt; Solution depends on the application, show some examples here</p>
+</div>
+<div id="land-surface-models" class="section level2">
+<h2><span class="header-section-number">9.2</span> Land surface models</h2>
+<ul>
+<li>Dependence to other disciplines (Biology, ecology, physics, chemistry (VOC, etc), hydrology, pedology, datascience and mathematics, etc…)</li>
+<li>Figure 1.7 from Bonan</li>
+<li>UCL 4.2: Land surface schemes</li>
+<li>Focus on the coupling of different models and what it implies, not the technical aspects ### Soil-Vegetation-Atmosphere-Transer models</li>
+<li>Description of SVAT models, regroups what we studied in Chap1-9</li>
+</ul>
+</div>
+<div id="dvgms-as-a-part-of-earth-system-models" class="section level2">
+<h2><span class="header-section-number">9.3</span> DVGMs as a part of Earth System Models</h2>
+<ul>
+<li>Partially in UCL 4.3.3</li>
+</ul>
+<div id="one-biosphere" class="section level3">
+<h3><span class="header-section-number">9.3.1</span> One Biosphere</h3>
+<ul>
+<li>Chapter 1 of Bonan, specifically 1.5</li>
+<li>Coupling to other components</li>
+</ul>
+</div>
+<div id="atmosphere-ocean-lakes-and-urban-areas" class="section level3">
+<h3><span class="header-section-number">9.3.2</span> Atmosphere, Ocean, lakes and urban areas</h3>
+<ul>
+<li>Rapid desciption of other models</li>
+<li>Reference here to previous chapter on heterogeneity</li>
+</ul>
+</div>
+<div id="coupling-of-processes-with-different-time-steps-and-regional-scale" class="section level3">
+<h3><span class="header-section-number">9.3.3</span> Coupling of processes with different time steps and regional scale</h3>
+</div>
+<div id="simulating-feedbacks" class="section level3">
+<h3><span class="header-section-number">9.3.4</span> Simulating feedbacks</h3>
+<ul>
+<li>Nice transition to chap 11 with future scenarii</li>
+</ul>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="practical-b.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="practical-d.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="spatial-heterogeneity-landscape-scale-metapopulations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="model-projections-and-scenario-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

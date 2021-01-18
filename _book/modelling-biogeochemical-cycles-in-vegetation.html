@@ -24,7 +24,7 @@
 <meta name="author" content="Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle" />
 
 
-<meta name="date" content="2020-05-27" />
+<meta name="date" content="2020-06-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,43 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -70,32 +107,61 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#soil-plant-atmosphere-continuum-the-central-role-of-vegetation"><i class="fa fa-check"></i><b>1.1</b> Soil-Plant-Atmosphere continuum: the central role of vegetation</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#soil-plant-atmosphere-continuum-the-central-role-of-vegetation-in-the-earth-system"><i class="fa fa-check"></i><b>1.1</b> Soil-plant-atmosphere continuum: the central role of vegetation in the earth system</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#why-do-we-need-modelling"><i class="fa fa-check"></i><b>1.2</b> Why do we need modelling?</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#components-of-a-model"><i class="fa fa-check"></i><b>1.3</b> Components of a model</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#model-types"><i class="fa fa-check"></i><b>1.3</b> Model types</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#the-history-of-vegetation-models"><i class="fa fa-check"></i><b>1.4</b> The history of vegetation models</a><ul>
 <li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#early-history-of-vegetation-modelling"><i class="fa fa-check"></i><b>1.4.1</b> Early history of vegetation modelling</a></li>
 <li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#the-first-dvgms-centered-around-carbon-fluxes"><i class="fa fa-check"></i><b>1.4.2</b> The first DVGMs centered around carbon fluxes</a></li>
 <li class="chapter" data-level="1.4.3" data-path="intro.html"><a href="intro.html#a-new-generation-of-dgvms-centered-around-vegetation-functioning"><i class="fa fa-check"></i><b>1.4.3</b> A new generation of DGVMs centered around vegetation functioning</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#model-types"><i class="fa fa-check"></i><b>1.5</b> Model types</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#components-of-a-model"><i class="fa fa-check"></i><b>1.5</b> Components of a model</a></li>
 <li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#structure-of-the-course"><i class="fa fa-check"></i><b>1.6</b> Structure of the course</a></li>
 </ul></li>
 <li class="part"><span><b>I Biophysical and physiological models</b></span></li>
 <li class="chapter" data-level="2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html"><i class="fa fa-check"></i><b>2</b> Modelling plant basic processes</a><ul>
-<li class="chapter" data-level="2.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#photosynthesis-and-stomatal-models"><i class="fa fa-check"></i><b>2.1</b> Photosynthesis and stomatal models</a></li>
+<li class="chapter" data-level="2.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#photosynthesis-and-stomatal-models"><i class="fa fa-check"></i><b>2.1</b> Photosynthesis and stomatal models</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#c3-photosynthesis"><i class="fa fa-check"></i><b>2.1.1</b> C3 photosynthesis</a></li>
+<li class="chapter" data-level="2.1.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#parameter-and-temperature-dependencies"><i class="fa fa-check"></i><b>2.1.2</b> Parameter and temperature dependencies</a></li>
+<li class="chapter" data-level="2.1.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#c4-photosynthesis"><i class="fa fa-check"></i><b>2.1.3</b> C4 photosynthesis</a></li>
+</ul></li>
 <li class="chapter" data-level="2.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#respiration-models"><i class="fa fa-check"></i><b>2.2</b> Respiration models</a></li>
-<li class="chapter" data-level="2.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#transpiration"><i class="fa fa-check"></i><b>2.3</b> Transpiration</a></li>
+<li class="chapter" data-level="2.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#transpiration"><i class="fa fa-check"></i><b>2.3</b> Transpiration</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#penman-monteith-equation"><i class="fa fa-check"></i><b>2.3.1</b> Penman-Monteith equation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#stomatal-conductance"><i class="fa fa-check"></i><b>2.3.2</b> Stomatal conductance</a></li>
+<li class="chapter" data-level="2.3.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#stomatal-response-to-environmental-factors"><i class="fa fa-check"></i><b>2.3.3</b> Stomatal response to environmental factors</a></li>
+</ul></li>
 <li class="chapter" data-level="2.4" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#upscaling-from-leaf-to-canopy"><i class="fa fa-check"></i><b>2.4</b> Upscaling from leaf to canopy</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><i class="fa fa-check"></i><b>3</b> Modelling light penetration, vegetation canopy representation, and energy balance</a><ul>
-<li class="chapter" data-level="3.1" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#representing-canopy-structure-in-models"><i class="fa fa-check"></i><b>3.1</b> Representing canopy structure in models</a></li>
-<li class="chapter" data-level="3.2" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#direct-and-diffuse-light"><i class="fa fa-check"></i><b>3.2</b> Direct and diffuse light</a></li>
-<li class="chapter" data-level="3.3" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#ecosystem-energy-balance"><i class="fa fa-check"></i><b>3.3</b> Ecosystem energy balance</a></li>
+<li class="chapter" data-level="3.1" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#radiative-transfer-modelling"><i class="fa fa-check"></i><b>3.2</b> Radiative transfer modelling</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#leaf-optical-properties"><i class="fa fa-check"></i><b>3.2.1</b> Leaf optical properties</a></li>
+<li class="chapter" data-level="3.2.2" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#light-transmission-without-scattering"><i class="fa fa-check"></i><b>3.2.2</b> Light transmission without scattering</a></li>
+<li class="chapter" data-level="3.2.3" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#direct-beam-extinction-coefficient"><i class="fa fa-check"></i><b>3.2.3</b> Direct beam extinction coefficient</a></li>
+<li class="chapter" data-level="3.2.4" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#diffuse-transmittance"><i class="fa fa-check"></i><b>3.2.4</b> Diffuse transmittance</a></li>
+<li class="chapter" data-level="3.2.5" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#the-norman-model"><i class="fa fa-check"></i><b>3.2.5</b> The Norman Model</a></li>
+<li class="chapter" data-level="3.2.6" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#the-goudriaan-and-van-laar-model"><i class="fa fa-check"></i><b>3.2.6</b> The Goudriaan and van Laar Model</a></li>
+<li class="chapter" data-level="3.2.7" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#the-two-stream-approximation"><i class="fa fa-check"></i><b>3.2.7</b> The Two-Stream approximation</a></li>
+<li class="chapter" data-level="3.2.8" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#surface-albedo"><i class="fa fa-check"></i><b>3.2.8</b> Surface Albedo</a></li>
+<li class="chapter" data-level="3.2.9" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#longwave-radiation"><i class="fa fa-check"></i><b>3.2.9</b> Longwave radiation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#representing-canopy-structure-in-models"><i class="fa fa-check"></i><b>3.3</b> Representing canopy structure in models</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#big-leaf-models"><i class="fa fa-check"></i><b>3.3.1</b> Big-leaf models</a></li>
+<li class="chapter" data-level="3.3.2" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#multilayer-models"><i class="fa fa-check"></i><b>3.3.2</b> Multilayer models</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#ecosystem-energy-balance"><i class="fa fa-check"></i><b>3.4</b> Ecosystem energy balance</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#basic-principles"><i class="fa fa-check"></i><b>3.4.1</b> Basic principles</a></li>
+<li class="chapter" data-level="3.4.2" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#atmospheric-absoprtion"><i class="fa fa-check"></i><b>3.4.2</b> Atmospheric absoprtion</a></li>
+<li class="chapter" data-level="3.4.3" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#radiative-forcing"><i class="fa fa-check"></i><b>3.4.3</b> Radiative forcing</a></li>
+<li class="chapter" data-level="3.4.4" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#land-surface-schemes"><i class="fa fa-check"></i><b>3.4.4</b> Land surface schemes</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html"><i class="fa fa-check"></i><b>4</b> Temporal and seasonal dynamics</a><ul>
-<li class="chapter" data-level="4.1" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#leaf-phenology"><i class="fa fa-check"></i><b>4.1</b> Leaf phenology</a></li>
-<li class="chapter" data-level="4.2" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#drivers-of-seasonality-and-phenology"><i class="fa fa-check"></i><b>4.2</b> Drivers of seasonality and phenology</a></li>
+<li class="chapter" data-level="4.1" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#crop-phenology"><i class="fa fa-check"></i><b>4.1</b> Crop phenology</a></li>
+<li class="chapter" data-level="4.2" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#phenology"><i class="fa fa-check"></i><b>4.2</b> Phenology</a></li>
+<li class="chapter" data-level="4.3" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#mechanisms-of-phenology-and-evidence-of-changes"><i class="fa fa-check"></i><b>4.3</b> Mechanisms of phenology and evidence of changes</a></li>
+<li class="chapter" data-level="4.4" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#models-of-phenology"><i class="fa fa-check"></i><b>4.4</b> Models of phenology</a></li>
 </ul></li>
 <li class="part"><span><b>II Modelling vegetation dynamics</b></span></li>
 <li class="chapter" data-level="5" data-path="modelling-growth-timber-production-and-carbon-allocation.html"><a href="modelling-growth-timber-production-and-carbon-allocation.html"><i class="fa fa-check"></i><b>5</b> Modelling growth, timber production and Carbon allocation</a><ul>
@@ -103,37 +169,99 @@
 <li class="chapter" data-level="5.2" data-path="modelling-growth-timber-production-and-carbon-allocation.html"><a href="modelling-growth-timber-production-and-carbon-allocation.html#process-based-growth-modelling-c-allocation-models"><i class="fa fa-check"></i><b>5.2</b> Process-based growth modelling: C-allocation models</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html"><i class="fa fa-check"></i><b>6</b> Modelling vegetation dynamics and demography</a><ul>
-<li class="chapter" data-level="6.1" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#seed-dispersal-and-recruitment"><i class="fa fa-check"></i><b>6.1</b> Seed dispersal and recruitment</a></li>
-<li class="chapter" data-level="6.2" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#mortality"><i class="fa fa-check"></i><b>6.2</b> Mortality</a></li>
-<li class="chapter" data-level="6.3" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#gap-models-individual-and-cohort-based-models"><i class="fa fa-check"></i><b>6.3</b> Gap models, individual and cohort based models</a></li>
+<li class="chapter" data-level="6.1" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#gap-models-individual-and-cohort-based-models"><i class="fa fa-check"></i><b>6.1</b> Gap models, individual and cohort based models</a></li>
+<li class="chapter" data-level="6.2" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#allometric-relationships"><i class="fa fa-check"></i><b>6.2</b> Allometric relationships</a></li>
+<li class="chapter" data-level="6.3" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#competition-for-light"><i class="fa fa-check"></i><b>6.3</b> Competition for light</a></li>
+<li class="chapter" data-level="6.4" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#seed-dispersal-and-recruitment"><i class="fa fa-check"></i><b>6.4</b> Seed dispersal and recruitment</a></li>
+<li class="chapter" data-level="6.5" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#mortality"><i class="fa fa-check"></i><b>6.5</b> Mortality</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html"><i class="fa fa-check"></i><b>7</b> Modelling biogeochemical cycles in vegetation</a><ul>
-<li class="chapter" data-level="7.1" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html#carbon-cycle-models-stocks-and-fluxes"><i class="fa fa-check"></i><b>7.1</b> Carbon cycle models: stocks and fluxes</a></li>
-<li class="chapter" data-level="7.2" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html#nutrient-cycle-models-soil-biogeochemical-models"><i class="fa fa-check"></i><b>7.2</b> Nutrient cycle models: soil biogeochemical models</a></li>
+<li class="chapter" data-level="7.1" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html#carbon-cycle-models-stocks-and-fluxes"><i class="fa fa-check"></i><b>7.1</b> Carbon cycle models: stocks and fluxes</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html#model-structure"><i class="fa fa-check"></i><b>7.1.1</b> Model structure</a></li>
+<li class="chapter" data-level="7.1.2" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html#allocation-and-turnover-parameterization"><i class="fa fa-check"></i><b>7.1.2</b> Allocation and turnover parameterization</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html#nutrient-cycle-models-soil-biogeochemical-models"><i class="fa fa-check"></i><b>7.2</b> Nutrient cycle models: soil biogeochemical models</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html#nitrogen-cycle"><i class="fa fa-check"></i><b>7.2.1</b> Nitrogen cycle</a></li>
+<li class="chapter" data-level="7.2.2" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html#phosphorus-cycle"><i class="fa fa-check"></i><b>7.2.2</b> Phosphorus cycle</a></li>
+<li class="chapter" data-level="7.2.3" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html#other-nutrients"><i class="fa fa-check"></i><b>7.2.3</b> Other nutrients?</a></li>
+</ul></li>
 <li class="chapter" data-level="7.3" data-path="modelling-biogeochemical-cycles-in-vegetation.html"><a href="modelling-biogeochemical-cycles-in-vegetation.html#water-balance"><i class="fa fa-check"></i><b>7.3</b> Water balance</a></li>
 </ul></li>
 <li class="part"><span><b>III Upscaling and applications</b></span></li>
 <li class="chapter" data-level="8" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html"><i class="fa fa-check"></i><b>8</b> Representing biodiversity in vegetation models</a><ul>
-<li class="chapter" data-level="8.1" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#functional-diversity"><i class="fa fa-check"></i><b>8.1</b> Functional diversity</a></li>
-<li class="chapter" data-level="8.2" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#competition-models"><i class="fa fa-check"></i><b>8.2</b> Competition models</a></li>
-<li class="chapter" data-level="8.3" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#communities"><i class="fa fa-check"></i><b>8.3</b> Communities</a></li>
+<li class="chapter" data-level="8.1" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#why-and-how-representing-biodiversity-in-vegetation-models"><i class="fa fa-check"></i><b>8.1</b> Why and how representing biodiversity in vegetation models?</a></li>
+<li class="chapter" data-level="8.2" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#functional-diversity"><i class="fa fa-check"></i><b>8.2</b> Functional diversity</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#definition-of-funcional-diversity-and-plant-functional-traits"><i class="fa fa-check"></i><b>8.2.1</b> Definition of funcional diversity and plant functional traits</a></li>
+<li class="chapter" data-level="8.2.2" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#representing-400-000-plant-species-in-a-single-model-the-plant-functional-type-approach"><i class="fa fa-check"></i><b>8.2.2</b> Representing 400 000 plant species in a single model: the Plant Functional Type approach</a></li>
+<li class="chapter" data-level="8.2.3" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#limits-of-the-pft-representation-in-the-context-of-global-change"><i class="fa fa-check"></i><b>8.2.3</b> Limits of the PFT representation in the context of global change</a></li>
+<li class="chapter" data-level="8.2.4" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#from-model-parameters-to-plant-traits"><i class="fa fa-check"></i><b>8.2.4</b> From model parameters to plant traits</a></li>
+<li class="chapter" data-level="8.2.5" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#eco-evolutive-optimality-approaches"><i class="fa fa-check"></i><b>8.2.5</b> Eco-evolutive optimality approaches</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#competition-models"><i class="fa fa-check"></i><b>8.3</b> Competition models</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#representation-of-pfts-in-vegetation-models"><i class="fa fa-check"></i><b>8.3.1</b> Representation of PFTs in vegetation models</a></li>
+<li class="chapter" data-level="8.3.2" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#competition-for-ressources-plant-strategy"><i class="fa fa-check"></i><b>8.3.2</b> Competition for ressources / Plant strategy?</a></li>
+<li class="chapter" data-level="8.3.3" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#representation-of-trait-distributions"><i class="fa fa-check"></i><b>8.3.3</b> Representation of trait distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#communities"><i class="fa fa-check"></i><b>8.4</b> Communities</a></li>
+<li class="chapter" data-level="8.5" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#what-about-crops"><i class="fa fa-check"></i><b>8.5</b> What about crops?</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html"><i class="fa fa-check"></i><b>9</b> Spatial heterogeneity, landscape scale, metapopulations</a><ul>
-<li class="chapter" data-level="9.1" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#patch-dynamics"><i class="fa fa-check"></i><b>9.1</b> Patch dynamics</a></li>
-<li class="chapter" data-level="9.2" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#land-use-changes"><i class="fa fa-check"></i><b>9.2</b> Land-use changes</a></li>
-<li class="chapter" data-level="9.3" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#fire-and-disturbance"><i class="fa fa-check"></i><b>9.3</b> Fire and disturbance</a></li>
+<li class="chapter" data-level="9.1" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#patch-dynamics"><i class="fa fa-check"></i><b>9.1</b> Patch dynamics</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#spatial-heterogeneity-definitions"><i class="fa fa-check"></i><b>9.1.1</b> Spatial heterogeneity: Definitions</a></li>
+<li class="chapter" data-level="9.1.2" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#impact-of-heterogeneity-on-ecosystem-fonctionning-and-environmental-feedbacks"><i class="fa fa-check"></i><b>9.1.2</b> Impact of heterogeneity on ecosystem fonctionning and environmental feedbacks</a></li>
+<li class="chapter" data-level="9.1.3" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#heterogeneity-is-a-matter-of-resolution"><i class="fa fa-check"></i><b>9.1.3</b> Heterogeneity is a matter of resolution</a></li>
+<li class="chapter" data-level="9.1.4" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#representation-in-vegetation-models-what-are-the-drivers-of-spatial-heterogeneity"><i class="fa fa-check"></i><b>9.1.4</b> Representation in Vegetation models: what are the drivers of spatial heterogeneity?</a></li>
+<li class="chapter" data-level="9.1.5" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#disturbances-and-patch-dynamics"><i class="fa fa-check"></i><b>9.1.5</b> Disturbances and Patch dynamics</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="upscaling-from-leaftree-to-globe.html"><a href="upscaling-from-leaftree-to-globe.html"><i class="fa fa-check"></i><b>10</b> Upscaling from leaf/tree to globe</a><ul>
-<li class="chapter" data-level="10.1" data-path="upscaling-from-leaftree-to-globe.html"><a href="upscaling-from-leaftree-to-globe.html#land-surface-models"><i class="fa fa-check"></i><b>10.1</b> Land surface models</a></li>
-<li class="chapter" data-level="10.2" data-path="upscaling-from-leaftree-to-globe.html"><a href="upscaling-from-leaftree-to-globe.html#dvgms-as-a-part-of-earth-system-models"><i class="fa fa-check"></i><b>10.2</b> DVGMs as a part of Earth system models</a></li>
+<li class="chapter" data-level="9.2" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#land-use-changes"><i class="fa fa-check"></i><b>9.2</b> Land-use changes</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#role-of-land-use-in-global-emissions-and-biogeochemicel-cycles"><i class="fa fa-check"></i><b>9.2.1</b> Role of Land-use in global emissions and biogeochemicel cycles</a></li>
+<li class="chapter" data-level="9.2.2" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#the-important-role-of-land-use-in-the-water-cycle"><i class="fa fa-check"></i><b>9.2.2</b> The important role of land use in the water cycle</a></li>
+<li class="chapter" data-level="9.2.3" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#monitoring-land-use"><i class="fa fa-check"></i><b>9.2.3</b> Monitoring land-use</a></li>
+<li class="chapter" data-level="9.2.4" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#how-land-use-is-represented-in-vegetation-models"><i class="fa fa-check"></i><b>9.2.4</b> How Land-use is represented in vegetation models?</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#fires-and-disturbances"><i class="fa fa-check"></i><b>9.3</b> Fires and disturbances</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#modelling-fires"><i class="fa fa-check"></i><b>9.3.1</b> Modelling fires</a></li>
+<li class="chapter" data-level="9.3.2" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#wind-and-extrem-events"><i class="fa fa-check"></i><b>9.3.2</b> Wind and extrem events</a></li>
+<li class="chapter" data-level="9.3.3" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#herbivory"><i class="fa fa-check"></i><b>9.3.3</b> Herbivory</a></li>
+<li class="chapter" data-level="9.3.4" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#human-activity-management-and-urban-areas"><i class="fa fa-check"></i><b>9.3.4</b> Human activity: Management and urban areas</a></li>
+<li class="chapter" data-level="9.3.5" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#the-specific-case-of-co2-and-temperature-increase"><i class="fa fa-check"></i><b>9.3.5</b> The specific case of CO2 and temperature increase</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="upscaling-from-leaf-and-tree-to-the-globe.html"><a href="upscaling-from-leaf-and-tree-to-the-globe.html"><i class="fa fa-check"></i><b>10</b> Upscaling from leaf and tree to the globe</a><ul>
+<li class="chapter" data-level="10.1" data-path="upscaling-from-leaf-and-tree-to-the-globe.html"><a href="upscaling-from-leaf-and-tree-to-the-globe.html#land-surface-models"><i class="fa fa-check"></i><b>10.1</b> Land surface models</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="upscaling-from-leaf-and-tree-to-the-globe.html"><a href="upscaling-from-leaf-and-tree-to-the-globe.html#spatial-and-temporal-non-linearities-cascading-effect-in-the-earth-system"><i class="fa fa-check"></i><b>10.1.1</b> Spatial and temporal non-linearities: Cascading effect in the Earth system</a></li>
+<li class="chapter" data-level="10.1.2" data-path="upscaling-from-leaf-and-tree-to-the-globe.html"><a href="upscaling-from-leaf-and-tree-to-the-globe.html#soil-vegetation-atmosphere-transer-models"><i class="fa fa-check"></i><b>10.1.2</b> Soil-Vegetation-Atmosphere-Transer models</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="upscaling-from-leaf-and-tree-to-the-globe.html"><a href="upscaling-from-leaf-and-tree-to-the-globe.html#dvgms-as-a-part-of-earth-system-models"><i class="fa fa-check"></i><b>10.2</b> DVGMs as a part of Earth System Models</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="upscaling-from-leaf-and-tree-to-the-globe.html"><a href="upscaling-from-leaf-and-tree-to-the-globe.html#atmosphere-ocean-lakes-and-urban-areas"><i class="fa fa-check"></i><b>10.2.1</b> Atmosphere, Ocean, lakes and urban areas</a></li>
+<li class="chapter" data-level="10.2.2" data-path="upscaling-from-leaf-and-tree-to-the-globe.html"><a href="upscaling-from-leaf-and-tree-to-the-globe.html#coupling-of-processes-with-different-time-steps-and-regional-scale"><i class="fa fa-check"></i><b>10.2.2</b> Coupling of processes with different time steps and regional scale</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html"><i class="fa fa-check"></i><b>11</b> Model projections and scenario analysis</a><ul>
-<li class="chapter" data-level="11.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#climate-scenarios"><i class="fa fa-check"></i><b>11.1</b> Climate scenarios</a></li>
-<li class="chapter" data-level="11.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#land-use-scenarios"><i class="fa fa-check"></i><b>11.2</b> Land-use scenarios</a></li>
-<li class="chapter" data-level="11.3" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#management-scenarios"><i class="fa fa-check"></i><b>11.3</b> Management scenarios</a></li>
+<li class="chapter" data-level="11.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#climate-scenarios"><i class="fa fa-check"></i><b>11.1</b> Climate scenarios</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#representative-concentration-pathway-rcp-scenarios"><i class="fa fa-check"></i><b>11.1.1</b> Representative Concentration Pathway (RCP scenarios)</a></li>
+<li class="chapter" data-level="11.1.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#different-models-different-rcp"><i class="fa fa-check"></i><b>11.1.2</b> Different models, different RCP</a></li>
+<li class="chapter" data-level="11.1.3" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#use-of-rcp-in-vegetation-modelling"><i class="fa fa-check"></i><b>11.1.3</b> Use of RCP in vegetation modelling</a></li>
+<li class="chapter" data-level="11.1.4" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#how-can-we-evaluate-future-scenarios"><i class="fa fa-check"></i><b>11.1.4</b> How can we evaluate future scenarios?</a></li>
+<li class="chapter" data-level="11.1.5" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#the-central-role-of-paleo-climatology-and-historical-datasets."><i class="fa fa-check"></i><b>11.1.5</b> The central role of Paleo-climatology and historical datasets.</a></li>
 </ul></li>
-<li class="part"><span><b>IV Practicals</b></span></li>
+<li class="chapter" data-level="11.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#land-use-scenarios"><i class="fa fa-check"></i><b>11.2</b> Land-use scenarios</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#construction-of-land-use-scenarios"><i class="fa fa-check"></i><b>11.2.1</b> Construction of Land-use scenarios</a></li>
+<li class="chapter" data-level="11.2.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#how-can-we-evaluate-land-use-scenarios"><i class="fa fa-check"></i><b>11.2.2</b> How can we evaluate land use scenarios?</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#management-scenarios"><i class="fa fa-check"></i><b>11.3</b> Management scenarios</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#construction-of-land-use-scenarios-1"><i class="fa fa-check"></i><b>11.3.1</b> Construction of Land-use scenarios</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#how-can-we-evaluate-management-scenarios"><i class="fa fa-check"></i><b>11.4</b> ### How can we evaluate management scenarios?</a></li>
+<li class="chapter" data-level="11.5" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#some-concrete-applications-of-vegetation-models"><i class="fa fa-check"></i><b>11.5</b> Some concrete applications of vegetation models</a></li>
+</ul></li>
+<li class="part"><span><b>IV Appendix</b></span></li>
+<li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html"><i class="fa fa-check"></i>Contributing to this document</a><ul>
+<li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html#first-steps"><i class="fa fa-check"></i>First steps</a></li>
+<li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html#new-pull-request"><i class="fa fa-check"></i>New pull request</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="supporting-material.html"><a href="supporting-material.html"><i class="fa fa-check"></i>Supporting material</a></li>
+<li class="part"><span><b>V Practicals</b></span></li>
 <li class="chapter" data-level="" data-path="practical-a.html"><a href="practical-a.html"><i class="fa fa-check"></i>Practical A</a></li>
 <li class="chapter" data-level="" data-path="practical-b.html"><a href="practical-b.html"><i class="fa fa-check"></i>Practical B</a></li>
 <li class="chapter" data-level="" data-path="practical-c.html"><a href="practical-c.html"><i class="fa fa-check"></i>Practical C</a></li>
@@ -163,14 +291,73 @@
 <div id="modelling-biogeochemical-cycles-in-vegetation" class="section level1">
 <h1><span class="header-section-number">Chapter 7</span> Modelling biogeochemical cycles in vegetation</h1>
 <p> <!-- UCL 4 --></p>
+<p>i would make this chapter 6. First biogeochemical models, then gap models</p>
+<p>based on Bonan Chapter 17</p>
 <div id="carbon-cycle-models-stocks-and-fluxes" class="section level2">
 <h2><span class="header-section-number">7.1</span> Carbon cycle models: stocks and fluxes</h2>
+<p>This chapter will develop the ecological foundation and mathematics to describe ecosystem carbon dynamics using biogeochemical models. Biogeochemical models abstract an ecosystem as pools of carbon and the flows of carbon among these pools.</p>
+<p>Use specific model as an example to illustrate? In Bonan: CASA-CNP model</p>
+<div id="model-structure" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> Model structure</h3>
+<p>Biogeochemical models simulate processes of allocation of photosynthetic carbon gain to plant parts (e.g., foliage, fine root, wood), turnover of plant biomass as litterfall, transformation of litter to soil organic matter, and carbon loss during respiration.</p>
+<p>Principles: - net carbon input is equal to gross primary production minus autotrophic respiration; - carbon flows from donor to receiver pools at a rate that depends on the donor pool size and its chemical quality as modified by the environment; - mass balance is maintained as carbon flows through the system of interconnected pools; - decay of litter and soil organic matter releases CO 2 as heterotrophic respiration.</p>
+<p>Models: a system of first-order, linear differential equations to describe carbon pools and fluxes (typically time step of one day)</p>
+<p>Pools and fluxes to be included: - Carbon gain from gross primary production minus autotrophic respiration - Allocation of carbon to growth of leaves, wood, and roots pools (partitioning varies with light availability, soil temperature, soil moisture, and nutrients + temporal for leaves (ref to phenology) - Carbon turnover (comprising litterfall, background mortality, and disturbances) + turnover rates depending on the plant material - litter pools: metabolic litter, structural litter, coarse woody debris (vary in chemical quality and turnover rate; base turnover rates are modified for soil temperature and soil moisture (environmental scaling factors)) - decomposition to soil organic matter pools: fast SOM, slow SOM, passive SOM (vary in chemical quality and turnover time) - portion of the decomposition flow lost as heterotrophic respiration</p>
+<p>Bonan - Figure 17.2: structure of a typical biogeochemical model - equations 17.1 – 17.10</p>
+<p>Additional details? - maintenance respiration and growth respiration - storage pool of nonstructural carbohydrates - some models separate wood into live stems (sapwood) and dead stems, roots into fine roots and coarse roots, and coarse roots into live pools and dead pools to account for the different physiological functioning of these biomass components</p>
+</div>
+<div id="allocation-and-turnover-parameterization" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> Allocation and turnover parameterization</h3>
+<ul>
+<li>allocation parameters</li>
+<li>fixed allocation and dynamic allocation (specified by biome or based on environmental conditions)</li>
+<li>Optimality models: plants optimally allocate resources to balance light acquisition (foliage), structural support and water transport (stems), and water and nutrient uptake (roots).</li>
+<li><p>allocation based on scaling relationships among plant components (specified ratios of foliage, root, and wood biomass)</p></li>
+<li>Turnover rates vary depending on plant material and are specified as a fraction of biomass.</li>
+<li><p>Turnover rates are commonly estimated as the inverse of residence time or longevity</p></li>
+<li><p>biogeochemical models can be applied to any type of ecosystem such as grassland, savanna, forest, shrubland, and tundra</p></li>
+</ul>
+</div>
 </div>
 <div id="nutrient-cycle-models-soil-biogeochemical-models" class="section level2">
 <h2><span class="header-section-number">7.2</span> Nutrient cycle models: soil biogeochemical models</h2>
+<div id="nitrogen-cycle" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Nitrogen cycle</h3>
+<ul>
+<li>Bonan Chapter 17.6 Nitrogen Cycle</li>
+<li><p>Bonan Figure 17.8: Depiction of the nitrogen cycle</p></li>
+<li>only ~recently added in most biogeochemical models</li>
+<li>closely coupled to carbon cycle</li>
+<li><p>important role to limit plant productivity</p></li>
+<li>similar to carbon with an associated nitrogen pool and transfer.</li>
+<li><p>cycling of nitrogen can be represented by a system of linear differential equations similar to that for carbon.</p></li>
+<li>allocation of plant nitrogen uptake up to plant pools</li>
+<li><p>loss of nitrogen in litterfall + portion is reabsorbed</p></li>
+<li>soil nitrogen cycle is more complex (various forms)</li>
+<li>decomposition of litter and soil organic matter, (mineralization and immobilization)</li>
+<li><p>nitrification, denitrification, leaching, ammonia volatilization</p></li>
+<li><p>additional inputs from biological nitrogen fixation, atmospheric deposition, and fertilizer</p></li>
+<li>some examples of models? CLM?</li>
+<li>All models simulate a decrease in plant growth when soil mineral nitrogen is insufficient to meet demand, but they differ in the manner in which this is implemented.</li>
+<li><p>discuss different approaches?</p></li>
+</ul>
+</div>
+<div id="phosphorus-cycle" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Phosphorus cycle</h3>
+<p>Not in Bonan - Some models additionally include phosphorus (Wang et al. 2010; Yang et al. 2014; Goll et al. 2017) - ORCHIDEE, CLM-CNP</p>
+</div>
+<div id="other-nutrients" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> Other nutrients?</h3>
+</div>
 </div>
 <div id="water-balance" class="section level2">
 <h2><span class="header-section-number">7.3</span> Water balance</h2>
+<ul>
+<li><p>focus on the surface energy balance and vertical water movement in the soil–plant atmosphere system (e.g., soil moisture control of evapotranspiration)</p></li>
+<li><p>Specific components in terrestrial biosphere models:<br />
+Interception, throughfall, stemflow, infiltration, surface runoff, soil water redistribution, subsurface runoff, snow melt, evaporation, transpiration, plant water uptake, stomatal conductance</p></li>
+</ul>
+<p>7.3.1 A bucket model hydrologic cycle - change in soil water is the difference between precipitation and evapotranspiration, excess runs off - based on maximum water-holding capacity</p>
 
 </div>
 </div>
