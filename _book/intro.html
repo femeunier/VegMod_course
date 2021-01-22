@@ -24,7 +24,7 @@
 <meta name="author" content="Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle" />
 
 
-<meta name="date" content="2021-01-18" />
+<meta name="date" content="2021-01-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,44 +50,72 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -108,11 +136,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#soil-plant-atmosphere-continuum-the-central-role-of-vegetation-in-the-earth-system"><i class="fa fa-check"></i><b>1.1</b> Soil-plant-atmosphere continuum: the central role of vegetation in the earth system</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#why-do-we-need-modelling"><i class="fa fa-check"></i><b>1.2</b> Why do we need modelling?</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#model-types"><i class="fa fa-check"></i><b>1.3</b> Model types</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#the-history-of-vegetation-models"><i class="fa fa-check"></i><b>1.4</b> The history of vegetation models</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#components-of-a-model"><i class="fa fa-check"></i><b>1.5</b> Components of a model</a></li>
-<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#structure-of-the-course"><i class="fa fa-check"></i><b>1.6</b> Structure of the course</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#test-title"><i class="fa fa-check"></i><b>1.2</b> test title</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#why-do-we-need-modelling"><i class="fa fa-check"></i><b>1.3</b> Why do we need modelling?</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#model-types"><i class="fa fa-check"></i><b>1.4</b> Model types</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#the-history-of-vegetation-models"><i class="fa fa-check"></i><b>1.5</b> The history of vegetation models</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#components-of-a-model"><i class="fa fa-check"></i><b>1.6</b> Components of a model</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#structure-of-the-course"><i class="fa fa-check"></i><b>1.7</b> Structure of the course</a></li>
 </ul></li>
 <li class="part"><span><b>I Biophysical and physiological models</b></span></li>
 <li class="chapter" data-level="2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html"><i class="fa fa-check"></i><b>2</b> Modelling plant basic processes</a><ul>
@@ -298,7 +327,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Vegetation modelling</h1>
 <p class="author"><em>Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle</em></p>
-<p class="date"><em>2021-01-18</em></p>
+<p class="date"><em>2021-01-22</em></p>
 </div>
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
@@ -311,26 +340,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Land component continuum of terrestrial ecosystem models (vegetation models) (Fig 1.7)</li>
 </ul>
 </div>
+<div id="test-title" class="section level2">
+<h2><span class="header-section-number">1.2</span> test title</h2>
+<p>dzhezuehziufhilzuf</p>
+</div>
 <div id="why-do-we-need-modelling" class="section level2">
-<h2><span class="header-section-number">1.2</span> Why do we need modelling?</h2>
+<h2><span class="header-section-number">1.3</span> Why do we need modelling?</h2>
 <ul>
 <li>Devising suitable solutions to these global change challenges require not only strong empirically and experimentally based research at the local scale to understand how ecosystems are structured and how they function, but also sound theoretical foundations to generalize this understanding to regional, continental, and global scales and to make projections of the future. Computer models of terrestrial ecosystems are essential to this generalization. (Bonan)</li>
 <li>For prediction: study system behavior in conditions beyond which measurements can be made; to allow predictions of system behavior, especially in response to some imposed perturbation; and to inform management and policy decisions. These usages of models are particularly important in the context ofglobal change.</li>
-<li>For understanding: a formal organization of understanding; it originates from the knowledge of its developers about how the system operates. One purpose of modeling, then, is to identify the processes needed to adequately simulate the system. If a model replicates some observations, a scientist must ask why the model works correctly. If the model performs poorly, then the scientist must ask what is missing. It is testing hypotheses, just like you do with physical experiments.</li>
+<li>For understanding: a formal organization of understanding; it originates from the knowledge of its developers about how the system operates. One purpose of modeling, then, is to identify the processes needed to adequately simulate the system. If a model replicates some observations, a scientist must ask why the model works correctly. If the model performs poorly, then the scientist
+must ask what is missing. It is testing hypotheses, just like you do with physical experiments.</li>
 <li>For data integration: to organize and link data in a structure way, as a research tool to guide data collection. What are the critical parameters that need to be measured? How precisely must these parameters be measured to reduce model uncertainty? What new observations are needed to test the model? In this context, models inform data collection and experimental design to both test the model and advance process understanding.</li>
 </ul>
 </div>
 <div id="model-types" class="section level2">
-<h2><span class="header-section-number">1.3</span> Model types</h2>
+<h2><span class="header-section-number">1.4</span> Model types</h2>
 <ul>
 <li>continuum of terrestrial ecosystem models, from models with emphasis on biogeochemical pools and fluxes, dynamic vegetation models with focus on individual plants or size cohorts, canopy models with focus on coupling leaf physiological processes with canopy physics, and global models of the land surface for climate simulation. (Table 1.1, Bonan)</li>
 <li>Continuum of empirical to process-based models</li>
-<li>Types of vegetation models (depending on the purpose, questions, scales) (e.g. timber, yield, biogeochemistry, …) (ecologists, foresters, climatologist, atmospheric chemists, hydrologist all have different vegetation models…)</li>
+<li>Types of vegetation models (depending on the purpose, questions, scales) (e.g. timber, yield, biogeochemistry, …) (ecologists, foresters, climatologist, atmospheric chemists, hydrologist all have different vegetation models…)</li>
 <li>Compare vegetation models to for example species distribution models…</li>
 </ul>
 </div>
 <div id="the-history-of-vegetation-models" class="section level2">
-<h2><span class="header-section-number">1.4</span> The history of vegetation models</h2>
+<h2><span class="header-section-number">1.5</span> The history of vegetation models</h2>
 <ul>
 <li>Conceptualisation of ecosystem to mass and energy flows among various compartments (refer to ecology course of Steppe in the Bio-ir Bachelors. ‘box models in the 1960’s and 1970’s current global biogeochemical models are still box-type of models (Fig 1.4)</li>
 <li>In parallel individual based models of forest dynamics were developed, based on population dynamics, life cycle of species. They are also called “gap models” that simulate the demography in an area of 0.1 ha (size of a gap in the canopy) (Fig 1.5). Ecosystem properties such as carbon stocks are emerging from the demography simulation.</li>
@@ -340,7 +374,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 <div id="components-of-a-model" class="section level2">
-<h2><span class="header-section-number">1.5</span> Components of a model</h2>
+<h2><span class="header-section-number">1.6</span> Components of a model</h2>
 <ul>
 <li>Table 1.3 and Table 1.4</li>
 <li>Model structure (constraints: resolving of fluxes on short time scales, conservation of mass and energy,</li>
@@ -350,14 +384,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>spatial structure (Fig 1.11)</li>
 <li>Prognostic equations use time derivatives to describe the change in a state variable and are integrated forward in time from some initial condition. Prognostic variables must be numerically stepped forward from time n to n + 1 over the time interval deltat.</li>
 <li>Conservation equations</li>
-<li>Diagnostic equations (e.g. ideal gas law) linking variables time-independent</li>
+<li>Diagnostic equations (e.g. ideal gas law) linking variables time-independent</li>
 <li>Initial conditions</li>
 <li>Model code, There is an enormous leap between seeing a mathematical equation in a research paper and actually using that equation in a model (Bonan Book).</li>
 <li>Model uncertainty and complexity (fig 1.12) (+ fig from Dietze book)</li>
 </ul>
 </div>
 <div id="structure-of-the-course" class="section level2">
-<h2><span class="header-section-number">1.6</span> Structure of the course</h2>
+<h2><span class="header-section-number">1.7</span> Structure of the course</h2>
 <ul>
 <li>a science that spans boundary layer meteorology, micrometeorology, atmospheric chemistry, plant physiology, ecosystem ecology, biogeochemistry, soil science, hydrology, and geochemistry … we will not discuss all the basics in this course, but we expect you to know from other courses (Ecology, plant physiology, forestry, hydrology, soil science …), but we will of course go into the processes, but focus on there mathematical formulation and translation into a workin model (code)</li>
 <li>progression through the course (space-time figure, with chapters)</li>
