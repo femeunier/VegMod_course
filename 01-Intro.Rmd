@@ -13,10 +13,6 @@ output:
 - Earth System Models and climate models (Fig 1.1 Bonan). In climate models vegetation is just representing physical fluxes, in ESM vegetation is representing biogeochemical cycles, biogeography, and dynamic vegetation – typically the realm of ecosystem models
 - Land component  continuum of terrestrial ecosystem models (vegetation models) (Fig 1.7)
 
-## test title
-dzhezuehziufhilzuf
-
-
 ## Why do we need modelling?
 - Devising suitable solutions to these global change challenges require not only strong empirically and experimentally based research at the local scale to understand how ecosystems are structured and how they function, but also sound theoretical foundations to generalize this understanding to regional, continental, and global scales and to make projections of the future. Computer models of terrestrial ecosystems are essential to this generalization. (Bonan)
 - For prediction: study system behavior in conditions beyond which measurements can be made; to allow predictions of system behavior, especially in response to some imposed perturbation; and to inform management and policy decisions. These usages of models are particularly important in the context ofglobal change.
@@ -53,7 +49,7 @@ must ask what is missing. It is testing hypotheses, just like you do with physic
 - Model code, There is an enormous leap between seeing a mathematical equation in a research paper and actually using that equation in a model (Bonan Book).
 - Model uncertainty and complexity (fig 1.12) (+ fig from Dietze book)
 
-## Structure of the course
+## Modelling workflow and structure of the course
 - a science that spans boundary layer meteorology, micrometeorology, atmospheric chemistry, plant physiology, ecosystem ecology, biogeochemistry, soil science, hydrology, and geochemistry …  we will not discuss all the basics in this course, but we expect you to know from other courses (Ecology, plant physiology, forestry, hydrology, soil science …), but we will of course go into the processes, but focus on there mathematical formulation and translation into a workin model (code)
 - progression through the course (space-time figure, with chapters)
 - Model development cycle (structure for the methodological focus of each application/practical) (Dietze figure)
