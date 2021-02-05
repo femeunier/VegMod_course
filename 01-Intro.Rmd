@@ -8,6 +8,13 @@ output:
 
 # Introduction {#intro}
 ## Soil-plant-atmosphere continuum: the central role of vegetation in the earth system
+
+```{r f1, fig.cap='The planetary boundaries (www.stocholmresilience.org)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/planetary_boundaries.png')
+```
+
+
+
 - Global change context
 - Terrestrial ecosystems are central to solving the environmental and socioeconomic threats posed by changes in climate, atmospheric composition, and air quality; land use and land-cover change; habitat loss, species extinction, and invasive species; appropriation of freshwater, net primary production, and other ecosystems goods and services for human uses; and anthropogenic addition of reactive nitrogen. (Bonan)
 - Earth System Models and climate models (Fig 1.1 Bonan). In climate models vegetation is just representing physical fluxes, in ESM vegetation is representing biogeochemical cycles, biogeography, and dynamic vegetation – typically the realm of ecosystem models
