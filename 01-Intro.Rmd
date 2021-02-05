@@ -8,6 +8,13 @@ output:
 
 # Introduction {#intro}
 ## Soil-plant-atmosphere continuum: the central role of vegetation in the earth system
+
+```{r f1, fig.cap='The planetary boundaries (www.stocholmresilience.org)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/planetary_boundaries.png')
+```
+
+
+
 - Global change context
 - Terrestrial ecosystems are central to solving the environmental and socioeconomic threats posed by changes in climate, atmospheric composition, and air quality; land use and land-cover change; habitat loss, species extinction, and invasive species; appropriation of freshwater, net primary production, and other ecosystems goods and services for human uses; and anthropogenic addition of reactive nitrogen. (Bonan)
 - Earth System Models and climate models (Fig 1.1 Bonan). In climate models vegetation is just representing physical fluxes, in ESM vegetation is representing biogeochemical cycles, biogeography, and dynamic vegetation – typically the realm of ecosystem models
@@ -49,7 +56,7 @@ must ask what is missing. It is testing hypotheses, just like you do with physic
 - Model code, There is an enormous leap between seeing a mathematical equation in a research paper and actually using that equation in a model (Bonan Book).
 - Model uncertainty and complexity (fig 1.12) (+ fig from Dietze book)
 
-## Structure of the course
+## Modelling workflow and structure of the course
 - a science that spans boundary layer meteorology, micrometeorology, atmospheric chemistry, plant physiology, ecosystem ecology, biogeochemistry, soil science, hydrology, and geochemistry …  we will not discuss all the basics in this course, but we expect you to know from other courses (Ecology, plant physiology, forestry, hydrology, soil science …), but we will of course go into the processes, but focus on there mathematical formulation and translation into a workin model (code)
 - progression through the course (space-time figure, with chapters)
 - Model development cycle (structure for the methodological focus of each application/practical) (Dietze figure)
