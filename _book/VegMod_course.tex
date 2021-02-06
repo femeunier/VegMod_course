@@ -177,7 +177,7 @@
 	%	Subtitle
 	%------------------------------------------------
 	
-	Course XXXX % Subtitle or further description
+	Syllabus % Subtitle or further description
 	
 	\vspace*{3\baselineskip} % Whitespace under the subtitle
 	
@@ -189,7 +189,7 @@
 	
 	\vspace{0.5\baselineskip} % Whitespace before the editors
 	
-	{\scshape Hans Verbeeck, Elizabeth Kearsley, Felicien Meunier, Marc Peaucelle \\} % Editor list
+	{\scshape Hans Verbeeck, Felicien Meunier, Marc Peaucelle \\} % Editor list
 	
 	\vspace{0.5\baselineskip} % Whitespace below the editor list
 	
@@ -207,7 +207,7 @@
 	
 	\vspace{0.3\baselineskip} % Whitespace under the publisher logo
 	
-	2020 % Publication year
+	2021 % Publication year
 	
 	%{\large publisher} % Publisher
 
@@ -229,11 +229,38 @@
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{figures/planetary_boundaries} 
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/planetary_boundaries} 
 
 }
 
-\caption{The planetary boundaries (www.stocholmresilience.org)}\label{fig:f1}
+\caption{The planetary boundaries (www.stockholmresilience.org)}\label{fig:f1}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/carbon_budget} 
+
+}
+
+\caption{The global carbon budget (www.globalcarbonproject.org)}\label{fig:f2}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/GCM_ESM} 
+
+}
+
+\caption{Scientific scope of (a) climate models and (b) earth system models. (Bonan 2019)}\label{fig:f3}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/cycles_bonan} 
+
+}
+
+\caption{Scientific scope of terrestrial biosphere model. (Bonan 2019)}\label{fig:f4}
 \end{figure}
 
 \begin{itemize}
@@ -267,6 +294,24 @@
 \hypertarget{model-types}{%
 \section{Model types}\label{model-types}}
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/table_model_types} 
+
+}
+
+\caption{Continuum of terrestrial biosphere/ecosystem models. (Bonan 2019)}\label{fig:f5}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/tables_PB_empirical} 
+
+}
+
+\caption{Continuum of process-based versus empirical models. (Adams et al. 2013)}\label{fig:f6}
+\end{figure}
+
 \begin{itemize}
 \tightlist
 \item
@@ -281,6 +326,15 @@
 
 \hypertarget{the-history-of-vegetation-models}{%
 \section{The history of vegetation models}\label{the-history-of-vegetation-models}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/timeline} 
+
+}
+
+\caption{Timeline showing the parallel development of model types and the integration of model types into land surface models towards terrestrial biosphere models. (Bonan 2019)}\label{fig:f7}
+\end{figure}
 
 \begin{itemize}
 \tightlist
@@ -298,6 +352,42 @@
 
 \hypertarget{components-of-a-model}{%
 \section{Components of a model}\label{components-of-a-model}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/table_components} 
+
+}
+
+\caption{Definition of key model components and examples for a typical TBM}\label{fig:f8}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/time_steps} 
+
+}
+
+\caption{Structure of a vegattion model indicating the different time steps at which each process is simulated (Williams et al. 2009)}\label{fig:f9}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/grid_vert_hor} 
+
+}
+
+\caption{Three dimensional grid of a TBM structured in terms of longitude x latitude x level. The number of soil and canopy layers and the geographical resolution is model dependent, (Bonan 2019)}\label{fig:f10}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/grid_ED2} 
+
+}
+
+\caption{Example: the spatial multi-level grid structure of of the ED2 vegetation model (Longo et al. 2019)}\label{fig:f11}
+\end{figure}
 
 \begin{itemize}
 \tightlist
@@ -330,6 +420,33 @@
 \hypertarget{modelling-workflow-and-structure-of-the-course}{%
 \section{Modelling workflow and structure of the course}\label{modelling-workflow-and-structure-of-the-course}}
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/course_overview} 
+
+}
+
+\caption{Progression through spatial and temporal scales throughout this course}\label{fig:f12}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/williams_fusion} 
+
+}
+
+\caption{Model data fusion in every step of the model development cycle (Williams et al. 2009)}\label{fig:f13}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/dietze_workflow} 
+
+}
+
+\caption{Methodological workflow of model data fusion (Dietze: Ecological Forecasting)}\label{fig:f14}
+\end{figure}
+
 \begin{itemize}
 \tightlist
 \item
@@ -341,15 +458,6 @@
 \end{itemize}
 
 \textbf{to test: Idea of a conceptual figure that we will build block by block as we go deeper in the course. It represents the concept that vegetation modelling is to have an integrated representation of the plant functioning and all the underlying processes at different scales. }
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{figures/Figure_course} 
-
-}
-
-\caption{Here is the structure of the course!}\label{fig:nice-fig2}
-\end{figure}
 
 \hypertarget{part-biophysical-and-physiological-models}{%
 \part{Biophysical and physiological models}\label{part-biophysical-and-physiological-models}}
