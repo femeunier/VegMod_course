@@ -24,7 +24,7 @@
 <meta name="author" content="Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle" />
 
 
-<meta name="date" content="2021-02-13" />
+<meta name="date" content="2021-02-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="intro.html"/>
-<link rel="next" href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"/>
+<link rel="next" href="modelling-radiation-vegetation-canopies-and-energy-balance.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -53,6 +53,69 @@
 
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -105,32 +168,36 @@
 <li class="chapter" data-level="2.4.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#case-study-2.2-drought-impact-on-rainforest-gpp"><i class="fa fa-check"></i><b>2.4.2</b> Case study 2.2 Drought impact on rainforest GPP</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><i class="fa fa-check"></i><b>3</b> Modelling light penetration, vegetation canopy representation, and energy balance</a>
+<li class="chapter" data-level="3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html"><i class="fa fa-check"></i><b>3</b> Modelling radiation, vegetation canopies, and energy balance</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#radiative-transfer-modelling"><i class="fa fa-check"></i><b>3.2</b> Radiative transfer modelling</a>
+<li class="chapter" data-level="3.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#radiative-transfer-modelling"><i class="fa fa-check"></i><b>3.2</b> Radiative transfer modelling</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#leaf-optical-properties"><i class="fa fa-check"></i><b>3.2.1</b> Leaf optical properties</a></li>
-<li class="chapter" data-level="3.2.2" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#light-transmission-without-scattering"><i class="fa fa-check"></i><b>3.2.2</b> Light transmission without scattering</a></li>
-<li class="chapter" data-level="3.2.3" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#direct-beam-extinction-coefficient"><i class="fa fa-check"></i><b>3.2.3</b> Direct beam extinction coefficient</a></li>
-<li class="chapter" data-level="3.2.4" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#diffuse-transmittance"><i class="fa fa-check"></i><b>3.2.4</b> Diffuse transmittance</a></li>
-<li class="chapter" data-level="3.2.5" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#the-norman-model"><i class="fa fa-check"></i><b>3.2.5</b> The Norman Model</a></li>
-<li class="chapter" data-level="3.2.6" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#the-goudriaan-and-van-laar-model"><i class="fa fa-check"></i><b>3.2.6</b> The Goudriaan and van Laar Model</a></li>
-<li class="chapter" data-level="3.2.7" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#the-two-stream-approximation"><i class="fa fa-check"></i><b>3.2.7</b> The Two-Stream approximation</a></li>
-<li class="chapter" data-level="3.2.8" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#surface-albedo"><i class="fa fa-check"></i><b>3.2.8</b> Surface Albedo</a></li>
-<li class="chapter" data-level="3.2.9" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#longwave-radiation"><i class="fa fa-check"></i><b>3.2.9</b> Longwave radiation</a></li>
+<li class="chapter" data-level="3.2.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#leaf-optical-properties"><i class="fa fa-check"></i><b>3.2.1</b> Leaf optical properties</a></li>
+<li class="chapter" data-level="3.2.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#light-transmission-without-scattering"><i class="fa fa-check"></i><b>3.2.2</b> Light transmission without scattering</a></li>
+<li class="chapter" data-level="3.2.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#diffuse-transmittance"><i class="fa fa-check"></i><b>3.2.3</b> Diffuse transmittance</a></li>
+<li class="chapter" data-level="3.2.4" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#the-norman-model1979"><i class="fa fa-check"></i><b>3.2.4</b> The Norman Model(1979)</a></li>
+<li class="chapter" data-level="3.2.5" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#the-goudriaan-and-van-laar-model-1994"><i class="fa fa-check"></i><b>3.2.5</b> The Goudriaan and van Laar Model (1994)</a></li>
+<li class="chapter" data-level="3.2.6" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#the-two-stream-approximation"><i class="fa fa-check"></i><b>3.2.6</b> The Two-Stream approximation</a></li>
+<li class="chapter" data-level="3.2.7" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#longwave-radiation"><i class="fa fa-check"></i><b>3.2.7</b> Longwave radiation</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#representing-canopy-structure-in-models"><i class="fa fa-check"></i><b>3.3</b> Representing canopy structure in models</a>
+<li class="chapter" data-level="3.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#representing-canopy-structure-in-models"><i class="fa fa-check"></i><b>3.3</b> Representing canopy structure in models</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#big-leaf-models"><i class="fa fa-check"></i><b>3.3.1</b> Big-leaf models</a></li>
-<li class="chapter" data-level="3.3.2" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#multilayer-models"><i class="fa fa-check"></i><b>3.3.2</b> Multilayer models</a></li>
+<li class="chapter" data-level="3.3.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#big-leaf-models"><i class="fa fa-check"></i><b>3.3.1</b> Big-leaf models</a></li>
+<li class="chapter" data-level="3.3.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#multilayer-models"><i class="fa fa-check"></i><b>3.3.2</b> Multilayer models</a></li>
+<li class="chapter" data-level="3.3.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#d-ray-tracing-models"><i class="fa fa-check"></i><b>3.3.3</b> 3D ray tracing models</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#ecosystem-energy-balance"><i class="fa fa-check"></i><b>3.4</b> Ecosystem energy balance</a>
+<li class="chapter" data-level="3.4" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#ecosystem-energy-balance"><i class="fa fa-check"></i><b>3.4</b> Ecosystem energy balance</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#basic-principles"><i class="fa fa-check"></i><b>3.4.1</b> Basic principles</a></li>
-<li class="chapter" data-level="3.4.2" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#atmospheric-absoprtion"><i class="fa fa-check"></i><b>3.4.2</b> Atmospheric absoprtion</a></li>
-<li class="chapter" data-level="3.4.3" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#radiative-forcing"><i class="fa fa-check"></i><b>3.4.3</b> Radiative forcing</a></li>
-<li class="chapter" data-level="3.4.4" data-path="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html"><a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html#land-surface-schemes"><i class="fa fa-check"></i><b>3.4.4</b> Land surface schemes</a></li>
+<li class="chapter" data-level="3.4.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#basic-principles"><i class="fa fa-check"></i><b>3.4.1</b> Basic principles</a></li>
+<li class="chapter" data-level="3.4.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#surface-radiation-balance"><i class="fa fa-check"></i><b>3.4.2</b> Surface radiation balance</a></li>
+<li class="chapter" data-level="3.4.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#bulk-surface-energy-balance"><i class="fa fa-check"></i><b>3.4.3</b> Bulk surface energy balance</a></li>
+<li class="chapter" data-level="3.4.4" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#leaf-energy-balance"><i class="fa fa-check"></i><b>3.4.4</b> Leaf energy balance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#case-studies-1"><i class="fa fa-check"></i><b>3.5</b> Case studies</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#case-study-3.1"><i class="fa fa-check"></i><b>3.5.1</b> Case study 3.1</a></li>
+<li class="chapter" data-level="3.5.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#case-study-3.2"><i class="fa fa-check"></i><b>3.5.2</b> Case study 3.2</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html"><i class="fa fa-check"></i><b>4</b> Temporal and seasonal dynamics</a>
@@ -234,10 +301,7 @@
 <li class="chapter" data-level="9" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html"><i class="fa fa-check"></i><b>9</b> Upscaling from the leaf to the globe</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#spatial-and-temporal-non-linearities-cascading-effect-in-the-earth-system"><i class="fa fa-check"></i><b>9.1</b> Spatial and temporal non-linearities: Cascading effect in the Earth system</a></li>
-<li class="chapter" data-level="9.2" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#land-surface-models"><i class="fa fa-check"></i><b>9.2</b> Land surface models</a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#soil-vegetation-atmosphere-transer-models"><i class="fa fa-check"></i><b>9.2.1</b> Soil-Vegetation-Atmosphere-Transer models</a></li>
-</ul></li>
+<li class="chapter" data-level="9.2" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#land-surface-models"><i class="fa fa-check"></i><b>9.2</b> Land surface models</a></li>
 <li class="chapter" data-level="9.3" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#dvgms-as-a-part-of-earth-system-models"><i class="fa fa-check"></i><b>9.3</b> DVGMs as a part of Earth System Models</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#one-biosphere"><i class="fa fa-check"></i><b>9.3.1</b> One Biosphere</a></li>
@@ -274,6 +338,14 @@
 <li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html#first-steps"><i class="fa fa-check"></i>First steps</a></li>
 <li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html#new-pull-request"><i class="fa fa-check"></i>New pull request</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="supporting-material.html"><a href="supporting-material.html"><i class="fa fa-check"></i>Supporting material</a></li>
+<li class="part"><span><b>V Practicals</b></span></li>
+<li class="chapter" data-level="" data-path="practical-a.html"><a href="practical-a.html"><i class="fa fa-check"></i>Practical A</a></li>
+<li class="chapter" data-level="" data-path="practical-b.html"><a href="practical-b.html"><i class="fa fa-check"></i>Practical B</a></li>
+<li class="chapter" data-level="" data-path="practical-c.html"><a href="practical-c.html"><i class="fa fa-check"></i>Practical C</a></li>
+<li class="chapter" data-level="" data-path="practical-d.html"><a href="practical-d.html"><i class="fa fa-check"></i>Practical D</a></li>
+<li class="chapter" data-level="" data-path="practical-e.html"><a href="practical-e.html"><i class="fa fa-check"></i>Practical E</a></li>
+<li class="chapter" data-level="" data-path="practical-f.html"><a href="practical-f.html"><i class="fa fa-check"></i>Practical F</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -566,7 +638,7 @@ Figure 2.27: Simulated (SPA model) gs and GPP for a drought experiment in the Am
         </div>
       </div>
 <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="modelling-light-penetration-vegetation-canopy-representation-and-energy-balance.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modelling-radiation-vegetation-canopies-and-energy-balance.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
