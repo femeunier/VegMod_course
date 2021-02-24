@@ -1,0 +1,23 @@
+* installing *source* package 'Photosynthesis' ...
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+Warning: E:/CAVELab/VegCourse/Practical/Practical_02/Photosynthesis.Rcheck/00_pkg_src/Photosynthesis/man/Photosynthesis.Rd:12: unknown macro '\item'
+Warning: E:/CAVELab/VegCourse/Practical/Practical_02/Photosynthesis.Rcheck/00_pkg_src/Photosynthesis/man/Photosynthesis.Rd:14: unknown macro '\item'
+Warning: E:/CAVELab/VegCourse/Practical/Practical_02/Photosynthesis.Rcheck/00_pkg_src/Photosynthesis/man/Photosynthesis.Rd:16: unknown macro '\item'
+Warning: E:/CAVELab/VegCourse/Practical/Practical_02/Photosynthesis.Rcheck/00_pkg_src/Photosynthesis/man/Photosynthesis.Rd:21: unknown macro '\item'
+Warning: E:/CAVELab/VegCourse/Practical/Practical_02/Photosynthesis.Rcheck/00_pkg_src/Photosynthesis/man/Photosynthesis.Rd:23: unexpected section header '\value'
+Warning: E:/CAVELab/VegCourse/Practical/Practical_02/Photosynthesis.Rcheck/00_pkg_src/Photosynthesis/man/Photosynthesis.Rd:26: unexpected section header '\description'
+Warning: E:/CAVELab/VegCourse/Practical/Practical_02/Photosynthesis.Rcheck/00_pkg_src/Photosynthesis/man/Photosynthesis.Rd:33: unexpected END_OF_INPUT '
+'
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+*** arch - i386
+*** arch - x64
+** testing if installed package can be loaded from final location
+*** arch - i386
+*** arch - x64
+** testing if installed package keeps a record of temporary installation path
+* DONE (Photosynthesis)
