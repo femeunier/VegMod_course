@@ -1,0 +1,316 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={Practical A - Implementation of the Farquhar, von Caemmerer and Berry model for C3 photosynthesis},
+            pdfauthor={Hans Verbeeck, Félicien Meunier, Marc Peaucelle},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\title{Practical A - Implementation of the Farquhar, von Caemmerer and Berry
+model for C3 photosynthesis}
+\author{Hans Verbeeck, Félicien Meunier, Marc Peaucelle}
+\date{2021-02-17}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{objectives-of-practical-a}{%
+\subsection{Objectives of Practical A}\label{objectives-of-practical-a}}
+
+During this first practical, you will have to implement the Farquhar,
+von Caemmerer and Berry model for C3 photosynthesis in R (hereafter the
+FvCB model). With this model, you should be able to simulate leaf
+assimilation from environmental conditions and \emph{a priori}
+assumptions on leaf traits. A full description of the equations and
+parameters are provided in this document. In order to implement the FvCB
+model, you will have to:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  From the model description bellow, identify input and output variables
+  as well as constant parameters of your model.
+\item
+  Create the FvCB function that will read input variables and parameters
+  and return the corresponding outputs.
+\item
+  Verify the your function reproduce the known behavior of the FvCB
+  model by varying light and CO2 concentration. Generate figures.
+\end{enumerate}
+
+Common coding practices in R are to create 1 function for each equation,
+but you are free to decide what is the more practical. In any case, you
+will have to comment your code. Commenting your code is essential, not
+only for sharing your work but also for yourself. It helps in organizing
+the code, clarify what you are doing and remember what you did if you
+need to modify something in the future. Try to comment even what seems
+logical, you will save a lot of time in the future.
+
+\hypertarget{description-of-the-fvcb-model}{%
+\subsection{Description of the FvCB
+model}\label{description-of-the-fvcb-model}}
+
+\hypertarget{definition-of-net-assimilation}{%
+\subsubsection{Definition of net
+assimilation}\label{definition-of-net-assimilation}}
+
+The FvCB model summarizes the biochemistry of photosynthesis into a set
+of equations that describe the kinetic properties of Rubisco (its
+carboxylation and oxygenation of RuBP), the ratio of CO2 uptake during
+carboxylation to CO2 loss during oxygenation (photorespiration), the
+regeneration of RuBP in response to the supply of NADPH and ATP produced
+during electron transport, the rate of carboxylation when RuBP is
+saturated, and the rate of carboxylation when RuBP is limited by
+regeneration via electron transport.
+
+Oxygenation of 1 mol of RuBP releases 0.5 mol CO2 so that the net rate
+of CO2 assimilation per unit leaf area \({A_n}\) is the balance between
+CO2 uptake during carboxylation \({V_c}\), CO2 loss during oxygenation
+(equal to \({0.5Vo}\)), and CO2 loss from mitochondrial respiration
+\({Rd}\) (often called dark respiration). This is represented by the
+equation:
+
+\[
+A_n = V_c -0.5V_o-R_d
+\] with \({A_n}\), \({V_c}\), \({Vo}\) and \({R_d}\) in µmol CO2
+m\textsuperscript{-2} s\textsuperscript{-1}. \({V_c}\) corresponds to
+the rate of carboxylation by RUBISCO, which follows the
+Michalelis-Menten response function: \[
+V_c=\frac{V_{cmax}C_i}{C_i+K_c(1+O_i/K_o)}
+\] with \(V_{cmax}\) the maximum rate of carboxylation in µmol CO2
+m\textsuperscript{-2} s\textsuperscript{-1}, \(C_i\) and \(O_i\) the
+intercellular CO2 concentration in µmol mol\textsuperscript{-1}, and
+\(K_c\) and \(K_o\) are the Michaelis-Menten constants for CO2 and O2 in
+µmol mol\textsuperscript{-1}, respectively.
+
+It exists a specific \(C_i\) concentration value at which oxygenation
+compensate carboxylation and no net CO2 uptake occurs in the absence of
+mitrochondrial respiration. We call this value the CO2 compensation
+point \(\Gamma^*\). Net assimilation can be reformulated as: \[
+A_n=(1-\frac{\Gamma^*}{C_i})V_c-R_d
+\] The term \(1-\Gamma^*/C_i\) accounts for CO2 release during
+photorespiration. It is commoon to \(S_{c/o}\) as the RUBISCO
+specificity factor equal so that: \[
+\Gamma^*=0.5\frac{0_i}{S_{c/o}}
+\]
+
+\hypertarget{incorporating-the-limitation-by-light-and-co2}{%
+\subsubsection{Incorporating the limitation by light and
+CO2}\label{incorporating-the-limitation-by-light-and-co2}}
+
+In the simplest form of the model, carboxylation \(V_c\) is limited by
+either the activity of RUBISCO (CO2 limitation), denoted by the rate
+\(W_c\), or by the regeneration of RuBP (light limitation), denoted by
+the rate \(W_j\), so that: \[
+A_n=(1-\frac{\Gamma^*}{C_i})min(W_c,W_j)-R_d
+\] with \[
+W_c=V_{cmax}\frac{C_i}{C_i+K_c(1+O_i/K_o)}
+\] and \[
+W_j=J\frac{C_i}{4C_i+8\Gamma^*)}
+\] \(J\) is the electron transport rate (in µmol m\textsuperscript{-2}
+s\textsuperscript{-1}) for a given irradiance. the rate of electron
+transport is related to absorbed photosynthetically active radiation
+(PAR), the maximum electron transport rate and the amount of light
+utilized by photosystems. Different expressions can be found for J. We
+will use the most common form:
+
+\[
+J=\frac{\phi_jI_{abs}+J_{max}-\sqrt{(\phi_jI_abs+J_{max})^2-4\theta_jI_{abs}\phi_jJ_{max}}}{2\theta_j}
+\]
+
+with \(I_{abs}\) the incident PAR in µmol photon m\textsuperscript{-2}
+s\textsuperscript{-1}, \(\theta_j\) is the curvature of the light
+response curve, \(\phi_j\) is the initial slope of the response of \(J\)
+to PAR and \(J_{max}\) the maximal electron transport rate in µmol
+m\textsuperscript{-2} s\textsuperscript{-1}.
+
+In summary, a common form of the FvCB model represents photosynthetic
+CO2 assimilation for plants utilizing the C3 photosynthetic pathway as
+limited by (i) Ac -- the rate of Rubisco catalyzed carboxylation when
+RuBP is saturated (called Rubisco-limited photosynthesis because of its
+dependence on maximum Rubisco activity as set by Vcmax); and (ii) Aj --
+the rate of RuBP regeneration by light absorption and electron transport
+as determined by Jmax (RuBP regeneration-limited, or light-limited,
+photosynthesis).
+
+\hypertarget{parameter-values-and-temperature-dependencies}{%
+\subsubsection{Parameter values and temperature
+dependencies}\label{parameter-values-and-temperature-dependencies}}
+
+The FvCB model requires 6 physiological parameters: \(K_c\), \(K_o\),
+\(\Gamma^*\), \(V_{cmax}\), \(J_{max}\) and \(R_d\). Additionally, the
+specification of electron transport requires \(\theta_j\) and
+\(\phi_j\). Values for\(K_c\), \(K_o\) and \(\Gamma^*\) are defined by
+the biochemistry of Rubisco and are similar among species. On the
+opposite, \(V_{cmax}\) is species dependent.
+
+\(V_{cmax}\) is a key parameter in the FvCB model. It directly
+determines the Rubisco-limited rate \(A_c\) and, for C3 plants, also
+influences the RuBP regeneration-limited rate \(A_j\) though its
+covariation with \(J_max\) . The maximum rate of carboxylation has a
+wide range among plant species and environments and is tightly linked to
+leaf nitrogen content; reported values for 109 species of C3 plants vary
+from less than 10 to greater than 150 μmol m\textsuperscript{--2}
+s\textsuperscript{--1}.
+
+Because \(J_{max}\) is well correlated to \(V_cmax\), it can be
+approximated to: \[
+J_{max} = 1.67V_{cmax}
+\]
+
+\(R_d\) is also well correlated to \(V_cmax\) and can be approximated
+as: \[
+R_d=0.015V_{cmax}
+\]
+
+The parameters \(K_c\), \(K_o\), \(\Gamma^*\), \(V_{cmax}\), \(J_{max}\)
+and \(R_d\) vary with temperature. The instantaneous responses of
+photosynthesis and respiration to temperature are driven by their
+underlying enzymatic responses. When warmed from low temperature, the
+enzymes involved in photosynthesis and respiration increase their
+activity as described by the Arrhenius function: \[
+f(Tl)=exp\left[\frac{\Delta H_a}{298.15R}(1-\frac{298.15}{Tl})\right]
+\] where \(T_l\) is leaf temperature (in K), R is the universal gas
+constant (8.314 J K\textsuperscript{--1} mol\textsuperscript{--1}), and
+\(\Delta H_a\) is the activation energy (J mol\textsuperscript{--1}).
+This function is normalized to 25°C (298.15 K). Parameter values
+measured at 25°C are multiplied by \(f(T_l)\) to adjust for leaf
+temperature.
+
+The parameters \(V_{cmax}\), \(J_{max}\) and \(R_d\) vary with
+temperature following the Arrhenius function but have a peaked response
+in which enzymatic activity increases up to a temperature optimum beyond
+which the reaction rate decreases when temperature is too high because
+of enzyme degradation. In this case, parameters such as \(V_{cmax}\) are
+writen by: \[
+V_{cmax}=V_{cmax25}f(T_l)f_J(T_l)
+\] with \(V_{cmax25}\) the value of \(V_{cmax}\) at 25°C. the
+\(f_H(T_l)\) function represents the thermal breakdown of biochemical
+processes: \[
+f_H(Tl)=\frac{1+exp\left(\frac{298.15\Delta S-\Delta H_d}{298.15R}\right)}{1+exp\left(\frac{\Delta ST_l-\Delta H_d}{RT_l}\right)}
+\]
+
+\hypertarget{summary-of-functions-and-parameter-values}{%
+\subsection{Summary of functions and parameter
+values}\label{summary-of-functions-and-parameter-values}}
+
+\renewcommand{\arraystretch}{2}
+
+\textbackslash{}begin\{table\}
+
+\textbackslash{}caption\{\label{tab:unnamed-chunk-3}Summary equations
+for the C\_3 photosynthesis model\} \centering
+
+\begin{tabular}[t]{ccc}
+\toprule
+Definition & Equation & Units\\
+\midrule
+Rubisco-limited assimilation & $W_c=V_{cmax}\frac{C_i}{C_i+K_c(1+O_i/K_o)}$ & µmol m^-2^ s^-1^\\
+\addlinespace\addlinespace
+Light-limited assimilation & $W_j=J\frac{C_i}{4C_i+8\Gamma^*)}$ & µmol m^-2^ s^-1^\\
+\addlinespace\addlinespace
+Gross photosynthesis & $A=(1-\frac{\Gamma^*}{C_i})min(W_c,W_j)$ & µmol m^-2^ s^-1^\\
+\addlinespace\addlinespace
+Net photosynthesis & $A_n=A-R_d$ & µmol m^-2^ s^-1^\\
+\addlinespace\addlinespace
+Electron transport rate & $J=\frac{\phi_jI_{abs}+J_{max}-\sqrt{(\phi_jI_abs+J_{max})^2-4\theta_jI_{abs}\phi_jJ_{max}}}{2\theta_j}$ & µmol m^-2^ s^-1^\\
+\addlinespace\addlinespace
+Maximum carboxylation rate & $V_{cmax}=V_{cmax25}f(T_l)f_J(T_l)$ & µmol m^-2^ s^-1^\\
+\addlinespace\addlinespace
+Maximum electron transport rate & $J_{cmax}=J_{cmax25}f(T_l)f_J(T_l)\\J_{max25}=1.67V_{cmax25}$ & µmol m^-2^ s^-1^\\
+\addlinespace\addlinespace
+Leaf respiration & $R_d=R_{d25}f(T_l)f_J(T_l)\\R_{d25}=0.015V_{cmax25}$ & µmol m^-2^ s^-1^\\
+\addlinespace\addlinespace
+Michaelis-Menten constant CO2 & $K_c=K_{c25}f(T_l)$ & µmol mol^-1^\\
+\addlinespace\addlinespace
+Michaelis-Menten constant O2 & $K_o=K_{o25}f(T_l)$ & mmol mol^-1^\\
+\addlinespace\addlinespace
+CO2 compensation point & $\Gamma^*=\Gamma^*_{25}f(T_l)$ & µmol mol^-1^\\
+\addlinespace\addlinespace
+Arrhenius function & $f(Tl)=exp\left[\frac{\Delta H_a}{298.15R}(1-\frac{298.15}{Tl})\right]$ & dimensionless\\
+\addlinespace\addlinespace
+High temperature inhibition & $f_H(Tl)=\frac{1+exp\left(\frac{298.15\Delta S-\Delta H_d}{298.15R}\right)}{1+exp\left(\frac{\Delta ST_l-\Delta H_d}{RT_l}\right)}$ & dimensionless\\
+\bottomrule
+\end{tabular}
+
+\textbackslash{}end\{table\}
+
+\end{document}
