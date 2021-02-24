@@ -1,75 +1,205 @@
-# Modelling light penetration, vegetation canopy representation, and energy balance
+# Modelling radiation, vegetation canopies, and energy balance
 \chaptermark{Light}
-- Mainly Chapter 14 from Bonan
 
 ## Introduction
-- Bonan, Chapter 14.1
-Figure 14.1
-Figure 14.2
+
+```{r f31, fig.cap='Generalized profiles of leaf area density in plant canopies. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f31_LAD.png')
+```
+
+```{r f32, fig.cap='Cumulative LAI and WAI in a deciduous oak-hickory forest. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f32_cLAI.jpg')
+```
+```{r f33, fig.cap='Illustration of a leaf (thick line) oriented at an angle Θℓ to horizontal. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f33_Langle.jpg')
+```
+
+```{r f34, fig.cap='Planophile, erectophile, plagiophile, and spherical leaf angle distributions showing (a) the probability density function f(Θℓ) and (b) the cumulative distribution F(Θℓ). (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f34_angle_distr.png')
+```
+
+```{r f35, fig.cap='Illustration of leaf angle distributions and canopy architecture in general influences radiation attenuation in vegetation canopies.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f35_architecture.jpg')
+```
+
+```{r f36, fig.cap='Profile of light and foliage in a stand of herbaceous plants approximately 130 cm tall. The horizontal axis shows transmittance as a fraction of incident radiation (top axis) and foliage mass (bottom axis) at various heights in the canopy. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f36_obs_profile.png')
+```
+
 
 ## Radiative transfer modelling
+
+```{r f37, fig.cap='Representation of a canopy as (a) one-dimensional with a vertical profile of leaf area (shown by grayscale gradation in which darker shading denotes more leaves) that is horizontally homogenous and (b) threedimensional with vertical and spatial structure determined by crown geometry and spacing. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f37_RT_principle.png')
+```
+
+
 ### Leaf optical properties
-- Bonan, Chapter 14.2
-Example of leaf spectrum
-Prospect model
-Example of parameters 14.2 + simulations/analysis of sensitivity
+
+
+```{r f37b, fig.cap='Spectrum of absorptance, reflectance and transmittance of a typical plant leaf (Jones, 2014)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f37_leaf_optical.jpg')
+```
+
+```{r f38, fig.cap='Table showing typical reflectance and absorptance values for leaves and vegetation canopies of different Plant Functional Types (PFT).(Jones, 2014)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f38_table_optical.jpg')
+```
 
 ### Light transmission without scattering
-- The Beer-Bouguer-Lambert law
-- Bonan, Chapter 14.3
-Most of quations 14.2-14.17 for model description
-Figure 14.4 and Figure 14.5
 
-### Direct beam extinction coefficient
-- Could be skipped
-- Bonan, Chapter 14.4
+```{r f39, fig.cap='Transmission of solar radiation through a homogeneous medium in the absence of scattering. In this example, n non-overlapping opaque particles each with cross-sectional area a oriented perpendicular to the path of light are placed in a medium with cross-sectional area A and thickness dz. The radiation absorbed in the medium is dI.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f39_beer.jpg')
+```
+
+```{r f310, fig.cap='Transmission of direct beam radiation τb in relation to leaf area index for typical values of the extinction coefficient Kb. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f310_Kb.png')
+```
+
+```{r f311, fig.cap='Extinction coefficient in relation to solar zenith angle Ζ and leaf inclination angle Θℓ. In each panel, a unit leaf area (L = 1), shown with a thick line, is projected onto a horizontal surface LH so that Kb = LH. The leaf inclination angle is 0° (bottom panels), 30° (middle panels), and 60° (top panels). In the left and middle columns, the leaf is oriented towards the Sun (Αℓ − Α = 0°) and the solar zenith angle is 0° (left column) and 15° (middle column). In the right column, Ζ = 15°, but the leaf is oriented away from the Sun (Αℓ − Α = 180°). In each panel, the arrows indicate the solar beam (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f311_LLh.png')
+```
+
+
+```{r f312, fig.cap='Extinction coefficients for horizontal, spherical, and vertical leaf angle distributions. (a) Direct beam radiation Kb in relation to solar zenith angle. (b) Diffuse radiation Kd in relation to leaf area index(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f312_Kb_angle.png')
+```
+
+
+```{r f313, fig.cap='Radiative transfer and sunlit leaf area index for a canopy of horizontal leaves (top panels) with Kb = 1 and vertical leaves (bottom panels) with Kb = 0.112. The left-hand panels show a canopy consisting of four layers of leaves. Each thick black line represents a leaf area index of 0.1 m2 m–2. The thin lines depict interception or transmission of beam radiation with a zenith angle of 10°. The middle panels show cumulative leaf area index and sunlit leaf area index with depth in the canopy. The right-hand panels show direct beam transmittance with depth in the canopy. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f313_sun_shade.png')
+```
+
+```{r f314, fig.cap='Sunlit leaf area index in relation to total leaf area index for horizontal, spherical, and vertical foliage orientations with solar zenith angle Ζ = 30°. Kb = 1, 0.577, and 0.368 for horizontal, spherical, and vertical foliage. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f314_sunlit.jpg')
+```
+
+```{r f315, fig.cap='Images illustrating leaf/canopy clumping a various scales: leaf, crown, stand.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f315_clumping.png')
+```
+
 
 ### Diffuse transmittance
-- Bonan, Chapter 14.5
-Figure 14.12
 
-### The Norman Model
-- Bonan, Chapter 14.6
-- Numerical
-Figure 14.15
+```{r f316, fig.cap='Illustration of direct beam and diffuse radiation. The sky forms a bowl, or inverted hemisphere, over a horizontal surface. Shown is a cross section of the sky hemisphere. Direct beam (solid line) originates from the    direction of the Sun with zenith angle Ζ. Diffuse radiation (dashed lines) can be treated as independent beams of radiation each with an angle Ζ. The shaded region is the relative contribution between sky angles Ζ1 and Ζ2 to total sky irradiance.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f316_diffuse.jpg')
+```
 
-### The Goudriaan and van Laar Model
-- Bonan, Chapter 14.7
-- Analytical
-Figure 14.16 + 14.15 and 14.17 for comparison with the Norman model
+```{r f317, fig.cap='Transmittance of diffuse radiation τd in relation to leaf area index for a spherical leaf distribution. Show are the transmittances for sky zones of 0°–30°, 30°–60°, and 60°–90° and also the total transmittance. Fill patterns show the contribution of each sky zone to total transmittance.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f317_diff_trans.png')
+```
+
+```{r f318, fig.cap='Transmission of solar radiation through a canopy with spherical leaf distribution in relation to leaf area index. The solid lines show direct beam transmittance τb for solar zenith angles of 0°–80° (in 10° increments).The dashed line shows the diffuse transmittance τd. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f318_diff_dir_trans.jpg')
+```
+
+
+### The Norman Model(1979)
+
+```{r f319, fig.cap='Radiative fluxes in a canopy of N leaf layers. The vertical profile is oriented with i = 1 the leaf layer at the bottom of the canopy, leaf layer i + 1 above layer i, and i = N the leaf layer at the top of the canopy. Each layer has a leaf area index ΔL. is the downward diffuse shortwave flux onto layer i, is the upward diffuse shortwave flux above layer i, and is the unscattered direct beam flux onto layer i. and are the corresponding downward and upward fluxes of longwave radiation. These depend on leaf Tℓand ground Tg temperatures. Thick arrows denote boundary conditions of diffuse solar radiation , direct beam solar radiation, and atmospheric longwave radiation at the top of the canopy.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f319_Norman.png')
+```
+
+
+### The Goudriaan and van Laar Model (1994)
+
+
+```{r f320, fig.cap=' Derivation of absorbed direct beam solar radiation for a leaf layer with leaf area index ΔL (Goudriaan 1982). ρc is the reflectance of the leaf layer.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f320_goudriaan.png')
+```
+
 
 ### The Two-Stream approximation
-- Bonan, Chapter 14.8
-Figure 14.19 + simulations
 
-### Surface Albedo
-- Bonan, Chapter 14.9
-Figure 14.20 and Figure 14.21
+```{r f321, fig.cap='Fluxes for (a) direct beam and (b) diffuse radiation in the twostream approximation for a canopy with leaf area index L.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f321_two_stream.png')
+```
 
 ### Longwave radiation
-- Bonan, Chapter 14.10
+
+```{r f322, fig.cap='Longwave radiation fluxes represented for a single leaf layer.(a) Norman’s (1979) numerical model. Shown is the radiative balance for leaf layer i + 1 located above leaf layer i. (b) A simplified model to allow only forward scattering (ρℓ = 0 and τℓ = ωℓ = 1 − εℓ) and to permit an analytical solution integrated over a canopy. In both panels, emitted radiation is excluded. Thick lines denote fluxes incident onto the layer. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f322_LW.png')
+```
+
+
 
 ## Representing canopy structure in models
 
 ### Big-leaf models
-- Bonan, Chapter 15.2
+
+```{r f323, fig.cap='Scaling of leaf fluxes to the canopy using a big-leaf model. (a) Shown are leaf sensible heat, transpiration, and CO2 fluxes in relation to various conductances. Fluxes are exchanged between the leaf and air around the leaf. Also shown is the total resistance. (b) Shown are big-leaf canopy fluxes in which leaf fluxes are scaled by the average conductance and leaf area index and are further modified by turbulent transport in the atmospheric surface layer. Surface layer processes are commonly omitted for CO2 exchange. Only a single big leaf is shown, but separate sunlit and shaded big leaves can be similarly depicted. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f323_bigleaf.jpg')
+```
+
+```{r f324, fig.cap='Canopy profiles of relative photosynthetic capacity in relation to cumulative leaf area index. Thin lines show exponential profiles using values of Kn for 16 temperate broadleaf forests and two tropical forests ranging from 0.10 to 0.43 (Lloyd et al. 2010). The two thick lines show observed profiles of Vcmax and Jmax from Niinemets and Tenhunen (1997) obtained for sugar maple (Acer saccharum). (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f324_vcamx_profile.png')
+```
+
 
 ### Multilayer models
-- Bonan, Chapter 15.4
+
+```{r f325, fig.cap='Overview of the main processes in a multilayer canopy model.The canopy is represented by N leaf layers with layer i + 1 above layer i. (a) Diffuse and direct beam solar radiation is transmitted or intercepted. The intercepted portion is absorbed or scattered in the forward and backward direction. Longwave radiation is similar to diffuse radiation. (b) Leaf sensible heat, transpiration, and CO2 fluxes depend on absorbed radiation and leaf boundary layer and stomatal conductances. Sensible heat is exchanged from both sides of the leaf. Water vapor and CO2 can be exchanged from one or both sides of the leaf depending on stomata. Leaf temperature is the temperature that balances the energy budget. (c) Stomatal conductance depends on leaf water potential. Plant water uptake for a canopy layer is in relation to belowground soil and root conductance and aboveground stem conductance acting in series and also a capacitance term. See Figure 13.4a for more details. (d) Scalar profiles are calculated from a conductance network. Leaf fluxes provide the source or sink of heat, water vapor, and CO2, along with soil fluxes. (e) Sensible heat, latent heat, and heat storage in soil depend on the ground temperature that balances the soil energy budget. (f) The wetted fraction of the canopy layer depends on the portion of precipitation that is intercepted. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f325_multilayer_process.jpg')
+```
+
+```{r f326, fig.cap='Flow diagram of processes in a multilayer canopy model. The shaded area denotes leaf processes resolved at each layer in the canopy. This is a generalized diagram of the required calculations for a dry leaf. Specific models differ in how the equation set is solved and the iterative calculations. Evaporation of intercepted water requires additional complexity.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f326_multilayer_solving.jpg')
+```
+
+
+### 3D ray tracing models
+
+```{r f327, fig.cap='Example of the PROSPECT leaf optical model and the DART 3D ray tracing model.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f327_DART.png')
+```
+
+```{r f328, fig.cap='Example of a study that uses terrestrial laser scanning (TLS) to construct a full 3D model of a forest as input for a 3D ray tracing model (Kükenbrink et al. 2020) ', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f328_TLS_RT.png')
+```
 
 ## Ecosystem energy balance
-- UCL 2.3 and 4.2
-- Bonan, Chapter 7
 
 ### Basic principles
-- UCL 2.3.1 and 4.2.1
 
-### Atmospheric absoprtion
-- UCL 2.3.2
+### Surface radiation balance
 
-### Radiative forcing
-- UCL 2.3.3
+```{r f329, fig.cap='Radiative balance of an opaque gray body receiving downwelling solar S↓ and longwave L↓ radiation.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f329_rad_balance.jpg')
+```
 
-### Land surface schemes
-- UCL 4.2.3
-- First, second and third generation models
+
+### Bulk surface energy balance
+
+```{r f330, fig.cap='Conductance networks for sensible heat flux (top) and latent heat flux (bottom) for various depictions of the land surface. This chapter describes the bulk surface and big-leaf canopies. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f330_E_balance.jpg')
+```
+
+
+### Leaf energy balance
+
+```{r f331, fig.cap='Biophysics and biochemistry of leaves. (a) The radiative environment consists of solar radiation (left) and longwave radiation (right). (b) Leaf fluxes include CO2, H2O, and heat through the boundary layer. These fluxes are shown as a network of conductances for the adaxial (upper) and abaxial (lower) leaf surfaces. For H2O and CO2, the conductance for each surface is obtained from stomatal and boundary layer conductances acting in series. The total conductance is defined by the adaxial and abaxial surfaces acting in parallel. (c) Stomata open to absorb CO2 for photosynthesis, but, in doing so, water is lost as transpiration. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f331_leaf_E_balance.jpg')
+```
+
+
+## Case studies
+
+### Case study 3.1
+
+```{r f332, fig.cap='Principle of the effect of increased diffuse raditaion on leaf/canopy photosynthesis. (Knohl et al. 2008)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f331_leaf_E_balance.jpg')
+```
+
+```{r f333, fig.cap='Resulting impact of changing diffuse fraction on carbon and water fluxes and WUE (Knohl et al. 2008)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f333_knohl2.png')
+```
+
+
+### Case study 3.2
+
+```{r f334, fig.cap='Global map of LAI trend between 1981 and 2016 based on remote sensing (Chen et al. 2021).', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f334_chen1.png')
+```
+
+```{r f335, fig.cap='Simulated impact of different factors contributing to the increased global land C sink since 1981 (Chen et al. 2021) ', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap3/f335_chen2.png')
+```

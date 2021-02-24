@@ -136,7 +136,7 @@
 
 \title{Vegetation modelling}
 \author{Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle}
-\date{2021-02-05}
+\date{2021-02-13}
 
 \begin{document}
 \maketitle
@@ -469,11 +469,95 @@
 
 \textbf{For all processes, we provide an overview of existing models and approaches and we will detail only one of them for the practical course. This also apply for the other chapters, the idea of the course is to be more conceptual about how we model vegetation and the different applications and assumptions.}
 
-\hypertarget{photosynthesis}{%
-\section{Photosynthesis}\label{photosynthesis}}
+\hypertarget{photosynthesis-models}{%
+\section{Photosynthesis models}\label{photosynthesis-models}}
+
+\hypertarget{refreshing-the-basic-knowledge}{%
+\subsection{Refreshing the basic knowledge}\label{refreshing-the-basic-knowledge}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/leaf_level_processes} 
+
+}
+
+\caption{Leaf level processes transpiration and photosysnthesis are strongy interlinked and both regulated by stomatal conductance}\label{fig:f21}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/photosynthesis_obs} 
+
+}
+
+\caption{Photosynthesis in relation to (a) photosynthetically active radiation,(b) temperature, (c) vapor pressure deficit at 25°C and 35°C,(d) foliage water potential, (e) ambient CO2 concentration, and (f) foliage water potential for jack pine trees (Pinus banksiana). Bonan (2019)}\label{fig:f22}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/Trespons_interactions} 
+
+}
+
+\caption{Temperature responses of photosynthesis, respiration and net CO2 exchange, interaction with CO2 concentration (A) and light  (B)  Schulze ()}\label{fig:f23}
+\end{figure}
 
 \hypertarget{c3-photosynthesis}{%
 \subsection{C3 photosynthesis}\label{c3-photosynthesis}}
+
+\hypertarget{light-response-curve-models}{%
+\subsubsection{Light response curve models}\label{light-response-curve-models}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/LRC} 
+
+}
+
+\caption{Conceptual figure of a leaf-level light reponse curve}\label{fig:f24}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/hyperbola} 
+
+}
+
+\caption{Co-limitation illustrated for photosynthetic response to light. The two dashed lines show the rates Amax adn EI The solid lines show the co-limited rate. (Bonan 2019)}\label{fig:f25}
+\end{figure}
+
+\hypertarget{light-use-efficiency-models}{%
+\subsubsection{Light use efficiency models}\label{light-use-efficiency-models}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/MODIS_GPP} 
+
+}
+
+\caption{MODIS based GPP map of the US, based on a LUE model.}\label{fig:f26}
+\end{figure}
+
+\hypertarget{the-farquahar-model}{%
+\subsubsection{The Farquahar model}\label{the-farquahar-model}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/conductance} 
+
+}
+
+\caption{Diffusion of CO2 from free air across the leaf boundary layer and through stomata to the intercellular space. Diffusion to the chloroplast is additionally regulated by mesophyl conductance. (Bonan 2019)}\label{fig:f27}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/simulated_responses} 
+
+}
+
+\caption{Simulated responses of C3 photosynthesis in relation to (a) intercellular CO2 (at I<U+2193> = 2000 µmol m–2 s–1) and (b) photosynthetically active radiation (at ci = 266 µmol mol–1). (Bonan 2019)}\label{fig:f28}
+\end{figure}
 
 \begin{itemize}
 \tightlist
@@ -490,6 +574,33 @@
 
 \hypertarget{parameter-and-temperature-dependencies}{%
 \subsection{Parameter and temperature dependencies}\label{parameter-and-temperature-dependencies}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/temp_responses} 
+
+}
+
+\caption{Relative temperature responses of the parameters of the Farquhar model (Bonan 2019)}\label{fig:f28bis}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/vcmax_jmax} 
+
+}
+
+\caption{Linear relation between observed Vcmax and Jmax values for Beech (Verbeeck et al. 2008)}\label{fig:f29}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/full_farquhar} 
+
+}
+
+\caption{Equations of the full Farquhar model}\label{fig:f210}
+\end{figure}
 
 \begin{itemize}
 \tightlist
@@ -514,42 +625,41 @@ Summary with Table 11.5 and Figure 11.4
   Find an illustration
 \end{itemize}
 
-\hypertarget{respiration-models}{%
-\section{Respiration models}\label{respiration-models}}
+\begin{figure}
 
--Q10 etc\ldots{}
--leaf respiration
--woody respiration
--Soil respiration → see chapter 7
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/c3_c4} 
 
-\hypertarget{transpiration-and-stomatal-models}{%
-\section{Transpiration and stomatal models}\label{transpiration-and-stomatal-models}}
+}
 
-\hypertarget{penman-monteith-equation}{%
-\subsection{Penman-Monteith equation}\label{penman-monteith-equation}}
+\caption{Comparison of C3 and C4 photosynthesis in response to (a) photosynthetically active radiation, (b) ambient CO2 concentration, (c) leaf temperature, and (d) vapor pressure deficit. In this figure, stomatal conductance is calculated using the Ball–Berry model and ci is obtained from the diffusion equation}\label{fig:f210b}
+\end{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  Bonan, Chapter 7.6
-\end{itemize}
+\hypertarget{stomatal-models}{%
+\section{Stomatal models}\label{stomatal-models}}
 
-\hypertarget{stomatal-conductance}{%
-\subsection{Stomatal conductance}\label{stomatal-conductance}}
+\hypertarget{refreshing-the-basic-knowledge-1}{%
+\subsection{Refreshing the basic knowledge}\label{refreshing-the-basic-knowledge-1}}
 
-\begin{itemize}
-\tightlist
-\item
-  stomatal models (Jarvis, Ball-Berry, Leuning, \ldots)
-\item
-  Bonan, Chapter 12.2-3
-\end{itemize}
+\begin{figure}
 
-Figure 12.1-12.2 and Equations 12.1-12.5
-Summary Table 12.1
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/conductance} 
+
+}
+
+\caption{Diffusion of CO2 from free air across the leaf boundary layer and through stomata to the intercellular space. Diffusion to the chloroplast is additionally regulated by mesophyl conductance. (Bonan 2019)}\label{fig:f211}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/gs_obs} 
+
+}
+
+\caption{Observed responses of stomatal conductance for Pinus banksiana. (Bonan 2019)}\label{fig:f212}
+\end{figure}
 
 \hypertarget{empirical-multiplicative-models}{%
-\subsubsection{Empirical multiplicative models}\label{empirical-multiplicative-models}}
+\subsection{Empirical multiplicative models}\label{empirical-multiplicative-models}}
 
 \begin{itemize}
 \tightlist
@@ -558,7 +668,7 @@ Summary Table 12.1
 \end{itemize}
 
 \hypertarget{semiempirical-photosynthesis-based-models}{%
-\subsubsection{Semiempirical photosynthesis-based models}\label{semiempirical-photosynthesis-based-models}}
+\subsection{Semiempirical photosynthesis-based models}\label{semiempirical-photosynthesis-based-models}}
 
 \begin{itemize}
 \tightlist
@@ -566,8 +676,26 @@ Summary Table 12.1
   Bonan, Chapter 12.3
 \end{itemize}
 
-\hypertarget{wue-model}{%
-\subsubsection{WUE model}\label{wue-model}}
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/ball_berry} 
+
+}
+
+\caption{Relationship between stomatal conductance and Anhs/cs for soybean.(Bonan 2019)}\label{fig:f213}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/numerical_solution} 
+
+}
+
+\caption{Flow diagram of the iterative procedure to numerically calculate ci.(Bonan 2019)}\label{fig:f214}
+\end{figure}
+
+\hypertarget{wue-models-and-optimality-theory}{%
+\subsection{WUE models and optimality theory}\label{wue-models-and-optimality-theory}}
 
 \begin{itemize}
 \tightlist
@@ -575,8 +703,65 @@ Summary Table 12.1
   Bonan, Chapter 12.4 + add optimality approach from Prentice et al.
 \end{itemize}
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/optimality} 
+
+}
+
+\caption{Flow diagram of leaf flux calculations to numerically solve for stomatal conductance that optimizes water-use efficiency.(Bonan 2019)}\label{fig:f215}
+\end{figure}
+
+\hypertarget{soil-drought-stress}{%
+\subsection{Soil drought stress}\label{soil-drought-stress}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/leafWP} 
+
+}
+
+\caption{Leaf carbon uptake in response to leaf water potential for multiple tree species.}\label{fig:f216}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/SWfactor} 
+
+}
+
+\caption{Soil moisture wetness factor in relation to volumetric water content. (Bonan 2019)}\label{fig:f217}
+\end{figure}
+
 \hypertarget{hydraulic-models}{%
-\subsubsection{Hydraulic models}\label{hydraulic-models}}
+\subsection{Hydraulic models}\label{hydraulic-models}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/hydraulics} 
+
+}
+
+\caption{Flow of water and representative water potentials along the soil–plant–atmosphere continuum. Also shown are conductances along the hydraulic pathway.(Bonan 2019)}\label{fig:f218}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/SPA} 
+
+}
+
+\caption{Depiction of (a) plant hydraulics and (b) leaf gas exchange in the Soil–Plant–Atmosphere (SPA) model. SPA is a multilayer canopy model.(Bonan 2019)}\label{fig:f219}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/modelling_approaches} 
+
+}
+
+\caption{Simulated stomatal responses for various modelling approaches. (Bonan 2019)}\label{fig:f220}
+\end{figure}
 
 Figure 13.1
 The soil-plant-atmosphere model
@@ -584,17 +769,6 @@ Leaf water potential
 Plant water uptake
 Resistance analogy
 Multinode models
-
-\hypertarget{stomatal-response-to-environmental-factors}{%
-\subsection{Stomatal response to environmental factors}\label{stomatal-response-to-environmental-factors}}
-
-\begin{itemize}
-\tightlist
-\item
-  Bonan, Chapter 12.5
-\item
-  Bonan, Chapter 12.7
-\end{itemize}
 
 \hypertarget{upscaling-from-leaf-to-canopy}{%
 \section{Upscaling from leaf to canopy}\label{upscaling-from-leaf-to-canopy}}
@@ -606,6 +780,62 @@ Multinode models
 \item
   Canopy integration: LAI layers, etc\ldots{} Nice transition to chap 3 with the interception of light by the canopy
 \end{itemize}
+
+Leaf microclimate and boundary layer processes in relation to leaf dimension for sun and shade conditions.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/sun_shade} 
+
+}
+
+\caption{Leaf microclimate and boundary layer processes in relation to leaf dimension for sun and shade conditions.(Bonan 2019)}\label{fig:f221}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/GPPcontrols} 
+
+}
+
+\caption{Controlling facors on ecosystem GPP. (Chapin)}\label{fig:f222}
+\end{figure}
+
+\hypertarget{case-studies}{%
+\section{Case studies}\label{case-studies}}
+
+\hypertarget{case-study-2.1-ozone-impact-on-global-gpp}{%
+\subsection{Case study 2.1 Ozone impact on global GPP}\label{case-study-2.1-ozone-impact-on-global-gpp}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/ozone} 
+
+}
+
+\caption{Simulated global GPP reduction in response to current and future atmospheric ozone concentrations}\label{fig:f223}
+\end{figure}
+
+\hypertarget{case-study-2.2-drought-impact-on-rainforest-gpp}{%
+\subsection{Case study 2.2 Drought impact on rainforest GPP}\label{case-study-2.2-drought-impact-on-rainforest-gpp}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/fisher1} 
+
+}
+
+\caption{Simulated (SPA model) and observed sapflow for a drought experiment in the Amazon; Fisher et al. 2007}\label{fig:f224}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap2/fisher2} 
+
+}
+
+\caption{Simulated (SPA model) gs and GPP for a drought experiment in the Amazon. Fisher et al. 2007}\label{fig:f225}
+\end{figure}
 
 \hypertarget{modelling-light-penetration-vegetation-canopy-representation-and-energy-balance}{%
 \chapter{Modelling light penetration, vegetation canopy representation, and energy balance}\label{modelling-light-penetration-vegetation-canopy-representation-and-energy-balance}}

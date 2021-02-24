@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Modelling radiation, vegetation canopies, and energy balance | Vegetation modelling</title>
+  <meta name="description" content="Syllabus associated to the course XX taught at Ghent University" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Modelling radiation, vegetation canopies, and energy balance | Vegetation modelling" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Syllabus associated to the course XX taught at Ghent University" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Modelling radiation, vegetation canopies, and energy balance | Vegetation modelling" />
+  
+  <meta name="twitter:description" content="Syllabus associated to the course XX taught at Ghent University" />
+  
+
+<meta name="author" content="Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle" />
+
+
+<meta name="date" content="2021-02-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="modelling-plant-basic-processes.html"/>
+<link rel="next" href="temporal-and-seasonal-dynamics.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#soil-plant-atmosphere-continuum-the-central-role-of-vegetation-in-the-earth-system"><i class="fa fa-check"></i><b>1.1</b> Soil-plant-atmosphere continuum: the central role of vegetation in the earth system</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#why-do-we-need-modelling"><i class="fa fa-check"></i><b>1.2</b> Why do we need modelling?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#model-types"><i class="fa fa-check"></i><b>1.3</b> Model types</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#the-history-of-vegetation-models"><i class="fa fa-check"></i><b>1.4</b> The history of vegetation models</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#components-of-a-model"><i class="fa fa-check"></i><b>1.5</b> Components of a model</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#modelling-workflow-and-structure-of-the-course"><i class="fa fa-check"></i><b>1.6</b> Modelling workflow and structure of the course</a></li>
+</ul></li>
+<li class="part"><span><b>I Biophysical and physiological models</b></span></li>
+<li class="chapter" data-level="2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html"><i class="fa fa-check"></i><b>2</b> Modelling plant basic processes</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#photosynthesis-models"><i class="fa fa-check"></i><b>2.1</b> Photosynthesis models</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#refreshing-the-basic-knowledge"><i class="fa fa-check"></i><b>2.1.1</b> Refreshing the basic knowledge</a></li>
+<li class="chapter" data-level="2.1.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#c3-photosynthesis"><i class="fa fa-check"></i><b>2.1.2</b> C3 photosynthesis</a></li>
+<li class="chapter" data-level="2.1.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#parameter-and-temperature-dependencies"><i class="fa fa-check"></i><b>2.1.3</b> Parameter and temperature dependencies</a></li>
+<li class="chapter" data-level="2.1.4" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#c4-photosynthesis"><i class="fa fa-check"></i><b>2.1.4</b> C4 photosynthesis</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#stomatal-models"><i class="fa fa-check"></i><b>2.2</b> Stomatal models</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#refreshing-the-basic-knowledge-1"><i class="fa fa-check"></i><b>2.2.1</b> Refreshing the basic knowledge</a></li>
+<li class="chapter" data-level="2.2.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#empirical-multiplicative-models"><i class="fa fa-check"></i><b>2.2.2</b> Empirical multiplicative models</a></li>
+<li class="chapter" data-level="2.2.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#semiempirical-photosynthesis-based-models"><i class="fa fa-check"></i><b>2.2.3</b> Semiempirical photosynthesis-based models</a></li>
+<li class="chapter" data-level="2.2.4" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#wue-models-and-optimality-theory"><i class="fa fa-check"></i><b>2.2.4</b> WUE models and optimality theory</a></li>
+<li class="chapter" data-level="2.2.5" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#soil-drought-stress"><i class="fa fa-check"></i><b>2.2.5</b> Soil drought stress</a></li>
+<li class="chapter" data-level="2.2.6" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#hydraulic-models"><i class="fa fa-check"></i><b>2.2.6</b> Hydraulic models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#upscaling-from-leaf-to-canopy"><i class="fa fa-check"></i><b>2.3</b> Upscaling from leaf to canopy</a></li>
+<li class="chapter" data-level="2.4" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#case-studies"><i class="fa fa-check"></i><b>2.4</b> Case studies</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#case-study-2.1-ozone-impact-on-global-gpp"><i class="fa fa-check"></i><b>2.4.1</b> Case study 2.1 Ozone impact on global GPP</a></li>
+<li class="chapter" data-level="2.4.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#case-study-2.2-drought-impact-on-rainforest-gpp"><i class="fa fa-check"></i><b>2.4.2</b> Case study 2.2 Drought impact on rainforest GPP</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html"><i class="fa fa-check"></i><b>3</b> Modelling radiation, vegetation canopies, and energy balance</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#radiative-transfer-modelling"><i class="fa fa-check"></i><b>3.2</b> Radiative transfer modelling</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#leaf-optical-properties"><i class="fa fa-check"></i><b>3.2.1</b> Leaf optical properties</a></li>
+<li class="chapter" data-level="3.2.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#light-transmission-without-scattering"><i class="fa fa-check"></i><b>3.2.2</b> Light transmission without scattering</a></li>
+<li class="chapter" data-level="3.2.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#diffuse-transmittance"><i class="fa fa-check"></i><b>3.2.3</b> Diffuse transmittance</a></li>
+<li class="chapter" data-level="3.2.4" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#the-norman-model1979"><i class="fa fa-check"></i><b>3.2.4</b> The Norman Model(1979)</a></li>
+<li class="chapter" data-level="3.2.5" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#the-goudriaan-and-van-laar-model-1994"><i class="fa fa-check"></i><b>3.2.5</b> The Goudriaan and van Laar Model (1994)</a></li>
+<li class="chapter" data-level="3.2.6" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#the-two-stream-approximation"><i class="fa fa-check"></i><b>3.2.6</b> The Two-Stream approximation</a></li>
+<li class="chapter" data-level="3.2.7" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#longwave-radiation"><i class="fa fa-check"></i><b>3.2.7</b> Longwave radiation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#representing-canopy-structure-in-models"><i class="fa fa-check"></i><b>3.3</b> Representing canopy structure in models</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#big-leaf-models"><i class="fa fa-check"></i><b>3.3.1</b> Big-leaf models</a></li>
+<li class="chapter" data-level="3.3.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#multilayer-models"><i class="fa fa-check"></i><b>3.3.2</b> Multilayer models</a></li>
+<li class="chapter" data-level="3.3.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#d-ray-tracing-models"><i class="fa fa-check"></i><b>3.3.3</b> 3D ray tracing models</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#ecosystem-energy-balance"><i class="fa fa-check"></i><b>3.4</b> Ecosystem energy balance</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#basic-principles"><i class="fa fa-check"></i><b>3.4.1</b> Basic principles</a></li>
+<li class="chapter" data-level="3.4.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#surface-radiation-balance"><i class="fa fa-check"></i><b>3.4.2</b> Surface radiation balance</a></li>
+<li class="chapter" data-level="3.4.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#bulk-surface-energy-balance"><i class="fa fa-check"></i><b>3.4.3</b> Bulk surface energy balance</a></li>
+<li class="chapter" data-level="3.4.4" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#leaf-energy-balance"><i class="fa fa-check"></i><b>3.4.4</b> Leaf energy balance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#case-studies-1"><i class="fa fa-check"></i><b>3.5</b> Case studies</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#case-study-3.1"><i class="fa fa-check"></i><b>3.5.1</b> Case study 3.1</a></li>
+<li class="chapter" data-level="3.5.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#case-study-3.2"><i class="fa fa-check"></i><b>3.5.2</b> Case study 3.2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html"><i class="fa fa-check"></i><b>4</b> Temporal and seasonal dynamics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#phenology"><i class="fa fa-check"></i><b>4.1</b> Phenology</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#the-example-of-crop-phenology"><i class="fa fa-check"></i><b>4.1.1</b> The example of crop phenology</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#mechanisms-of-phenology-and-evidence-of-changes"><i class="fa fa-check"></i><b>4.2</b> Mechanisms of phenology and evidence of changes</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#overview-of-controls-at-different-levels"><i class="fa fa-check"></i><b>4.2.1</b> Overview of controls at different levels</a></li>
+<li class="chapter" data-level="4.2.2" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#vegeation-index-and-changes-over-time"><i class="fa fa-check"></i><b>4.2.2</b> Vegeation index and changes over time</a></li>
+<li class="chapter" data-level="4.2.3" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#seasonality-feedbacks"><i class="fa fa-check"></i><b>4.2.3</b> Seasonality feedbacks</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#models-of-phenology"><i class="fa fa-check"></i><b>4.3</b> Models of phenology</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#budburst-models"><i class="fa fa-check"></i><b>4.3.1</b> budburst models</a></li>
+<li class="chapter" data-level="4.3.2" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#senescence-models"><i class="fa fa-check"></i><b>4.3.2</b> senescence models</a></li>
+<li class="chapter" data-level="4.3.3" data-path="temporal-and-seasonal-dynamics.html"><a href="temporal-and-seasonal-dynamics.html#phenology-in-dgvms"><i class="fa fa-check"></i><b>4.3.3</b> Phenology in DGVMs</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Modelling vegetation dynamics</b></span></li>
+<li class="chapter" data-level="5" data-path="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><a href="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><i class="fa fa-check"></i><b>5</b> Modelling plant growth and biogeochemical cycles in vegetation models</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><a href="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html#process-based-growth-modelling"><i class="fa fa-check"></i><b>5.1</b> Process-based growth modelling</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><a href="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html#c-allocation-models"><i class="fa fa-check"></i><b>5.1.1</b> C-allocation models</a></li>
+<li class="chapter" data-level="5.1.2" data-path="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><a href="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html#applications-of-growth-modelling-in-forestry-and-agriculture"><i class="fa fa-check"></i><b>5.1.2</b> Applications of growth modelling in forestry and agriculture</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><a href="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html#carbon-cycle-models-stocks-and-fluxes"><i class="fa fa-check"></i><b>5.2</b> Carbon cycle models: stocks and fluxes</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><a href="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html#model-structure"><i class="fa fa-check"></i><b>5.2.1</b> Model structure</a></li>
+<li class="chapter" data-level="5.2.2" data-path="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><a href="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html#allocation-and-turnover-parameterization"><i class="fa fa-check"></i><b>5.2.2</b> Allocation and turnover parameterization</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><a href="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html#nutrient-cycle-models-soil-biogeochemical-models"><i class="fa fa-check"></i><b>5.3</b> Nutrient cycle models: soil biogeochemical models</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><a href="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html#nitrogen-cycle"><i class="fa fa-check"></i><b>5.3.1</b> Nitrogen cycle</a></li>
+<li class="chapter" data-level="5.3.2" data-path="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><a href="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html#phosphorus-cycle"><i class="fa fa-check"></i><b>5.3.2</b> Phosphorus cycle</a></li>
+<li class="chapter" data-level="5.3.3" data-path="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><a href="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html#other-nutrients"><i class="fa fa-check"></i><b>5.3.3</b> Other nutrients</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><a href="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html#water-balance"><i class="fa fa-check"></i><b>5.4</b> Water balance</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html"><a href="modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models.html#a-bucket-model-hydrologic-cycle"><i class="fa fa-check"></i><b>5.4.1</b> A bucket model hydrologic cycle</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html"><i class="fa fa-check"></i><b>6</b> Representing biodiversity in vegetation models</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#why-and-how-representing-biodiversity-in-vegetation-models"><i class="fa fa-check"></i><b>6.1</b> Why and how representing biodiversity in vegetation models?</a></li>
+<li class="chapter" data-level="6.2" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#functional-diversity"><i class="fa fa-check"></i><b>6.2</b> Functional diversity</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#definition-of-funcional-diversity-and-plant-functional-traits"><i class="fa fa-check"></i><b>6.2.1</b> Definition of funcional diversity and plant functional traits</a></li>
+<li class="chapter" data-level="6.2.2" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#representing-400-000-plant-species-in-a-single-model-the-plant-functional-type-approach"><i class="fa fa-check"></i><b>6.2.2</b> Representing 400 000 plant species in a single model: the Plant Functional Type approach</a></li>
+<li class="chapter" data-level="6.2.3" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#limits-of-the-pft-representation-in-the-context-of-global-change"><i class="fa fa-check"></i><b>6.2.3</b> Limits of the PFT representation in the context of global change</a></li>
+<li class="chapter" data-level="6.2.4" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#from-model-parameters-to-plant-traits"><i class="fa fa-check"></i><b>6.2.4</b> From model parameters to plant traits</a></li>
+<li class="chapter" data-level="6.2.5" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#eco-evolutive-optimality-approaches"><i class="fa fa-check"></i><b>6.2.5</b> Eco-evolutive optimality approaches</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#competition-models"><i class="fa fa-check"></i><b>6.3</b> Competition models</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#representation-of-pfts-in-vegetation-models"><i class="fa fa-check"></i><b>6.3.1</b> Representation of PFTs in vegetation models</a></li>
+<li class="chapter" data-level="6.3.2" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#competition-for-ressources-plant-strategy"><i class="fa fa-check"></i><b>6.3.2</b> Competition for ressources / Plant strategy?</a></li>
+<li class="chapter" data-level="6.3.3" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#representation-of-trait-distributions"><i class="fa fa-check"></i><b>6.3.3</b> Representation of trait distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#communities"><i class="fa fa-check"></i><b>6.4</b> Communities</a></li>
+<li class="chapter" data-level="6.5" data-path="representing-biodiversity-in-vegetation-models.html"><a href="representing-biodiversity-in-vegetation-models.html#what-about-crops"><i class="fa fa-check"></i><b>6.5</b> What about crops?</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html"><i class="fa fa-check"></i><b>7</b> Modelling vegetation dynamics and demography</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#gap-models-individual-and-cohort-based-models"><i class="fa fa-check"></i><b>7.1</b> Gap models, individual and cohort based models</a></li>
+<li class="chapter" data-level="7.2" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#allometric-relationships"><i class="fa fa-check"></i><b>7.2</b> Allometric relationships</a></li>
+<li class="chapter" data-level="7.3" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#competition-for-light"><i class="fa fa-check"></i><b>7.3</b> Competition for light</a></li>
+<li class="chapter" data-level="7.4" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#seed-dispersal-and-recruitment"><i class="fa fa-check"></i><b>7.4</b> Seed dispersal and recruitment</a></li>
+<li class="chapter" data-level="7.5" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#mortality"><i class="fa fa-check"></i><b>7.5</b> Mortality</a></li>
+</ul></li>
+<li class="part"><span><b>III Upscaling and applications</b></span></li>
+<li class="chapter" data-level="8" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html"><i class="fa fa-check"></i><b>8</b> Spatial heterogeneity, landscape scale, metapopulations</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#patch-dynamics"><i class="fa fa-check"></i><b>8.1</b> Patch dynamics</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#spatial-heterogeneity-definitions"><i class="fa fa-check"></i><b>8.1.1</b> Spatial heterogeneity: Definitions</a></li>
+<li class="chapter" data-level="8.1.2" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#impact-of-heterogeneity-on-ecosystem-fonctionning-and-environmental-feedbacks"><i class="fa fa-check"></i><b>8.1.2</b> Impact of heterogeneity on ecosystem fonctionning and environmental feedbacks</a></li>
+<li class="chapter" data-level="8.1.3" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#heterogeneity-is-a-matter-of-resolution"><i class="fa fa-check"></i><b>8.1.3</b> Heterogeneity is a matter of resolution</a></li>
+<li class="chapter" data-level="8.1.4" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#representation-in-vegetation-models-what-are-the-drivers-of-spatial-heterogeneity"><i class="fa fa-check"></i><b>8.1.4</b> Representation in Vegetation models: what are the drivers of spatial heterogeneity?</a></li>
+<li class="chapter" data-level="8.1.5" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#disturbances-and-patch-dynamics"><i class="fa fa-check"></i><b>8.1.5</b> Disturbances and Patch dynamics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#land-use-changes"><i class="fa fa-check"></i><b>8.2</b> Land-use changes</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#role-of-land-use-in-global-emissions-and-biogeochemicel-cycles"><i class="fa fa-check"></i><b>8.2.1</b> Role of Land-use in global emissions and biogeochemicel cycles</a></li>
+<li class="chapter" data-level="8.2.2" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#the-important-role-of-land-use-in-the-water-cycle"><i class="fa fa-check"></i><b>8.2.2</b> The important role of land use in the water cycle</a></li>
+<li class="chapter" data-level="8.2.3" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#monitoring-land-use"><i class="fa fa-check"></i><b>8.2.3</b> Monitoring land-use</a></li>
+<li class="chapter" data-level="8.2.4" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#how-land-use-is-represented-in-vegetation-models"><i class="fa fa-check"></i><b>8.2.4</b> How Land-use is represented in vegetation models?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#natural-and-anthropogenic-disturbances"><i class="fa fa-check"></i><b>8.3</b> Natural and Anthropogenic disturbances</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#wind-and-extrem-events"><i class="fa fa-check"></i><b>8.3.1</b> Wind and extrem events</a></li>
+<li class="chapter" data-level="8.3.2" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#herbivory"><i class="fa fa-check"></i><b>8.3.2</b> Herbivory</a></li>
+<li class="chapter" data-level="8.3.3" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#modelling-fires"><i class="fa fa-check"></i><b>8.3.3</b> Modelling fires</a></li>
+<li class="chapter" data-level="8.3.4" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#human-activity-management-and-urban-areas"><i class="fa fa-check"></i><b>8.3.4</b> Human activity: Management and urban areas</a></li>
+<li class="chapter" data-level="8.3.5" data-path="spatial-heterogeneity-landscape-scale-metapopulations.html"><a href="spatial-heterogeneity-landscape-scale-metapopulations.html#the-specific-case-of-co2-and-temperature-increase"><i class="fa fa-check"></i><b>8.3.5</b> The specific case of CO2 and temperature increase</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html"><i class="fa fa-check"></i><b>9</b> Upscaling from the leaf to the globe</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#spatial-and-temporal-non-linearities-cascading-effect-in-the-earth-system"><i class="fa fa-check"></i><b>9.1</b> Spatial and temporal non-linearities: Cascading effect in the Earth system</a></li>
+<li class="chapter" data-level="9.2" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#land-surface-models"><i class="fa fa-check"></i><b>9.2</b> Land surface models</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#soil-vegetation-atmosphere-transer-models"><i class="fa fa-check"></i><b>9.2.1</b> Soil-Vegetation-Atmosphere-Transer models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#dvgms-as-a-part-of-earth-system-models"><i class="fa fa-check"></i><b>9.3</b> DVGMs as a part of Earth System Models</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#one-biosphere"><i class="fa fa-check"></i><b>9.3.1</b> One Biosphere</a></li>
+<li class="chapter" data-level="9.3.2" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#atmosphere-ocean-lakes-and-urban-areas"><i class="fa fa-check"></i><b>9.3.2</b> Atmosphere, Ocean, lakes and urban areas</a></li>
+<li class="chapter" data-level="9.3.3" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#coupling-of-processes-with-different-time-steps-and-regional-scale"><i class="fa fa-check"></i><b>9.3.3</b> Coupling of processes with different time steps and regional scale</a></li>
+<li class="chapter" data-level="9.3.4" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#simulating-feedbacks"><i class="fa fa-check"></i><b>9.3.4</b> Simulating feedbacks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html"><i class="fa fa-check"></i><b>10</b> Model projections and scenario analysis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#climate-scenarios"><i class="fa fa-check"></i><b>10.1</b> Climate scenarios</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#representative-concentration-pathway-rcp-scenarios"><i class="fa fa-check"></i><b>10.1.1</b> Representative Concentration Pathway (RCP scenarios)</a></li>
+<li class="chapter" data-level="10.1.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#different-models-different-rcp"><i class="fa fa-check"></i><b>10.1.2</b> Different models, different RCP</a></li>
+<li class="chapter" data-level="10.1.3" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#use-of-rcp-in-vegetation-modelling"><i class="fa fa-check"></i><b>10.1.3</b> Use of RCP in vegetation modelling</a></li>
+<li class="chapter" data-level="10.1.4" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#how-can-we-evaluate-future-scenarios"><i class="fa fa-check"></i><b>10.1.4</b> How can we evaluate future scenarios?</a></li>
+<li class="chapter" data-level="10.1.5" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#the-central-role-of-paleo-studies-and-historical-datasets."><i class="fa fa-check"></i><b>10.1.5</b> The central role of Paleo studies and historical datasets.</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#land-use-scenarios"><i class="fa fa-check"></i><b>10.2</b> Land-use scenarios</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#construction-of-land-use-scenarios"><i class="fa fa-check"></i><b>10.2.1</b> Construction of Land-use scenarios</a></li>
+<li class="chapter" data-level="10.2.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#how-can-we-evaluate-land-use-scenarios"><i class="fa fa-check"></i><b>10.2.2</b> How can we evaluate land use scenarios?</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#management-scenarios"><i class="fa fa-check"></i><b>10.3</b> Management scenarios</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#construction-of-land-use-scenarios-1"><i class="fa fa-check"></i><b>10.3.1</b> Construction of Land-use scenarios</a></li>
+<li class="chapter" data-level="10.3.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#how-can-we-evaluate-management-scenarios"><i class="fa fa-check"></i><b>10.3.2</b> How can we evaluate management scenarios?</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#some-concrete-applications-of-vegetation-models"><i class="fa fa-check"></i><b>10.4</b> Some concrete applications of vegetation models</a></li>
+</ul></li>
+<li class="part"><span><b>IV Appendix</b></span></li>
+<li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html"><i class="fa fa-check"></i>Contributing to this document</a>
+<ul>
+<li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html#first-steps"><i class="fa fa-check"></i>First steps</a></li>
+<li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html#new-pull-request"><i class="fa fa-check"></i>New pull request</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Vegetation modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modelling-radiation-vegetation-canopies-and-energy-balance" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Modelling radiation, vegetation canopies, and energy balance</h1>
+<div id="introduction" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Introduction</h2>
+<div class="figure" style="text-align: center"><span id="fig:f31"></span>
+<img src="figures/chap3/f31_LAD.png" alt="Generalized profiles of leaf area density in plant canopies. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.1: Generalized profiles of leaf area density in plant canopies. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f32"></span>
+<img src="figures/chap3/f32_cLAI.jpg" alt="Cumulative LAI and WAI in a deciduous oak-hickory forest. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.2: Cumulative LAI and WAI in a deciduous oak-hickory forest. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f33"></span>
+<img src="figures/chap3/f33_Langle.jpg" alt="Illustration of a leaf (thick line) oriented at an angle Tl to horizontal. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.3: Illustration of a leaf (thick line) oriented at an angle Tl to horizontal. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f34"></span>
+<img src="figures/chap3/f34_angle_distr.png" alt="Planophile, erectophile, plagiophile, and spherical leaf angle distributions showing (a) the probability density function f(Tl) and (b) the cumulative distribution F(Tl). (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.4: Planophile, erectophile, plagiophile, and spherical leaf angle distributions showing (a) the probability density function f(Tl) and (b) the cumulative distribution F(Tl). (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f35"></span>
+<img src="figures/chap3/f35_architecture.jpg" alt="Illustration of leaf angle distributions and canopy architecture in general influences radiation attenuation in vegetation canopies." width="80%" />
+<p class="caption">
+Figure 3.5: Illustration of leaf angle distributions and canopy architecture in general influences radiation attenuation in vegetation canopies.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f36"></span>
+<img src="figures/chap3/f36_obs_profile.png" alt="Profile of light and foliage in a stand of herbaceous plants approximately 130 cm tall. The horizontal axis shows transmittance as a fraction of incident radiation (top axis) and foliage mass (bottom axis) at various heights in the canopy. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.6: Profile of light and foliage in a stand of herbaceous plants approximately 130 cm tall. The horizontal axis shows transmittance as a fraction of incident radiation (top axis) and foliage mass (bottom axis) at various heights in the canopy. (Bonan)
+</p>
+</div>
+</div>
+<div id="radiative-transfer-modelling" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Radiative transfer modelling</h2>
+<div class="figure" style="text-align: center"><span id="fig:f37"></span>
+<img src="figures/chap3/f37_RT_principle.png" alt="Representation of a canopy as (a) one-dimensional with a vertical profile of leaf area (shown by grayscale gradation in which darker shading denotes more leaves) that is horizontally homogenous and (b) threedimensional with vertical and spatial structure determined by crown geometry and spacing. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.7: Representation of a canopy as (a) one-dimensional with a vertical profile of leaf area (shown by grayscale gradation in which darker shading denotes more leaves) that is horizontally homogenous and (b) threedimensional with vertical and spatial structure determined by crown geometry and spacing. (Bonan)
+</p>
+</div>
+<div id="leaf-optical-properties" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Leaf optical properties</h3>
+<div class="figure" style="text-align: center"><span id="fig:f37b"></span>
+<img src="figures/chap3/f37_leaf_optical.jpg" alt="Spectrum of absorptance, reflectance and transmittance of a typical plant leaf (Jones, 2014)" width="80%" />
+<p class="caption">
+Figure 3.8: Spectrum of absorptance, reflectance and transmittance of a typical plant leaf (Jones, 2014)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f38"></span>
+<img src="figures/chap3/f38_table_optical.jpg" alt="Table showing typical reflectance and absorptance values for leaves and vegetation canopies of different Plant Functional Types (PFT).(Jones, 2014)" width="80%" />
+<p class="caption">
+Figure 3.9: Table showing typical reflectance and absorptance values for leaves and vegetation canopies of different Plant Functional Types (PFT).(Jones, 2014)
+</p>
+</div>
+</div>
+<div id="light-transmission-without-scattering" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Light transmission without scattering</h3>
+<div class="figure" style="text-align: center"><span id="fig:f39"></span>
+<img src="figures/chap3/f39_beer.jpg" alt="Transmission of solar radiation through a homogeneous medium in the absence of scattering. In this example, n non-overlapping opaque particles each with cross-sectional area a oriented perpendicular to the path of light are placed in a medium with cross-sectional area A and thickness dz. The radiation absorbed in the medium is dI.(Bonan)" width="80%" />
+<p class="caption">
+Figure 3.10: Transmission of solar radiation through a homogeneous medium in the absence of scattering. In this example, n non-overlapping opaque particles each with cross-sectional area a oriented perpendicular to the path of light are placed in a medium with cross-sectional area A and thickness dz. The radiation absorbed in the medium is dI.(Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f310"></span>
+<img src="figures/chap3/f310_Kb.png" alt="Transmission of direct beam radiation tb in relation to leaf area index for typical values of the extinction coefficient Kb. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.11: Transmission of direct beam radiation tb in relation to leaf area index for typical values of the extinction coefficient Kb. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f311"></span>
+<img src="figures/chap3/f311_LLh.png" alt="Extinction coefficient in relation to solar zenith angle &lt;U+0396&gt; and leaf inclination angle Tl. In each panel, a unit leaf area (L = 1), shown with a thick line, is projected onto a horizontal surface LH so that Kb = LH. The leaf inclination angle is 0° (bottom panels), 30° (middle panels), and 60° (top panels). In the left and middle columns, the leaf is oriented towards the Sun (&lt;U+0391&gt;l - &lt;U+0391&gt; = 0°) and the solar zenith angle is 0° (left column) and 15° (middle column). In the right column, &lt;U+0396&gt; = 15°, but the leaf is oriented away from the Sun (&lt;U+0391&gt;l - &lt;U+0391&gt; = 180°). In each panel, the arrows indicate the solar beam (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.12: Extinction coefficient in relation to solar zenith angle &lt;U+0396&gt; and leaf inclination angle Tl. In each panel, a unit leaf area (L = 1), shown with a thick line, is projected onto a horizontal surface LH so that Kb = LH. The leaf inclination angle is 0° (bottom panels), 30° (middle panels), and 60° (top panels). In the left and middle columns, the leaf is oriented towards the Sun (&lt;U+0391&gt;l - &lt;U+0391&gt; = 0°) and the solar zenith angle is 0° (left column) and 15° (middle column). In the right column, &lt;U+0396&gt; = 15°, but the leaf is oriented away from the Sun (&lt;U+0391&gt;l - &lt;U+0391&gt; = 180°). In each panel, the arrows indicate the solar beam (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f312"></span>
+<img src="figures/chap3/f312_Kb_angle.png" alt="Extinction coefficients for horizontal, spherical, and vertical leaf angle distributions. (a) Direct beam radiation Kb in relation to solar zenith angle. (b) Diffuse radiation Kd in relation to leaf area index(Bonan)" width="80%" />
+<p class="caption">
+Figure 3.13: Extinction coefficients for horizontal, spherical, and vertical leaf angle distributions. (a) Direct beam radiation Kb in relation to solar zenith angle. (b) Diffuse radiation Kd in relation to leaf area index(Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f313"></span>
+<img src="figures/chap3/f313_sun_shade.png" alt="Radiative transfer and sunlit leaf area index for a canopy of horizontal leaves (top panels) with Kb = 1 and vertical leaves (bottom panels) with Kb = 0.112. The left-hand panels show a canopy consisting of four layers of leaves. Each thick black line represents a leaf area index of 0.1 m2 m–2. The thin lines depict interception or transmission of beam radiation with a zenith angle of 10°. The middle panels show cumulative leaf area index and sunlit leaf area index with depth in the canopy. The right-hand panels show direct beam transmittance with depth in the canopy. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.14: Radiative transfer and sunlit leaf area index for a canopy of horizontal leaves (top panels) with Kb = 1 and vertical leaves (bottom panels) with Kb = 0.112. The left-hand panels show a canopy consisting of four layers of leaves. Each thick black line represents a leaf area index of 0.1 m2 m–2. The thin lines depict interception or transmission of beam radiation with a zenith angle of 10°. The middle panels show cumulative leaf area index and sunlit leaf area index with depth in the canopy. The right-hand panels show direct beam transmittance with depth in the canopy. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f314"></span>
+<img src="figures/chap3/f314_sunlit.jpg" alt="Sunlit leaf area index in relation to total leaf area index for horizontal, spherical, and vertical foliage orientations with solar zenith angle &lt;U+0396&gt; = 30°. Kb = 1, 0.577, and 0.368 for horizontal, spherical, and vertical foliage. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.15: Sunlit leaf area index in relation to total leaf area index for horizontal, spherical, and vertical foliage orientations with solar zenith angle &lt;U+0396&gt; = 30°. Kb = 1, 0.577, and 0.368 for horizontal, spherical, and vertical foliage. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f315"></span>
+<img src="figures/chap3/f315_clumping.png" alt="Images illustrating leaf/canopy clumping a various scales: leaf, crown, stand." width="80%" />
+<p class="caption">
+Figure 3.16: Images illustrating leaf/canopy clumping a various scales: leaf, crown, stand.
+</p>
+</div>
+</div>
+<div id="diffuse-transmittance" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Diffuse transmittance</h3>
+<div class="figure" style="text-align: center"><span id="fig:f316"></span>
+<img src="figures/chap3/f316_diffuse.jpg" alt="Illustration of direct beam and diffuse radiation. The sky forms a bowl, or inverted hemisphere, over a horizontal surface. Shown is a cross section of the sky hemisphere. Direct beam (solid line) originates from the    direction of the Sun with zenith angle &lt;U+0396&gt;. Diffuse radiation (dashed lines) can be treated as independent beams of radiation each with an angle &lt;U+0396&gt;. The shaded region is the relative contribution between sky angles &lt;U+0396&gt;1 and &lt;U+0396&gt;2 to total sky irradiance.(Bonan)" width="80%" />
+<p class="caption">
+Figure 3.17: Illustration of direct beam and diffuse radiation. The sky forms a bowl, or inverted hemisphere, over a horizontal surface. Shown is a cross section of the sky hemisphere. Direct beam (solid line) originates from the direction of the Sun with zenith angle &lt;U+0396&gt;. Diffuse radiation (dashed lines) can be treated as independent beams of radiation each with an angle &lt;U+0396&gt;. The shaded region is the relative contribution between sky angles &lt;U+0396&gt;1 and &lt;U+0396&gt;2 to total sky irradiance.(Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f317"></span>
+<img src="figures/chap3/f317_diff_trans.png" alt="Transmittance of diffuse radiation td in relation to leaf area index for a spherical leaf distribution. Show are the transmittances for sky zones of 0°–30°, 30°–60°, and 60°–90° and also the total transmittance. Fill patterns show the contribution of each sky zone to total transmittance.(Bonan)" width="80%" />
+<p class="caption">
+Figure 3.18: Transmittance of diffuse radiation td in relation to leaf area index for a spherical leaf distribution. Show are the transmittances for sky zones of 0°–30°, 30°–60°, and 60°–90° and also the total transmittance. Fill patterns show the contribution of each sky zone to total transmittance.(Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f318"></span>
+<img src="figures/chap3/f318_diff_dir_trans.jpg" alt="Transmission of solar radiation through a canopy with spherical leaf distribution in relation to leaf area index. The solid lines show direct beam transmittance tb for solar zenith angles of 0°–80° (in 10° increments).The dashed line shows the diffuse transmittance td. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.19: Transmission of solar radiation through a canopy with spherical leaf distribution in relation to leaf area index. The solid lines show direct beam transmittance tb for solar zenith angles of 0°–80° (in 10° increments).The dashed line shows the diffuse transmittance td. (Bonan)
+</p>
+</div>
+</div>
+<div id="the-norman-model1979" class="section level3" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> The Norman Model(1979)</h3>
+<div class="figure" style="text-align: center"><span id="fig:f319"></span>
+<img src="figures/chap3/f319_Norman.png" alt="Radiative fluxes in a canopy of N leaf layers. The vertical profile is oriented with i = 1 the leaf layer at the bottom of the canopy, leaf layer i + 1 above layer i, and i = N the leaf layer at the top of the canopy. Each layer has a leaf area index &lt;U+0394&gt;L. is the downward diffuse shortwave flux onto layer i, is the upward diffuse shortwave flux above layer i, and is the unscattered direct beam flux onto layer i. and are the corresponding downward and upward fluxes of longwave radiation. These depend on leaf Tland ground Tg temperatures. Thick arrows denote boundary conditions of diffuse solar radiation , direct beam solar radiation, and atmospheric longwave radiation at the top of the canopy.(Bonan)" width="80%" />
+<p class="caption">
+Figure 3.20: Radiative fluxes in a canopy of N leaf layers. The vertical profile is oriented with i = 1 the leaf layer at the bottom of the canopy, leaf layer i + 1 above layer i, and i = N the leaf layer at the top of the canopy. Each layer has a leaf area index &lt;U+0394&gt;L. is the downward diffuse shortwave flux onto layer i, is the upward diffuse shortwave flux above layer i, and is the unscattered direct beam flux onto layer i. and are the corresponding downward and upward fluxes of longwave radiation. These depend on leaf Tland ground Tg temperatures. Thick arrows denote boundary conditions of diffuse solar radiation , direct beam solar radiation, and atmospheric longwave radiation at the top of the canopy.(Bonan)
+</p>
+</div>
+</div>
+<div id="the-goudriaan-and-van-laar-model-1994" class="section level3" number="3.2.5">
+<h3><span class="header-section-number">3.2.5</span> The Goudriaan and van Laar Model (1994)</h3>
+<div class="figure" style="text-align: center"><span id="fig:f320"></span>
+<img src="figures/chap3/f320_goudriaan.png" alt=" Derivation of absorbed direct beam solar radiation for a leaf layer with leaf area index &lt;U+0394&gt;L (Goudriaan 1982). &lt;U+03C1&gt;c is the reflectance of the leaf layer.(Bonan)" width="80%" />
+<p class="caption">
+Figure 3.21:  Derivation of absorbed direct beam solar radiation for a leaf layer with leaf area index &lt;U+0394&gt;L (Goudriaan 1982). &lt;U+03C1&gt;c is the reflectance of the leaf layer.(Bonan)
+</p>
+</div>
+</div>
+<div id="the-two-stream-approximation" class="section level3" number="3.2.6">
+<h3><span class="header-section-number">3.2.6</span> The Two-Stream approximation</h3>
+<div class="figure" style="text-align: center"><span id="fig:f321"></span>
+<img src="figures/chap3/f321_two_stream.png" alt="Fluxes for (a) direct beam and (b) diffuse radiation in the twostream approximation for a canopy with leaf area index L.(Bonan)" width="80%" />
+<p class="caption">
+Figure 3.22: Fluxes for (a) direct beam and (b) diffuse radiation in the twostream approximation for a canopy with leaf area index L.(Bonan)
+</p>
+</div>
+</div>
+<div id="longwave-radiation" class="section level3" number="3.2.7">
+<h3><span class="header-section-number">3.2.7</span> Longwave radiation</h3>
+<div class="figure" style="text-align: center"><span id="fig:f322"></span>
+<img src="figures/chap3/f322_LW.png" alt="Longwave radiation fluxes represented for a single leaf layer.(a) Norman’s (1979) numerical model. Shown is the radiative balance for leaf layer i + 1 located above leaf layer i. (b) A simplified model to allow only forward scattering (&lt;U+03C1&gt;l = 0 and tl = &lt;U+03C9&gt;l = 1 - el) and to permit an analytical solution integrated over a canopy. In both panels, emitted radiation is excluded. Thick lines denote fluxes incident onto the layer. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.23: Longwave radiation fluxes represented for a single leaf layer.(a) Norman’s (1979) numerical model. Shown is the radiative balance for leaf layer i + 1 located above leaf layer i. (b) A simplified model to allow only forward scattering (&lt;U+03C1&gt;l = 0 and tl = &lt;U+03C9&gt;l = 1 - el) and to permit an analytical solution integrated over a canopy. In both panels, emitted radiation is excluded. Thick lines denote fluxes incident onto the layer. (Bonan)
+</p>
+</div>
+</div>
+</div>
+<div id="representing-canopy-structure-in-models" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Representing canopy structure in models</h2>
+<div id="big-leaf-models" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Big-leaf models</h3>
+<div class="figure" style="text-align: center"><span id="fig:f323"></span>
+<img src="figures/chap3/f323_bigleaf.jpg" alt="Scaling of leaf fluxes to the canopy using a big-leaf model. (a) Shown are leaf sensible heat, transpiration, and CO2 fluxes in relation to various conductances. Fluxes are exchanged between the leaf and air around the leaf. Also shown is the total resistance. (b) Shown are big-leaf canopy fluxes in which leaf fluxes are scaled by the average conductance and leaf area index and are further modified by turbulent transport in the atmospheric surface layer. Surface layer processes are commonly omitted for CO2 exchange. Only a single big leaf is shown, but separate sunlit and shaded big leaves can be similarly depicted. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.24: Scaling of leaf fluxes to the canopy using a big-leaf model. (a) Shown are leaf sensible heat, transpiration, and CO2 fluxes in relation to various conductances. Fluxes are exchanged between the leaf and air around the leaf. Also shown is the total resistance. (b) Shown are big-leaf canopy fluxes in which leaf fluxes are scaled by the average conductance and leaf area index and are further modified by turbulent transport in the atmospheric surface layer. Surface layer processes are commonly omitted for CO2 exchange. Only a single big leaf is shown, but separate sunlit and shaded big leaves can be similarly depicted. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f324"></span>
+<img src="figures/chap3/f324_vcamx_profile.png" alt="Canopy profiles of relative photosynthetic capacity in relation to cumulative leaf area index. Thin lines show exponential profiles using values of Kn for 16 temperate broadleaf forests and two tropical forests ranging from 0.10 to 0.43 (Lloyd et al. 2010). The two thick lines show observed profiles of Vcmax and Jmax from Niinemets and Tenhunen (1997) obtained for sugar maple (Acer saccharum). (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.25: Canopy profiles of relative photosynthetic capacity in relation to cumulative leaf area index. Thin lines show exponential profiles using values of Kn for 16 temperate broadleaf forests and two tropical forests ranging from 0.10 to 0.43 (Lloyd et al. 2010). The two thick lines show observed profiles of Vcmax and Jmax from Niinemets and Tenhunen (1997) obtained for sugar maple (Acer saccharum). (Bonan)
+</p>
+</div>
+</div>
+<div id="multilayer-models" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Multilayer models</h3>
+<div class="figure" style="text-align: center"><span id="fig:f325"></span>
+<img src="figures/chap3/f325_multilayer_process.jpg" alt="Overview of the main processes in a multilayer canopy model.The canopy is represented by N leaf layers with layer i + 1 above layer i. (a) Diffuse and direct beam solar radiation is transmitted or intercepted. The intercepted portion is absorbed or scattered in the forward and backward direction. Longwave radiation is similar to diffuse radiation. (b) Leaf sensible heat, transpiration, and CO2 fluxes depend on absorbed radiation and leaf boundary layer and stomatal conductances. Sensible heat is exchanged from both sides of the leaf. Water vapor and CO2 can be exchanged from one or both sides of the leaf depending on stomata. Leaf temperature is the temperature that balances the energy budget. (c) Stomatal conductance depends on leaf water potential. Plant water uptake for a canopy layer is in relation to belowground soil and root conductance and aboveground stem conductance acting in series and also a capacitance term. See Figure 13.4a for more details. (d) Scalar profiles are calculated from a conductance network. Leaf fluxes provide the source or sink of heat, water vapor, and CO2, along with soil fluxes. (e) Sensible heat, latent heat, and heat storage in soil depend on the ground temperature that balances the soil energy budget. (f) The wetted fraction of the canopy layer depends on the portion of precipitation that is intercepted. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.26: Overview of the main processes in a multilayer canopy model.The canopy is represented by N leaf layers with layer i + 1 above layer i. (a) Diffuse and direct beam solar radiation is transmitted or intercepted. The intercepted portion is absorbed or scattered in the forward and backward direction. Longwave radiation is similar to diffuse radiation. (b) Leaf sensible heat, transpiration, and CO2 fluxes depend on absorbed radiation and leaf boundary layer and stomatal conductances. Sensible heat is exchanged from both sides of the leaf. Water vapor and CO2 can be exchanged from one or both sides of the leaf depending on stomata. Leaf temperature is the temperature that balances the energy budget. (c) Stomatal conductance depends on leaf water potential. Plant water uptake for a canopy layer is in relation to belowground soil and root conductance and aboveground stem conductance acting in series and also a capacitance term. See Figure 13.4a for more details. (d) Scalar profiles are calculated from a conductance network. Leaf fluxes provide the source or sink of heat, water vapor, and CO2, along with soil fluxes. (e) Sensible heat, latent heat, and heat storage in soil depend on the ground temperature that balances the soil energy budget. (f) The wetted fraction of the canopy layer depends on the portion of precipitation that is intercepted. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f326"></span>
+<img src="figures/chap3/f326_multilayer_solving.jpg" alt="Flow diagram of processes in a multilayer canopy model. The shaded area denotes leaf processes resolved at each layer in the canopy. This is a generalized diagram of the required calculations for a dry leaf. Specific models differ in how the equation set is solved and the iterative calculations. Evaporation of intercepted water requires additional complexity.(Bonan)" width="80%" />
+<p class="caption">
+Figure 3.27: Flow diagram of processes in a multilayer canopy model. The shaded area denotes leaf processes resolved at each layer in the canopy. This is a generalized diagram of the required calculations for a dry leaf. Specific models differ in how the equation set is solved and the iterative calculations. Evaporation of intercepted water requires additional complexity.(Bonan)
+</p>
+</div>
+</div>
+<div id="d-ray-tracing-models" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> 3D ray tracing models</h3>
+<div class="figure" style="text-align: center"><span id="fig:f327"></span>
+<img src="figures/chap3/f327_DART.png" alt="Example of the PROSPECT leaf optical model and the DART 3D ray tracing model." width="80%" />
+<p class="caption">
+Figure 3.28: Example of the PROSPECT leaf optical model and the DART 3D ray tracing model.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f328"></span>
+<img src="figures/chap3/f328_TLS_RT.png" alt="Example of a study that uses terrestrial laser scanning (TLS) to construct a full 3D model of a forest as input for a 3D ray tracing model (Kükenbrink et al. 2020) " width="80%" />
+<p class="caption">
+Figure 3.29: Example of a study that uses terrestrial laser scanning (TLS) to construct a full 3D model of a forest as input for a 3D ray tracing model (Kükenbrink et al. 2020)
+</p>
+</div>
+</div>
+</div>
+<div id="ecosystem-energy-balance" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Ecosystem energy balance</h2>
+<div id="basic-principles" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Basic principles</h3>
+</div>
+<div id="surface-radiation-balance" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Surface radiation balance</h3>
+<div class="figure" style="text-align: center"><span id="fig:f329"></span>
+<img src="figures/chap3/f329_rad_balance.jpg" alt="Radiative balance of an opaque gray body receiving downwelling solar S&lt;U+2193&gt; and longwave L&lt;U+2193&gt; radiation.(Bonan)" width="80%" />
+<p class="caption">
+Figure 3.30: Radiative balance of an opaque gray body receiving downwelling solar S&lt;U+2193&gt; and longwave L&lt;U+2193&gt; radiation.(Bonan)
+</p>
+</div>
+</div>
+<div id="bulk-surface-energy-balance" class="section level3" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Bulk surface energy balance</h3>
+<div class="figure" style="text-align: center"><span id="fig:f330"></span>
+<img src="figures/chap3/f330_E_balance.jpg" alt="Conductance networks for sensible heat flux (top) and latent heat flux (bottom) for various depictions of the land surface. This chapter describes the bulk surface and big-leaf canopies. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.31: Conductance networks for sensible heat flux (top) and latent heat flux (bottom) for various depictions of the land surface. This chapter describes the bulk surface and big-leaf canopies. (Bonan)
+</p>
+</div>
+</div>
+<div id="leaf-energy-balance" class="section level3" number="3.4.4">
+<h3><span class="header-section-number">3.4.4</span> Leaf energy balance</h3>
+<div class="figure" style="text-align: center"><span id="fig:f331"></span>
+<img src="figures/chap3/f331_leaf_E_balance.jpg" alt="Biophysics and biochemistry of leaves. (a) The radiative environment consists of solar radiation (left) and longwave radiation (right). (b) Leaf fluxes include CO2, H2O, and heat through the boundary layer. These fluxes are shown as a network of conductances for the adaxial (upper) and abaxial (lower) leaf surfaces. For H2O and CO2, the conductance for each surface is obtained from stomatal and boundary layer conductances acting in series. The total conductance is defined by the adaxial and abaxial surfaces acting in parallel. (c) Stomata open to absorb CO2 for photosynthesis, but, in doing so, water is lost as transpiration. (Bonan)" width="80%" />
+<p class="caption">
+Figure 3.32: Biophysics and biochemistry of leaves. (a) The radiative environment consists of solar radiation (left) and longwave radiation (right). (b) Leaf fluxes include CO2, H2O, and heat through the boundary layer. These fluxes are shown as a network of conductances for the adaxial (upper) and abaxial (lower) leaf surfaces. For H2O and CO2, the conductance for each surface is obtained from stomatal and boundary layer conductances acting in series. The total conductance is defined by the adaxial and abaxial surfaces acting in parallel. (c) Stomata open to absorb CO2 for photosynthesis, but, in doing so, water is lost as transpiration. (Bonan)
+</p>
+</div>
+</div>
+</div>
+<div id="case-studies-1" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Case studies</h2>
+<div id="case-study-3.1" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Case study 3.1</h3>
+<div class="figure" style="text-align: center"><span id="fig:f332"></span>
+<img src="figures/chap3/f331_leaf_E_balance.jpg" alt="Principle of the effect of increased diffuse raditaion on leaf/canopy photosynthesis. (Knohl et al. 2008)" width="80%" />
+<p class="caption">
+Figure 3.33: Principle of the effect of increased diffuse raditaion on leaf/canopy photosynthesis. (Knohl et al. 2008)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f333"></span>
+<img src="figures/chap3/f333_knohl2.png" alt="Resulting impact of changing diffuse fraction on carbon and water fluxes and WUE (Knohl et al. 2008)" width="80%" />
+<p class="caption">
+Figure 3.34: Resulting impact of changing diffuse fraction on carbon and water fluxes and WUE (Knohl et al. 2008)
+</p>
+</div>
+</div>
+<div id="case-study-3.2" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Case study 3.2</h3>
+<div class="figure" style="text-align: center"><span id="fig:f334"></span>
+<img src="figures/chap3/f334_chen1.png" alt="Global map of LAI trend between 1981 and 2016 based on remote sensing (Chen et al. 2021)." width="80%" />
+<p class="caption">
+Figure 3.35: Global map of LAI trend between 1981 and 2016 based on remote sensing (Chen et al. 2021).
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f335"></span>
+<img src="figures/chap3/f335_chen2.png" alt="Simulated impact of different factors contributing to the increased global land C sink since 1981 (Chen et al. 2021) " width="80%" />
+<p class="caption">
+Figure 3.36: Simulated impact of different factors contributing to the increased global land C sink since 1981 (Chen et al. 2021)
+</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modelling-plant-basic-processes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="temporal-and-seasonal-dynamics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["VegMod_course.pdf", "VegMod_course.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
