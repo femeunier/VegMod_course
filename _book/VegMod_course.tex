@@ -1,48 +1,37 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-%
-\documentclass[
-  oneside]{book}
+\documentclass[12pt,oneside]{book}
 \usepackage{lmodern}
-\usepackage{amsmath}
+\usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-  \usepackage{amssymb}
-\else % if luatex or xetex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
-% Use upquote if available, for straight quotes in verbatim environments
+% use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
 \hypersetup{
-  pdftitle={Vegetation modelling},
-  pdfauthor={Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
+            pdftitle={Vegetation modelling},
+            pdfauthor={Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
 \usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{natbib}
+\bibliographystyle{apalike}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -52,48 +41,41 @@
 \usepackage{framed}
 \definecolor{shadecolor}{RGB}{248,248,248}
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
 \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
-\usepackage{calc} % for calculating minipage widths
-% Correct order of tables after \paragraph or \subparagraph
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
-\makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
-\makesavenoteenv{longtable}
-\usepackage{graphicx}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -102,14 +84,31 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-\setlength{\emergencystretch}{3em} % prevent overfull lines
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
 \usepackage{booktabs}
 \usepackage{fancyhdr}
 
@@ -121,6 +120,10 @@
 
 % Header and font 
 \usepackage{fancyhdr}
+\usepackage{float}
+
+\usepackage{amsmath,color}
+
 \pagestyle{fancy}
 \fancyhf{} % sets both header and footer to nothing
 \renewcommand{\headrulewidth}{0pt} % Remove line
@@ -128,15 +131,15 @@
 \fancyhead[L,C,R]{} % Empty header
 \fancyfoot[C]{\thepage} % Footer, center, page number
 \fancyfoot[L,R]{} % Empty footer on left and right
-\ifluatex
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
-\usepackage[]{natbib}
-\bibliographystyle{apalike}
+
+\floatplacement{figure}{H}
+
+\usepackage[makeroom]{cancel}
+\usepackage{caption}
 
 \title{Vegetation modelling}
 \author{Hans Verbeeck, Elizabeth Kearsley, Félicien Meunier, Marc Peaucelle}
-\date{2021-02-13}
+\date{2021-02-25}
 
 \begin{document}
 \maketitle
@@ -213,28 +216,45 @@
 
 \end{titlepage}
 
-
-
 {
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
 \mainmatter
 
-\hypertarget{intro}{%
-\chapter{Introduction}\label{intro}}
+\chapter{Introduction}\label{intro}
 
-\hypertarget{soil-plant-atmosphere-continuum-the-central-role-of-vegetation-in-the-earth-system}{%
-\section{Soil-plant-atmosphere continuum: the central role of vegetation in the earth system}\label{soil-plant-atmosphere-continuum-the-central-role-of-vegetation-in-the-earth-system}}
+\section{The central role of vegetation in the Earth
+system}\label{the-central-role-of-vegetation-in-the-earth-system}
+
+Plants and vegetation play an essential role in the earth system. In
+Figure \ref{fig:f1}, we have represented the planetary boundaries and
+the significant environmental challenges we are facing. For some of
+them, we are reaching the system's boundary, such as genetic diversity,
+biogeochemical cycling, and climate change. Plants and forests
+ecosystems are critical in some of these planetary problems. Therefore,
+it is crucial to understand how vegetation reacts to environmental
+problems (positive or negative feedback).
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/planetary_boundaries} 
+{\centering \includegraphics[width=0.6\linewidth]{figures/chap1/planetary_boundaries} 
 
 }
 
 \caption{The planetary boundaries (www.stockholmresilience.org)}\label{fig:f1}
 \end{figure}
+
+A more specific example is the global carbon budget. We are currently
+facing this significant change in biogeochemical cycling due to the
+rising fossil fuel emission over the last 150 years. Figure \ref{fig:f2}
+represents the balance between carbon sources (fossil carbon and
+land-use changes) and sinks (oceans, land, and atmosphere). The more we
+emit, the more the Earth system is capturing, as shown in Fig.2. These
+take us to a question, taken frequently by the models, about how long
+these sinks will continue or not capture our increasing carbon
+emissions. It is also important to highlight the high annual variability
+of the land component being the most challenging component to predict.
 
 \begin{figure}
 
@@ -245,6 +265,18 @@
 \caption{The global carbon budget (www.globalcarbonproject.org)}\label{fig:f2}
 \end{figure}
 
+\textbf{Climate Models} predicts the long-term weather variation and
+average weather, how they will evolve. These models include the
+atmosphere, land and ocean component (Fig.3, top). The original climate
+models focus on biophysics: energy and water balances, predicting
+precipitation, radiation and fluxes between the three components. More
+recently, climate models have evolved into \textbf{Earth System Models}
+(ESM). ESM have a more complex concept because it represents more
+processes (Fig.3, bottom). Why? If you want to predict the end of the
+century climate, we need to consider greenhouse gases. EMS are more
+complex but also more realistic. Vegetation models are usually the land
+component of ESM.
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth]{figures/chap1/GCM_ESM} 
@@ -253,6 +285,21 @@
 
 \caption{Scientific scope of (a) climate models and (b) earth system models. (Bonan 2019)}\label{fig:f3}
 \end{figure}
+
+Vegetation models are often the land component of an earth system model.
+
+\begin{itemize}
+\tightlist
+\item
+  simulates \textbf{energy fluxes}: radiation, evapotranspiration and
+  sensible heat fluxes between land and the atmosphere. Depending on the
+  vegetation type, the impacts are different.
+\item
+  simulates the \textbf{hydrology} and the \textbf{carbon cycle}.
+\item
+  slower processes like \textbf{vegetation dynamics}: the succession of
+  forest or \textbf{land use} and \textbf{urbanization}.
+\end{itemize}
 
 \begin{figure}
 
@@ -263,69 +310,83 @@
 \caption{Scientific scope of terrestrial biosphere model. (Bonan 2019)}\label{fig:f4}
 \end{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  Global change context
-\item
-  Terrestrial ecosystems are central to solving the environmental and socioeconomic threats posed by changes in climate, atmospheric composition, and air quality; land use and land-cover change; habitat loss, species extinction, and invasive species; appropriation of freshwater, net primary production, and other ecosystems goods and services for human uses; and anthropogenic addition of reactive nitrogen. (Bonan)
-\item
-  Earth System Models and climate models (Fig 1.1 Bonan). In climate models vegetation is just representing physical fluxes, in ESM vegetation is representing biogeochemical cycles, biogeography, and dynamic vegetation -- typically the realm of ecosystem models
-\item
-  Land component continuum of terrestrial ecosystem models (vegetation models) (Fig 1.7)
-\end{itemize}
+The biosphere acts as a coupler in models. The coupler is a system that
+links different models. The vegetation provides the link between land
+and atmosphere component.
 
-\hypertarget{why-do-we-need-modelling}{%
-\section{Why do we need modelling?}\label{why-do-we-need-modelling}}
+\section{Why do we need modelling?}\label{why-do-we-need-modelling}
+
+Modelling has proven to be a handy tool for:
 
 \begin{itemize}
 \tightlist
 \item
-  Devising suitable solutions to these global change challenges require not only strong empirically and experimentally based research at the local scale to understand how ecosystems are structured and how they function, but also sound theoretical foundations to generalize this understanding to regional, continental, and global scales and to make projections of the future. Computer models of terrestrial ecosystems are essential to this generalization. (Bonan)
+  For \textbf{understanding}: we need good theoretical foundations
+  (understand processes) to generalize in space and time.
 \item
-  For prediction: study system behavior in conditions beyond which measurements can be made; to allow predictions of system behavior, especially in response to some imposed perturbation; and to inform management and policy decisions. These usages of models are particularly important in the context ofglobal change.
+  For \textbf{prediction}, how vegetation responds to expected changes
+  (temperature or CO2) to implant management strategies and policies.
 \item
-  For understanding: a formal organization of understanding; it originates from the knowledge of its developers about how the system operates. One purpose of modeling, then, is to identify the processes needed to adequately simulate the system. If a model replicates some observations, a scientist must ask why the model works correctly. If the model performs poorly, then the scientist
-  must ask what is missing. It is testing hypotheses, just like you do with physical experiments.
-\item
-  For data integration: to organize and link data in a structure way, as a research tool to guide data collection. What are the critical parameters that need to be measured? How precisely must these parameters be measured to reduce model uncertainty? What new observations are needed to test the model? In this context, models inform data collection and experimental design to both test the model and advance process understanding.
+  For \textbf{data integration}: a framework to bring together multiple
+  data sources.
 \end{itemize}
 
-\hypertarget{model-types}{%
-\section{Model types}\label{model-types}}
+\pagebreak
 
-\begin{figure}
+\section{Model types}\label{model-types}
 
-{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/table_model_types} 
+\begin{center}
+\captionof{table}{Continuum of terrestrial biosphere/ecosystem models. (Bonan 2019)}
+\label{table:example}
 
-}
+\begin{center}\includegraphics[width=0.8\linewidth]{figures/chap1/table_model_types} \end{center}
+\end{center}
 
-\caption{Continuum of terrestrial biosphere/ecosystem models. (Bonan 2019)}\label{fig:f5}
-\end{figure}
+How can we look at these models' types? We can divide these model types
+into empirical models or process-based models. \textbf{Empirical models}
+are based on data and correlations, not describing precisely describing
+the biophysical processes --- \textbf{process-based models} describing
+the biophysical processes and causal relations between the variables
+(Table \ref{table:example}). Most models are hybrid.
 
-\begin{figure}
+\begin{center}
+\captionof{table}{Continuum of process-based versus empirical models. (Adams et al. 2013)}
+\label{table:empricial}
 
-{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/tables_PB_empirical} 
+\begin{center}\includegraphics[width=0.8\linewidth]{figures/chap1/tables_PB_empirical} \end{center}
+\end{center}
 
-}
+The model type depends on: - Purpose: will it be used for management
+support, policy support, research. - Question: different people will be
+interested in different questions (forester, ecologist,\ldots{}) -
+Scale: models that are to be applied for local use can be much more
+detailed than worldwide models because data gathering is much more
+straightforward on a small scale.
 
-\caption{Continuum of process-based versus empirical models. (Adams et al. 2013)}\label{fig:f6}
-\end{figure}
+\section{The history of vegetation
+models}\label{the-history-of-vegetation-models}
 
-\begin{itemize}
-\tightlist
-\item
-  continuum of terrestrial ecosystem models, from models with emphasis on biogeochemical pools and fluxes, dynamic vegetation models with focus on individual plants or size cohorts, canopy models with focus on coupling leaf physiological processes with canopy physics, and global models of the land surface for climate simulation. (Table 1.1, Bonan)
-\item
-  Continuum of empirical to process-based models
-\item
-  Types of vegetation models (depending on the purpose, questions, scales) (e.g.~timber, yield, biogeochemistry, \ldots) (ecologists, foresters, climatologist, atmospheric chemists, hydrologist all have different vegetation models\ldots)
-\item
-  Compare vegetation models to for example species distribution models\ldots{}
-\end{itemize}
+The first vegetation models have emerged in 1960 and 1970. There are
+some parallel evolutions during that time because of computers emerging,
+making it possible to study more complex systems.
 
-\hypertarget{the-history-of-vegetation-models}{%
-\section{The history of vegetation models}\label{the-history-of-vegetation-models}}
+One of the first models was the \textbf{box models} (1960); these models
+describe the flow of mass and energy thought boxes. These models still
+exist in currently biogeochemical models, where arrows represent the
+fluxes between the pools. In parallel, the \textbf{gap models} had
+emerged. They were developed by forestry scientists using forest
+inventories derived from growth, regeneration, and mortality in response
+to environmental variables. In 1973, the first model was developed to
+derived global net primary productivity, relating in an empirical way to
+climate variables (temperature) with vegetation productivity---the first
+attempt to make a global upscaling of a process. In the 1980s surged the
+first \textbf{land surface models}. Land surface models start the models
+where the other models start to integrate -- \textbf{Terrestrial
+biosphere models} (see Figure \ref{fig:f7}), which are now the
+state-of-the-art land components ESMs. Vegetation modelling is a very
+interdisciplinary field because it involves knowledge of different
+scientific fields, making it difficult to find a common terminology. EMS
+are still not good to simulate vegetation dynamics.
 
 \begin{figure}
 
@@ -336,31 +397,77 @@
 \caption{Timeline showing the parallel development of model types and the integration of model types into land surface models towards terrestrial biosphere models. (Bonan 2019)}\label{fig:f7}
 \end{figure}
 
+\section{Components of a model}\label{components-of-a-model}
+
+What is a vegetation model?
+
 \begin{itemize}
 \tightlist
 \item
-  Conceptualisation of ecosystem to mass and energy flows among various compartments (refer to ecology course of Steppe in the Bio-ir Bachelors. `box models in the 1960's and 1970's current global biogeochemical models are still box-type of models (Fig 1.4)
+  \textbf{Dynamic global vegetation models} (DGVMs) are powerful tools
+  to project past, current and future vegetation patterns and associated
+  biogeochemical cycles (Scheiter et al., 2013).
 \item
-  In parallel individual based models of forest dynamics were developed, based on population dynamics, life cycle of species. They are also called ``gap models'' that simulate the demography in an area of 0.1 ha (size of a gap in the canopy) (Fig 1.5). Ecosystem properties such as carbon stocks are emerging from the demography simulation.
-\item
-  More recently cohort based models
-\item
-  DGVMs: These models also simulate changes in community composition, biomass, productivity, and nutrient cycling. Because the models are applied globally, they do not recognize individual species. Rather, they employ plant functional types, Table 1.2
-\item
-  Fig 1.2 Bonan
+  A \textbf{Dynamic Global Vegetation Model} (DGVM) is a computer
+  program that simulates shifts in potential vegetation and its
+  associated biogeochemical and hydrological cycles as a response to
+  shifts in climate. DGVMs use time series of climate data and, given
+  constraints of latitude, topography, and soil characteristics,
+  simulate monthly or daily dynamics of ecosystem processes. DGVMs are
+  used most often to simulate the effects of future climate change on
+  natural vegetation and its carbon and water cycles (Wikipedia 2021).
 \end{itemize}
 
-\hypertarget{components-of-a-model}{%
-\section{Components of a model}\label{components-of-a-model}}
+\begin{center}
+\captionof{table}{Definition of key model components and examples for a typical TBM}
+\label{table:components}
 
-\begin{figure}
+\begin{center}\includegraphics[width=0.8\linewidth]{figures/chap1/table_components} \end{center}
+\end{center}
 
-{\centering \includegraphics[width=0.8\linewidth]{figures/chap1/table_components} 
+\subsection{Processes}\label{processes}
 
-}
+Key component because we are focusing on process-based models. There is
+an all list of processes (energy, water, turbulent transport, canopy
+scaling, carbon, nitrogen, trace gasses, demography,\ldots{}) that
+integrates the models, especially the more complex ones. These processes
+will be discussed in detail in the following theory lectures and how to
+translate them into equations.
 
-\caption{Definition of key model components and examples for a typical TBM}\label{fig:f8}
-\end{figure}
+\subsection{Equations}\label{equations}
+
+Representations of the processes. However, it is impossible to insert
+any equation into the model because there are important constraints,
+such as the specific time. For example, it makes little sense to resolve
+the equation for forest composition (succession) every day. This is a
+prolonged process with an extremely low variance between consecutive
+days. The solution for the equation for photosynthesis, on the other
+hand, varies significantly throughout the day and between consecutive
+days (cloudy day vs sunny day). There are three types of equations
+within the model: - \textbf{prognostic equations}: time derivatives of
+differential equations -- calculate the state's change over time -
+\textbf{conservation equations}: conservation of mass and energy -
+\textbf{diagnostic equations}: linking multiple variables independent
+from the time. Often there is no analytical solution in biological
+systems; therefore, we must use numerical methods to solve the
+equations.
+
+\subsection{Parameters}\label{parameters}
+
+Constants in the model. Some parameters are quite uncertain because we
+can not measure very well or on the scale, we want to use. For example,
+we can be confident of the photosynthetic capacity of a leaf. Upscaling
+this result so that it is applicable for a forest or multiple PTF (plant
+functional types) induces uncertainty. The more parameters a model uses,
+the more uncertainties that are to be taken into account!
+
+\subsection{Time Steps}\label{time-steps}
+
+Vegetation models run at multiple timescales (combining processes that
+are resolved at multiple timescales). Models present fast processes,
+which are calculated every hour (photosynthesis and energy balance),
+intermediate processes calculated daily (carbon allocation and growth)
+and slow processes in order of years (mortality) (Fig.6).
 
 \begin{figure}
 
@@ -368,8 +475,24 @@
 
 }
 
-\caption{Structure of a vegattion model indicating the different time steps at which each process is simulated (Williams et al. 2009)}\label{fig:f9}
+\caption{Structure of a vegatation model indicating the different time steps at which each process is simulated (Williams et al. 2009)}\label{fig:f9}
 \end{figure}
+
+\subsection{Spatial structure}\label{spatial-structure}
+
+Division of space or how many times we repeat our calculations in space.
+The global models have a spatial grid of 100km or even more and divide
+the landscape into patches. In each patch, they simulate the forest (or
+savannas, grassland\ldots{}). Models also have a horizontal grid or
+horizontal layering: some models consider multiple soil layers. The same
+is true for above ground layers, where some models divide the canopy
+into multiple layers (Figure \ref{fig:f10}). For example, the Ecosystem
+Demography Model (ED2.2) divides the forest into multiple grid cells
+where the same meteorological conditions apply within each grid cell.
+Then within each cell, he has different sites with different soils. Each
+site is divided into multiple patches (forests with a similar
+disturbance history). Into each patch, we simulate different cohorts of
+trees (Figure \ref{fig:f11}).
 
 \begin{figure}
 
@@ -389,36 +512,33 @@
 \caption{Example: the spatial multi-level grid structure of of the ED2 vegetation model (Longo et al. 2019)}\label{fig:f11}
 \end{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  Table 1.3 and Table 1.4
-\item
-  Model structure (constraints: resolving of fluxes on short time scales, conservation of mass and energy,
-\item
-  Parameters
-\item
-  i/o variables, state variable
-\item
-  time steps (fluxes must be resolved on a short time interval, diurnal cycles)
-\item
-  spatial structure (Fig 1.11)
-\item
-  Prognostic equations use time derivatives to describe the change in a state variable and are integrated forward in time from some initial condition. Prognostic variables must be numerically stepped forward from time n to n + 1 over the time interval deltat.
-\item
-  Conservation equations
-\item
-  Diagnostic equations (e.g.~ideal gas law) linking variables time-independent
-\item
-  Initial conditions
-\item
-  Model code, There is an enormous leap between seeing a mathematical equation in a research paper and actually using that equation in a model (Bonan Book).
-\item
-  Model uncertainty and complexity (fig 1.12) (+ fig from Dietze book)
-\end{itemize}
+\subsection{Model code, complexity and
+uncertainty}\label{model-code-complexity-and-uncertainty}
 
-\hypertarget{modelling-workflow-and-structure-of-the-course}{%
-\section{Modelling workflow and structure of the course}\label{modelling-workflow-and-structure-of-the-course}}
+There is a gap between equations and model code. Also, it is a variety
+of how a specific process is implemented in an equation. Usually, large
+models also contained a ``technical debt'', which means over the years,
+multiple modellers have continued working on models and add code lines,
+but at some point, the code is so large that anyone knows all code.
+
+Models are always a simplification of the real world, but they tend to
+become overly complex
+
+More complex models (adding more processes) become more realistic, but
+we also add more uncertainty sources. Therefore, we should choose our
+model carefully based on a research question.
+
+\subsection{Data}\label{data}
+
+Not possible to develop models without data. In general, the more data
+(multiple data sources), the better.
+
+\section{Modelling workflow and structure of the
+course}\label{modelling-workflow-and-structure-of-the-course}
+
+Vegetation modelling is a multidisciplinary field. This course will
+mainly focus on the mathematical formulation of processes and
+translating these equations into a working model.
 
 \begin{figure}
 
@@ -428,6 +548,12 @@
 
 \caption{Progression through spatial and temporal scales throughout this course}\label{fig:f12}
 \end{figure}
+
+The construction of a model is a continuous process -- a model is never
+finished. As Figure 10 shows us, we start by describing our system in
+the form of equations, then running the computer program to characterize
+the model, perform parameter estimation and interpretation, and then
+apply it to other locations and validate against independent data.
 
 \begin{figure}
 
@@ -447,33 +573,24 @@
 \caption{Methodological workflow of model data fusion (Dietze: Ecological Forecasting)}\label{fig:f14}
 \end{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  a science that spans boundary layer meteorology, micrometeorology, atmospheric chemistry, plant physiology, ecosystem ecology, biogeochemistry, soil science, hydrology, and geochemistry \ldots{} we will not discuss all the basics in this course, but we expect you to know from other courses (Ecology, plant physiology, forestry, hydrology, soil science \ldots), but we will of course go into the processes, but focus on there mathematical formulation and translation into a workin model (code)
-\item
-  progression through the course (space-time figure, with chapters)
-\item
-  Model development cycle (structure for the methodological focus of each application/practical) (Dietze figure)
-\end{itemize}
+\part{Biophysical and physiological
+models}\label{part-biophysical-and-physiological-models}
 
-\textbf{to test: Idea of a conceptual figure that we will build block by block as we go deeper in the course. It represents the concept that vegetation modelling is to have an integrated representation of the plant functioning and all the underlying processes at different scales. }
-
-\hypertarget{part-biophysical-and-physiological-models}{%
-\part{Biophysical and physiological models}\label{part-biophysical-and-physiological-models}}
-
-\hypertarget{modelling-plant-basic-processes}{%
-\chapter{Modelling plant basic processes}\label{modelling-plant-basic-processes}}
+\chapter{Modelling plant basic
+processes}\label{modelling-plant-basic-processes}
 
 \chaptermark{photsynthesis}
 
-\textbf{For all processes, we provide an overview of existing models and approaches and we will detail only one of them for the practical course. This also apply for the other chapters, the idea of the course is to be more conceptual about how we model vegetation and the different applications and assumptions.}
+\textbf{For all processes, we provide an overview of existing models and
+approaches and we will detail only one of them for the practical course.
+This also apply for the other chapters, the idea of the course is to be
+more conceptual about how we model vegetation and the different
+applications and assumptions.}
 
-\hypertarget{photosynthesis-models}{%
-\section{Photosynthesis models}\label{photosynthesis-models}}
+\section{Photosynthesis models}\label{photosynthesis-models}
 
-\hypertarget{refreshing-the-basic-knowledge}{%
-\subsection{Refreshing the basic knowledge}\label{refreshing-the-basic-knowledge}}
+\subsection{Refreshing the basic
+knowledge}\label{refreshing-the-basic-knowledge}
 
 \begin{figure}
 
@@ -502,11 +619,10 @@
 \caption{Temperature responses of photosynthesis, respiration and net CO2 exchange, interaction with CO2 concentration (A) and light  (B)  Schulze ()}\label{fig:f23}
 \end{figure}
 
-\hypertarget{c3-photosynthesis}{%
-\subsection{C3 photosynthesis}\label{c3-photosynthesis}}
+\subsection{C3 photosynthesis}\label{c3-photosynthesis}
 
-\hypertarget{light-response-curve-models}{%
-\subsubsection{Light response curve models}\label{light-response-curve-models}}
+\subsubsection{Light response curve
+models}\label{light-response-curve-models}
 
 \begin{figure}
 
@@ -526,8 +642,8 @@
 \caption{Co-limitation illustrated for photosynthetic response to light. The two dashed lines show the rates Amax adn EI The solid lines show the co-limited rate. (Bonan 2019)}\label{fig:f25}
 \end{figure}
 
-\hypertarget{light-use-efficiency-models}{%
-\subsubsection{Light use efficiency models}\label{light-use-efficiency-models}}
+\subsubsection{Light use efficiency
+models}\label{light-use-efficiency-models}
 
 \begin{figure}
 
@@ -538,8 +654,7 @@
 \caption{MODIS based GPP map of the US, based on a LUE model.}\label{fig:f26}
 \end{figure}
 
-\hypertarget{the-farquahar-model}{%
-\subsubsection{The Farquahar model}\label{the-farquahar-model}}
+\subsubsection{The Farquahar model}\label{the-farquahar-model}
 
 \begin{figure}
 
@@ -556,7 +671,7 @@
 
 }
 
-\caption{Simulated responses of C3 photosynthesis in relation to (a) intercellular CO2 (at I<U+2193> = 2000 µmol m–2 s–1) and (b) photosynthetically active radiation (at ci = 266 µmol mol–1). (Bonan 2019)}\label{fig:f28}
+\caption{Simulated responses of C3 photosynthesis in relation to (a) intercellular CO2 (at I↓ = 2000 μmol m–2 s–1) and (b) photosynthetically active radiation (at ci = 266 μmol mol–1). (Bonan 2019)}\label{fig:f28}
 \end{figure}
 
 \begin{itemize}
@@ -564,16 +679,13 @@
 \item
   UCL 4.6.1
 \item
-  Bonan, Chapter 11.1
-  The FvCB model
-  Most equations between 11.1 and 11.31
-  Figure 11.2 a and b
-  Table 11.1 for parameters values + a few simulations to illustrate
-  Table 11.4
+  Bonan, Chapter 11.1 The FvCB model Most equations between 11.1 and
+  11.31 Figure 11.2 a and b Table 11.1 for parameters values + a few
+  simulations to illustrate Table 11.4
 \end{itemize}
 
-\hypertarget{parameter-and-temperature-dependencies}{%
-\subsection{Parameter and temperature dependencies}\label{parameter-and-temperature-dependencies}}
+\subsection{Parameter and temperature
+dependencies}\label{parameter-and-temperature-dependencies}
 
 \begin{figure}
 
@@ -605,24 +717,19 @@
 \begin{itemize}
 \tightlist
 \item
-  Bonan, Chapter 11.2
-  Equations 11.34-11.37
-  Table 11.2
-  Figure 11.3 for illustration
+  Bonan, Chapter 11.2 Equations 11.34-11.37 Table 11.2 Figure 11.3 for
+  illustration
 \end{itemize}
 
 Summary with Table 11.5 and Figure 11.4
 
-\hypertarget{c4-photosynthesis}{%
-\subsection{C4 photosynthesis}\label{c4-photosynthesis}}
+\subsection{C4 photosynthesis}\label{c4-photosynthesis}
 
 \begin{itemize}
 \tightlist
 \item
-  Bonan, Chapter 11.7
-  PEP carboxylase
-  Equations 11.69-11.74
-  Find an illustration
+  Bonan, Chapter 11.7 PEP carboxylase Equations 11.69-11.74 Find an
+  illustration
 \end{itemize}
 
 \begin{figure}
@@ -634,11 +741,10 @@ Summary with Table 11.5 and Figure 11.4
 \caption{Comparison of C3 and C4 photosynthesis in response to (a) photosynthetically active radiation, (b) ambient CO2 concentration, (c) leaf temperature, and (d) vapor pressure deficit. In this figure, stomatal conductance is calculated using the Ball–Berry model and ci is obtained from the diffusion equation}\label{fig:f210b}
 \end{figure}
 
-\hypertarget{stomatal-models}{%
-\section{Stomatal models}\label{stomatal-models}}
+\section{Stomatal models}\label{stomatal-models}
 
-\hypertarget{refreshing-the-basic-knowledge-1}{%
-\subsection{Refreshing the basic knowledge}\label{refreshing-the-basic-knowledge-1}}
+\subsection{Refreshing the basic
+knowledge}\label{refreshing-the-basic-knowledge-1}
 
 \begin{figure}
 
@@ -658,8 +764,8 @@ Summary with Table 11.5 and Figure 11.4
 \caption{Observed responses of stomatal conductance for Pinus banksiana. (Bonan 2019)}\label{fig:f212}
 \end{figure}
 
-\hypertarget{empirical-multiplicative-models}{%
-\subsection{Empirical multiplicative models}\label{empirical-multiplicative-models}}
+\subsection{Empirical multiplicative
+models}\label{empirical-multiplicative-models}
 
 \begin{itemize}
 \tightlist
@@ -667,8 +773,8 @@ Summary with Table 11.5 and Figure 11.4
   Bonan, Chapter 12.2
 \end{itemize}
 
-\hypertarget{semiempirical-photosynthesis-based-models}{%
-\subsection{Semiempirical photosynthesis-based models}\label{semiempirical-photosynthesis-based-models}}
+\subsection{Semiempirical photosynthesis-based
+models}\label{semiempirical-photosynthesis-based-models}
 
 \begin{itemize}
 \tightlist
@@ -694,8 +800,8 @@ Summary with Table 11.5 and Figure 11.4
 \caption{Flow diagram of the iterative procedure to numerically calculate ci.(Bonan 2019)}\label{fig:f214}
 \end{figure}
 
-\hypertarget{wue-models-and-optimality-theory}{%
-\subsection{WUE models and optimality theory}\label{wue-models-and-optimality-theory}}
+\subsection{WUE models and optimality
+theory}\label{wue-models-and-optimality-theory}
 
 \begin{itemize}
 \tightlist
@@ -712,8 +818,7 @@ Summary with Table 11.5 and Figure 11.4
 \caption{Flow diagram of leaf flux calculations to numerically solve for stomatal conductance that optimizes water-use efficiency.(Bonan 2019)}\label{fig:f215}
 \end{figure}
 
-\hypertarget{soil-drought-stress}{%
-\subsection{Soil drought stress}\label{soil-drought-stress}}
+\subsection{Soil drought stress}\label{soil-drought-stress}
 
 \begin{figure}
 
@@ -733,8 +838,7 @@ Summary with Table 11.5 and Figure 11.4
 \caption{Soil moisture wetness factor in relation to volumetric water content. (Bonan 2019)}\label{fig:f217}
 \end{figure}
 
-\hypertarget{hydraulic-models}{%
-\subsection{Hydraulic models}\label{hydraulic-models}}
+\subsection{Hydraulic models}\label{hydraulic-models}
 
 \begin{figure}
 
@@ -763,25 +867,24 @@ Summary with Table 11.5 and Figure 11.4
 \caption{Simulated stomatal responses for various modelling approaches. (Bonan 2019)}\label{fig:f220}
 \end{figure}
 
-Figure 13.1
-The soil-plant-atmosphere model
-Leaf water potential
-Plant water uptake
-Resistance analogy
-Multinode models
+Figure 13.1 The soil-plant-atmosphere model Leaf water potential Plant
+water uptake Resistance analogy Multinode models
 
-\hypertarget{upscaling-from-leaf-to-canopy}{%
-\section{Upscaling from leaf to canopy}\label{upscaling-from-leaf-to-canopy}}
+\section{Upscaling from leaf to
+canopy}\label{upscaling-from-leaf-to-canopy}
 
 \begin{itemize}
 \tightlist
 \item
-  Quickly introduce the problem of scaling in ecology (review paper of Jerome Chave) and refer to chapter 10 on upscalling
+  Quickly introduce the problem of scaling in ecology (review paper of
+  Jerome Chave) and refer to chapter 10 on upscalling
 \item
-  Canopy integration: LAI layers, etc\ldots{} Nice transition to chap 3 with the interception of light by the canopy
+  Canopy integration: LAI layers, etc\ldots{} Nice transition to chap 3
+  with the interception of light by the canopy
 \end{itemize}
 
-Leaf microclimate and boundary layer processes in relation to leaf dimension for sun and shade conditions.
+Leaf microclimate and boundary layer processes in relation to leaf
+dimension for sun and shade conditions.
 
 \begin{figure}
 
@@ -801,11 +904,10 @@ Leaf microclimate and boundary layer processes in relation to leaf dimension for
 \caption{Controlling facors on ecosystem GPP. (Chapin)}\label{fig:f222}
 \end{figure}
 
-\hypertarget{case-studies}{%
-\section{Case studies}\label{case-studies}}
+\section{Case studies}\label{case-studies}
 
-\hypertarget{case-study-2.1-ozone-impact-on-global-gpp}{%
-\subsection{Case study 2.1 Ozone impact on global GPP}\label{case-study-2.1-ozone-impact-on-global-gpp}}
+\subsection{Case study 2.1 Ozone impact on global
+GPP}\label{case-study-2.1-ozone-impact-on-global-gpp}
 
 \begin{figure}
 
@@ -816,8 +918,8 @@ Leaf microclimate and boundary layer processes in relation to leaf dimension for
 \caption{Simulated global GPP reduction in response to current and future atmospheric ozone concentrations}\label{fig:f223}
 \end{figure}
 
-\hypertarget{case-study-2.2-drought-impact-on-rainforest-gpp}{%
-\subsection{Case study 2.2 Drought impact on rainforest GPP}\label{case-study-2.2-drought-impact-on-rainforest-gpp}}
+\subsection{Case study 2.2 Drought impact on rainforest
+GPP}\label{case-study-2.2-drought-impact-on-rainforest-gpp}
 
 \begin{figure}
 
@@ -837,230 +939,409 @@ Leaf microclimate and boundary layer processes in relation to leaf dimension for
 \caption{Simulated (SPA model) gs and GPP for a drought experiment in the Amazon. Fisher et al. 2007}\label{fig:f225}
 \end{figure}
 
-\hypertarget{modelling-light-penetration-vegetation-canopy-representation-and-energy-balance}{%
-\chapter{Modelling light penetration, vegetation canopy representation, and energy balance}\label{modelling-light-penetration-vegetation-canopy-representation-and-energy-balance}}
+\chapter{Modelling radiation, vegetation canopies, and energy
+balance}\label{modelling-radiation-vegetation-canopies-and-energy-balance}
 
 \chaptermark{Light}
 
-\begin{itemize}
-\tightlist
-\item
-  Mainly Chapter 14 from Bonan
-\end{itemize}
+\section{Introduction}\label{introduction}
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
+\begin{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  Bonan, Chapter 14.1
-  Figure 14.1
-  Figure 14.2
-\end{itemize}
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f31_LAD} 
 
-\hypertarget{radiative-transfer-modelling}{%
-\section{Radiative transfer modelling}\label{radiative-transfer-modelling}}
+}
 
-\hypertarget{leaf-optical-properties}{%
-\subsection{Leaf optical properties}\label{leaf-optical-properties}}
+\caption{Generalized profiles of leaf area density in plant canopies. (Bonan)}\label{fig:f31}
+\end{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  Bonan, Chapter 14.2
-  Example of leaf spectrum
-  Prospect model
-  Example of parameters 14.2 + simulations/analysis of sensitivity
-\end{itemize}
+\begin{figure}
 
-\hypertarget{light-transmission-without-scattering}{%
-\subsection{Light transmission without scattering}\label{light-transmission-without-scattering}}
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f32_cLAI} 
 
-\begin{itemize}
-\tightlist
-\item
-  The Beer-Bouguer-Lambert law
-\item
-  Bonan, Chapter 14.3
-  Most of quations 14.2-14.17 for model description
-  Figure 14.4 and Figure 14.5
-\end{itemize}
+}
 
-\hypertarget{direct-beam-extinction-coefficient}{%
-\subsection{Direct beam extinction coefficient}\label{direct-beam-extinction-coefficient}}
+\caption{Cumulative LAI and WAI in a deciduous oak-hickory forest. (Bonan)}\label{fig:f32}
+\end{figure}\begin{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  Could be skipped
-\item
-  Bonan, Chapter 14.4
-\end{itemize}
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f33_Langle} 
 
-\hypertarget{diffuse-transmittance}{%
-\subsection{Diffuse transmittance}\label{diffuse-transmittance}}
+}
 
-\begin{itemize}
-\tightlist
-\item
-  Bonan, Chapter 14.5
-  Figure 14.12
-\end{itemize}
+\caption{Illustration of a leaf (thick line) oriented at an angle Θℓ to horizontal. (Bonan)}\label{fig:f33}
+\end{figure}
 
-\hypertarget{the-norman-model}{%
-\subsection{The Norman Model}\label{the-norman-model}}
+\begin{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  Bonan, Chapter 14.6
-\item
-  Numerical
-  Figure 14.15
-\end{itemize}
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f34_angle_distr} 
 
-\hypertarget{the-goudriaan-and-van-laar-model}{%
-\subsection{The Goudriaan and van Laar Model}\label{the-goudriaan-and-van-laar-model}}
+}
 
-\begin{itemize}
-\tightlist
-\item
-  Bonan, Chapter 14.7
-\item
-  Analytical
-  Figure 14.16 + 14.15 and 14.17 for comparison with the Norman model
-\end{itemize}
+\caption{Planophile, erectophile, plagiophile, and spherical leaf angle distributions showing (a) the probability density function f(Θℓ) and (b) the cumulative distribution F(Θℓ). (Bonan)}\label{fig:f34}
+\end{figure}
 
-\hypertarget{the-two-stream-approximation}{%
-\subsection{The Two-Stream approximation}\label{the-two-stream-approximation}}
+\begin{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  Bonan, Chapter 14.8
-  Figure 14.19 + simulations
-\end{itemize}
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f35_architecture} 
 
-\hypertarget{surface-albedo}{%
-\subsection{Surface Albedo}\label{surface-albedo}}
+}
 
-\begin{itemize}
-\tightlist
-\item
-  Bonan, Chapter 14.9
-  Figure 14.20 and Figure 14.21
-\end{itemize}
+\caption{Illustration of leaf angle distributions and canopy architecture in general influences radiation attenuation in vegetation canopies.}\label{fig:f35}
+\end{figure}
 
-\hypertarget{longwave-radiation}{%
-\subsection{Longwave radiation}\label{longwave-radiation}}
+\begin{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  Bonan, Chapter 14.10
-\end{itemize}
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f36_obs_profile} 
 
-\hypertarget{representing-canopy-structure-in-models}{%
-\section{Representing canopy structure in models}\label{representing-canopy-structure-in-models}}
+}
 
-\hypertarget{big-leaf-models}{%
-\subsection{Big-leaf models}\label{big-leaf-models}}
+\caption{Profile of light and foliage in a stand of herbaceous plants approximately 130 cm tall. The horizontal axis shows transmittance as a fraction of incident radiation (top axis) and foliage mass (bottom axis) at various heights in the canopy. (Bonan)}\label{fig:f36}
+\end{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  Bonan, Chapter 15.2
-\end{itemize}
+\section{Radiative transfer
+modelling}\label{radiative-transfer-modelling}
 
-\hypertarget{multilayer-models}{%
-\subsection{Multilayer models}\label{multilayer-models}}
+\begin{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  Bonan, Chapter 15.4
-\end{itemize}
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f37_RT_principle} 
 
-\hypertarget{ecosystem-energy-balance}{%
-\section{Ecosystem energy balance}\label{ecosystem-energy-balance}}
+}
 
-\begin{itemize}
-\tightlist
-\item
-  UCL 2.3 and 4.2
-\item
-  Bonan, Chapter 7
-\end{itemize}
+\caption{Representation of a canopy as (a) one-dimensional with a vertical profile of leaf area (shown by grayscale gradation in which darker shading denotes more leaves) that is horizontally homogenous and (b) threedimensional with vertical and spatial structure determined by crown geometry and spacing. (Bonan)}\label{fig:f37}
+\end{figure}
 
-\hypertarget{basic-principles}{%
-\subsection{Basic principles}\label{basic-principles}}
+\subsection{Leaf optical properties}\label{leaf-optical-properties}
 
-\begin{itemize}
-\tightlist
-\item
-  UCL 2.3.1 and 4.2.1
-\end{itemize}
+\begin{figure}
 
-\hypertarget{atmospheric-absoprtion}{%
-\subsection{Atmospheric absoprtion}\label{atmospheric-absoprtion}}
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f37_leaf_optical} 
 
-\begin{itemize}
-\tightlist
-\item
-  UCL 2.3.2
-\end{itemize}
+}
 
-\hypertarget{radiative-forcing}{%
-\subsection{Radiative forcing}\label{radiative-forcing}}
+\caption{Spectrum of absorptance, reflectance and transmittance of a typical plant leaf (Jones, 2014)}\label{fig:f37b}
+\end{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  UCL 2.3.3
-\end{itemize}
+\begin{figure}
 
-\hypertarget{land-surface-schemes}{%
-\subsection{Land surface schemes}\label{land-surface-schemes}}
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f38_table_optical} 
 
-\begin{itemize}
-\tightlist
-\item
-  UCL 4.2.3
-\item
-  First, second and third generation models
-\end{itemize}
+}
 
-\hypertarget{temporal-and-seasonal-dynamics}{%
-\chapter{Temporal and seasonal dynamics}\label{temporal-and-seasonal-dynamics}}
+\caption{Table showing typical reflectance and absorptance values for leaves and vegetation canopies of different Plant Functional Types (PFT).(Jones, 2014)}\label{fig:f38}
+\end{figure}
+
+\subsection{Light transmission without
+scattering}\label{light-transmission-without-scattering}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f39_beer} 
+
+}
+
+\caption{Transmission of solar radiation through a homogeneous medium in the absence of scattering. In this example, n non-overlapping opaque particles each with cross-sectional area a oriented perpendicular to the path of light are placed in a medium with cross-sectional area A and thickness dz. The radiation absorbed in the medium is dI.(Bonan)}\label{fig:f39}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f310_Kb} 
+
+}
+
+\caption{Transmission of direct beam radiation τb in relation to leaf area index for typical values of the extinction coefficient Kb. (Bonan)}\label{fig:f310}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f311_LLh} 
+
+}
+
+\caption{Extinction coefficient in relation to solar zenith angle Ζ and leaf inclination angle Θℓ. In each panel, a unit leaf area (L = 1), shown with a thick line, is projected onto a horizontal surface LH so that Kb = LH. The leaf inclination angle is 0° (bottom panels), 30° (middle panels), and 60° (top panels). In the left and middle columns, the leaf is oriented towards the Sun (Αℓ − Α = 0°) and the solar zenith angle is 0° (left column) and 15° (middle column). In the right column, Ζ = 15°, but the leaf is oriented away from the Sun (Αℓ − Α = 180°). In each panel, the arrows indicate the solar beam (Bonan)}\label{fig:f311}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f312_Kb_angle} 
+
+}
+
+\caption{Extinction coefficients for horizontal, spherical, and vertical leaf angle distributions. (a) Direct beam radiation Kb in relation to solar zenith angle. (b) Diffuse radiation Kd in relation to leaf area index(Bonan)}\label{fig:f312}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f313_sun_shade} 
+
+}
+
+\caption{Radiative transfer and sunlit leaf area index for a canopy of horizontal leaves (top panels) with Kb = 1 and vertical leaves (bottom panels) with Kb = 0.112. The left-hand panels show a canopy consisting of four layers of leaves. Each thick black line represents a leaf area index of 0.1 m2 m–2. The thin lines depict interception or transmission of beam radiation with a zenith angle of 10°. The middle panels show cumulative leaf area index and sunlit leaf area index with depth in the canopy. The right-hand panels show direct beam transmittance with depth in the canopy. (Bonan)}\label{fig:f313}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f314_sunlit} 
+
+}
+
+\caption{Sunlit leaf area index in relation to total leaf area index for horizontal, spherical, and vertical foliage orientations with solar zenith angle Ζ = 30°. Kb = 1, 0.577, and 0.368 for horizontal, spherical, and vertical foliage. (Bonan)}\label{fig:f314}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f315_clumping} 
+
+}
+
+\caption{Images illustrating leaf/canopy clumping a various scales: leaf, crown, stand.}\label{fig:f315}
+\end{figure}
+
+\subsection{Diffuse transmittance}\label{diffuse-transmittance}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f316_diffuse} 
+
+}
+
+\caption{Illustration of direct beam and diffuse radiation. The sky forms a bowl, or inverted hemisphere, over a horizontal surface. Shown is a cross section of the sky hemisphere. Direct beam (solid line) originates from the    direction of the Sun with zenith angle Ζ. Diffuse radiation (dashed lines) can be treated as independent beams of radiation each with an angle Ζ. The shaded region is the relative contribution between sky angles Ζ1 and Ζ2 to total sky irradiance.(Bonan)}\label{fig:f316}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f317_diff_trans} 
+
+}
+
+\caption{Transmittance of diffuse radiation τd in relation to leaf area index for a spherical leaf distribution. Show are the transmittances for sky zones of 0°–30°, 30°–60°, and 60°–90° and also the total transmittance. Fill patterns show the contribution of each sky zone to total transmittance.(Bonan)}\label{fig:f317}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f318_diff_dir_trans} 
+
+}
+
+\caption{Transmission of solar radiation through a canopy with spherical leaf distribution in relation to leaf area index. The solid lines show direct beam transmittance τb for solar zenith angles of 0°–80° (in 10° increments).The dashed line shows the diffuse transmittance τd. (Bonan)}\label{fig:f318}
+\end{figure}
+
+\subsection{The Norman Model(1979)}\label{the-norman-model1979}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f319_Norman} 
+
+}
+
+\caption{Radiative fluxes in a canopy of N leaf layers. The vertical profile is oriented with i = 1 the leaf layer at the bottom of the canopy, leaf layer i + 1 above layer i, and i = N the leaf layer at the top of the canopy. Each layer has a leaf area index ΔL. is the downward diffuse shortwave flux onto layer i, is the upward diffuse shortwave flux above layer i, and is the unscattered direct beam flux onto layer i. and are the corresponding downward and upward fluxes of longwave radiation. These depend on leaf Tℓand ground Tg temperatures. Thick arrows denote boundary conditions of diffuse solar radiation , direct beam solar radiation, and atmospheric longwave radiation at the top of the canopy.(Bonan)}\label{fig:f319}
+\end{figure}
+
+\subsection{The Goudriaan and van Laar Model
+(1994)}\label{the-goudriaan-and-van-laar-model-1994}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f320_goudriaan} 
+
+}
+
+\caption{ Derivation of absorbed direct beam solar radiation for a leaf layer with leaf area index ΔL (Goudriaan 1982). ρc is the reflectance of the leaf layer.(Bonan)}\label{fig:f320}
+\end{figure}
+
+\subsection{The Two-Stream
+approximation}\label{the-two-stream-approximation}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f321_two_stream} 
+
+}
+
+\caption{Fluxes for (a) direct beam and (b) diffuse radiation in the twostream approximation for a canopy with leaf area index L.(Bonan)}\label{fig:f321}
+\end{figure}
+
+\subsection{Longwave radiation}\label{longwave-radiation}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f322_LW} 
+
+}
+
+\caption{Longwave radiation fluxes represented for a single leaf layer.(a) Norman’s (1979) numerical model. Shown is the radiative balance for leaf layer i + 1 located above leaf layer i. (b) A simplified model to allow only forward scattering (ρℓ = 0 and τℓ = ωℓ = 1 − εℓ) and to permit an analytical solution integrated over a canopy. In both panels, emitted radiation is excluded. Thick lines denote fluxes incident onto the layer. (Bonan)}\label{fig:f322}
+\end{figure}
+
+\section{Representing canopy structure in
+models}\label{representing-canopy-structure-in-models}
+
+\subsection{Big-leaf models}\label{big-leaf-models}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f323_bigleaf} 
+
+}
+
+\caption{Scaling of leaf fluxes to the canopy using a big-leaf model. (a) Shown are leaf sensible heat, transpiration, and CO2 fluxes in relation to various conductances. Fluxes are exchanged between the leaf and air around the leaf. Also shown is the total resistance. (b) Shown are big-leaf canopy fluxes in which leaf fluxes are scaled by the average conductance and leaf area index and are further modified by turbulent transport in the atmospheric surface layer. Surface layer processes are commonly omitted for CO2 exchange. Only a single big leaf is shown, but separate sunlit and shaded big leaves can be similarly depicted. (Bonan)}\label{fig:f323}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f324_vcamx_profile} 
+
+}
+
+\caption{Canopy profiles of relative photosynthetic capacity in relation to cumulative leaf area index. Thin lines show exponential profiles using values of Kn for 16 temperate broadleaf forests and two tropical forests ranging from 0.10 to 0.43 (Lloyd et al. 2010). The two thick lines show observed profiles of Vcmax and Jmax from Niinemets and Tenhunen (1997) obtained for sugar maple (Acer saccharum). (Bonan)}\label{fig:f324}
+\end{figure}
+
+\subsection{Multilayer models}\label{multilayer-models}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f325_multilayer_process} 
+
+}
+
+\caption{Overview of the main processes in a multilayer canopy model.The canopy is represented by N leaf layers with layer i + 1 above layer i. (a) Diffuse and direct beam solar radiation is transmitted or intercepted. The intercepted portion is absorbed or scattered in the forward and backward direction. Longwave radiation is similar to diffuse radiation. (b) Leaf sensible heat, transpiration, and CO2 fluxes depend on absorbed radiation and leaf boundary layer and stomatal conductances. Sensible heat is exchanged from both sides of the leaf. Water vapor and CO2 can be exchanged from one or both sides of the leaf depending on stomata. Leaf temperature is the temperature that balances the energy budget. (c) Stomatal conductance depends on leaf water potential. Plant water uptake for a canopy layer is in relation to belowground soil and root conductance and aboveground stem conductance acting in series and also a capacitance term. See Figure 13.4a for more details. (d) Scalar profiles are calculated from a conductance network. Leaf fluxes provide the source or sink of heat, water vapor, and CO2, along with soil fluxes. (e) Sensible heat, latent heat, and heat storage in soil depend on the ground temperature that balances the soil energy budget. (f) The wetted fraction of the canopy layer depends on the portion of precipitation that is intercepted. (Bonan)}\label{fig:f325}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f326_multilayer_solving} 
+
+}
+
+\caption{Flow diagram of processes in a multilayer canopy model. The shaded area denotes leaf processes resolved at each layer in the canopy. This is a generalized diagram of the required calculations for a dry leaf. Specific models differ in how the equation set is solved and the iterative calculations. Evaporation of intercepted water requires additional complexity.(Bonan)}\label{fig:f326}
+\end{figure}
+
+\subsection{3D ray tracing models}\label{d-ray-tracing-models}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f327_DART} 
+
+}
+
+\caption{Example of the PROSPECT leaf optical model and the DART 3D ray tracing model.}\label{fig:f327}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f328_TLS_RT} 
+
+}
+
+\caption{Example of a study that uses terrestrial laser scanning (TLS) to construct a full 3D model of a forest as input for a 3D ray tracing model (Kükenbrink et al. 2020) }\label{fig:f328}
+\end{figure}
+
+\section{Ecosystem energy balance}\label{ecosystem-energy-balance}
+
+\subsection{Basic principles}\label{basic-principles}
+
+\subsection{Surface radiation balance}\label{surface-radiation-balance}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f329_rad_balance} 
+
+}
+
+\caption{Radiative balance of an opaque gray body receiving downwelling solar S↓ and longwave L↓ radiation.(Bonan)}\label{fig:f329}
+\end{figure}
+
+\subsection{Bulk surface energy
+balance}\label{bulk-surface-energy-balance}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f330_E_balance} 
+
+}
+
+\caption{Conductance networks for sensible heat flux (top) and latent heat flux (bottom) for various depictions of the land surface. This chapter describes the bulk surface and big-leaf canopies. (Bonan)}\label{fig:f330}
+\end{figure}
+
+\subsection{Leaf energy balance}\label{leaf-energy-balance}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f331_leaf_E_balance} 
+
+}
+
+\caption{Biophysics and biochemistry of leaves. (a) The radiative environment consists of solar radiation (left) and longwave radiation (right). (b) Leaf fluxes include CO2, H2O, and heat through the boundary layer. These fluxes are shown as a network of conductances for the adaxial (upper) and abaxial (lower) leaf surfaces. For H2O and CO2, the conductance for each surface is obtained from stomatal and boundary layer conductances acting in series. The total conductance is defined by the adaxial and abaxial surfaces acting in parallel. (c) Stomata open to absorb CO2 for photosynthesis, but, in doing so, water is lost as transpiration. (Bonan)}\label{fig:f331}
+\end{figure}
+
+\section{Case studies}\label{case-studies-1}
+
+\subsection{Case study 3.1}\label{case-study-3.1}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f331_leaf_E_balance} 
+
+}
+
+\caption{Principle of the effect of increased diffuse raditaion on leaf/canopy photosynthesis. (Knohl et al. 2008)}\label{fig:f332}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f333_knohl2} 
+
+}
+
+\caption{Resulting impact of changing diffuse fraction on carbon and water fluxes and WUE (Knohl et al. 2008)}\label{fig:f333}
+\end{figure}
+
+\subsection{Case study 3.2}\label{case-study-3.2}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f334_chen1} 
+
+}
+
+\caption{Global map of LAI trend between 1981 and 2016 based on remote sensing (Chen et al. 2021).}\label{fig:f334}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/chap3/f335_chen2} 
+
+}
+
+\caption{Simulated impact of different factors contributing to the increased global land C sink since 1981 (Chen et al. 2021) }\label{fig:f335}
+\end{figure}
+
+\chapter{Temporal and seasonal
+dynamics}\label{temporal-and-seasonal-dynamics}
 
 \chaptermark{dynamics}
 
-\hypertarget{phenology}{%
-\section{Phenology}\label{phenology}}
+\section{Phenology}\label{phenology}
 
 \begin{itemize}
 \tightlist
 \item
-  UCL 4.5.2
-  The study of life-cycle events. Here refers to the temporal dynamics of vegetation.
-  Broader sense of phenology.
-  Applies to most plant. Circadian to seasonal cycles
-  Tissue turnover and senescence
+  UCL 4.5.2 The study of life-cycle events. Here refers to the temporal
+  dynamics of vegetation. Broader sense of phenology. Applies to most
+  plant. Circadian to seasonal cycles Tissue turnover and senescence
 \end{itemize}
 
-\hypertarget{the-example-of-crop-phenology}{%
-\subsection{The example of crop phenology}\label{the-example-of-crop-phenology}}
+\subsection{The example of crop
+phenology}\label{the-example-of-crop-phenology}
 
 \begin{itemize}
 \tightlist
 \item
-  UCL 4.5.1
-  Definition +Simple example of phenology (wheat for example: germination + spread + full coverage + allocation to storage organs + ripening)
+  UCL 4.5.1 Definition +Simple example of phenology (wheat for example:
+  germination + spread + full coverage + allocation to storage organs +
+  ripening)
 \end{itemize}
 
-\hypertarget{mechanisms-of-phenology-and-evidence-of-changes}{%
-\section{Mechanisms of phenology and evidence of changes}\label{mechanisms-of-phenology-and-evidence-of-changes}}
+\section{Mechanisms of phenology and evidence of
+changes}\label{mechanisms-of-phenology-and-evidence-of-changes}
 
 \begin{itemize}
 \tightlist
@@ -1068,8 +1349,8 @@ Leaf microclimate and boundary layer processes in relation to leaf dimension for
   UCL 4.5.3
 \end{itemize}
 
-\hypertarget{overview-of-controls-at-different-levels}{%
-\subsection{Overview of controls at different levels}\label{overview-of-controls-at-different-levels}}
+\subsection{Overview of controls at different
+levels}\label{overview-of-controls-at-different-levels}
 
 \begin{itemize}
 \tightlist
@@ -1085,8 +1366,8 @@ Leaf microclimate and boundary layer processes in relation to leaf dimension for
   Drivers of seasonality and phenology
 \end{itemize}
 
-\hypertarget{vegeation-index-and-changes-over-time}{%
-\subsection{Vegeation index and changes over time}\label{vegeation-index-and-changes-over-time}}
+\subsection{Vegeation index and changes over
+time}\label{vegeation-index-and-changes-over-time}
 
 \begin{itemize}
 \tightlist
@@ -1094,19 +1375,19 @@ Leaf microclimate and boundary layer processes in relation to leaf dimension for
   This is also why phenology is a ``metrics'' of climate change
 \end{itemize}
 
-\hypertarget{seasonality-feedbacks}{%
-\subsection{Seasonality feedbacks}\label{seasonality-feedbacks}}
+\subsection{Seasonality feedbacks}\label{seasonality-feedbacks}
 
 \begin{itemize}
 \tightlist
 \item
-  Phenology affects phenology (phenophases are linked, one perturbation will affect the next phenophase in the cycle)
+  Phenology affects phenology (phenophases are linked, one perturbation
+  will affect the next phenophase in the cycle)
 \item
-  The control of phenology on climate: example, early spring leaf unfolding excacerbates drought in summer
+  The control of phenology on climate: example, early spring leaf
+  unfolding excacerbates drought in summer
 \end{itemize}
 
-\hypertarget{models-of-phenology}{%
-\section{Models of phenology}\label{models-of-phenology}}
+\section{Models of phenology}\label{models-of-phenology}
 
 \begin{itemize}
 \tightlist
@@ -1114,42 +1395,32 @@ Leaf microclimate and boundary layer processes in relation to leaf dimension for
   UCL 4.5.4
 \end{itemize}
 
-\hypertarget{budburst-models}{%
-\subsection{budburst models}\label{budburst-models}}
+\subsection{budburst models}\label{budburst-models}
 
-\hypertarget{senescence-models}{%
-\subsection{senescence models}\label{senescence-models}}
+\subsection{senescence models}\label{senescence-models}
 
-\hypertarget{phenology-in-dgvms}{%
-\subsection{Phenology in DGVMs}\label{phenology-in-dgvms}}
+\subsection{Phenology in DGVMs}\label{phenology-in-dgvms}
 
 \begin{itemize}
 \tightlist
 \item
-  Figures from Zhang et al.~2003
+  Figures from Zhang et al. 2003
 \end{itemize}
 
-\hypertarget{part-modelling-vegetation-dynamics}{%
-\part{Modelling vegetation dynamics}\label{part-modelling-vegetation-dynamics}}
+\part{Modelling vegetation
+dynamics}\label{part-modelling-vegetation-dynamics}
 
-\hypertarget{modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models}{%
-\chapter{Modelling plant growth and biogeochemical cycles in vegetation models}\label{modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models}}
+\chapter{Modelling plant growth and biogeochemical cycles in vegetation
+models}\label{modelling-plant-growth-and-biogeochemical-cycles-in-vegetation-models}
 
-\chaptermark{Grotwh}
-
-\begin{itemize}
-\tightlist
-\item
-  UCL 4.2.2
-\end{itemize}
+\chaptermark{Grotwh} - UCL 4.2.2
 
 based on Bonan Chapter 17
 
-\hypertarget{process-based-growth-modelling}{%
-\section{Process-based growth modelling}\label{process-based-growth-modelling}}
+\section{Process-based growth
+modelling}\label{process-based-growth-modelling}
 
-\hypertarget{c-allocation-models}{%
-\subsection{C-allocation models}\label{c-allocation-models}}
+\subsection{C-allocation models}\label{c-allocation-models}
 
 \begin{itemize}
 \tightlist
@@ -1157,8 +1428,8 @@ based on Bonan Chapter 17
   C pools: Allocation to leaf, wood, fruit
 \end{itemize}
 
-\hypertarget{applications-of-growth-modelling-in-forestry-and-agriculture}{%
-\subsection{Applications of growth modelling in forestry and agriculture}\label{applications-of-growth-modelling-in-forestry-and-agriculture}}
+\subsection{Applications of growth modelling in forestry and
+agriculture}\label{applications-of-growth-modelling-in-forestry-and-agriculture}
 
 \begin{itemize}
 \tightlist
@@ -1166,72 +1437,91 @@ based on Bonan Chapter 17
   short, link with inventory course
 \end{itemize}
 
-\hypertarget{carbon-cycle-models-stocks-and-fluxes}{%
-\section{Carbon cycle models: stocks and fluxes}\label{carbon-cycle-models-stocks-and-fluxes}}
+\section{Carbon cycle models: stocks and
+fluxes}\label{carbon-cycle-models-stocks-and-fluxes}
 
-This chapter will develop the ecological foundation and mathematics to describe ecosystem carbon dynamics using biogeochemical models.
-Biogeochemical models abstract an ecosystem as pools of carbon and the flows of carbon among these pools.
+This chapter will develop the ecological foundation and mathematics to
+describe ecosystem carbon dynamics using biogeochemical models.
+Biogeochemical models abstract an ecosystem as pools of carbon and the
+flows of carbon among these pools.
 
 Use specific model as an example to illustrate? In Bonan: CASA-CNP model
 
-\hypertarget{model-structure}{%
-\subsection{Model structure}\label{model-structure}}
+\subsection{Model structure}\label{model-structure}
 
-Biogeochemical models simulate processes of allocation of photosynthetic carbon gain to plant parts (e.g., foliage, fine root, wood), turnover of plant biomass as litterfall, transformation of litter to soil organic matter, and carbon loss during respiration.
+Biogeochemical models simulate processes of allocation of photosynthetic
+carbon gain to plant parts (e.g., foliage, fine root, wood), turnover of
+plant biomass as litterfall, transformation of litter to soil organic
+matter, and carbon loss during respiration.
 
-Principles:
-- net carbon input is equal to gross primary production minus autotrophic respiration;
-- carbon flows from donor to receiver pools at a rate that depends on the donor pool size and its chemical quality as modified by the environment;
-- mass balance is maintained as carbon flows through the system of interconnected pools;
-- decay of litter and soil organic matter releases CO 2 as heterotrophic respiration.
+Principles: - net carbon input is equal to gross primary production
+minus autotrophic respiration; - carbon flows from donor to receiver
+pools at a rate that depends on the donor pool size and its chemical
+quality as modified by the environment; - mass balance is maintained as
+carbon flows through the system of interconnected pools; - decay of
+litter and soil organic matter releases CO 2 as heterotrophic
+respiration.
 
-Models:
-a system of first-order, linear differential equations to describe carbon pools and fluxes (typically time step of one day)
+Models: a system of first-order, linear differential equations to
+describe carbon pools and fluxes (typically time step of one day)
 
-Pools and fluxes to be included:
-- Carbon gain from gross primary production minus autotrophic respiration
-- Allocation of carbon to growth of leaves, wood, and roots pools (partitioning varies with light availability, soil temperature, soil moisture, and nutrients + temporal for leaves (ref to phenology)
-- Carbon turnover (comprising litterfall, background mortality, and disturbances) + turnover rates depending on the plant material
-- litter pools: metabolic litter, structural litter, coarse woody debris (vary in chemical quality and turnover rate; base turnover rates are modified for soil temperature and soil moisture (environmental scaling factors))
-- decomposition to soil organic matter pools: fast SOM, slow SOM, passive SOM (vary in chemical quality and turnover time)
-- portion of the decomposition flow lost as heterotrophic respiration
+Pools and fluxes to be included: - Carbon gain from gross primary
+production minus autotrophic respiration - Allocation of carbon to
+growth of leaves, wood, and roots pools (partitioning varies with light
+availability, soil temperature, soil moisture, and nutrients + temporal
+for leaves (ref to phenology) - Carbon turnover (comprising litterfall,
+background mortality, and disturbances) + turnover rates depending on
+the plant material - litter pools: metabolic litter, structural litter,
+coarse woody debris (vary in chemical quality and turnover rate; base
+turnover rates are modified for soil temperature and soil moisture
+(environmental scaling factors)) - decomposition to soil organic matter
+pools: fast SOM, slow SOM, passive SOM (vary in chemical quality and
+turnover time) - portion of the decomposition flow lost as heterotrophic
+respiration
 
-Bonan
-- Figure 17.2: structure of a typical biogeochemical model
-- equations 17.1 -- 17.10
+Bonan - Figure 17.2: structure of a typical biogeochemical model -
+equations 17.1 -- 17.10
 
-Additional details?
-- maintenance respiration and growth respiration
-- storage pool of nonstructural carbohydrates
-- some models separate wood into live stems (sapwood) and dead stems, roots into fine roots and coarse roots, and coarse roots into live pools and dead pools to account for the different physiological functioning of these biomass components
+Additional details? - maintenance respiration and growth respiration -
+storage pool of nonstructural carbohydrates - some models separate wood
+into live stems (sapwood) and dead stems, roots into fine roots and
+coarse roots, and coarse roots into live pools and dead pools to account
+for the different physiological functioning of these biomass components
 
-\hypertarget{allocation-and-turnover-parameterization}{%
-\subsection{Allocation and turnover parameterization}\label{allocation-and-turnover-parameterization}}
+\subsection{Allocation and turnover
+parameterization}\label{allocation-and-turnover-parameterization}
 
 \begin{itemize}
 \item
-  types of allocation models (see Campioli et al 2013 and work of Fatichi et al.~)
+  types of allocation models (see Campioli et al 2013 and work of
+  Fatichi et al. )
 \item
   allocation parameters
 \item
-  fixed allocation and dynamic allocation (specified by biome or based on environmental conditions)
+  fixed allocation and dynamic allocation (specified by biome or based
+  on environmental conditions)
 \item
-  Optimality models: plants optimally allocate resources to balance light acquisition (foliage), structural support and water transport (stems), and water and nutrient uptake (roots).
+  Optimality models: plants optimally allocate resources to balance
+  light acquisition (foliage), structural support and water transport
+  (stems), and water and nutrient uptake (roots).
 \item
-  allocation based on scaling relationships among plant components (specified ratios of foliage, root, and wood biomass)
+  allocation based on scaling relationships among plant components
+  (specified ratios of foliage, root, and wood biomass)
 \item
-  Turnover rates vary depending on plant material and are specified as a fraction of biomass.
+  Turnover rates vary depending on plant material and are specified as a
+  fraction of biomass.
 \item
-  Turnover rates are commonly estimated as the inverse of residence time or longevity
+  Turnover rates are commonly estimated as the inverse of residence time
+  or longevity
 \item
-  biogeochemical models can be applied to any type of ecosystem such as grassland, savanna, forest, shrubland, and tundra
+  biogeochemical models can be applied to any type of ecosystem such as
+  grassland, savanna, forest, shrubland, and tundra
 \end{itemize}
 
-\hypertarget{nutrient-cycle-models-soil-biogeochemical-models}{%
-\section{Nutrient cycle models: soil biogeochemical models}\label{nutrient-cycle-models-soil-biogeochemical-models}}
+\section{Nutrient cycle models: soil biogeochemical
+models}\label{nutrient-cycle-models-soil-biogeochemical-models}
 
-\hypertarget{nitrogen-cycle}{%
-\subsection{Nitrogen cycle}\label{nitrogen-cycle}}
+\subsection{Nitrogen cycle}\label{nitrogen-cycle}
 
 \begin{itemize}
 \item
@@ -1239,7 +1529,7 @@ Additional details?
 \item
   Bonan Figure 17.8: Depiction of the nitrogen cycle
 \item
-  only \textasciitilde recently added in most biogeochemical models
+  only \textasciitilde{}recently added in most biogeochemical models
 \item
   closely coupled to carbon cycle
 \item
@@ -1247,7 +1537,8 @@ Additional details?
 \item
   similar to carbon with an associated nitrogen pool and transfer.
 \item
-  cycling of nitrogen can be represented by a system of linear differential equations similar to that for carbon.
+  cycling of nitrogen can be represented by a system of linear
+  differential equations similar to that for carbon.
 \item
   allocation of plant nitrogen uptake up to plant pools
 \item
@@ -1255,30 +1546,31 @@ Additional details?
 \item
   soil nitrogen cycle is more complex (various forms)
 \item
-  decomposition of litter and soil organic matter, (mineralization and immobilization)
+  decomposition of litter and soil organic matter, (mineralization and
+  immobilization)
 \item
   nitrification, denitrification, leaching, ammonia volatilization
 \item
-  additional inputs from biological nitrogen fixation, atmospheric deposition, and fertilizer
+  additional inputs from biological nitrogen fixation, atmospheric
+  deposition, and fertilizer
 \item
   some examples of models? CLM?
 \item
-  All models simulate a decrease in plant growth when soil mineral nitrogen is insufficient to meet demand, but they differ in the manner in which this is implemented.
+  All models simulate a decrease in plant growth when soil mineral
+  nitrogen is insufficient to meet demand, but they differ in the manner
+  in which this is implemented.
 \item
-  maybe also more soil oriented model (CENTURY , \ldots.)
+  maybe also more soil oriented model (CENTURY , \ldots{}.)
 \item
   discuss different approaches?
 \end{itemize}
 
-\hypertarget{phosphorus-cycle}{%
-\subsection{Phosphorus cycle}\label{phosphorus-cycle}}
+\subsection{Phosphorus cycle}\label{phosphorus-cycle}
 
-Not in Bonan
-- Some models additionally include phosphorus (Wang et al.~2010; Yang et al.~2014; Goll et al.~2017)
-- ORCHIDEE, CLM-CNP
+Not in Bonan - Some models additionally include phosphorus (Wang et al.
+2010; Yang et al. 2014; Goll et al. 2017) - ORCHIDEE, CLM-CNP
 
-\hypertarget{other-nutrients}{%
-\subsection{Other nutrients}\label{other-nutrients}}
+\subsection{Other nutrients}\label{other-nutrients}
 
 \begin{itemize}
 \tightlist
@@ -1286,50 +1578,55 @@ Not in Bonan
   K and Mg in Eucalyptus and other tropical plantations
 \end{itemize}
 
-\hypertarget{water-balance}{%
-\section{Water balance}\label{water-balance}}
+\section{Water balance}\label{water-balance}
 
 \begin{itemize}
 \item
-  focus on the surface energy balance and vertical water movement in the soil--plant atmosphere system (e.g., soil moisture control of evapotranspiration)
+  focus on the surface energy balance and vertical water movement in the
+  soil--plant atmosphere system (e.g., soil moisture control of
+  evapotranspiration)
 \item
   Specific components in terrestrial biosphere models:\\
-  Interception, throughfall, stemflow, infiltration, surface runoff, soil water redistribution, subsurface runoff, snow melt, evaporation, transpiration, plant water uptake, stomatal conductance
+  Interception, throughfall, stemflow, infiltration, surface runoff,
+  soil water redistribution, subsurface runoff, snow melt, evaporation,
+  transpiration, plant water uptake, stomatal conductance
 \end{itemize}
 
-\hypertarget{a-bucket-model-hydrologic-cycle}{%
-\subsection{A bucket model hydrologic cycle}\label{a-bucket-model-hydrologic-cycle}}
+\subsection{A bucket model hydrologic
+cycle}\label{a-bucket-model-hydrologic-cycle}
 
 \begin{itemize}
 \tightlist
 \item
   refer to hydrology courses in the program
 \item
-  change in soil water is the difference between precipitation and evapotranspiration, excess runs off
+  change in soil water is the difference between precipitation and
+  evapotranspiration, excess runs off
 \item
   based on maximum water-holding capacity
 \end{itemize}
 
-\hypertarget{representing-biodiversity-in-vegetation-models}{%
-\chapter{Representing biodiversity in vegetation models}\label{representing-biodiversity-in-vegetation-models}}
+\chapter{Representing biodiversity in vegetation
+models}\label{representing-biodiversity-in-vegetation-models}
 
 \chaptermark{Biodiversity}
 
-\hypertarget{why-and-how-representing-biodiversity-in-vegetation-models}{%
-\section{Why and how representing biodiversity in vegetation models?}\label{why-and-how-representing-biodiversity-in-vegetation-models}}
+\section{Why and how representing biodiversity in vegetation
+models?}\label{why-and-how-representing-biodiversity-in-vegetation-models}
 
-We can start with the applications? I think it is more interesting than finishing with the applications.
-Application: Conservation, ecosystem resilience, vegetation-atmosphere feedbacks
+We can start with the applications? I think it is more interesting than
+finishing with the applications. Application: Conservation, ecosystem
+resilience, vegetation-atmosphere feedbacks
 
 Biodiversity refers here to functional diversity.
 
-\hypertarget{functional-diversity}{%
-\section{Functional diversity}\label{functional-diversity}}
+\section{Functional diversity}\label{functional-diversity}
 
 \begin{itemize}
 \tightlist
 \item
-  check the book " Terrestrial Ecosystems in a changing world" from P. Canadell (2007)
+  check the book " Terrestrial Ecosystems in a changing world" from P.
+  Canadell (2007)
 \item
   Part C: Landscapes under changing disturbance regimes:
 
@@ -1346,25 +1643,32 @@ Biodiversity refers here to functional diversity.
   \end{itemize}
 \end{itemize}
 
-\hypertarget{definition-of-funcional-diversity-and-plant-functional-traits}{%
-\subsection{Definition of funcional diversity and plant functional traits}\label{definition-of-funcional-diversity-and-plant-functional-traits}}
+\subsection{Definition of funcional diversity and plant functional
+traits}\label{definition-of-funcional-diversity-and-plant-functional-traits}
 
-Any morphological, physiological or phenological feature measurable at the individual level, from the cell to the whole-organism level, without reference to the environment or any other level of organization.
-It is functional if it affects fitness indirectly via its effects on growth, reproduction and survival.
+Any morphological, physiological or phenological feature measurable at
+the individual level, from the cell to the whole-organism level, without
+reference to the environment or any other level of organization. It is
+functional if it affects fitness indirectly via its effects on growth,
+reproduction and survival.
 
 \begin{itemize}
 \tightlist
 \item
-  Seminal papers from the plant functional trait community Violle 2007, Lavorel, garnier, Shipley, etc\ldots{}
+  Seminal papers from the plant functional trait community Violle 2007,
+  Lavorel, garnier, Shipley, etc\ldots{}
 \end{itemize}
 
-\includegraphics{figures/Violle2007.jpg}
-- Mention here the interesting summer school: \url{http://www.cef-cfr.ca/index.php?n=MEmbres.AlisonMunsonPlantTraits?userlang=en}
-- List of reference papers in the link above
-- 3 types of traits: dynamic, response \& constant, that are linked to the processes we studied in the previous chapter (slow/fast processes)
+\includegraphics{figures/Violle2007.jpg} - Mention here the interesting
+summer school:
+\url{http://www.cef-cfr.ca/index.php?n=MEmbres.AlisonMunsonPlantTraits?userlang=en}
+- List of reference papers in the link above - 3 types of traits:
+dynamic, response \& constant, that are linked to the processes we
+studied in the previous chapter (slow/fast processes)
 
-\hypertarget{representing-400-000-plant-species-in-a-single-model-the-plant-functional-type-approach}{%
-\subsection{Representing 400 000 plant species in a single model: the Plant Functional Type approach}\label{representing-400-000-plant-species-in-a-single-model-the-plant-functional-type-approach}}
+\subsection{Representing 400 000 plant species in a single model: the
+Plant Functional Type
+approach}\label{representing-400-000-plant-species-in-a-single-model-the-plant-functional-type-approach}
 
 Short description in UCL 4.3.2\\
 No description in Bonan
@@ -1374,9 +1678,11 @@ No description in Bonan
 \item
   Lack of observations for every species
 \item
-  Computing resources problem (refers to the history of DGVMs from the introduction)
+  Computing resources problem (refers to the history of DGVMs from the
+  introduction)
 \item
-  A simplification based on biome description and plant functionning at the ecosystem level
+  A simplification based on biome description and plant functionning at
+  the ecosystem level
 \item
   Different definitions of PFT: statistical classification, etc.
 \item
@@ -1384,11 +1690,12 @@ No description in Bonan
 \item
   PFT mapping: multi-obs approach based on remote sensing.
 \item
-  First use of PFTs managed to reproduce well the gradients at the global scale, but now it is unsuficcient.
+  First use of PFTs managed to reproduce well the gradients at the
+  global scale, but now it is unsuficcient.
 \end{itemize}
 
-\hypertarget{limits-of-the-pft-representation-in-the-context-of-global-change}{%
-\subsection{Limits of the PFT representation in the context of global change}\label{limits-of-the-pft-representation-in-the-context-of-global-change}}
+\subsection{Limits of the PFT representation in the context of global
+change}\label{limits-of-the-pft-representation-in-the-context-of-global-change}
 
 \begin{itemize}
 \tightlist
@@ -1399,11 +1706,12 @@ No description in Bonan
 \item
   Quantifying vegetation-environment feedbacks
 \item
-  Quantifying impacts of biodiversity on ecosytem functioning and climate
+  Quantifying impacts of biodiversity on ecosytem functioning and
+  climate
 \end{itemize}
 
-\hypertarget{from-model-parameters-to-plant-traits}{%
-\subsection{From model parameters to plant traits}\label{from-model-parameters-to-plant-traits}}
+\subsection{From model parameters to plant
+traits}\label{from-model-parameters-to-plant-traits}
 
 \begin{itemize}
 \tightlist
@@ -1412,17 +1720,20 @@ No description in Bonan
 \item
   Existing databases (TRY)
 \item
-  Empirical approach: More PFTs with traits instead of model-specific parameters, trait-trait, trait-environment relationships
+  Empirical approach: More PFTs with traits instead of model-specific
+  parameters, trait-trait, trait-environment relationships
 \item
-  Trade-offs: modeling plant strategies --\textgreater{} LES, PES, RES, all the ES :D
+  Trade-offs: modeling plant strategies --\textgreater{} LES, PES, RES,
+  all the ES :D
 \item
-  Role of data assimilation in regions without data and to assess spatial variability of vegetation properties
+  Role of data assimilation in regions without data and to assess
+  spatial variability of vegetation properties
 \item
   But: requires lots of observations in space and time.
 \end{itemize}
 
-\hypertarget{eco-evolutive-optimality-approaches}{%
-\subsection{Eco-evolutive optimality approaches}\label{eco-evolutive-optimality-approaches}}
+\subsection{Eco-evolutive optimality
+approaches}\label{eco-evolutive-optimality-approaches}
 
 \begin{itemize}
 \tightlist
@@ -1434,19 +1745,20 @@ No description in Bonan
   Paper from Oskar.
 \end{itemize}
 
-\hypertarget{competition-models}{%
-\section{Competition models}\label{competition-models}}
+\section{Competition models}\label{competition-models}
 
 Not in Bonan nor UCL\\
-In Bonan Chapter 19 on demography, gap models, etc\ldots{} which is a part of competition.
+In Bonan Chapter 19 on demography, gap models, etc\ldots{} which is a
+part of competition.
 
-\hypertarget{representation-of-pfts-in-vegetation-models}{%
-\subsection{Representation of PFTs in vegetation models}\label{representation-of-pfts-in-vegetation-models}}
+\subsection{Representation of PFTs in vegetation
+models}\label{representation-of-pfts-in-vegetation-models}
 
 \begin{itemize}
 \tightlist
 \item
-  Parameterization and calibration of PFTs--\textgreater{} data assimilation, traits, model-specific parameters
+  Parameterization and calibration of PFTs--\textgreater{} data
+  assimilation, traits, model-specific parameters
 \item
   representation by pixels
 \item
@@ -1457,20 +1769,20 @@ In Bonan Chapter 19 on demography, gap models, etc\ldots{} which is a part of co
   Depend on the model: individual/cohort/big leaf
 \end{itemize}
 
-\hypertarget{competition-for-ressources-plant-strategy}{%
-\subsection{Competition for ressources / Plant strategy?}\label{competition-for-ressources-plant-strategy}}
+\subsection{Competition for ressources / Plant
+strategy?}\label{competition-for-ressources-plant-strategy}
 
 \begin{itemize}
 \tightlist
 \item
-  In fact we can extend the trait based approach and plant strategy (PES, etc)
-  in the competition and community section?
+  In fact we can extend the trait based approach and plant strategy
+  (PES, etc) in the competition and community section?
 \item
   Mortality, turnover, etc..
 \end{itemize}
 
-\hypertarget{representation-of-trait-distributions}{%
-\subsection{Representation of trait distributions}\label{representation-of-trait-distributions}}
+\subsection{Representation of trait
+distributions}\label{representation-of-trait-distributions}
 
 \begin{itemize}
 \tightlist
@@ -1478,8 +1790,7 @@ In Bonan Chapter 19 on demography, gap models, etc\ldots{} which is a part of co
   Trade-offs
 \end{itemize}
 
-\hypertarget{communities}{%
-\section{Communities}\label{communities}}
+\section{Communities}\label{communities}
 
 \begin{itemize}
 \tightlist
@@ -1487,28 +1798,34 @@ In Bonan Chapter 19 on demography, gap models, etc\ldots{} which is a part of co
   Successions and impact on cycles, species composition etc.
 \end{itemize}
 
-\hypertarget{what-about-crops}{%
-\section{What about crops?}\label{what-about-crops}}
+\section{What about crops?}\label{what-about-crops}
 
 \begin{itemize}
 \tightlist
 \item
-  Not our focus but we don't forget it. A few words to say that specific crop models exists
+  Not our focus but we don't forget it. A few words to say that specific
+  crop models exists
 \item
   Diversity is not a problem anymore
 \item
-  Plant functional traits are still central to crop modelling, but competition and diversity are no more an issue.
+  Plant functional traits are still central to crop modelling, but
+  competition and diversity are no more an issue.
 \item
-  Other problematics specific to agriculture, such as agro-ecosystems where we have multi layers of vegetation (Trees over crops) --\textgreater{} Very interesting modelling problem and application especially in arid/semi-arid and tropical regions
+  Other problematics specific to agriculture, such as agro-ecosystems
+  where we have multi layers of vegetation (Trees over crops)
+  --\textgreater{} Very interesting modelling problem and application
+  especially in arid/semi-arid and tropical regions
 \end{itemize}
 
-\hypertarget{modelling-vegetation-dynamics-and-demography}{%
-\chapter{Modelling vegetation dynamics and demography}\label{modelling-vegetation-dynamics-and-demography}}
+\chapter{Modelling vegetation dynamics and
+demography}\label{modelling-vegetation-dynamics-and-demography}
 
 \chaptermark{Dynamics}
 
-Bonan Chapter 19.2
-Another class of models, known as individual plant or ecosystem demography models, retains the complexity of individual plants or cohorts of similar plants. In these models, ecosystem properties such as carbon storage are the outcome of demographic processes.
+Bonan Chapter 19.2 Another class of models, known as individual plant or
+ecosystem demography models, retains the complexity of individual plants
+or cohorts of similar plants. In these models, ecosystem properties such
+as carbon storage are the outcome of demographic processes.
 
 \begin{itemize}
 \tightlist
@@ -1519,52 +1836,72 @@ Another class of models, known as individual plant or ecosystem demography model
 \item
   ecosystem structure
 \item
-  driven by demographic processes of recruitment, establishment, growth, and mortality
+  driven by demographic processes of recruitment, establishment, growth,
+  and mortality
 \end{itemize}
 
-\hypertarget{gap-models-individual-and-cohort-based-models}{%
-\section{Gap models, individual and cohort based models}\label{gap-models-individual-and-cohort-based-models}}
+\section{Gap models, individual and cohort based
+models}\label{gap-models-individual-and-cohort-based-models}
 
 \begin{itemize}
 \item
-  small scale models; landscape represented as a mosaic of hundreds of independent forest patches, each of which can differ in species composition and stage of development in response to disturbance that creates an opening in the canopy
+  small scale models; landscape represented as a mosaic of hundreds of
+  independent forest patches, each of which can differ in species
+  composition and stage of development in response to disturbance that
+  creates an opening in the canopy
 \item
-  models track the establishment, growth, and death of individual trees in an area of land.
+  models track the establishment, growth, and death of individual trees
+  in an area of land.
 \item
-  Each tree is characterized by its species, stem diameter, height, and age.
+  Each tree is characterized by its species, stem diameter, height, and
+  age.
 \item
   trees compete for light, soil moisture, and nutrients.
 \item
-  patch undergoes temporal changes in the density, size, and composition of trees with the formation of a gap in the canopy
+  patch undergoes temporal changes in the density, size, and composition
+  of trees with the formation of a gap in the canopy
 \item
-  Community composition, biomass, productivity, and biogeochemical cycles are emergent outcomes of individual trees interacting among themselves and with the environment to acquire the resources necessary for growth and survival
+  Community composition, biomass, productivity, and biogeochemical
+  cycles are emergent outcomes of individual trees interacting among
+  themselves and with the environment to acquire the resources necessary
+  for growth and survival
 \item
-  cohort-based models define patches based on age since disturbance and simulate the dynamics of cohorts of similar plant functional types rather than tracking every individual.
+  cohort-based models define patches based on age since disturbance and
+  simulate the dynamics of cohorts of similar plant functional types
+  rather than tracking every individual.
 \item
-  Common to each model is the representation of vegetation demography, with age- and size-dependent growth and mortality and in which growth is constrained by allometric relationships of stem diameter with height, sapwood area, leaf area, and biomass. cohort models --\textgreater{} modelling size distributions
+  Common to each model is the representation of vegetation demography,
+  with age- and size-dependent growth and mortality and in which growth
+  is constrained by allometric relationships of stem diameter with
+  height, sapwood area, leaf area, and biomass. cohort models
+  --\textgreater{} modelling size distributions
 \end{itemize}
 
-\hypertarget{allometric-relationships}{%
-\section{Allometric relationships}\label{allometric-relationships}}
+\section{Allometric relationships}\label{allometric-relationships}
 
 \begin{itemize}
 \tightlist
 \item
   link with growth modelling of previuous chapter
 \item
-  allometric relationships are a critical driver of individual tree growth.
+  allometric relationships are a critical driver of individual tree
+  growth.
 \item
-  Height is important for its effect on stem diameter increment, both directly through tree volume growth and indirectly through shading.
+  Height is important for its effect on stem diameter increment, both
+  directly through tree volume growth and indirectly through shading.
 \item
-  Biomass allocation: empirical equations that constrain foliage, stem, and root mass for a given size tree
+  Biomass allocation: empirical equations that constrain foliage, stem,
+  and root mass for a given size tree
 \item
-  relationship between stem diameter and leaf area drives light extinction in the canopy
+  relationship between stem diameter and leaf area drives light
+  extinction in the canopy
 \item
-  annual growth of a tree is calculated from its diameter and height as modified by light, climate, and site conditions. Growth curves figure 19.5
+  annual growth of a tree is calculated from its diameter and height as
+  modified by light, climate, and site conditions. Growth curves figure
+  19.5
 \end{itemize}
 
-\hypertarget{competition-for-light}{%
-\section{Competition for light}\label{competition-for-light}}
+\section{Competition for light}\label{competition-for-light}
 
 \begin{itemize}
 \tightlist
@@ -1573,17 +1910,19 @@ Another class of models, known as individual plant or ecosystem demography model
 \item
   shading of smaller individuals by taller trees
 \item
-  vertical profile of leaf area in the patch (vertical structure in which trees are arranged into canopy layers)
+  vertical profile of leaf area in the patch (vertical structure in
+  which trees are arranged into canopy layers)
 \item
-  height of a tree determines its location in the cumulative leaf area profile
+  height of a tree determines its location in the cumulative leaf area
+  profile
 \item
   light extinction coefficient
 \item
   figure 19.6: representation of plant canopies
 \end{itemize}
 
-\hypertarget{seed-dispersal-and-recruitment}{%
-\section{Seed dispersal and recruitment}\label{seed-dispersal-and-recruitment}}
+\section{Seed dispersal and
+recruitment}\label{seed-dispersal-and-recruitment}
 
 \begin{itemize}
 \item
@@ -1591,15 +1930,16 @@ Another class of models, known as individual plant or ecosystem demography model
 \item
   seeds of species are assumed to be present on-site
 \item
-  available light at the forest floor, climate tolerances, and other site conditions determine which species become established.
+  available light at the forest floor, climate tolerances, and other
+  site conditions determine which species become established.
 \item
   sprouting based on size
 \item
-  Species are characterized by life history characteristics + maybe add example of herb layer models of FORNALAB
+  Species are characterized by life history characteristics + maybe add
+  example of herb layer models of FORNALAB
 \end{itemize}
 
-\hypertarget{mortality}{%
-\section{Mortality}\label{mortality}}
+\section{Mortality}\label{mortality}
 
 \begin{itemize}
 \item
@@ -1607,29 +1947,32 @@ Another class of models, known as individual plant or ecosystem demography model
 \item
   Trees die with a constant probability each year
 \item
-  The probability of mortality increases when tree growth is less than some minimum
+  The probability of mortality increases when tree growth is less than
+  some minimum
 \item
-  disturbance related mortality : Wildfire and insect outbreaks can be included
+  disturbance related mortality : Wildfire and insect outbreaks can be
+  included
 \item
-  The occurrence of fire is treated stochastically with an annual probability of burning. An individual patch may, for example, have a 1\% change of burning in any given year.
+  The occurrence of fire is treated stochastically with an annual
+  probability of burning. An individual patch may, for example, have a
+  1\% change of burning in any given year.
 \end{itemize}
 
-\hypertarget{part-upscaling-and-applications}{%
-\part{Upscaling and applications}\label{part-upscaling-and-applications}}
+\part{Upscaling and
+applications}\label{part-upscaling-and-applications}
 
-\hypertarget{spatial-heterogeneity-landscape-scale-metapopulations}{%
-\chapter{Spatial heterogeneity, landscape scale, metapopulations}\label{spatial-heterogeneity-landscape-scale-metapopulations}}
+\chapter{Spatial heterogeneity, landscape scale,
+metapopulations}\label{spatial-heterogeneity-landscape-scale-metapopulations}
 
 \chaptermark{Heterogeneity}
 
-\hypertarget{patch-dynamics}{%
-\section{Patch dynamics}\label{patch-dynamics}}
+\section{Patch dynamics}\label{patch-dynamics}
 
-Some references:
-- Book: The ecology of natual disturance and patch dynamics, Pickett \& White, 2013
+Some references: - Book: The ecology of natual disturance and patch
+dynamics, Pickett \& White, 2013
 
-\hypertarget{spatial-heterogeneity-definitions}{%
-\subsection{Spatial heterogeneity: Definitions}\label{spatial-heterogeneity-definitions}}
+\subsection{Spatial heterogeneity:
+Definitions}\label{spatial-heterogeneity-definitions}
 
 \begin{itemize}
 \tightlist
@@ -1641,8 +1984,9 @@ Some references:
   Resilience and shifts
 \end{itemize}
 
-\hypertarget{impact-of-heterogeneity-on-ecosystem-fonctionning-and-environmental-feedbacks}{%
-\subsection{Impact of heterogeneity on ecosystem fonctionning and environmental feedbacks}\label{impact-of-heterogeneity-on-ecosystem-fonctionning-and-environmental-feedbacks}}
+\subsection{Impact of heterogeneity on ecosystem fonctionning and
+environmental
+feedbacks}\label{impact-of-heterogeneity-on-ecosystem-fonctionning-and-environmental-feedbacks}
 
 \begin{itemize}
 \tightlist
@@ -1652,19 +1996,22 @@ Some references:
   Application in the design of nature reserves for example
 \end{itemize}
 
-\hypertarget{heterogeneity-is-a-matter-of-resolution}{%
-\subsection{Heterogeneity is a matter of resolution}\label{heterogeneity-is-a-matter-of-resolution}}
+\subsection{Heterogeneity is a matter of
+resolution}\label{heterogeneity-is-a-matter-of-resolution}
 
 \begin{itemize}
 \tightlist
 \item
-  Imbricated levels of heterogeneity depending on spatial and temporal resolution
+  Imbricated levels of heterogeneity depending on spatial and temporal
+  resolution
 \item
-  Heterogeneity is also a matter of the studied question: important in term of modelling since it will govern how processes are implemented
+  Heterogeneity is also a matter of the studied question: important in
+  term of modelling since it will govern how processes are implemented
 \end{itemize}
 
-\hypertarget{representation-in-vegetation-models-what-are-the-drivers-of-spatial-heterogeneity}{%
-\subsection{Representation in Vegetation models: what are the drivers of spatial heterogeneity?}\label{representation-in-vegetation-models-what-are-the-drivers-of-spatial-heterogeneity}}
+\subsection{Representation in Vegetation models: what are the drivers of
+spatial
+heterogeneity?}\label{representation-in-vegetation-models-what-are-the-drivers-of-spatial-heterogeneity}
 
 \begin{itemize}
 \tightlist
@@ -1673,22 +2020,23 @@ Some references:
 \item
   Heterogeneity is a patchwork of homogeneity in most models
 \item
-  But we can still represent dynamics in heterogeneity --\textgreater{} mortality, growth and shifts in species composition
+  But we can still represent dynamics in heterogeneity --\textgreater{}
+  mortality, growth and shifts in species composition
 \end{itemize}
 
-\hypertarget{disturbances-and-patch-dynamics}{%
-\subsection{Disturbances and Patch dynamics}\label{disturbances-and-patch-dynamics}}
+\subsection{Disturbances and Patch
+dynamics}\label{disturbances-and-patch-dynamics}
 
 \begin{itemize}
 \tightlist
 \item
-  We listed the different drivers above, we will now discuss in detail the most important aspects affecting patch dynamics
+  We listed the different drivers above, we will now discuss in detail
+  the most important aspects affecting patch dynamics
 \item
   Link to land-use and disturbance
 \end{itemize}
 
-\hypertarget{land-use-changes}{%
-\section{Land-use changes}\label{land-use-changes}}
+\section{Land-use changes}\label{land-use-changes}
 
 \begin{itemize}
 \tightlist
@@ -1696,39 +2044,41 @@ Some references:
   Land use is linked to spatial heterogeneity and patch dynamics
 \end{itemize}
 
-\hypertarget{role-of-land-use-in-global-emissions-and-biogeochemicel-cycles}{%
-\subsection{Role of Land-use in global emissions and biogeochemicel cycles}\label{role-of-land-use-in-global-emissions-and-biogeochemicel-cycles}}
+\subsection{Role of Land-use in global emissions and biogeochemicel
+cycles}\label{role-of-land-use-in-global-emissions-and-biogeochemicel-cycles}
 
 \begin{itemize}
 \tightlist
 \item
   impact C stocks and fluxes
 \item
-  impact on nutrients (depletion over rotations, etc\ldots)
+  impact on nutrients (depletion over rotations, etc\ldots{})
 \item
   important impact on respiration
 \item
   vegetation cover and biophysical impact: albedo, etc\ldots{}
 \item
-  Specific case of deforestation, one of the most important imapct (make a paragraph on that?)
+  Specific case of deforestation, one of the most important imapct (make
+  a paragraph on that?)
 \item
-  How are fluxes attributed to land use in gas emission assessments? --\textgreater{} central role of vegetation modeling
+  How are fluxes attributed to land use in gas emission assessments?
+  --\textgreater{} central role of vegetation modeling
 \end{itemize}
 
-\hypertarget{the-important-role-of-land-use-in-the-water-cycle}{%
-\subsection{The important role of land use in the water cycle}\label{the-important-role-of-land-use-in-the-water-cycle}}
+\subsection{The important role of land use in the water
+cycle}\label{the-important-role-of-land-use-in-the-water-cycle}
 
 \begin{itemize}
 \tightlist
 \item
   Affects regional precipitations
 \item
-  Affects water routing
-  --\textgreater{} Compared to the local impact on vegetation, here we touch something that will have an impact for the surrounding regions
+  Affects water routing --\textgreater{} Compared to the local impact on
+  vegetation, here we touch something that will have an impact for the
+  surrounding regions
 \end{itemize}
 
-\hypertarget{monitoring-land-use}{%
-\subsection{Monitoring land-use}\label{monitoring-land-use}}
+\subsection{Monitoring land-use}\label{monitoring-land-use}
 
 \begin{itemize}
 \tightlist
@@ -1736,30 +2086,31 @@ Some references:
   remote sensing, rapid link to other courses
 \end{itemize}
 
-\hypertarget{how-land-use-is-represented-in-vegetation-models}{%
-\subsection{How Land-use is represented in vegetation models?}\label{how-land-use-is-represented-in-vegetation-models}}
+\subsection{How Land-use is represented in vegetation
+models?}\label{how-land-use-is-represented-in-vegetation-models}
 
 \begin{itemize}
 \tightlist
 \item
-  Compared to vegetation dynamic which is process-based, here land use is imposed.
+  Compared to vegetation dynamic which is process-based, here land use
+  is imposed.
 \item
   management
 \item
   urban areas
 \end{itemize}
 
-\hypertarget{natural-and-anthropogenic-disturbances}{%
-\section{Natural and Anthropogenic disturbances}\label{natural-and-anthropogenic-disturbances}}
+\section{Natural and Anthropogenic
+disturbances}\label{natural-and-anthropogenic-disturbances}
 
 \begin{itemize}
 \tightlist
 \item
-  We provide an overview of disturbances but we will detail only one of each: Fires and Management
+  We provide an overview of disturbances but we will detail only one of
+  each: Fires and Management
 \end{itemize}
 
-\hypertarget{wind-and-extrem-events}{%
-\subsection{Wind and extrem events}\label{wind-and-extrem-events}}
+\subsection{Wind and extrem events}\label{wind-and-extrem-events}
 
 \begin{itemize}
 \tightlist
@@ -1769,8 +2120,7 @@ Some references:
   Modelling heat and cold waves, frost impact
 \end{itemize}
 
-\hypertarget{herbivory}{%
-\subsection{Herbivory}\label{herbivory}}
+\subsection{Herbivory}\label{herbivory}
 
 \begin{itemize}
 \tightlist
@@ -1780,13 +2130,12 @@ Some references:
   Palability traits/ fixed fraction/ insects
 \end{itemize}
 
-\hypertarget{modelling-fires}{%
-\subsection{Modelling fires}\label{modelling-fires}}
+\subsection{Modelling fires}\label{modelling-fires}
 
 \begin{itemize}
 \tightlist
 \item
-  In UCL Practical chap.~6
+  In UCL Practical chap. 6
 \item
   For estimating the impact on ecosystems
 \item
@@ -1798,31 +2147,36 @@ Some references:
 \item
   Aerosols
 \item
-  Modelling ``fire'' traits, drought and temperature stress in models to simulate fires
+  Modelling ``fire'' traits, drought and temperature stress in models to
+  simulate fires
 \end{itemize}
 
-\hypertarget{human-activity-management-and-urban-areas}{%
-\subsection{Human activity: Management and urban areas}\label{human-activity-management-and-urban-areas}}
+\subsection{Human activity: Management and urban
+areas}\label{human-activity-management-and-urban-areas}
 
 \begin{itemize}
 \tightlist
 \item
-  Forest management: existing models, representation of forestry and use of models
+  Forest management: existing models, representation of forestry and use
+  of models
 \item
   Fertilization and irrigation in vegetation models
 \item
   Urban areas in vegetation models
 \item
-  Concrete application: Paper of Luyssaert: forest management in Europe did not help in mitigating climate change.
+  Concrete application: Paper of Luyssaert: forest management in Europe
+  did not help in mitigating climate change.
 \end{itemize}
 
-\hypertarget{the-specific-case-of-co2-and-temperature-increase}{%
-\subsection{The specific case of CO2 and temperature increase}\label{the-specific-case-of-co2-and-temperature-increase}}
+\subsection{The specific case of CO2 and temperature
+increase}\label{the-specific-case-of-co2-and-temperature-increase}
 
 \begin{itemize}
 \tightlist
 \item
-  conclude the chapter here by refering to climate change, one of the biggest ``Continuous'' distrubance compared to previous ``discrete'' disturbances
+  conclude the chapter here by refering to climate change, one of the
+  biggest ``Continuous'' distrubance compared to previous ``discrete''
+  disturbances
 \item
   Simulating acclimation and adaptation
 \item
@@ -1831,17 +2185,15 @@ Some references:
   refers to chapter 11 for scenarios
 \end{itemize}
 
-\hypertarget{upscaling-from-the-leaf-to-the-globe}{%
-\chapter{Upscaling from the leaf to the globe}\label{upscaling-from-the-leaf-to-the-globe}}
+\chapter{Upscaling from the leaf to the
+globe}\label{upscaling-from-the-leaf-to-the-globe}
 
-\chaptermark{Globe}
+\chaptermark{Globe} Some references: - Scalling processes and problems,
+Jarvis 1995 - upscalling in global change research, Harvey 2000
 
-Some references:
-- Scalling processes and problems, Jarvis 1995
-- upscalling in global change research, Harvey 2000
-
-\hypertarget{spatial-and-temporal-non-linearities-cascading-effect-in-the-earth-system}{%
-\section{Spatial and temporal non-linearities: Cascading effect in the Earth system}\label{spatial-and-temporal-non-linearities-cascading-effect-in-the-earth-system}}
+\section{Spatial and temporal non-linearities: Cascading effect in the
+Earth
+system}\label{spatial-and-temporal-non-linearities-cascading-effect-in-the-earth-system}
 
 \begin{itemize}
 \tightlist
@@ -1851,62 +2203,57 @@ Some references:
   temporal upscalling
 \item
   classification of upscalling problems:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Spatial variability + process nonlinearity
-  \item
-    Minimim scale to observe the process
-  \item
-    Different processes dominate at different scales
-  \item
-    Feedbacks between scales
-  \item
-    Development of emergent properties
-  \item
-    Edge effects
-  \item
-    Temporal lag dependent on spatial scale change
-  \item
-    Collective response with differential effects
-  \end{itemize}
+\item
+  Spatial variability + process nonlinearity
+\item
+  Minimim scale to observe the process
+\item
+  Different processes dominate at different scales
+\item
+  Feedbacks between scales
+\item
+  Development of emergent properties
+\item
+  Edge effects
+\item
+  Temporal lag dependent on spatial scale change
+\item
+  Collective response with differential effects
 \item
   Solutions to upscaling problems:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Ignore (easy solution)
-  \item
-    Increase model resolution (now more and more possible thanks to computing ressources, and data assimilation)
-  \item
-    etc\ldots{} ** Nice review in Harvey 2000 **
-  \end{itemize}
+\item
+  Ignore (easy solution)
+\item
+  Increase model resolution (now more and more possible thanks to
+  computing ressources, and data assimilation)
+\item
+  etc\ldots{} ** Nice review in Harvey 2000 **
 \end{itemize}
 
---\textgreater{} Solution depends on the application, show some examples here
+--\textgreater{} Solution depends on the application, show some examples
+here
 
-\hypertarget{land-surface-models}{%
-\section{Land surface models}\label{land-surface-models}}
+\section{Land surface models}\label{land-surface-models}
 
 \begin{itemize}
 \tightlist
 \item
-  Dependence to other disciplines (Biology, ecology, physics, chemistry (VOC, etc), hydrology, pedology, datascience and mathematics, etc\ldots)
+  Dependence to other disciplines (Biology, ecology, physics, chemistry
+  (VOC, etc), hydrology, pedology, datascience and mathematics,
+  etc\ldots{})
 \item
   Figure 1.7 from Bonan
 \item
   UCL 4.2: Land surface schemes
 \item
-  Focus on the coupling of different models and what it implies, not the technical aspects
-  \#\#\# Soil-Vegetation-Atmosphere-Transer models
+  Focus on the coupling of different models and what it implies, not the
+  technical aspects \#\#\# Soil-Vegetation-Atmosphere-Transer models
 \item
   Description of SVAT models, regroups what we studied in Chap1-9
 \end{itemize}
 
-\hypertarget{dvgms-as-a-part-of-earth-system-models}{%
-\section{DVGMs as a part of Earth System Models}\label{dvgms-as-a-part-of-earth-system-models}}
+\section{DVGMs as a part of Earth System
+Models}\label{dvgms-as-a-part-of-earth-system-models}
 
 \begin{itemize}
 \tightlist
@@ -1914,8 +2261,7 @@ Some references:
   Partially in UCL 4.3.3
 \end{itemize}
 
-\hypertarget{one-biosphere}{%
-\subsection{One Biosphere}\label{one-biosphere}}
+\subsection{One Biosphere}\label{one-biosphere}
 
 \begin{itemize}
 \tightlist
@@ -1925,8 +2271,8 @@ Some references:
   Coupling to other components
 \end{itemize}
 
-\hypertarget{atmosphere-ocean-lakes-and-urban-areas}{%
-\subsection{Atmosphere, Ocean, lakes and urban areas}\label{atmosphere-ocean-lakes-and-urban-areas}}
+\subsection{Atmosphere, Ocean, lakes and urban
+areas}\label{atmosphere-ocean-lakes-and-urban-areas}
 
 \begin{itemize}
 \tightlist
@@ -1936,11 +2282,10 @@ Some references:
   Reference here to previous chapter on heterogeneity
 \end{itemize}
 
-\hypertarget{coupling-of-processes-with-different-time-steps-and-regional-scale}{%
-\subsection{Coupling of processes with different time steps and regional scale}\label{coupling-of-processes-with-different-time-steps-and-regional-scale}}
+\subsection{Coupling of processes with different time steps and regional
+scale}\label{coupling-of-processes-with-different-time-steps-and-regional-scale}
 
-\hypertarget{simulating-feedbacks}{%
-\subsection{Simulating feedbacks}\label{simulating-feedbacks}}
+\subsection{Simulating feedbacks}\label{simulating-feedbacks}
 
 \begin{itemize}
 \tightlist
@@ -1948,40 +2293,41 @@ Some references:
   Nice transition to chap 11 with future scenarii
 \end{itemize}
 
-\hypertarget{model-projections-and-scenario-analysis}{%
-\chapter{Model projections and scenario analysis}\label{model-projections-and-scenario-analysis}}
+\chapter{Model projections and scenario
+analysis}\label{model-projections-and-scenario-analysis}
 
 \chaptermark{Projections}
 
-\hypertarget{climate-scenarios}{%
-\section{Climate scenarios}\label{climate-scenarios}}
+\section{Climate scenarios}\label{climate-scenarios}
 
-\hypertarget{representative-concentration-pathway-rcp-scenarios}{%
-\subsection{Representative Concentration Pathway (RCP scenarios)}\label{representative-concentration-pathway-rcp-scenarios}}
+\subsection{Representative Concentration Pathway (RCP
+scenarios)}\label{representative-concentration-pathway-rcp-scenarios}
 
 \begin{itemize}
 \tightlist
 \item
   How scenarios are defined
 \item
-  How current emissions are measured and attributed to different factors?
+  How current emissions are measured and attributed to different
+  factors?
 \end{itemize}
 
-\hypertarget{different-models-different-rcp}{%
-\subsection{Different models, different RCP}\label{different-models-different-rcp}}
+\subsection{Different models, different
+RCP}\label{different-models-different-rcp}
 
 \begin{itemize}
 \tightlist
 \item
-  The central role of ESM: coupling to Atmosphere and Ocean and feedbacks
+  The central role of ESM: coupling to Atmosphere and Ocean and
+  feedbacks
 \item
   Here refers to preivous Chapter 10
 \item
   list some examples and differences: IPSL, HadGEM, etc\ldots{}
 \end{itemize}
 
-\hypertarget{use-of-rcp-in-vegetation-modelling}{%
-\subsection{Use of RCP in vegetation modelling}\label{use-of-rcp-in-vegetation-modelling}}
+\subsection{Use of RCP in vegetation
+modelling}\label{use-of-rcp-in-vegetation-modelling}
 
 \begin{itemize}
 \tightlist
@@ -1993,8 +2339,8 @@ Some references:
   Example of applications
 \end{itemize}
 
-\hypertarget{how-can-we-evaluate-future-scenarios}{%
-\subsection{How can we evaluate future scenarios?}\label{how-can-we-evaluate-future-scenarios}}
+\subsection{How can we evaluate future
+scenarios?}\label{how-can-we-evaluate-future-scenarios}
 
 \begin{itemize}
 \tightlist
@@ -2003,38 +2349,40 @@ Some references:
 \item
   Rainfall exclusion experiments
 \item
-  Natural gradient (Iceland and soil temperature based on volcano and geothermy)
+  Natural gradient (Iceland and soil temperature based on volcano and
+  geothermy)
 \end{itemize}
 
-\hypertarget{the-central-role-of-paleo-studies-and-historical-datasets.}{%
-\subsection{The central role of Paleo studies and historical datasets.}\label{the-central-role-of-paleo-studies-and-historical-datasets.}}
+\subsection{The central role of Paleo studies and historical
+datasets.}\label{the-central-role-of-paleo-studies-and-historical-datasets.}
 
 \begin{itemize}
 \tightlist
 \item
-  Good performance for past and current conditions is mandatory to evaluate future scenarios
+  Good performance for past and current conditions is mandatory to
+  evaluate future scenarios
 \item
   Here remind the central role of experiments and monitoring
 \end{itemize}
 
-\hypertarget{land-use-scenarios}{%
-\section{Land-use scenarios}\label{land-use-scenarios}}
+\section{Land-use scenarios}\label{land-use-scenarios}
 
-\hypertarget{construction-of-land-use-scenarios}{%
-\subsection{Construction of Land-use scenarios}\label{construction-of-land-use-scenarios}}
+\subsection{Construction of Land-use
+scenarios}\label{construction-of-land-use-scenarios}
 
 \begin{itemize}
 \tightlist
 \item
-  Hyde for historical land-use, \url{https://themasites.pbl.nl/tridion/en/themasites/hyde/}
+  Hyde for historical land-use,
+  \url{https://themasites.pbl.nl/tridion/en/themasites/hyde/}
 \item
   Scenario for future land-use
 \end{itemize}
 
 --\textgreater{} We can follow the same structure as for RCP?
 
-\hypertarget{how-can-we-evaluate-land-use-scenarios}{%
-\subsection{How can we evaluate land use scenarios?}\label{how-can-we-evaluate-land-use-scenarios}}
+\subsection{How can we evaluate land use
+scenarios?}\label{how-can-we-evaluate-land-use-scenarios}
 
 \begin{itemize}
 \tightlist
@@ -2044,57 +2392,62 @@ Some references:
   Remote sensing
 \end{itemize}
 
-\hypertarget{management-scenarios}{%
-\section{Management scenarios}\label{management-scenarios}}
+\section{Management scenarios}\label{management-scenarios}
 
-\hypertarget{construction-of-land-use-scenarios-1}{%
-\subsection{Construction of Land-use scenarios}\label{construction-of-land-use-scenarios-1}}
+\subsection{Construction of Land-use
+scenarios}\label{construction-of-land-use-scenarios-1}
 
-\hypertarget{how-can-we-evaluate-management-scenarios}{%
-\subsection{How can we evaluate management scenarios?}\label{how-can-we-evaluate-management-scenarios}}
+\subsection{How can we evaluate management
+scenarios?}\label{how-can-we-evaluate-management-scenarios}
 
-\hypertarget{some-concrete-applications-of-vegetation-models}{%
-\section{Some concrete applications of vegetation models}\label{some-concrete-applications-of-vegetation-models}}
+\section{Some concrete applications of vegetation
+models}\label{some-concrete-applications-of-vegetation-models}
 
 \begin{itemize}
 \tightlist
 \item
-  As a conclusion of the whole course I see a nice diagram that we constructed throughout the course with small boxes added to each others and we link that to all the possible application
+  As a conclusion of the whole course I see a nice diagram that we
+  constructed throughout the course with small boxes added to each
+  others and we link that to all the possible application
 \end{itemize}
 
-\hypertarget{part-appendix}{%
-\part{Appendix}\label{part-appendix}}
+\part{Appendix}\label{part-appendix}
 
-\hypertarget{contributing-to-this-document}{%
-\chapter*{Contributing to this document}\label{contributing-to-this-document}}
+\chapter*{Contributing to this
+document}\label{contributing-to-this-document}
 \addcontentsline{toc}{chapter}{Contributing to this document}
 
-\hypertarget{first-steps}{%
-\section*{First steps}\label{first-steps}}
+\section*{First steps}\label{first-steps}
 \addcontentsline{toc}{section}{First steps}
 
-First, visit the course webpage on \url{https://github.com/femeunier/VegMod_course}, and fork it to your own github account. Open a RStudio session and (if it is your first time with git) introduce yourself:
+First, visit the course webpage on
+\url{https://github.com/femeunier/VegMod_course}, and fork it to your
+own github account. Open a RStudio session and (if it is your first time
+with git) introduce yourself:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ config {-}{-}global user.name }\StringTok{"FULLNAME"}
-\FunctionTok{git}\NormalTok{ config {-}{-}global user.email you@yourdomain.example.com}
+\FunctionTok{git}\NormalTok{ config --global user.name }\StringTok{"FULLNAME"}
+\FunctionTok{git}\NormalTok{ config --global user.email you@yourdomain.example.com}
 \end{Highlighting}
 \end{Shaded}
 
-Note that you can do every single step below using the terminal and the git tabs in RStudio. Clone the newly forked folder to your local machine:
+Note that you can do every single step below using the terminal and the
+git tabs in RStudio. Clone the newly forked folder to your local
+machine:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ clone https://github.com/femeunier/VegMod\_course.git}
+\FunctionTok{git}\NormalTok{ clone https://github.com/femeunier/VegMod_course.git}
 \end{Highlighting}
 \end{Shaded}
 
-or using SSH (to set up it first, see for instance \url{https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh})
+or using SSH (to set up it first, see for instance
+\url{https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh})
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ clone git@github.com:femeunier/VegMod\_course.git}
+\FunctionTok{git}\NormalTok{ clone git@github.com:femeunier/VegMod_course.git}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2102,13 +2455,12 @@ Define upstream
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\BuiltInTok{cd}\NormalTok{ VegMod\_course}
-\FunctionTok{git}\NormalTok{ remote add upstream git@github.com:femeunier/VegMod\_course.git}
+\BuiltInTok{cd}\NormalTok{ VegMod_course}
+\FunctionTok{git}\NormalTok{ remote add upstream git@github.com:femeunier/VegMod_course.git}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{new-pull-request}{%
-\section*{New pull request}\label{new-pull-request}}
+\section*{New pull request}\label{new-pull-request}
 \addcontentsline{toc}{section}{New pull request}
 
 Get the latest code from the main repository
@@ -2123,7 +2475,7 @@ Create a new branch (here new\_branch is the new branch's name)
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ checkout {-}b new\_branch}
+\FunctionTok{git}\NormalTok{ checkout -b new_branch}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2132,69 +2484,75 @@ Do some coding, add files and commit them
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{git}\NormalTok{ add filepath}
-\FunctionTok{git}\NormalTok{ commit {-}m “Message”}
+\FunctionTok{git}\NormalTok{ commit -m “Message”}
 \end{Highlighting}
 \end{Shaded}
 
-Push your changes to your github (when a feature is working, a set of bugs are fixed, or you need to share progress with others).
+Push your changes to your github (when a feature is working, a set of
+bugs are fixed, or you need to share progress with others).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ push origin new\_branch}
+\FunctionTok{git}\NormalTok{ push origin new_branch}
 \end{Highlighting}
 \end{Shaded}
 
-Before submitting code back to the main repository, make sure that book compiles (buikd book). Open the PR online by visiting your github repository. To ease those previous steps you can take advantage of the git GUI in RStudio. To do so, create a new project from an existing directory.
+Before submitting code back to the main repository, make sure that book
+compiles (buikd book). Open the PR online by visiting your github
+repository. To ease those previous steps you can take advantage of the
+git GUI in RStudio. To do so, create a new project from an existing
+directory.
 
-\hypertarget{supporting-material}{%
-\chapter*{Supporting material}\label{supporting-material}}
+\chapter*{Supporting material}\label{supporting-material}
 \addcontentsline{toc}{chapter}{Supporting material}
 
 Crash course, basic programming (R), theory about model evaluation etc.
 
-\hypertarget{part-practicals}{%
-\part{Practicals}\label{part-practicals}}
+\part{Practicals}\label{part-practicals}
 
-\hypertarget{practical-a}{%
-\chapter*{Practical A}\label{practical-a}}
+\chapter*{Practical A}\label{practical-a}
 \addcontentsline{toc}{chapter}{Practical A}
 
 PC-room, supervised exercise
 
-Simple model on diurnal variation in solar angle, radiation extinction and photosynthesis in vegetation types with different and canopy structure and LAI: grassland, broadleaved forest, coniferous forest
+Simple model on diurnal variation in solar angle, radiation extinction
+and photosynthesis in vegetation types with different and canopy
+structure and LAI: grassland, broadleaved forest, coniferous forest
 
 Scale: aggregated stand level (big leaf model)
 
-Methodological focus: model formulation: translating a few equations into code
+Methodological focus: model formulation: translating a few equations
+into code
 
-Methodological focus: compiling code, running model, reading input-output
+Methodological focus: compiling code, running model, reading
+input-output
 
-\hypertarget{practical-b}{%
-\chapter*{Practical B}\label{practical-b}}
+\chapter*{Practical B}\label{practical-b}
 \addcontentsline{toc}{chapter}{Practical B}
 
 Group work, report, PC room
 
-Modelling diurnal cycle of carbon and water fluxes for flux tower sites (Savanna's Sahel)
+Modelling diurnal cycle of carbon and water fluxes for flux tower sites
+(Savanna's Sahel)
 
 Scale: aggregated stand level
 
-Methodological focus: model-data comparison (goodness-of-fit), simple parameter optimisation
+Methodological focus: model-data comparison (goodness-of-fit), simple
+parameter optimisation
 
-\hypertarget{practical-c}{%
-\chapter*{Practical C}\label{practical-c}}
+\chapter*{Practical C}\label{practical-c}
 \addcontentsline{toc}{chapter}{Practical C}
 
 PC-room, supervised exercise
 
-Modelling the size structure of a temperate forest (stand diameter distribution)
+Modelling the size structure of a temperate forest (stand diameter
+distribution)
 
 Scale: forest stand
 
 Methodological focus: initial conditions
 
-\hypertarget{practical-d}{%
-\chapter*{Practical D}\label{practical-d}}
+\chapter*{Practical D}\label{practical-d}
 \addcontentsline{toc}{chapter}{Practical D}
 
 Group work, report, PC room
@@ -2203,32 +2561,34 @@ Modelling carbon stocks (above and belowground) and fluxes
 
 Scale: ecosystem
 
-Methodological focus: Spinup and sensitivity analysis (testing which climate variables have strongest impact on stocks)
+Methodological focus: Spinup and sensitivity analysis (testing which
+climate variables have strongest impact on stocks)
 
-\hypertarget{practical-e}{%
-\chapter*{Practical E}\label{practical-e}}
+\chapter*{Practical E}\label{practical-e}
 \addcontentsline{toc}{chapter}{Practical E}
 
 PC-room, supervised exercise
 
-Simulating forest succession, meta-analysis of trait dataset to prescribe vegetation functional composition (using PEcAn-framework)
+Simulating forest succession, meta-analysis of trait dataset to
+prescribe vegetation functional composition (using PEcAn-framework)
 
 Scale: landscape
 
-Methodological focus: parameter meta-analysis (PFT construction), data assimilation
+Methodological focus: parameter meta-analysis (PFT construction), data
+assimilation
 
-\hypertarget{practical-f}{%
-\chapter*{Practical F}\label{practical-f}}
+\chapter*{Practical F}\label{practical-f}
 \addcontentsline{toc}{chapter}{Practical F}
 
 PC-room, group work, microteaching
 
 Climate/land use/management scenario analysis
 
-Scale: site/globe? (Pecan framework) each group choses a question and a model
+Scale: site/globe? (Pecan framework) each group choses a question and a
+model
 
 Methodological focus: sensitivity and uncertainty analysis
 
-  \bibliography{book.bib,packages.bib}
+\bibliography{book.bib,packages.bib}
 
 \end{document}
