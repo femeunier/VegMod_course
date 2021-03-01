@@ -7,102 +7,168 @@ output:
 \mainmatter
 
 # Introduction {#intro}
-## Soil-plant-atmosphere continuum: the central role of vegetation in the earth system
+## The central role of vegetation in the Earth system
 
-```{r f1, fig.cap='The planetary boundaries (www.stockholmresilience.org)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+Plants and vegetation play an essential role in the earth system. In Figure \@ref(fig:f1), we have represented the planetary boundaries and the significant environmental challenges we are facing. For some of them, we are reaching the system's boundary, such as genetic diversity, biogeochemical cycling, and climate change. Plants and forests ecosystems are critical in multiple of these planetary problems. Therefore, it is crucial to understand how vegetation reacts to environmental problems (positive or negative feedback).
+
+```{r f1, fig.cap='The planetary boundaries (www.stockholmresilience.org)', out.width='60%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/planetary_boundaries.png')
 ```
+
+A more specific example is the global carbon budget. We are currently facing this significant change in biogeochemical cycling due to the rising fossil fuel emission over the last 150 years. Figure \@ref(fig:f2) represents the balance between carbon sources (fossil carbon and land-use changes) and sinks (oceans, land, and atmosphere). The more we emit, the more the Earth system is capturing, as shown in Fig.2. This takes us to a question,  frequently addressed by global vegetation models, about how long these sinks will continue or not capture our increasing carbon emissions. It is also important to highlight the high annual variability of the land component being the most challenging component to predict. 
 
 ```{r f2, fig.cap='The global carbon budget (www.globalcarbonproject.org)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/carbon_budget.png')
 ```
 
-```{r f3, fig.cap='Scientific scope of (a) climate models and (b) earth system models. (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+**Climate Models** predict how the long-term weather variation and average weather will evolve. These models include an atmosphere, land and ocean component (Fig.3, top). The original climate models focused on biophysics: energy and water balances, predicting precipitation, radiation and fluxes between the three components.
+More recently, climate models have evolved into **Earth System Models** (ESM). ESM have a more complex concept because they represents more processes (Fig.3, bottom). Why? If you want to predict the end of the century climate, we need to consider greenhouse gases and thus the full carbon cycle. ESM are more complex but also more realistic.
+
+```{r f3, fig.cap='Scientific scope of (a) climate models and (b) earth system models. (Bonan 2019)', out.width='70%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/GCM_ESM.jpg')
 ```
+
+Vegetation models are often the land component of an earth system model. These 'terrestrial biosphere models'(TBM) or 'land surface models' (LSM)
+
+- simulate **energy fluxes**: radiation, evapotranspiration and sensible heat fluxes between the land and the atmosphere. Depending on the vegetation type, the impacts are different.
+- simulate the **hydrology** and the **carbon cycle**.
+- slower processes like **vegetation dynamics**: the succession of forest or **land use** and **urbanization**.
 
 ```{r f4, fig.cap='Scientific scope of terrestrial biosphere model. (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/cycles_bonan.jpg')
 ```
 
+The biosphere acts as a coupler in models. The coupler is a system that links different models. The vegetation provides the link between land and atmosphere component.
 
-- Global change context
-- Terrestrial ecosystems are central to solving the environmental and socioeconomic threats posed by changes in climate, atmospheric composition, and air quality; land use and land-cover change; habitat loss, species extinction, and invasive species; appropriation of freshwater, net primary production, and other ecosystems goods and services for human uses; and anthropogenic addition of reactive nitrogen. (Bonan)
-- Earth System Models and climate models (Fig 1.1 Bonan). In climate models vegetation is just representing physical fluxes, in ESM vegetation is representing biogeochemical cycles, biogeography, and dynamic vegetation – typically the realm of ecosystem models
-- Land component  continuum of terrestrial ecosystem models (vegetation models) (Fig 1.7)
 
 ## Why do we need modelling?
 
-- Devising suitable solutions to these global change challenges require not only strong empirically and experimentally based research at the local scale to understand how ecosystems are structured and how they function, but also sound theoretical foundations to generalize this understanding to regional, continental, and global scales and to make projections of the future. Computer models of terrestrial ecosystems are essential to this generalization. (Bonan)
-- For prediction: study system behavior in conditions beyond which measurements can be made; to allow predictions of system behavior, especially in response to some imposed perturbation; and to inform management and policy decisions. These usages of models are particularly important in the context ofglobal change.
-- For understanding: a formal organization of understanding; it originates from the knowledge of its developers about how the system operates. One purpose of modeling, then, is to identify the processes needed to adequately simulate the system. If a model replicates some observations, a scientist must ask why the model works correctly. If the model performs poorly, then the scientist
-must ask what is missing. It is testing hypotheses, just like you do with physical experiments. 
-- For data integration: to organize and link data in a structure way,  as a research tool to guide data collection. What are the critical parameters that need to be measured? How precisely must these parameters be measured to reduce model uncertainty? What new observations are needed to test the model? In this context, models inform data collection and experimental design to both test the model and advance process understanding.
+Modelling has proven to be a essential tool for:
+
+- For **understanding**: we need good theoretical foundations (understand processes) to generalize knowledge and observations in space and time.
+- For **prediction**, how vegetation responds to expected changes (temperature or CO2) to implant management strategies and policies.
+- For **data integration**: a framework to bring together multiple data sources.
+
+\pagebreak
 
 ## Model types
 
-```{r f5, fig.cap='Continuum of terrestrial biosphere/ecosystem models. (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+How can we look at the different models types that exist (Table \@ref(table:example))? We can divide model types into empirical models or process-based models. **Empirical models** are based on data and correlations, not describing precisely describing the biophysical processes — **process-based models** describing the biophysical processes and causal relations between the variables (Table \@ref(table:empirical)). Most existing vegetation models are hybrid.
+
+\begin{center}
+\captionof{table}{Continuum of terrestrial biosphere/ecosystem models. (Bonan 2019)}
+\label{table:example}
+```{r Gases, out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/table_model_types.png')
 ```
+\end{center}
 
-```{r f6, fig.cap='Continuum of process-based versus empirical models. (Adams et al. 2013)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+\begin{center}
+\captionof{table}{Continuum of process-based versus empirical models. (Adams et al. 2013)}
+\label{table:empricial}
+```{r f6, out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/tables_PB_empirical.png')
 ```
+\end{center}
 
-- continuum of terrestrial ecosystem models, from models with emphasis on biogeochemical pools and fluxes, dynamic vegetation models with focus on individual plants or size cohorts, canopy models with focus on coupling leaf physiological processes with canopy physics, and global models of the land surface for climate simulation. (Table 1.1, Bonan)
-- Continuum of empirical to process-based models
-- Types of vegetation models (depending on the purpose, questions, scales) (e.g. timber, yield, biogeochemistry, …) (ecologists, foresters, climatologist, atmospheric chemists, hydrologist all have different vegetation models…)
-- Compare vegetation models to for example species distribution models…
+
+The model type depends on:
+- Purpose: will it be used for management support, policy support, research.
+- Question: different people will be interested in different questions (foresters, ecologists, policy makers…)
+- Scale: models that are to be applied for local use can be much more detailed than worldwide models because data gathering is much more straightforward on a small scale. 
 
 
 ## The history of vegetation models
+
+The first vegetation models have emerged in the 1960s and 1970s. There were some parallel evolutions during that time because of computers emerging, making it possible to study more complex systems. 
+
+One of the first models were the **box models** (1960); these models describe the flow of mass and energy through boxes. These models still exist in current biogeochemical models, where arrows represent the fluxes between the pools. In parallel, **gap models** had emerged. They were developed by forestry scientists using forest inventories derived from growth, regeneration, and mortality in response to environmental variables. In 1973, the first model was developed to derive global net primary productivity (NPP), relating NPP in an empirical way to climate variables (temperature) with vegetation productivity. This was the first attempt to make a global upscaling of a vegetation process. In the 1980s surged the first **land surface models**. Land surface models are the models where the other models start to integrate into, and evolved as such into – **Terrestrial biosphere models** (see Figure \@ref(fig:f7)), which are now the state-of-the-art land components of ESMs.
+Vegetation modelling therefore is a very interdisciplinary field because it involves knowledge of different scientific fields, making it difficult to find a common terminology. Global EMS are currently still not good to simulate realistic vegetation dynamics. 
 
 ```{r f7, fig.cap='Timeline showing the parallel development of model types and the integration of model types into land surface models towards terrestrial biosphere models. (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/timeline.jpg')
 ```
 
-- Conceptualisation of ecosystem to mass and energy flows among various compartments  (refer to ecology course of Steppe in the Bio-ir Bachelors.  ‘box models in the 1960’s and 1970’s  current global biogeochemical models are still box-type of models (Fig 1.4)
-- In parallel individual based models of forest dynamics were developed, based on population dynamics, life cycle of species. They are also called “gap models” that simulate the demography in an area of 0.1 ha (size of a gap in the canopy) (Fig 1.5). Ecosystem properties such as carbon stocks are emerging from the demography simulation.
-- More recently  cohort based models
-- DGVMs: These models also simulate changes in community composition, biomass, productivity, and nutrient cycling. Because the models are applied globally, they do not recognize individual species. Rather, they employ plant functional types, Table 1.2
-- Fig 1.2 Bonan
 
 ## Components of a model
 
-```{r f8, fig.cap='Definition of key model components and examples for a typical TBM', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+What is a vegetation model?
+Two attempts for a definition:
+
+- **Dynamic global vegetation models** (DGVMs) are powerful tools to project past, current and future vegetation patterns and associated biogeochemical cycles (Scheiter et al., 2013).
+- A **Dynamic Global Vegetation Model** (DGVM) is a computer program that simulates shifts in potential vegetation and its associated biogeochemical and hydrological cycles as a response to shifts in climate. DGVMs use time series of climate data and, given constraints of latitude, topography, and soil characteristics, simulate monthly or daily dynamics of ecosystem processes. DGVMs are used most often to simulate the effects of future climate change on natural vegetation and its carbon and water cycles (Wikipedia 2021).
+
+\begin{center}
+\captionof{table}{Definition of key model components and examples for a typical TBM}
+\label{table:components}
+```{r f8, out.width='90%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/table_components.png')
 ```
+\end{center}
 
-```{r f9, fig.cap='Structure of a vegattion model indicating the different time steps at which each process is simulated (Williams et al. 2009)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+
+
+### Processes
+
+They are a key component because we are focusing on process-based models in this course. There is a long list of processes (energy, water, turbulent transport, canopy scaling, carbon, nitrogen, trace gasses, demography,…) that the models integrate, especially the more complex ones. These processes will be discussed in detail in the following theory chapters and we will mainly focus on how to translate them into equations.
+
+### Equations
+
+These are the mathematical representations of the processes. However, there are important constraints to insert  equations into a vegetation model, such as the specific time scale at which a process operates. For example, it makes little sense to resolve the equation for forest composition (succession) on a daily calculation time step. This is a prolonged process with an extremely low variance between consecutive days. The solution for the equation for photosynthesis, on the other hand, varies significantly throughout the day and between consecutive days (cloudy day vs sunny day).
+
+There are three types of equations within vegetation models: 
+- **prognostic equations**: time derivatives of differential equations – they calculate the state's change over time
+- **conservation equations**: equations describing the conservation of mass and energy
+- **diagnostic equations**: linking multiple variables independent from the time. 
+Often there is no analytical solution of the equations describing on-linear processes in biological systems; therefore, we must use numerical methods to solve the equations.
+
+
+### Parameters
+
+These are the constants in the model. Some parameters are highly uncertain because we can not measure them very well at the relevant scale. For example, we can make reliable measurements of the photosynthetic capacity of a single leaf.However, upscaling this parameter so that it is applicable for a forest or multiple PFTs (plant functional types) induces uncertainty. The more parameters a model uses, the more uncertainties that are to be taken into account!
+
+### Time Steps
+
+Vegetation models run at multiple timescales (combining processes that are resolved at multiple timescales). Models present fast processes, which are calculated every hour (e.g. photosynthesis and energy balance), intermediate processes calculated daily (e.g. carbon allocation and growth) and slow processes in order of years (e.g. mortality) (Fig.6).  
+
+```{r f9, fig.cap='Structure of a vegatation model indicating the different time steps at which each process is simulated (Williams et al. 2009)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/time_steps.png')
 ```
 
-```{r f10, fig.cap='Three dimensional grid of a TBM structured in terms of longitude x latitude x level. The number of soil and canopy layers and the geographical resolution is model dependent, (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+### Spatial structure
+
+The division of space in voxels, layers or grid cells and its resolution determines how many times we repeat our calculations in space. Global vegetation models have a typical spatial grid of 100km or even more and divide the landscape into patches. In each patch, they simulate the vegetation (forest, savannas, grassland…). Models also have a horizontal grid or horizontal layering: some models consider multiple soil layers. The same is true for above ground layers, where some models divide the canopy into multiple layers (Figure \@ref(fig:f10)). 
+For example, the Ecosystem Demography Model (ED2.2) divides the forest into multiple grid cells where the same meteorological conditions apply within each grid cell. Then within each cell, this model has different sites with different soils. Each site is divided into multiple patches (forests with a similar disturbance history). For each patch, the model simulates multiple cohorts of trees (Figure \@ref(fig:f11)).
+
+```{r f10, fig.cap='Three dimensional grid of a TBM structured in terms of longitude x latitude x level. The number of soil and canopy layers and the geographical resolution is model dependent, (Bonan 2019)', out.width='50%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/grid_vert_hor.jpg')
 ```
 
-```{r f11, fig.cap='Example: the spatial multi-level grid structure of of the ED2 vegetation model (Longo et al. 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+```{r f11, fig.cap='Example: the spatial multi-level grid structure of of the ED2 vegetation model (Longo et al. 2019)', out.width='70%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/grid_ED2.png')
 ```
 
-- Table 1.3 and Table 1.4
-- Model structure (constraints: resolving of fluxes on short time scales, conservation of mass and energy, 
-- Parameters
-- i/o variables, state variable
-- time steps (fluxes must be resolved on a short time interval, diurnal cycles) 
-- spatial structure (Fig 1.11)
-- Prognostic equations use time derivatives to describe the change in a state variable and are integrated forward in time from some initial condition. Prognostic variables must be numerically stepped forward from time n to n + 1 over the time interval deltat.
-- Conservation equations
-- Diagnostic equations (e.g. ideal gas law) linking variables time-independent
-- Initial conditions
-- Model code, There is an enormous leap between seeing a mathematical equation in a research paper and actually using that equation in a model (Bonan Book).
-- Model uncertainty and complexity (fig 1.12) (+ fig from Dietze book)
+### Model code, complexity and uncertainty
+
+There is a gap between equations and how the are implemented in the actual model code. Also, a specific process can be implemented into an equation in various ways. Usually, large models also contain a "technical debt", which means over the years, multiple modelers have continued working on models and added code lines, but at some point, the code is so large that none of the developers still knows the entire code, resulting in persistent bugs or overlooked assumptions. 
+
+Models are always a simplification of the real world, but they tend to become overly complex
+
+More complex models (adding more processes) become more realistic, but we also add more sources of uncertainty. Therefore, we should choose our model carefully based on the research question we want to adress.
+
+### Data
+
+It is not possible to develop models without data. In general, the more data (multiple data sources), the better.
 
 ## Modelling workflow and structure of the course
 
-```{r f12, fig.cap='Progression through spatial and temporal scales throughout this course', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+Vegetation modelling is a multidisciplinary field. This course will mainly focus on the mathematical formulation of processes and translating these equations into a working model. 
+
+```{r f12, fig.cap='Progression through spatial and temporal scales throughout this course', out.width='90%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/course_overview.png')
 ```
+
+The construction of a model is a continuous process – a model is never finished. As Figure 10 shows us, we start by describing our system in the form of equations, then running the computer program to characterize the model, perform parameter estimation and interpretation, and then apply it to other locations and validate against independent data.
 
 ```{r f13, fig.cap='Model data fusion in every step of the model development cycle (Williams et al. 2009)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/williams_fusion.png')
@@ -112,8 +178,3 @@ knitr::include_graphics('figures/chap1/williams_fusion.png')
 knitr::include_graphics('figures/chap1/dietze_workflow.png')
 ```
 
-- a science that spans boundary layer meteorology, micrometeorology, atmospheric chemistry, plant physiology, ecosystem ecology, biogeochemistry, soil science, hydrology, and geochemistry …  we will not discuss all the basics in this course, but we expect you to know from other courses (Ecology, plant physiology, forestry, hydrology, soil science …), but we will of course go into the processes, but focus on there mathematical formulation and translation into a workin model (code)
-- progression through the course (space-time figure, with chapters)
-- Model development cycle (structure for the methodological focus of each application/practical) (Dietze figure)
-
-**to test: Idea of a conceptual figure that we will build block by block as we go deeper in the course. It represents the concept that vegetation modelling is to have an integrated representation of the plant functioning and all the underlying processes at different scales. **
