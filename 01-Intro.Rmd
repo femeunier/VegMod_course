@@ -9,13 +9,13 @@ output:
 # Introduction {#intro}
 ## The central role of vegetation in the Earth system
 
-Plants and vegetation play an essential role in the earth system. In Figure \@ref(fig:f1), we have represented the planetary boundaries and the significant environmental challenges we are facing. For some of them, we are reaching the system's boundary, such as genetic diversity, biogeochemical cycling, and climate change. Plants and forests ecosystems are critical in multiple of these planetary problems. Therefore, it is crucial to understand how vegetation reacts to environmental problems (positive or negative feedback).
+Plants and vegetation play an essential role in the earth system. In Figure \@ref(fig:f1), we have represented the planetary boundaries and the significant environmental challenges we are facing. For some of them, we are reaching the system's boundary, such as genetic diversity, biogeochemical cycling, and climate change. Plants and forest ecosystems are critical in multiple of these planetary problems. Therefore, it is crucial to understand how vegetation reacts to environmental problems (positive or negative feedback).
 
 ```{r f1, fig.cap='The planetary boundaries (www.stockholmresilience.org)', out.width='60%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/planetary_boundaries.png')
 ```
 
-A more specific example is the global carbon budget. We are currently facing this significant change in biogeochemical cycling due to the rising fossil fuel emission over the last 150 years. Figure \@ref(fig:f2) represents the balance between carbon sources (fossil carbon and land-use changes) and sinks (oceans, land, and atmosphere). The more we emit, the more the Earth system is capturing, as shown in Fig.2. This takes us to a question,  frequently addressed by global vegetation models, about how long these sinks will continue or not capture our increasing carbon emissions. It is also important to highlight the high annual variability of the land component being the most challenging component to predict. 
+A more specific example is the global carbon budget. We are currently facing this significant change in biogeochemical cycling due to the rising fossil fuel emission over the last 150 years. Figure \@ref(fig:f2) represents the balance between carbon sources (fossil carbon and land-use changes) and sinks (oceans, land, and atmosphere). The more we emit, the more the Earth system is capturing, as shown in Fig.2. This takes us to a question,  frequently addressed by global vegetation models, about how long these sinks will continue or not capture our increasing carbon emissions. It is also important to highlight the high inter annual variability of the land component being the most challenging component to predict. 
 
 ```{r f2, fig.cap='The global carbon budget (www.globalcarbonproject.org)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/carbon_budget.png')
@@ -32,28 +32,28 @@ Vegetation models are often the land component of an earth system model. These '
 
 - simulate **energy fluxes**: radiation, evapotranspiration and sensible heat fluxes between the land and the atmosphere. Depending on the vegetation type, the impacts are different.
 - simulate the **hydrology** and the **carbon cycle**.
-- slower processes like **vegetation dynamics**: the succession of forest or **land use** and **urbanization**.
+- simulate slower processes like **vegetation dynamics**: the succession of forest or **land use** and **urbanization**.
 
 ```{r f4, fig.cap='Scientific scope of terrestrial biosphere model. (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/cycles_bonan.jpg')
 ```
 
-The biosphere acts as a coupler in models. The coupler is a system that links different models. The vegetation provides the link between land and atmosphere component.
+The biosphere acts as a coupler in earth system models. The coupler is a system that links different models. The vegetation provides the link between land and atmosphere component.
 
 
 ## Why do we need modelling?
 
-Modelling has proven to be a essential tool for:
+Modelling has proven to be a essential tool:
 
-- For **understanding**: we need good theoretical foundations (understand processes) to generalize knowledge and observations in space and time.
-- For **prediction**, how vegetation responds to expected changes (temperature or CO2) to implant management strategies and policies.
-- For **data integration**: a framework to bring together multiple data sources.
+- For **understanding**: we need good theoretical foundations (understand processes) to generalize knowledge and observations in space and time (upscaling). Studying the inaccuraies in models leads to the formulation of new hypotheses.
+- For **prediction**, how vegetation responds to expected changes (temperature or CO2) to develop management strategies and policies.
+- For **data integration**: a framework to bring together multiple data sources and to guide future data collection.
 
 \pagebreak
 
 ## Model types
 
-How can we look at the different models types that exist (Table \@ref(table:example))? We can divide model types into empirical models or process-based models. **Empirical models** are based on data and correlations, not describing precisely describing the biophysical processes — **process-based models** describing the biophysical processes and causal relations between the variables (Table \@ref(table:empirical)). Most existing vegetation models are hybrid.
+How can we look at the different model types that exist (Table \@ref(table:example))? We can divide model types into empirical models or process-based models. **Empirical models** are based on data and correlations, not describing precisely the biophysical processes — **process-based models** describing the biophysical processes and causal relations between the variables (Table \@ref(table:empirical)). Most existing vegetation models are hybrid.
 
 \begin{center}
 \captionof{table}{Continuum of terrestrial biosphere/ecosystem models. (Bonan 2019)}
@@ -65,7 +65,7 @@ knitr::include_graphics('figures/chap1/table_model_types.png')
 
 \begin{center}
 \captionof{table}{Continuum of process-based versus empirical models. (Adams et al. 2013)}
-\label{table:empricial}
+\label{table:empiricial}
 ```{r f6, out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap1/tables_PB_empirical.png')
 ```
@@ -75,14 +75,16 @@ knitr::include_graphics('figures/chap1/tables_PB_empirical.png')
 The model type depends on:
 - Purpose: will it be used for management support, policy support, research.
 - Question: different people will be interested in different questions (foresters, ecologists, policy makers…)
-- Scale: models that are to be applied for local use can be much more detailed than worldwide models because data gathering is much more straightforward on a small scale. 
+- Scale: models that are to be applied for local use can be much more detailed than worldwide models because data gathering is much more straightforward on a small scale. Also the time-scale is of importance: will the model be used for research about the past, the present or the future? 
 
 
 ## The history of vegetation models
 
 The first vegetation models have emerged in the 1960s and 1970s. There were some parallel evolutions during that time because of computers emerging, making it possible to study more complex systems. 
 
-One of the first models were the **box models** (1960); these models describe the flow of mass and energy through boxes. These models still exist in current biogeochemical models, where arrows represent the fluxes between the pools. In parallel, **gap models** had emerged. They were developed by forestry scientists using forest inventories derived from growth, regeneration, and mortality in response to environmental variables. In 1973, the first model was developed to derive global net primary productivity (NPP), relating NPP in an empirical way to climate variables (temperature) with vegetation productivity. This was the first attempt to make a global upscaling of a vegetation process. In the 1980s surged the first **land surface models**. Land surface models are the models where the other models start to integrate into, and evolved as such into – **Terrestrial biosphere models** (see Figure \@ref(fig:f7)), which are now the state-of-the-art land components of ESMs.
+One of the first models were the **box models** (1960); these models describe the flow of mass and energy through boxes. These models still exist in current biogeochemical models, where arrows represent the fluxes between the pools. In parallel, **gap models** had emerged. Gap models simulate the dynamics of the development of a gap in a forest and the growth of plants in this gap. Gaps can be created by fallen trees, by dead trees, … . This kind of models are individual-based and focused on population dynamics and the life cycle of species: growth, regeneration and mortality while taking environmental constraints in account. These models are the first models that were ever used for upscaling: from tree level, to plot-level, to landscape level. They were developed by forest scientists using forest inventories to derive  growth, regeneration, and mortality in response to environmental variables. 
+In 1973, the first model (MIAMI model) was developed to derive global net primary productivity (NPP), relating NPP in an empirical way to climate variables (temperature) with vegetation productivity. This was the first attempt to make a global upscaling of a vegetation process. 
+In the 1980s surged the first **land surface models**. Land surface models are the models where the other models start to integrate into, and evolved as such into – **Terrestrial biosphere models** (see Figure \@ref(fig:f7)), which are now the state-of-the-art land components of ESMs.
 Vegetation modelling therefore is a very interdisciplinary field because it involves knowledge of different scientific fields, making it difficult to find a common terminology. Global EMS are currently still not good to simulate realistic vegetation dynamics. 
 
 ```{r f7, fig.cap='Timeline showing the parallel development of model types and the integration of model types into land surface models towards terrestrial biosphere models. (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
@@ -125,7 +127,7 @@ Often there is no analytical solution of the equations describing on-linear proc
 
 ### Parameters
 
-These are the constants in the model. Some parameters are highly uncertain because we can not measure them very well at the relevant scale. For example, we can make reliable measurements of the photosynthetic capacity of a single leaf.However, upscaling this parameter so that it is applicable for a forest or multiple PFTs (plant functional types) induces uncertainty. The more parameters a model uses, the more uncertainties that are to be taken into account!
+These are the constants in the model. Some parameters are highly uncertain because we can not measure them very well at the relevant scale. For example, we can make reliable measurements of the photosynthetic capacity of a single leaf. However, upscaling this parameter so that it is applicable for a forest or multiple PFTs (plant functional types) induces uncertainty. The more parameters a model uses, the more uncertainties that are to be taken into account.
 
 ### Time Steps
 
