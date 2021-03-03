@@ -1,42 +1,93 @@
-# Temporal and seasonal dynamics
+# Modelling temporal and seasonal dynamics
 \chaptermark{dynamics}
 
-## Phenology
-- UCL 4.5.2
-The study of life-cycle events. Here refers to the temporal dynamics of vegetation.
-Broader sense of phenology.
-Applies to most plant. Circadian to seasonal cycles
-Tissue turnover and senescence
+## Introduction on temporal dynamics
+
+```{r f41, fig.cap='Evaluation of the temporal dynamics of fluxes (Rn: Net Radiation, H: sensible heat, LE: latent heat, NEE: net ecosystem exchanges of CO2) simulated by the global model ORCHIDEE. LEFT: measured (color) and modelled "summer" diurnal cycle for each flux and each PFT. RIGHT: measured (color) and modelled seasonal cycle for each flux and each PFT. (Krinner et al. 2005)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap4/f41_Krinner.png')
+```
 
 
 
-### The example of crop phenology
-- UCL 4.5.1
-Definition +Simple example of phenology (wheat for example: germination + spread + full coverage + allocation to storage organs + ripening)
+## Phenology: the background
 
-## Mechanisms of phenology and evidence of changes
-- UCL 4.5.3
+```{r f42, fig.cap='Larch needle appearance in Sargans 1958-2002. Dashed line is trend 1958-1999, solid line is trend 1958-2002.  (Defilia and Clot 2005)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap4/f42_Defilia.png')
+```
 
-### Overview of controls at different levels
-- temperature 
-- light
-- water
-- Nutrients
-- Drivers of seasonality and phenology
+```{r f43, fig.cap='Concept of various effect that changing phenology can have on ecosystem processes (e.g. productivity or transpiration). (Polgar and Primack 2011)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap4/f43_Polgar.png')
+```
 
-### Vegeation index and changes over time
-- This is also why phenology is a "metrics" of climate change
 
-### Seasonality feedbacks
-- Phenology affects phenology (phenophases are linked, one perturbation will affect the next phenophase in the cycle)
-- The control of phenology on climate: example, early spring leaf unfolding excacerbates drought in summer
+## Leaf phenology models
 
-## Models of phenology
-- UCL 4.5.4
+### Prescribed phenology
 
-### budburst models
+```{r f44, fig.cap='Sample time series of MODIS EVI data and estimate phenological transition dates for a mixed forest pixel in New England. Diamonds: EVI data, solid line with stars: fitted logistic model. (Zhang et al. 2003)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap4/f44_zhang.png')
+```
 
-### senescence models
+```{r f45, fig.cap='Maps of phenological transition dates for New England. (Zhang et al. 2003)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap4/f45_zhang_map.png')
+```
+
+
+### Budburst models
+
+### Snescence models
+
+### Leaf age
+
+```{r f46, fig.cap='Relation  between Vcmax and leaf age in the ED2 vegetation model. (Kim et al. 2011)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap4/f46_vc_age.png')
+```
+
+
 
 ### Phenology in DGVMs
-- Figures from Zhang et al. 2003
+
+### Phenology in the tropics
+
+```{r f49, fig.cap='Example of how manual historical phenology observations in Yangambi (DR Congo) are trasnlated in a visual phenology pattern for a single tree species. (junglerythms.org))', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap4/f49_junglerythms.png')
+```
+
+
+```{r f410, fig.cap='Overview of species-specific timing of onset of leaf phenophases for evergreen and deciduous species in tropical forest in Yangambi (DR Congo). The median timing of the onset of leaf senescence and turnover is indicated for each species. Species-specific bootstrapped 95%-confidence intervals are indicated with a line segment. Species are arranged according to the variability in the timing of the phenophase, with species with the lowest uncertainty at the outer edge and continuing towards the center. Species with an annual (full circles) or sub-annual (crosses) fourier-based seasonality are indicated. Grey shaded areas represent the average timing of the long and short dry seasons (LD and SD; monthly precipitation < 150 mm), separated by the long and short wet seasons (LW and SW). (Kearsley et al. 2021))', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap4/f410_kearsley.png')
+```
+
+
+## Case studies
+
+### Case study 4.1
+
+
+```{r f47, fig.cap='Simulated and observed LAI for 5 deciduous forest sites and 14 vegetation models participating to the NACP model intercomparison project. (Richardson et al. 2012)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap4/f47_LAI_richardson.png')
+```
+
+
+```{r f48, fig.cap='Bias in modeled gross ecosystem photosynthesis (GEP=GPP) for deciduous broadleaf (top) and evergreen needleleaf (bottom) forests. Left panels show bias, by model. Right panels show the frequency distribution of these spring and autumn biases in re-scaled model GEP, across all models, sites, and years of data, for each forest type. The sign convention is that positive bias means that modeled GEP > tower GEP. (Richardson et al. 2012)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap4/f48_bias_richardson.png')
+```
+
+
+### Case study 4.2
+
+
+```{r f411, fig.cap='Observed and assumed relation between Vcmax and leaf age in the ORCHIDEE global model, for the tropical evergreen PFT. (Chen et al. 2018)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap4/f411_chen1.png')
+```
+
+
+```{r f412, fig.cap='Comparison of litterfall data with two new and the old leaf turnover schemes in the ORCHIDEE model for 4 sites in the Amazon. (Chen et al. 2018)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap4/f412_chen2.png')
+```
+
+
+```{r f413, fig.cap='Comparison of GPP fluxtower data with two new and the old leaf turnover schemes in the ORCHIDEE model for 4 sites in the Amazon. (Chen et al. 2018)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap4/f413_chen3.png')
+```
+
