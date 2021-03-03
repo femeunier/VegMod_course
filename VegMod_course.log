@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.1)  3 MAR 2021 10:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.1)  3 MAR 2021 11:47
 entering extended mode
 **./VegMod_course.tex
 (VegMod_course.tex
@@ -1050,79 +1050,164 @@ f326_multilayer_solving.jpg>] [52 <./figures/chap3/f327_DART.png> <./figures/ch
 ap3/f328_TLS_RT.png>] [53 <./figures/chap3/f329_rad_balance.jpg> <./figures/cha
 p3/f330_E_balance.jpg>] [54 <./figures/chap3/f331_leaf_E_balance.jpg>] [55 <./f
 igures/chap3/f332_knohl1.png> <./figures/chap3/f333_knohl2.png>] [56 <./figures
-/chap3/f334_chen1.png> <./figures/chap3/f335_chen2.png>] [57
+/chap3/f334_chen1.png> <./figures/chap3/f335_chen2.png>]
+<figures/chap4/f41_Krinner.png, id=556, 794.97pt x 363.759pt>
+File: figures/chap4/f41_Krinner.png Graphic file (type png)
+<use figures/chap4/f41_Krinner.png>
+Package pdftex.def Info: figures/chap4/f41_Krinner.png  used on input line 1309
+.
+(pdftex.def)             Requested size: 354.87045pt x 162.38011pt.
+<figures/chap4/f42_Defilia.png, id=557, 587.19376pt x 395.22656pt>
+File: figures/chap4/f42_Defilia.png Graphic file (type png)
+<use figures/chap4/f42_Defilia.png>
+Package pdftex.def Info: figures/chap4/f42_Defilia.png  used on input line 1321
+.
+(pdftex.def)             Requested size: 354.86357pt x 238.85046pt.
+<figures/chap4/f43_Polgar.png, id=558, 836.06471pt x 622.36398pt>
+File: figures/chap4/f43_Polgar.png Graphic file (type png)
+<use figures/chap4/f43_Polgar.png>
+Package pdftex.def Info: figures/chap4/f43_Polgar.png  used on input line 1330.
 
-] [58] [59
+(pdftex.def)             Requested size: 354.85716pt x 264.15457pt.
+<figures/chap4/f44_zhang.png, id=559, 576.65437pt x 400.49625pt>
+File: figures/chap4/f44_zhang.png Graphic file (type png)
+<use figures/chap4/f44_zhang.png>
+Package pdftex.def Info: figures/chap4/f44_zhang.png  used on input line 1345.
+(pdftex.def)             Requested size: 354.8735pt x 246.46567pt.
+<figures/chap4/f45_zhang_map.png, id=560, 619.56468pt x 692.5875pt>
+File: figures/chap4/f45_zhang_map.png Graphic file (type png)
+<use figures/chap4/f45_zhang_map.png>
+Package pdftex.def Info: figures/chap4/f45_zhang_map.png  used on input line 13
+54.
+(pdftex.def)             Requested size: 354.85721pt x 396.68121pt.
+<figures/chap4/f46_vc_age.png, id=561, 499.51323pt x 465.89592pt>
+File: figures/chap4/f46_vc_age.png Graphic file (type png)
+<use figures/chap4/f46_vc_age.png>
+Package pdftex.def Info: figures/chap4/f46_vc_age.png  used on input line 1372.
 
-] [60
+(pdftex.def)             Requested size: 354.87029pt x 330.98746pt.
+<figures/chap4/f49_junglerythms.png, id=562, 734.745pt x 367.3725pt>
+File: figures/chap4/f49_junglerythms.png Graphic file (type png)
+<use figures/chap4/f49_junglerythms.png>
+Package pdftex.def Info: figures/chap4/f49_junglerythms.png  used on input line
+ 1387.
+(pdftex.def)             Requested size: 354.871pt x 177.43549pt.
+[57
 
-] [61] [62] [63]
-<figures/Violle2007.jpg, id=635, 796.47563pt x 447.92343pt>
+ <./figures/chap4/f41_Krinner.png>] [58 <./figures/chap4/f42_Defilia.png> <./fi
+gures/chap4/f43_Polgar.png>]
+<figures/chap4/f410_kearsley.png, id=595, 552.23706pt x 498.03456pt>
+File: figures/chap4/f410_kearsley.png Graphic file (type png)
+<use figures/chap4/f410_kearsley.png>
+Package pdftex.def Info: figures/chap4/f410_kearsley.png  used on input line 13
+96.
+(pdftex.def)             Requested size: 354.87143pt x 320.04053pt.
+[59 <./figures/chap4/f44_zhang.png>] [60 <./figures/chap4/f45_zhang_map.png>] [
+61 <./figures/chap4/f46_vc_age.png> <./figures/chap4/f49_junglerythms.png>]
+<figures/chap4/f47_LAI_richardson.png, id=618, 425.82617pt x 547.28738pt>
+File: figures/chap4/f47_LAI_richardson.png Graphic file (type png)
+<use figures/chap4/f47_LAI_richardson.png>
+Package pdftex.def Info: figures/chap4/f47_LAI_richardson.png  used on input li
+ne 1422.
+(pdftex.def)             Requested size: 354.87158pt x 456.09396pt.
+<figures/chap4/f48_bias_richardson.png, id=619, 348.59647pt x 303.81467pt>
+File: figures/chap4/f48_bias_richardson.png Graphic file (type png)
+<use figures/chap4/f48_bias_richardson.png>
+Package pdftex.def Info: figures/chap4/f48_bias_richardson.png  used on input l
+ine 1431.
+(pdftex.def)             Requested size: 348.5956pt x 303.81392pt.
+<figures/chap4/f411_chen1.png, id=620, 711.36353pt x 227.33476pt>
+File: figures/chap4/f411_chen1.png Graphic file (type png)
+<use figures/chap4/f411_chen1.png>
+Package pdftex.def Info: figures/chap4/f411_chen1.png  used on input line 1443.
+
+(pdftex.def)             Requested size: 354.86679pt x 113.40692pt.
+<figures/chap4/f412_chen2.png, id=621, 690.81618pt x 422.39359pt>
+File: figures/chap4/f412_chen2.png Graphic file (type png)
+<use figures/chap4/f412_chen2.png>
+Package pdftex.def Info: figures/chap4/f412_chen2.png  used on input line 1452.
+
+(pdftex.def)             Requested size: 354.86252pt x 216.97762pt.
+<figures/chap4/f413_chen3.png, id=622, 619.96324pt x 362.05165pt>
+File: figures/chap4/f413_chen3.png Graphic file (type png)
+<use figures/chap4/f413_chen3.png>
+Package pdftex.def Info: figures/chap4/f413_chen3.png  used on input line 1461.
+
+(pdftex.def)             Requested size: 354.87738pt x 207.24445pt.
+[62 <./figures/chap4/f410_kearsley.png>] [63 <./figures/chap4/f47_LAI_richardso
+n.png>] [64 <./figures/chap4/f48_bias_richardson.png> <./figures/chap4/f411_che
+n1.png>] [65 <./figures/chap4/f412_chen2.png> <./figures/chap4/f413_chen3.png>]
+[66
+
+] [67
+
+] [68] [69] [70]
+<figures/Violle2007.jpg, id=706, 796.47563pt x 447.92343pt>
 File: figures/Violle2007.jpg Graphic file (type jpg)
 <use figures/Violle2007.jpg>
-Package pdftex.def Info: figures/Violle2007.jpg  used on input line 1678.
+Package pdftex.def Info: figures/Violle2007.jpg  used on input line 1745.
 (pdftex.def)             Requested size: 443.58052pt x 249.46162pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 1680.
+(Font)              <12> on input line 1747.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 1680.
+(Font)              <8> on input line 1747.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 1680.
-[64
+(Font)              <6> on input line 1747.
+[71
 
-] [65 <./figures/Violle2007.jpg>] [66] [67] [68
+] [72 <./figures/Violle2007.jpg>] [73] [74] [75
 
-] [69] [70] [71
+] [76] [77] [78
 
-] [72
+] [79
 
-] [73] [74] [75
+] [80] [81] [82
 
-] [76] [77
+] [83] [84
 
-] [78] [79
+] [85] [86
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-517.
+584.
 (C:\Program Files\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [80
+) [87
 
-] [81] [82
+] [88] [89
 
-] [83
+] [90
 
-] [84
+] [91
 
-] [85
+] [92
 
-] [86
+] [93
 
-] [87
+] [94
 
-] [88
+] [95
 
-] [89
+] [96
 
 ] (VegMod_course.aux) ) 
 Here is how much of TeX's memory you used:
- 15797 strings out of 479334
- 252535 string characters out of 2866952
- 606558 words of memory out of 3000000
- 32276 multiletter control sequences out of 15000+200000
- 473334 words of font info for 167 fonts, out of 3000000 for 9000
+ 15940 strings out of 479334
+ 256076 string characters out of 2866952
+ 609264 words of memory out of 3000000
+ 32384 multiletter control sequences out of 15000+200000
+ 473237 words of font info for 166 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,6n,88p,1539b,396s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 85i,6n,88p,1539b,398s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C
 :/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}<C:/Program Files/MiKTeX/f
 onts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/
 lmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Program 
 Files/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Program Files/MiKTeX/fonts/ty
 pe1/public/lm/lmtt12.pfb>
-Output written on VegMod_course.pdf (90 pages, 19225843 bytes).
+Output written on VegMod_course.pdf (97 pages, 22506545 bytes).
 PDF statistics:
- 1476 PDF objects out of 1728 (max. 8388607)
- 478 named destinations out of 1000 (max. 500000)
- 40514 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 1558 PDF objects out of 1728 (max. 8388607)
+ 501 named destinations out of 1000 (max. 500000)
+ 40595 words of extra memory for PDF output out of 42996 (max. 10000000)
 
