@@ -1,93 +1,251 @@
-# Representing biodiversity in vegetation models
+# Modelling Vegetation Dynamics and Demography
 \chaptermark{Biodiversity}
 
-## Why and how representing biodiversity in vegetation models?  
-We can start with the applications? I think it is more interesting than finishing with the applications. 
-Application: Conservation, ecosystem resilience, vegetation-atmosphere feedbacks
+## Introduction
 
-Biodiversity refers here to functional diversity. 
 
-## Functional diversity
-- check the book " Terrestrial Ecosystems in a changing world" from P. Canadell (2007)
-- Part C: Landscapes under changing disturbance regimes:
-    - PFT
-    - Fire and disturbances
-    - upscalling
-    - construction, evaluation and examples of DGVM applications
-    
-### Definition of funcional diversity and plant functional traits
-Any morphological, physiological or phenological feature measurable at the individual level, from the cell to the whole-organism level, without reference to the environment or any other level of organization. 
-It is functional if it affects fitness indirectly via its effects on growth, reproduction and survival.
-
-- Seminal papers from the plant functional trait community Violle 2007, Lavorel, garnier, Shipley, etc...
-
-```{r figViolle, fig.cap='Functional diversity', echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics('figures/Violle2007.jpg')
+```{r f61, fig.cap='Example of a species distribution model (SDM), used to simulate current and past species distribution (Svenning et al. 2011). LGM: Last Glacial Maximum. Such models can also be used to predict future species distributions.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f61_svenning_SDM.png')
 ```
-- Mention here the interesting summer school: http://www.cef-cfr.ca/index.php?n=MEmbres.AlisonMunsonPlantTraits?userlang=en
-- List of reference papers in the link above
-- 3 types of traits: dynamic, response & constant, that are linked to the processes we studied in the previous chapter (slow/fast processes)
 
-### Representing 400 000 plant species in a single model: the Plant Functional Type approach
-Short description in UCL 4.3.2  
-No description in Bonan
-
-- Lack of observations for every species
-- Computing resources problem (refers to the history of DGVMs from the introduction)
-- A simplification based on biome description and plant functionning at the ecosystem level 
-- Different definitions of PFT: statistical classification, etc.
-- Table of classical PFTs used in models here. 
-- PFT mapping: multi-obs approach based on remote sensing. 
-- First use of PFTs managed to reproduce well the gradients at the global scale, but now it is unsuficcient. 
+```{r f62, fig.cap='Illustration of succesional forest dynamics.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f62_demography.png')
+```
 
 
-### Limits of the PFT representation in the context of global change
-- Including acclimation and adaptation processes
-- Dynamic vegetation: Accounting for non-random species turnover
-- Quantifying vegetation-environment feedbacks
-- Quantifying impacts of biodiversity on ecosytem functioning and climate
 
-### From model parameters to plant traits
-- Reconciliating modelling with functional ecology. 
-- Existing databases (TRY)
-- Empirical approach: More PFTs with traits instead of model-specific parameters, trait-trait, trait-environment relationships
-- Trade-offs: modeling plant strategies --> LES, PES, RES, all the ES :D
-- Role of data assimilation in regions without data and to assess spatial variability of vegetation properties
-- But: requires lots of observations in space and time. 
 
-### Eco-evolutive optimality approaches
-- New generation of models 
-- PPA, coordination, ect... 
-- Paper from Oskar. 
+## Gap models, area and cohort based models
 
-<!-- _____________________ COMPETITION MODELS ________________________ -->
-## Competition models
+```{r f63, fig.cap='Representation of vegetation patches in models. (a) Forest gap models are individual-based models and represent a landscape as patches that differ in stage of post-disturbance development. Shown are two patches, each comprised of multiple trees that differ in size and species. (b) Area-based dynamic global vegetation models (DGVMs) represent vegetation as discrete patches of plant functional types (PFTs) that differ in area. In this example, the model grid cell has six plant functional types (distinguished by canopy shape and shading) that differ in biomass (size of plant) and patch area (size of subgrid tile). (c) Ecosystem demography models define patches based on time elapsed since disturbance. Multiple plant functional types can exist within a patch and are represented as cohorts defined by plant type and size. Shown are six patches with different subgrid area and cohort assemblages. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f63_3types.png')
+```
 
-Not in Bonan nor UCL  
-In Bonan Chapter 19 on demography, gap models, etc... which is a part of competition. 
 
-### Representation of PFTs in vegetation models
-- Parameterization and calibration of PFTs--> data assimilation, traits, model-specific parameters
-- representation by pixels
-- shared processes, different processes
-- interaction between PFTs
-- Depend on the model: individual/cohort/big leaf
+Another class of models, known as individual plant or ecosystem demography models, retains the complexity of individual plants or cohorts of similar plants. In these models, ecosystem properties such as carbon storage are the outcome of demographic processes.
 
-### Competition for ressources / Plant strategy? 
-- In fact we can extend the trait based approach and plant strategy (PES, etc) 
-in the competition and community section? 
-- Mortality, turnover, etc..
+- plant populations
+- community composition
+- ecosystem structure
+- driven by demographic processes of recruitment, establishment, growth, and mortality
 
-### Representation of trait distributions 
-- Trade-offs
+### Area based models
 
-<!-- _____________________ COMMUNITIES ________________________ -->
-## Communities
-- Successions and impact on cycles, species composition etc. 
+```{r f64, fig.cap='Coupling of a dynamic global vegetation model with a land surface model. Shown are linkages among the biogeophysics, biogeochemistry, and vegetation dynamics components of the model. The lightly shaded biogeophysical processes represent the traditional hydrometeorological scope of land surface models. The darker boxes represent the greening of land surface models with the introduction of dynamic vegetation and the carbon cycle. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f64_LPJ_fllowchart.png')
+```
 
-## What about crops? 
-- Not our focus but we don't forget it. A few words to say that specific crop models exists
-- Diversity is not a problem anymore
-- Plant functional traits are still central to crop modelling, but competition and diversity are no more an issue. 
-- Other problematics specific to agriculture, such as agro-ecosystems where we have multi layers of vegetation (Trees over crops) --> Very interesting modelling problem and application especially in arid/semi-arid and tropical regions
+```{r f65, fig.cap='Map of LPJ simulated dominant PFTs (Sitch et al. 2003)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f65_LPJ_PFTmap.png')
+```
+
+```{r f66, fig.cap='Comparison of LPJ-simulated distributions of woody vegetation with satellite-based maps, for percentages of tree cover, partitioned according to phenology (evergreen vs. deciduous), and leaf morphology (broadleaf vs. needleleaf). (Sitch et al. 2003)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f66_LPJ_comparison_sitch.png')
+```
+
+```{r f67, fig.cap='Boreal forest dynamics in terms of (a) percentage cover and (b) plant carbon pools as simulated by a dynamic global vegetation model. The simulation is from initially bare ground for a single model grid cell in the boreal forest over 1000 years in the absence of fire. Percentage cover is the annual extent of plant functional types in the grid cell.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f67_DGM_boreal_succession.png')
+```
+
+```{r f68, fig.cap='Evolution of the vegetation cover in the Amazon from a coupled climate-carbon cycle simulation with the TRIFFID DGVM and the HadCM3LC climate models. (Cox et al. 2004)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f68_amazon_dieback.png')
+```
+
+
+
+
+### Gap models
+
+- small scale models;  landscape represented as a mosaic of hundreds of independent forest patches, each of which can differ in species composition and stage of development in response to disturbance that creates an opening in the canopy
+- models track the establishment, growth, and death of individual trees in an area of land.
+- Each tree is characterized by its species, stem diameter, height, and age.
+- trees compete for light, soil moisture, and nutrients.
+- patch undergoes temporal changes in the density, size, and composition of trees with the formation of a gap in the canopy
+- Community composition, biomass, productivity, and biogeochemical cycles are emergent outcomes of individual trees interacting among themselves and with the environment to acquire the resources necessary for growth and survival
+
+```{r f69, fig.cap='Cyclic growth and thinning of trees in a forest patch during gap dynamics.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f69_gap_dynamics.png')
+```
+
+```{r f610, fig.cap='Depiction of a boreal forest gap model. The growth of an individual tree depends on its diameter, age, and height as modified by environmental constraints. Mortality depends on the age of the tree as modified by stress, wildfire, and insects. Regeneration depends on seed availability, the ability to sprout or layer, and site conditions. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f610_gap_model.png')
+```
+
+
+```{r f611, fig.cap='General functioning of a gapmodel. As one moves to the right to left, spatial scale increases from an individual tree to a small plot to a landscape. The tree-level response shown here is the elementary growth equation from the FORET (Shugart and West 1977) model. The magnitude of the tree-mortality probablity of each tree is also determined at the tree-level depending on tree growth as an index of vigor, species longevities and other conditions. The form of the growth equation with no constraints is shown at the top and the decrement to this optimal growth equation is found below according to the particular controlling environmental factors (available light, soil moisture, etc). At the plot level, the vertical profile of light, available soil moisture, and other environmental and biogeochemical factors are calculated and tree to tree interactions are computed. Conditions for potential new seedlings for each year are determined factors such as the environmental conditions and seed sources. At the landscape model, a basic gap model can be used to represent the landscape as: (a) the summation of a Monte Carlo collection of independent random points; (b) gridded points at some spacing, (c) a tessellation of adjacent plots; (d) a spatially explicit landscape simulation with a spatial map of trees that is ‘windowed’ or updated for tree birth, growth and death by dropping a gap-model computational window onto the tree-stem map to solve for a subset of a new map. This is repeated to produce the new map. The size of this subset determines the resolution of the spatial map. (Shugart et al. 2018)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f611_gap_upscaling_shurgart.png')
+```
+
+```{r f612, fig.cap='Comparison of the behavior of two versions of the gap model ForClim under current climate (years 0–800) and under conditions of climatic change (years 800–900) and under a hypothetical future constant climate (years 900–1500) at two sites in the European Alps, Bever (a, b) and Davos (c,d). Model version 2.4 (a, c) has a parabolic temperature response function for tree growth (like JABOWA model), whereas model version 2.9 (b, d) features an asymptotic response function. (Bugmann 2001)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f612_forclim_succession.png')
+```
+
+```{r f613, fig.cap='High-resolution biomass map for the Amazon rainforest at 1000 m resolution (left) and relative frequency distributions at 40 m resolution (right) derived by linking FORMIND (IBM) simulation results with remote sensing data. (Rödig et al. 2017)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f613_formind_amazon.png')
+```
+
+
+```{r f614, fig.cap='Difference in UVAFME simulated total carbon biomass (tonnes of carbon per hectare (t C·ha–1) for a mature forest between year 2000 and year 2095 following 95 years of temperature and precipitation as represented by NCAR CCSM A1B and A2 scenarios.(Shuman et al 2015)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f614_uvafme_russia.png')
+```
+
+
+### Cohort based models
+
+- cohort-based models define patches based on age since disturbance and simulate the dynamics of cohorts of similar plant functional types rather than tracking every individual.
+- Common to each model is the representation of vegetation demography, with age- and size-dependent growth and mortality and in which growth is constrained by allometric relationships of stem diameter with height, sapwood area, leaf area, and biomass. cohort models --> modelling size distributions
+
+```{r f615, fig.cap='Schematic representation of the multiple hierarchical levels in the ED-2.2 model, organized by increasing level of detail from top to bottom. Static levels (grid, polygons, and sites) are assigned during the model initialization and remain constant throughout the simulation. Dynamic levels (patches and cohorts) may change during the simulation according to the dynamics of the ecosystem.(Longo et al 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f615_ED_structure.png')
+```
+
+```{r f616, fig.cap='ED2.2 biophysics. Schematic of the fluxes that are solved in ED-2.2 for a single patch (thermodynamic envelope). In this example, the patch has NT cohorts, NG soil layers, and NS=1 temporary surface water. Both NG and the maximum NS are specified by the user; NT is dynamically defined by ED-2.2. Letters near the arrows are the subscripts associated with fluxes, although the flux variables have been omitted here for clarity. Solid red arrows represent heat flux with no exchange of mass, and dashed yellow arrows represent exchange of mass and associated enthalpy. Arrows that point to a single direction represent fluxes that can only go in one (non-negative) direction, and arrows pointing to both directions represent fluxes that can be positive, negative, or zero.(Longo et al 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f616_ED_biophysics.png')
+```
+
+```{r f617, fig.cap=' ED2.2 biogeochemistry. Schematic of the patch-level carbon cycle solved in ED-2.2 for a patch containing NT cohorts. Like Fig. 6.15, letters near the arrows are the subscripts associated with fluxes. Fluxes shown in solid yellow lines are part of the CO2 cycle, and dashed red lines are part of the carbon cycle but do not directly affect the CO2 flux.(Longo et al 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f617_ED_biogeochemistry.png')
+```
+
+```{r f618, fig.cap=' Visualization of the ecosystem composition in the Harvard Forest flux tower footprint as simulated by ED2. Midsuccessional hardwoods (red) dominate, but the footprint also contains early successional hardwoods (green), pines (blue), late successional conifers (magenta) and late successional hardwoods (gray). (b) Distribution of basal area of the different plant functional types across tree diameter classes.(Medvigy et al. 2009)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f618_ED_harvard.png')
+```
+
+```{r f619, fig.cap=' Examples of size, age, and functional structure simulated by ED-2.2, after 500 years of simulation using local meteorological forcing and active fires. (a, b) Individual realization of simulated stands for sites (a) Paracou (GYF, tropical forest); (b) Brasília (BSB, woody savanna). The number of individuals shown is proportional to the simulated stem density, the distribution in local communities is proportional to the patch area, the crown size and stem height are proportional to the cohort size, and the crown color indicates the functional group. (c, d) Distribution of cohorts as a function of size (DBH and height) and age since last disturbance (patch age) for sites (c) GYF and (d) BSB. Crown sizes are proportional to the logarithm of the stem density within each patch.(Longo et al 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f619_ED_amazon.png')
+```
+
+
+
+## Growth and allometric relations in demographic models
+- link with growth modelling of previuous chapter
+- allometric relationships are a critical driver of individual tree growth. 
+- Height is important for its effect on stem diameter increment, both directly through tree volume growth and indirectly through shading.
+- Biomass allocation: empirical equations that constrain foliage, stem, and root mass for a given size tree
+- relationship between stem diameter and leaf area drives light extinction in the canopy
+- annual growth of a tree is calculated from its diameter and height as modified by light, climate, and site conditions.
+
+
+```{r f620, fig.cap='Height-diameter allometry in the JABOWA individual based model.(Buggman 2001)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f620_HD_allom.png')
+```
+
+```{r f621, fig.cap='Relationships between stem diameter and (a) aboveground biomass and (b) height for sugar maple, yellow birch, beech, and red spruce trees at the Hubbard Brook Experimental Forest, New Hampshire using allometric relationships. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f621_BD_allom.png')
+```
+
+```{r f622, fig.cap='Leaf area - diameter allometry in the JABOWA individual based model. (Buggman 2001)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f622_LD_allom.png')
+```
+
+```{r f623, fig.cap='The JABOWA equation of maximum tree growth plotted for a tree with Hmax = 40 m, Dmax = 285 cm, and G = 143 cm/yr. (Buggman 2001)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f623_jabowa_growth.png')
+```
+
+```{r f624, fig.cap='Tree height and light competition in a forest gap model. (a) Height in relation to stem diameter for two species of trees. (b) Leaf area in relation to stem diameter. (c) Light profile in relation to cumulative leaf area index. (d) Light growth factors for shade tolerant and intolerant species. Height is shown for basswood (Tilia americana) and blackjack oak (Quercus marilandica) with parameters from a model of forests in eastern North America (Pastor and Post 1985). Leaf area and light extinction are from FORET (Shugart 1984). (Figure from Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f624_growthfactor.png')
+```
+
+
+```{r f625, fig.cap='Growth factors for (a) temperature (growing degree-days), (b) soil moisture, and (c) soil nitrogen illustrated for basswood and blackjack oak (Pastor and Post 1985). Basswood grows at more northern locations than blackjack oak, on wetter soils, and is intolerant of low soil nitrogen. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f625_growth_factorbis.png')
+```
+
+```{r f626, fig.cap='Stem diameter growth in relation to age as represented in gap models. Relationships are shown for basswood (Dmax = 100 cm, hmax = 30 m, G0 = 188.7 cm y–1, maximum age 140 years) and blackjack oak (Dmax = 50 cm, hmax = 15 m, G0 = 34.0 cm y–1, maximum age 400 years). Parameter values are from Pastor and Post (1985). (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f626_growth strategies.png')
+```
+
+
+## Competition for light in demographic models
+
+- critical driver of forest dynamics
+- shading of smaller individuals by taller trees
+- vertical profile of leaf area in the patch (vertical structure in which trees are arranged into canopy layers)
+- height of a tree determines its location in the cumulative leaf area profile
+- light extinction coefficient
+
+
+```{r f627, fig.cap='Representation of plant canopies in vegetation dynamics models.(a) Actual canopies have complex three-dimensional structure determined by the spatial location of trees and their crown geometry. (b) Gap models simplify the canopy so that the crown of an individual tree is a thin, flat layer of leaves at the top of the tree. Shown are six trees with different heights (white vertical lines). The leaf area of each tree (black horizontal lines) spreads over the area of the patch so that the tallest tree shades all others, and so forth, through the canopy. Horizontal positioning is for illustration only. The models do not represent spatial location, only the vertical dimension. Darker shading denotes progressively less light deeper in the canopy. The ecosystem demography model (ED) uses a similar concept, but applied to cohorts rather than individual trees. (c) The perfect plasticity approximation (PPA) organizes canopies into layers. All cohorts in the overstory (white boxes) receive identical light for that layer. The understory (black boxes) receives less light. Spatial location is for illustration only. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f627_light_comp.png')
+```
+
+
+```{r f628, fig.cap='Canopy organization in the perfect plasticity approximation. Shown are 10 cohorts arranged from tallest to shortest. The cumulative crown area of the six tallest cohorts (C1–C6) sums to one, and these form the overstory. The remaining cohorts (C7–C10) form the understory. The height z∗ separates the two canopy layers. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f628_ppa.png')
+```
+
+```{r f629, fig.cap='Crown shapes modelled by the Ideal Tree Distribution model (ITD) following the perfect plasticity approximation (Purves et al. 2007)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f629_ppa_purves.png')
+```
+
+
+```{r f630, fig.cap='Depiction of cohort and patch dynamics. (a) Growth of cohorts leads to crown expansion, resulting in splitting of a cohort and demotion to the understory. Shown are four overstory cohorts (C1–C4). Part of the shortest cohort (C4) is demoted to the understory to form a new cohort. (b) Mortality leads to open canopy space that can be filled by promotion of understory cohorts to the overstory. In this example, the two understory cohorts form new cohorts (C5, C6) in the overstory. Patch area is unchanged. (c) The open canopy space upon mortality can also be used to create a new patch that is filled by new cohorts. The area of the old patch decreases, and a new patch is formed from the open canopy area.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f630_canopy_dynamics.png')
+```
+
+
+## Competition for water and nutrients in demographic models
+
+```{r f631, fig.cap='Illustration of resource partitioning in vegetation demographic models. (a, b) show two alternative depictions of resource partitioning in an age-since-disturbance resolving (ED-type) model. In (a) resources (water/nutrients) are resolved for each age-since-disturbance patch, meaning that different extraction levels can affect resource availability over the successional gradient, a situation made more likely by large spatial-scale disturbances. In (b) all patches share a common pool, a situation more relevant to smaller (individual) scale disturbances. (Fischer et al. 2018)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f631_root_competition.png')
+```
+
+
+## Seed dispersal and recruitment
+
+- regeneration: stochastic process
+- seeds of species are assumed to be present on-site
+- available light at the forest floor, climate tolerances, and other site conditions determine which species become established.
+- sprouting based on size
+
+-  Species are characterized by life history characteristics 
+
+
+## Mortality
+
+
+- stochastic process
+- Trees die with a constant probability each year
+- The probability of mortality increases when tree growth is less than some minimum
+
+- disturbance related mortality : Wildfire and insect outbreaks can be included
+- The occurrence of fire is treated stochastically with an annual probability of burning. An individual patch may, for example, have a 1% change of burning in any given year.
+
+
+
+```{r f632, fig.cap='Changes of mortality patterns with tree age and their approximation in the JABOWA model. AIM – age-independent ‘background’ mortality; SM – stress-related mortality.(Buggman 2001)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f632_mortality_jabowa.png')
+```
+
+## Conclusion
+
+```{r f633, fig.cap='Forest dynamics simulated by LM3-PPA. Shown is (a) basal area of aspen (Populus tremuloides), red maple (Acer rubrum), and sugar maple (Acer saccharum) in relation to stand age. Also shown for year 80 are (b) stem diameter distribution and (c) biomass distribution. (Bonan))', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f633_LM3_ppa_succession.png')
+```
+
+```{r f634, fig.cap='Summary of the differences between area based, cohort based and individual based vegetation models.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f634_table.png')
+```
+
+
+## Case study 6.1
+```{r f635, fig.cap='Overview of drivers influencing wood production. External variables in this study are temperature, radiation and precipitation. Forest properties are divided into two groups: species composition properties (e.g. Rao’s Q as a measure of functional diversity and species distribution index OAWP) and forest structure properties (e.g. forest height, leaf area index and tree height heterogeneity). (Bohn et al. 2018)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f635_bohn1.png')
+```
+
+```{r f636, fig.cap='Overview of forest properties and resulting temperature sensitivity of AWP of three exemplary forests: (a) old even-aged spruce forest; (b) mature deciduous forest; (c) a quite young mixed species forest. The middle (panels d, e and f) shows the corresponding stem size distributions and provides information on the highest tree in the forest (Hforest) and species distribution index OAWP (which quantifies the suitability of a species distributed within the forest structure with regard to AWP). Each forest is treated with 320 climate time series; the last column (panels g, h and i) shows the AWP as a function of mean annual temperature (MAT). The colours indicate different inter-annual temperature amplitudes (Q95) of the used time series. (The coloured bands show the standard deviation due to the variability of the five different time series that exist for each combination of mean annual temperature and intra-annual temperature amplitude.(Bohn et al. 2018).', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f636_bohn2.png')
+```
+
+
+
+## Case study 6.2
+
+```{r f637, fig.cap='Impact of changes in soil clay fraction (A and B) and plant water stress (C and D) on AGB in the ED2 (A and C) and ED2-BL (B and D) model simulations. Four climatological conditions are shown, a 2-month dry season, a 4-month dry season, a 6-month dry season, and an 8-month dry season.(Levine et al. 2016)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f637_levine1.png')
+```
+
+```{r f638, fig.cap='(A) Change in AGB with DSL (dry season length) for remote sensing-based estimates (black and gray circles), ground-based plot measurements (blue triangles), ED2 model output (green circles), and ED2-BL model output (purple circles).(B) Distribution of AGB in the observations and the two models. (C) Change in the percentage of biomass variability, with the coefficient of variation (CV) defined as 1σ/mean. Results are for undisturbed primary vegetation forests. (Levine et al. 2016) ', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap6/f638_levine2.png')
+```
 
