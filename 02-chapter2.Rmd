@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # (PART) Biophysical and physiological models {-}
 <!-- We could buid a schematic of what is a vegetation model throughout the course, starting with independent boxes that we link together as we upscale the processes?  -->
 
@@ -7,16 +12,43 @@
 **For all processes, we provide an overview of existing models and approaches and we will detail only one of them for the practical course. This also apply for the other chapters, the idea of the course is to be more conceptual about how we model vegetation and the different applications and assumptions.**
 
 ## Photosynthesis models
-### Refreshing the basic knowledge
+Photosynthesis is a process that take place in all plants on earth. There is a huge variability in photosynthesis rates in space and time because of environmental variations (weather/climate) and properties of the vegetation (species composition, structure). 
 
+### Refreshing the basic knowledge
+Processes that are discussed in this lecture occur at the small spatio-temporal timescale, but have an important impact on ecosystem functioning on the long term, for example: photosynthesis.
+
+Photosynthesis and transpiration are regulated by stomatal closure. 
+Leaf temperature is the result of the balance between photosynthesis and transpiration.
+
+See chapter 4 of the Bonan book for the detailed equations discussed in this course (but not part of the course).
+Photosynthesis: two main reactions: 
+light harvesting (chlorofyl): the use of light to convert molecules into higher energy molecules
+carbon fixating: converting CO2 into sugars
+The rubisco enzyme plays and essential role for the process for the carboxylation and oxidation reactions. RuBP is recycled in the Calvin cycle
+
+Three different photosynthetic mechanisms:
+    • C3: PGA is first product of CO2 assimilation, the entire process takes place in the mesophyll cell
+    • C4: PEP: make organic acids with a 4C skeleton, 2% of all plants, but have a much higher biomass than 2%; they have the Kranz anatomy, with bundle sheath cells, process is separated between mesophyll and bundle sheet cells; The main advantage is that C4 plants have a higher CO2 concentration in their bundle sheath cells, and that they also recycle CO2 in the BSC.
+    • CAM: will not be discussed in the models, here the CO2 assimilation and CO2 uptake are separated in time, plants adapted to very dry conditions. 
+How to observe photosynthesis? Mainly done by leaf gas exchange measurements. This methodology measures the net CO2 exchange of the leaf, which is the sum of the gross photosynthesis minus the respiration. The difference between these two fluxes is the net photosynthesis.
 
 ```{r f21, fig.cap='Leaf level processes transpiration and photosysnthesis are strongy interlinked and both regulated by stomatal conductance', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/leaf_level_processes.png')
 ```
 
+Figure 2.2 shows how photosynthesis reacts to different environmental factors. Y-axis: net CO2 assimilation, x-axis: different environmental variables. 
+    1) For light, PS increases with increasing light availability, but reaches saturation at higher light levels. 
+    2) Temperature: there is an optimum, around 20°C for the tree in this graph. Beyond the optimal temperature there is a limitation of photosynthesis.
+    3) Reduction of the photosynthesis with increasing VPD; 
+    4) Less photosynthesis with lower leaf water potential (drought stress), less turgor  stomates close. 
+    5) CO2 fertilization: more CO2 results in a higher production, with saturation. 
+    6) The more nitrogen a leaf contains (for example at the top of the canopy, the more CO2 can be assimilated. This is because Rubisco contains N.
+
 ```{r f22, fig.cap='Photosynthesis in relation to (a) photosynthetically active radiation,(b) temperature, (c) vapor pressure deficit at 25°C and 35°C,(d) foliage water potential, (e) ambient CO2 concentration, and (f) foliage water potential for jack pine trees (Pinus banksiana). Bonan (2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/photosynthesis_obs.jpg')
 ```
+
+Different environmental parameters interact with each other. Left: leaf respiration response is different than the photosynthesis response. Respiration keeps increasing with T, followed by a collapse (degrading enzymes), the respiration peak occurs at a higher temperature than the photosynthesis peak. The temperature response is also different for different CO2 levels in the atmosphere. Right: at lower light levels, the optimal temperature also drops. These interacting responses, need to be implemented in models!
 
 ```{r f23, fig.cap='Temperature responses of photosynthesis, respiration and net CO2 exchange, interaction with CO2 concentration (A) and light  (B)  Schulze ()', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/Trespons_interactions.png')
@@ -26,10 +58,20 @@ knitr::include_graphics('figures/chap2/Trespons_interactions.png')
 ### C3 photosynthesis
 
 #### Light response curve models
+This model is based on light only. The slope of the curve is the quantum yield, and describes the linear part of the curve. Pmax: max photosynthesis rate, describes the level of the saturation plateau. Light compensation point, is that light level at which respiration equals the gross carbon uptake. Dark respiration: CO2 released in the dark by respiration.
+This curve is described based on measurements on plants, and formulated as a mathematical equation.
 
 ```{r f24, fig.cap='Conceptual figure of a leaf-level light reponse curve', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/LRC.png')
 ```
+
+In a second approach the light response is described as a co-limitation, a response with two phases: (1) light limitation and (2) light saturation (linear increase and plateau). Such a co-limitation is described by the non-rectangulare hyperbola formula below. The formula has two parameters: Amax  (max photosynthesis rate) and E (quantum yield). The theta factor adapts the curve shape.
+
+Disadvantages of these light response curve models: they are measured on a specific plant in specific conditions, and  only applicable under the same conditions for the same plant, on the same location. They are only used in empirical studies, not really applicable for prognostic models.
+
+$$
+\theta.A^2-(E.I+A_{max})A+E.I-A_{max}=0
+$$
 
 ```{r f25, fig.cap='Co-limitation illustrated for photosynthetic response to light. The two dashed lines show the rates Amax adn EI The solid lines show the co-limited rate. (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/hyperbola.jpg')
@@ -38,7 +80,11 @@ knitr::include_graphics('figures/chap2/hyperbola.jpg')
 
 
 #### Light use efficiency models
+Light use efficiency (LUE) is the slope of the linear part of the light response curve. These LUE models calculate photosynthesis at a larger scale (GPP) by multiplying the available amount of light with a light use efficiency factor. Other factors are introduced to mimic saturation at stressful environmental conditions (e.g. temperature, soil water availability, atmospheric drought). These are empirical models, with its advantages and disadvantages (see above). Often used for large scale, remote sensing-based simulations of photosynthesis, as I can be measured by satellites.
 
+$$
+GPP=LUE.I.f_1(T).f_2(\theta).f_3(D)
+$$
 
 ```{r f26, fig.cap='MODIS based GPP map of the US, based on a LUE model.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/MODIS_GPP.png')
@@ -47,104 +93,203 @@ knitr::include_graphics('figures/chap2/MODIS_GPP.png')
 
 
 #### The Farquahar model
+Photosynthesis is not only limited by light response! Also diffusion of CO2 from atmosphere into the leaf plays an important role, driven by the concentration gradient between the atmosphere and the substomatal space. Diffusion depends on the area, a diffusion constant and the concentration gradient.
+The Farquhar was developed in 1980, and is currenty included in the large majority of (global) vegetation models. The Farquhar model describes the rubisco kinetics, rubisco regeneration, carboxylation when rubisco is saturated and carboxylation when rubisco is limited.
+
+- Bonan, Chapter 11.1
 
 
 ```{r f27, fig.cap='Diffusion of CO2 from free air across the leaf boundary layer and through stomata to the intercellular space. Diffusion to the chloroplast is additionally regulated by mesophyl conductance. (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/conductance.jpg')
 ```
 
+The net photosynthesis is described as the carboxylation rate minus the photorespiration and dark leaf respiration. The rates of carboxylation and photorespiration follow the Michaelis-Menten kinetics. 
+Carboxylation is limited by rubisco activity, or by rubisco regeneration: the lowest value is used to calculate net assimilation. 
+Wc: describes the Michealis-Menten kinetics of carboxylation.
+Wj: depends on electron transport rate, as such the photosynthesis light response is integrated in the Farquhar model. 
 
+REMARK: we will need to explain all symbols carfully in the syllabus..
+$$
+\frac{dm}{dt}=-DA\frac{dC}{dx}
+$$
+$$
+A_n=V_c-0.5V_o-R_d
+$$
+Photorespiration releases 0.5 mole of CO2
+$$
+V_c=\frac{V_{cmax}C_i}{C_i+K_c\left( 1+\frac{O_i}{K_o}\right)}
+$$
+
+$$
+V_o=\frac{V_{omax}O_i}{O_i+K_o\left( 1+\frac{C_i}{K_c}\right)}
+$$
+$$
+A_n = \left(1-\frac{\Gamma^*}{C_i}\right)min(W_c,W_j)-R_d
+$$
+
+$$
+W_c=V_{cmax}\frac{C_i}{C_i+K_c\left(1+\frac{O_i}{K_c}\right)}
+$$
+
+$$
+W_j=J\frac{C_i}{4C_i+8\Gamma^*}
+$$
+The general Farquhar model is written as follows:
+
+$$
+A_n=min(A_c,A_j)-R_d
+$$
+with 
+$$
+A_c = V_{cmax}\frac{C_i-\Gamma^*}{C_i+K_c\left(1+\frac{O_i}{K_c}\right)}
+$$
+
+$$
+A_j = \frac{J}{4}\left(\frac{C_i-\Gamma^*}{C_i+2\Gamma^*}\right)
+$$
+Figure 2.8: black lines: response that is simulated by the model. (see practical A as well). We neglect TPU limitation in the models we consider here. 
 ```{r f28, fig.cap='Simulated responses of C3 photosynthesis in relation to (a) intercellular CO2 (at I↓ = 2000 μmol m–2 s–1) and (b) photosynthetically active radiation (at ci = 266 μmol mol–1). (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/simulated_responses.jpg')
 ```
 
+As an alternative formulation a co-limitation model can be used. In this case we don’t use the minimum equation of the original Farquhar model, but take both limitations into account simultaneously in the following equation.
 
+$$
+\Theta_{A}A^2-(A_c+A_j)A+A_cA_j
+$$
 
-
-- UCL 4.6.1
-- Bonan, Chapter 11.1
-The FvCB model
-Most equations between 11.1 and 11.31
-Figure 11.2 a and b
-Table 11.1 for parameters values + a few simulations to illustrate
-Table 11.4
 
 ### Parameter and temperature dependencies
+- Bonan, Chapter 11.2
 
+The complete Farquhar model contains 6 physiological parameters, Vcmax, Jmax, M-M constants, Rd and Gamma star.
+In the model, these parameters should be adapted to the actual temperature, as the parameters show a different response over the temperature, and the standard values is given for 25°C.
+Peak Arrhenius shape of temp response: have deactivation and activation energy to describe the function.
 
 ```{r f28bis, fig.cap='Relative temperature responses of the parameters of the Farquhar model (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/temp_responses.jpg')
 ```
 
+$$
+f(T_l)=exp\left[\frac{\Delta H_a}{298.15R}\left(1-\frac{298.15}{T_l}\right)\right]
+$$
+
+$$
+f_H(T_l)=\frac{1+exp\left(\frac{298.15\Delta S-\Delta H_d}{298.15R}\right)}{1+exp\left(\frac{T_l\Delta S-\Delta H_d}{T_lR}\right)}
+$$
+To correctly model photosynthesis over time, you should also take into account climate adaptation (acclimation): the temperature adaptation curve is different for the same species if they are grown under different climatic conditions.
+
+Challenges with the Farquhar model: it’s parameter values are not well defined, or the values of the parameters are highly variable, depending on the type of plant or environmental conditions. Vcmax is highly variable over different leaves in the same tree, and on global scales. 
+Which value should we use? -> Vcmax is scaling very well to photosynthesis, so Vcmax is often optimized with data available. However, by doing so you turn the model into an empirical model, so this should be avoided.
+The advantage we have, is that there are covariations between parameters (figure 2.10) for example the strong correlation between Vcmax and Jmax -> you can describe Jmax as a function of Vcmax, so you can remove one parameter from the model.
 
 ```{r f29, fig.cap='Linear relation between observed Vcmax and Jmax values for Beech (Verbeeck et al. 2008)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/vcmax_jmax.png')
 ```
 
+Vcmax can also be calculated based on leaf nitrogen content. Some vegetation models model the N content of leaves, and simulated based on that the Vcmax of the leaves. It’s a linear relationship with two parameters. Some models also use more complex relations.
+
+There are also attempts to propose average values per plant functional type.
+
+$$
+V_{cmax25} = i_v + s_v.N_a
+$$
+The temperature functions also have dependence factors.
+
+
+The Farquhar model has 4 input variables: Oi, Ci, light, leaf temperature. Light depends on how the radiation is penetrating the canopy -> see lecture 3. Oi is assumed to be equal to the oxygen concentration in the atmosphere.  Leaf temperature is in most models assumed to be equal to air temperature or can be calculated based on an energy balance. Ci is calculated based on gas diffusion through the stomates -> you need an extra model to fully simulate the behavior of the stomates.
 
 ```{r f210, fig.cap='Equations of the full Farquhar model', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/full_farquhar.png')
 ```
 
-
-- Bonan, Chapter 11.2
-Equations 11.34-11.37
-Table 11.2
-Figure 11.3 for illustration
-
-Summary with Table 11.5 and Figure 11.4
-
 ### C4 photosynthesis
 - Bonan, Chapter 11.7
-PEP carboxylase
-Equations 11.69-11.74
-Find an illustration
+
+The behaviour of the C4 and C3 models is really different
 
 
 ```{r f210b, fig.cap='Comparison of C3 and C4 photosynthesis in response to (a) photosynthetically active radiation, (b) ambient CO2 concentration, (c) leaf temperature, and (d) vapor pressure deficit. In this figure, stomatal conductance is calculated using the Ball–Berry model and ci is obtained from the diffusion equation', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/c3_c4.jpg')
 ```
 
-
-
-
-
 ## Stomatal models
 
 ### Refreshing the basic knowledge
+Guard cells are transporting ions actively and passively into/out of  the cells, to open or close the stomates  by adapting the turgor in the guard ells. 
+The stomatal conductance represents how easy it is for a (CO2) molecule to diffuse into or out of the stomates. How higher the conductance, how easier the transfer.
+Stomatal models are needed for transpiration, leaf temperature and CO2 -> key in the model. Stomatal conductance for CO2 is lower than that of water as the molecule is a bit bigger. Sometimes expressed as a resistance in models that use the electric analogon concept.
 
 ```{r f211, fig.cap='Diffusion of CO2 from free air across the leaf boundary layer and through stomata to the intercellular space. Diffusion to the chloroplast is additionally regulated by mesophyl conductance. (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/conductance.jpg')
 ```
 
+Plants constantly balance their physical and biochemical limitation, by adjusting their stomatal conductance. 
+Equations below: photosynthesis is expressed as a diffusion process. Photosynthesis flux is a range through the circuit of figure 2.13. An can be described as the flux going from the atmosphere to the internal part of the leaf, or as the flux going from the internal part of the leaf into the cell, or a combinations of the two methods.
+
+Gsw = stomatal conductance for water
+Gbw = boundary conductance for water
+
+$$
+A_n=\frac{g_{bw}}{1.4}(C_a-C_s) = \frac{g_{sw}}{1.6}(C_s-C_i)=\frac{1}{1.4g_{bw}^{-1}+1.6g_{sw}^{-1}}(C_a-C_i)
+$$
+Stomatal conductance is also dependent on environmental conditions. There is a saturated response to light, an optimum for temperature, strong response to VPD, stomata close when VPD is too high, and there is a response to the leaf water potential. Again, there is interaction between the different environmental conditions.
+
 ```{r f212, fig.cap='Observed responses of stomatal conductance for Pinus banksiana. (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/gs_obs.jpg')
 ```
+
+if the air is dry stomates close to avoid losing too much water
+- accounting for all these effects makes it complex
+-stomatal conductance is quite linear with photosynthesis
+
+We have three unknowns in the combined photosynthesis-diffusion equations but only two equations: we need an extra equation to describe stomatal conductance to be able to solve for the unknowns. 4 Possibilities discussed: see below. 
+
 ### Empirical multiplicative models
 - Bonan, Chapter 12.2
+This is an empirical approach. The actual stomatal conductance is calculated based on the max stomatal conductance multiplied by correction factors between 0 and 1. It is based on observations. Gsmax is species dependent. 
+There is no link with the carbon cycle/photosynthesis, this is why it is not used anymore in the global vegetation models as part of the earth system models of the IPCC
+
+$$
+g_{sw}=g_{smax}f(I^{\downarrow})f(T_l)f(D_l)f(\Phi_l)f(C_a)
+$$
 
 ### Semiempirical photosynthesis-based models
 - Bonan, Chapter 12.3
-
+These are mostly used in the big models and are based on the linear relation between stomatal conductance and photosynthesis. Figure 2.15: on the x axis, the photosynthesis is depicted, but multiplied by relation humidity and CO2 concentration at the leaf surface.
 
 ```{r f213, fig.cap='Relationship between stomatal conductance and Anhs/cs for soybean.(Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/ball_berry.jpg')
 ```
+
+Ball-Berry model: stomatal conductance is calculated based on photosynthesis, relative humidity and CO2 concentration at the leaf level. This is the third equation needed to solve the problem. The model needs observations to determine the parameters of the model.
+Plants adapt their stomatal opening to maintain a constant Ci/Ca ratio, or the CO2 concentration in the leaf and the concentration outside the leaf (atmosphere). 
+As the model uses the CO2 concentration at the surface of the leaf, we also need the boundary layer conductance.
+
+$$
+g_{sw}=g_0 + g_1\frac{A_n}{C_s}h_s
+$$
+
+The model becomes a combination of multiple non-linear equations, which cannot be solved analytically. Some model try to find an analytical solution by simplifying the equations, this gains calculation speed. Other models use numerical techniques based on the scheme below: we start with an initial guess of Ci and do enough iterations until the guess convergences with the outcome value of the model. This approach is slower as multiple iterations have to be calculated, which is time-consuming.
+Tis model still needs empirical input to determin the Ball-Berry parameters. SO it is a theoretical model that needs empirical constraints. 
 
 ```{r f214, fig.cap='Flow diagram of the iterative procedure to numerically calculate ci.(Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/numerical_solution.jpg')
 ```
 
 
-
 ### WUE models and optimality theory
-- Bonan, Chapter 12.4 + add optimality approach from Prentice et al.
+- Bonan, Chapter 12.4 
+Not discussed in detail, but this approach is used more and more, as it overcomes to use the empirical part. They are based on theories. Here, the stomatal conductance is optimized by maximizing the water use efficiency. We assume that plants try to optimize the benefit of photosynthesis with the cost of water loss. Stomatal conductance is not described explicitly by an equation, but it emerges from the model.
+The concept of calculations is shown in figure 2.17: we start with an assumed stomatal conductance value, we go through all calculations and in the end calculate WUE and do the same for an increased/decreased stomatal conductance, and check what the gain of WUE is.
 
 ```{r f215, fig.cap='Flow diagram of leaf flux calculations to numerically solve for stomatal conductance that optimizes water-use efficiency.(Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/optimality.jpg')
 ```
 
 ### Soil drought stress
+Basic models do not account for soil drying. Many models add an additional factor that describes the soil wetness. The beta factor varies between 0 (wilting point) and 1 (field capacity), with different courses between the two extremes (see figure 2.19). Various vegetation models differ in the way they account for this factor. Some models apply this factor on Vcmax other model integrated the factor in the stomatal equation.
+Some models simulate leaf or soil water potentials. Species have a different response to the leaf water potential. First there is no impact, species have a tolerance, but after threshold, a decrease in photosynthesis occurs.
 
 ```{r f216, fig.cap='Leaf carbon uptake in response to leaf water potential for multiple tree species.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/leafWP.png')
@@ -155,59 +300,66 @@ knitr::include_graphics('figures/chap2/SWfactor.jpg')
 ```
 
 
-
-
 ### Hydraulic models
+These models are originally developed to simulated plant water relations of individual plants/trees. The model simulates the water transport through the trees. Challenging to apply at the large scale. 
+Isohydric species: maintain their leaf water potential, independently from the soil water potentials.
+
 ```{r f218, fig.cap='Flow of water and representative water potentials along the soil–plant–atmosphere continuum. Also shown are conductances along the hydraulic pathway.(Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/hydraulics.jpg')
 ```
+
+SPA model: combines a plant hydraulic model with photosynthesis model, and they interact with each other. Such models have a high level of complexity.
 
 ```{r f219, fig.cap='Depiction of (a) plant hydraulics and (b) leaf gas exchange in the Soil–Plant–Atmosphere (SPA) model. SPA is a multilayer canopy model.(Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/SPA.jpg')
 ```
 
+Different models give different results: full line: Ball-Berry, dashed line: other models. The shapes of the curves are similar, but there is a difference between them.
+
 ```{r f220, fig.cap='Simulated stomatal responses for various modelling approaches. (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/modelling_approaches.jpg')
 ```
 
-Figure 13.1
-The soil-plant-atmosphere model
-Leaf water potential
-Plant water uptake
-Resistance analogy
-Multinode models
-
-
 ## Upscaling from leaf to canopy
-- Quickly introduce the problem of scaling in ecology (review paper of Jerome Chave) and refer to chapter 10 on upscalling
-- Canopy integration: LAI layers, etc... Nice transition to chap 3 with the interception of light by the canopy
-
-Leaf microclimate and boundary layer processes in relation to leaf dimension for sun and shade conditions.
+In this chapter we discussed all processes at the leaf level, but in a forest or other vegetation type, every leaf is different. E.g. the difference between sun and shade leaves. Figure below: different responses for shade and sun leaves: big differences!
+on the long term there is also genetic adaptation to the environmental conditions they are living in. 
 
 ```{r f221, fig.cap='Leaf microclimate and boundary layer processes in relation to leaf dimension for sun and shade conditions.(Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/sun_shade.jpg')
 ```
 
+If you calculated GPP, you need to take into account that leaves are not the same all over the world -> see coming lectues.
+
 ```{r f222, fig.cap='Controlling facors on ecosystem GPP. (Chapin)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/GPPcontrols.jpg')
 ```
 
+Thicker arrow means a stronger influence on ecosystem long term GPP. 
 
 ## Case studies
 ### Case study 2.1 Ozone impact on global GPP
+
+XXX Add reference here
+The evolution of the Earth’s climate during the 21th century depends on the rate at which CO2 emissions are removed by the ocean and land carbon cycles . To asses/simulate this removal, climate-carbon cycle models are used, but these typically neglect the impacts of changing atmospheric chemistry (e.g. CO2 and ozone concentration). Ozone causes cellular damage inside leaves that adversely affects plant production and reduces photosynthesis. In this case study, a global land carbon cycle model - modified to include the effect of ozone and to account for interactions between ozone and CO2 - is used to estimate the impact of projected changes in ozone levels on the land-carbon sink. 
+Large scale model. It used a similar leaf gas exchange model as discussed above, but they added an extra equation that reduces stomatal conductance depending on the ozone concentrations (higher ozone levels reduce photosynthesis). The impact of the ozone is highest in tropical zones, with reductions up to 30%, which will impact the CO2 storage of tropical forests.
 
 ```{r f223, fig.cap='Simulated global GPP reduction in response to current and future atmospheric ozone concentrations', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/ozone.png')
 ```
 
-
-
 ### Case study 2.2 Drought impact on rainforest GPP
+
+XXX reference here
+Climate change projections predict harsher droughts in the Amazon rain forest which could change the amount of CO2 the forest can absorb, creating a positive feedback system. A lack in appropriate data and process-level understanding creates uncertainty in predicting the forest gas exchange as a response too drought. In this paper these two problems are addressed: new and better data is collected with a TFE experiment and a model (SPA) that predicts sap-flow with soil moisture data is created and fitted to the TFE data. This model is then validated with other independent data.
 
 ```{r f224, fig.cap='Simulated (SPA model) and observed sapflow for a drought experiment in the Amazon; Fisher et al. 2007', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/fisher1.png')
 ```
 
+Figure 2.2 shows the simulations og gs and GPP, black: control plot, grey: dry plot. 
 ```{r f225, fig.cap='Simulated (SPA model) gs and GPP for a drought experiment in the Amazon. Fisher et al. 2007', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/fisher2.png')
 ```
+
+Conclusions: this model worked better than empirical models, which really predict a collapse of the system. This model is doing better because it simulates the water transport through the tree. 
+Models need to take into account deep rooting, trees do have access to water in the deep soil, even in the dry period.
