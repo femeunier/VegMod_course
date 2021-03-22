@@ -40,7 +40,7 @@ Figure 2.2 shows how photosynthesis reacts to different environmental factors. Y
     1) For light, PS increases with increasing light availability, but reaches saturation at higher light levels. 
     2) Temperature: there is an optimum, around 20°C for the tree in this graph. Beyond the optimal temperature there is a limitation of photosynthesis.
     3) Reduction of the photosynthesis with increasing VPD; 
-    4) Less photosynthesis with lower leaf water potential (drought stress), less turgor  stomates close. 
+    4) Less photosynthesis with lower leaf water potential (drought stress), less turgor stomates close. 
     5) CO2 fertilization: more CO2 results in a higher production, with saturation. 
     6) The more nitrogen a leaf contains (for example at the top of the canopy, the more CO2 can be assimilated. This is because Rubisco contains N.
 
