@@ -9,13 +9,11 @@ output:
 # Modelling plant basic processes
 \chaptermark{photsynthesis}
 
-**For all processes, we provide an overview of existing models and approaches and we will detail only one of them for the practical course. This also apply for the other chapters, the idea of the course is to be more conceptual about how we model vegetation and the different applications and assumptions.**
-
 ## Photosynthesis models
-Photosynthesis is a process that take place in all plants on earth. There is a huge variability in photosynthesis rates in space and time because of environmental variations (weather/climate) and properties of the vegetation (species composition, structure). 
+Photosynthesis is a process that takes place in all plants on earth. There is a huge variability in photosynthesis rates in space and time because of environmental variations (weather/climate) and properties of the vegetation (species composition, structure). 
 
 ### Refreshing the basic knowledge
-**See chapter 4 of the Bonan book for the detailed equations discussed in this course (but not part of the course).**
+<!--See chapter 4 of the Bonan book for the detailed equations discussed in this course (but not part of the course).** -->
 
 Leaf processes that are discussed in this lecture occur at the small spatio-temporal timescale (Figure \@ref(fig:f12)), but have an important impact on ecosystem functioning on the long term, for example: photosynthesis.
 
@@ -86,7 +84,7 @@ $$
 \theta.A^2-(E.I+A_{max})A+E.I-A_{max}=0
 $$
 
-  with $\theta$ the curvature of the light response curve, $A$ the assimilation rate in $µmol m^{-2} s^{-1}$, and $I$ the incident radiation in $µmol m^{-2} s^{-1}$.
+  with $\theta$ the curvature of the light response curve, $A$ the assimilation rate in $micromol m^{-2} s^{-1}$, and $I$ the incident radiation in $micromol m^{-2} s^{-1}$.
   
 ```{r f25, fig.cap='Co-limitation illustrated for photosynthetic response to light. The two dashed lines show the rates Amax adn EI The solid lines show the co-limited rate. (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/hyperbola.jpg')
@@ -112,7 +110,7 @@ Photosynthesis is not only limited by light response.
 Diffusion of $CO_2$ from atmosphere into the leaf plays an important role. This is driven by the $CO_2$ concentration gradient between the atmosphere and the substomatal space. Diffusion depends on the boundary layer of the leaf, the area of the stomatal cavity as well as the resistivity of the chloroplast membrane (Figure \@ref(fig:f27)). 
 
 
-The DvCB model was developed in 1980, and is currenty included in the large majority of (global) vegetation models. The FvCB model describes the rubisco kinetics, rubisco regeneration, the carboxylation rate when rubisco is saturated and the carboxylation rate when rubisco is limited.
+The FvCB model was developed in 1980, and is currenty included in the large majority of (global) vegetation models. The FvCB model describes the rubisco kinetics, rubisco regeneration, the carboxylation rate when rubisco is saturated and the carboxylation rate when rubisco is limited.
 
 **See Bonan's book, Chapter 11.1**
 
@@ -125,13 +123,13 @@ The net photosynthesis is described as the carboxylation rate $V_c$ minus the ph
 $$
 A_n=V_c-0.5V_o-R_d
 $$
-with ${A_n}$, ${V_c}$, ${Vo}$ and ${R_d}$ in µmol m^-2^ s^-1^. 
+with ${A_n}$, ${V_c}$, ${Vo}$ and ${R_d}$ in $micromol m^{-2} s^{-1}$. 
 
 ${V_c}$ corresponds to the rate of carboxylation by RUBISCO, which follows a Michalelis-Menten response function:
 $$
 V_c=\frac{V_{cmax}C_i}{C_i+K_c\left( 1+\frac{O_i}{K_o}\right)}
 $$
-with $V_{cmax}$ the maximum rate of carboxylation in µmol CO<sub>2</sub> m^-2^ s^-1^, $C_i$ and $O_i$ the intercellular CO<sub>2</sub> concentration in µmol mol^-1^, and $K_c$ and $K_o$ are the Michaelis-Menten constants for CO<sub>2</sub> and O<sub>2</sub> in µmol mol^-1^, respectively.
+with $V_{cmax}$ the maximum rate of carboxylation in $micromol CO_{2} m^{-2} s^{-1}$, $C_i$ and $O_i$ the intercellular CO_{2} concentration in $micromol mol^{-1}$, and $K_c$ and $K_o$ are the Michaelis-Menten constants for CO<sub>2</sub> and O<sub>2</sub> in $micromol mol^{-1}$, respectively.
 
 Photorespiration releases 0.5 mole of $CO_2$
 $$
@@ -158,7 +156,7 @@ and Wj represents the rate of regeneration of the RuBP by light. It depends on e
 $$
 W_j=J\frac{C_i}{4C_i+8\Gamma^*}
 $$
-$J$ is the electron transport rate (in µmol m^-2^ s^-1^) for a given irradiance. 
+$J$ is the electron transport rate (in $micromol m^{-2} s^{-1}$) for a given irradiance. 
 
 The rate of electron transport is related to absorbed photosynthetically active radiation (PAR), the maximum electron transport rate and the amount of light utilized by photosystems. Different expressions can be found for J. We will use the most common form:
 
@@ -166,13 +164,13 @@ $$
 J=\frac{I_{abs}+J_{max}-\sqrt{(I_{abs}+J_{max})^2-4\theta_jI_{abs}J_{max}}}{2\theta_j}
 $$
 
-with $I_{abs}$ the absorbed PAR in µmol photon m^-2^ s^-1^, $\theta_j$ is the curvature of the light response curve and $J_{max}$ the maximal electron transport rate in µmol m^-2^ s^-1^.
+with $I_{abs}$ the absorbed PAR in $micromol photon m^{-2} s^{-1}$, $\theta_j$ is the curvature of the light response curve and $J_{max}$ the maximal electron transport rate in $micromol m^{-2} s^{-1}$.
 
 The absorbed incident radiation by the photosystem II ($I_{abs}$) depends on leaf absorptance $\alpha_l$ and the quantum yield of photosystem II $\phi_{PSII}$:
 $$
 I_{abs}=\frac{\phi_{PSII}}{2}\alpha_lI_r
 $$
-where $I_r$ is PAR in µmol m^-2^ s^-1^, and only one half of absorbed light reaches the PSII. 
+where $I_r$ is PAR in $micromol m^{-2} s^{-1}$, and only one half of absorbed light reaches the PSII. 
 
 In summary, a common form of the FvCB model represents photosynthetic CO<sub>2</sub> assimilation for plants utilizing the C3 photosynthetic pathway as limited by (i) Ac – the rate of Rubisco catalyzed carboxylation when RuBP is saturated (called Rubisco-limited photosynthesis because of its dependence on maximum Rubisco activity as set by Vcmax); and (ii) Aj – the rate of RuBP regeneration by light absorption and electron transport as determined by Jmax (RuBP regeneration-limited, or light-limited, photosynthesis).
 
@@ -192,7 +190,7 @@ $$
 
 
 Figure \@ref(fig:f28) illustrates the response of assimilation to intercellular $CO_2$ and light. We neglect TPU limitation ($A_p$) in the models we consider here. TPU limitation only occurs at elevated intercellular $CO_2$.
-```{r f28, fig.cap='Simulated responses of C3 photosynthesis in relation to (a) intercellular $CO_2$ (at I↓ = 2000 μmol m–2 s–1) and (b) photosynthetically active radiation (at ci = 266 μmol mol–1). (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+```{r f28, fig.cap='Simulated responses of C3 photosynthesis in relation to (a) intercellular $CO_2$ (at I↓ = 2000 micromol m–2 s–1) and (b) photosynthetically active radiation (at ci = 266 micromol mol–1). (Bonan 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/simulated_responses.jpg')
 ```
 
@@ -208,7 +206,7 @@ $$
 
 The FvCB model requires 6 physiological parameters: $K_c$, $K_o$, $\Gamma^*$, $V_{cmax}$, $J_{max}$ and $R_d$. Additionally, the specification of electron transport requires $\theta_j$ and $\phi_j$. Values for$K_c$, $K_o$ and $\Gamma^*$ are defined by the biochemistry of Rubisco and are similar among species. On the opposite, $V_{cmax}$ is species-dependent. 
 
-$V_{cmax}$ is a key parameter in the FvCB model. It directly determines the Rubisco-limited rate $A_c$ and, for C3 plants, also influences the RuBP regeneration-limited rate $A_j$ though its covariation with $J_max$. The maximum rate of carboxylation has a wide range among plant species and environments and is tightly linked to leaf nitrogen content; reported values for 109 species of C3 plants vary from less than 10 to more than 150 μmol m^–2^ s^–1^.
+$V_{cmax}$ is a key parameter in the FvCB model. It directly determines the Rubisco-limited rate $A_c$ and, for C3 plants, also influences the RuBP regeneration-limited rate $A_j$ though its covariation with $J_max$. The maximum rate of carboxylation has a wide range among plant species and environments and is tightly linked to leaf nitrogen content; reported values for 109 species of C3 plants vary from less than 10 to more than 150 $micromol m^{–2} s^{–1}$.
 
 Because $J_{max}$ is well correlated to $V_cmax$, it can be approximated to:
 $$
