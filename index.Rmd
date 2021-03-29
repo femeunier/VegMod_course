@@ -3,6 +3,7 @@ title: "Vegetation modelling"
 author: "Hans Verbeeck, Félicien Meunier, Marc Peaucelle"
 date: "`r Sys.Date()`"
 output: pdf_document
+latex_engine: xelatex
 header-includes:
 - \usepackage{caption}
 geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
