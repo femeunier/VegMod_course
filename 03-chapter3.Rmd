@@ -80,6 +80,8 @@ knitr::include_graphics('figures/chap3/f37_leaf_optical.jpg')
 
 The albedo of the total canopy is typically lower than that of its individual leaves, as light that is transmitted or reflected by one leave can be absorbed by another leaf (multiple scattering) (see Table below). Reflectance of needles is lower than the reflectance of broadleaves. 
 
+\breakpage
+
 \begin{center}
 \captionof{table}{Table showing typical reflectance and absorptance values for leaves and vegetation canopies of different Plant Functional Types (PFT).(Jones, 2014)}
 \label{table:reflectance}
@@ -177,7 +179,7 @@ $$
 L_{sun} = \frac{\left(1 - e^{-K_b L} \right)}{K_b}
 $$
 
-$L_sun$: integrated over the whole canopy. Based on this equation you can calculated the amount of leaves that is sunlit in the canopy. And also the shade fraction based on the difference with the total LAI.
+$L_{sun}$: integrated over the whole canopy. Based on this equation you can calculated the amount of leaves that is sunlit in the canopy. And also the shade fraction based on the difference with the total LAI.
 
 In the example below (Fig. \@ref(fig:f313)) the sunlit and total LAI are compared between a vegetation with horizontal and with vertical foliage. The latter has more sunlit leaves, as top leaves don’t shade the underlaying leaves. In the horizontal foliage, more light is absorbed, so less light is transmitted than in the vertical foliage.
 
