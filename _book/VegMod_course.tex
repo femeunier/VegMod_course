@@ -1611,6 +1611,7 @@ typically expressed as a photon flux density (micromols of photons per
 m² per s). The lower the zenith angle (higher sun), the higher the PAR
 fraction in the diffuse and direct radiation that reaches the earth
 surface. The relative PAR fraction is higher in diffuse radiation.
+
 Secondly, we need to refresh some basics on canopy structure parameters.
 The leaf area index (LAI) is the total leaf area per unit of ground
 area. Sometimes it is also defined as the total double-sided surface of
@@ -1622,8 +1623,8 @@ generalized example of the leaf area density distribution for different
 vegetation types. The peak of leaf area density is different depending
 on the vegetation type, with a peak higher in the vegetation for forests
 and more in the middle for grass. The total LAI is calculated by
-integrating the function a(z) showed in figure \ref{fig:f31} over the
-height. If you keep in mind that trees are higher than grass, it is
+integrating the function \(a(z)\) showed in figure \ref{fig:f31} over
+the height. If you keep in mind that trees are higher than grass, it is
 clear that the total LAI will be bigger for trees than for grass.
 
 \[
@@ -1716,9 +1717,18 @@ Light extinction follows a typical exponential course when it is
 observed at multiple heights in vegetation, it decreases very fast at
 the top of the canopy, with almost no light reaching the soil in this
 example (Fig. \ref{fig:f36}). We can conclude that radiative transfer in
-the canopy depends on: - the LAI (amount of leaves), - the optical
-properties (which depend on the morphology and chemical composition) of
-the leaves - the organization of the leaves (architecture, angles,..)
+the canopy depends on:
+
+\begin{itemize}
+\tightlist
+\item
+  the LAI (amount of leaves),
+\item
+  the optical properties (which depend on the morphology and chemical
+  composition) of the leaves
+\item
+  the organization of the leaves (architecture, angles,..)
+\end{itemize}
 
 \begin{figure}
 
@@ -1762,17 +1772,17 @@ with vertical and horizontal variation.
 \subsection{Leaf optical properties}\label{leaf-optical-properties}
 
 What happens to light when it reaches a leaf? It can be absorbed,
-reflected or transmitted. We express these in relative fractions as ρ =
-reflectance (albedo), τ = transmittance, α = absorbance. Leaves absorb
-PAR, with a small negative peak at the green light, which they reflect
-more compared to blue and red light. Also in the infrared wavelength
-band, radiation is absorbed (mostly longwave radiation). UV light is
-absorbed by the cuticula to protect the leaves. The reflectance and
-transmittance curves are inverse curves from the absorptance curve.
-Here, infrared radiation and green light are reflected/transmitted. The
-clear difference between VIS and NIR is used in remote sensing for
-vegetation indices (e.g.~NDVI). Transmittance depends on the thickness
-of the leave.
+reflected or transmitted. We express these in relative fractions as
+\(\rho\) = reflectance (albedo), \(\tau\) = transmittance, \(\alpha\) =
+absorbance. Leaves absorb PAR, with a small negative peak at the green
+light, which they reflect more compared to blue and red light. Also in
+the infrared wavelength band, radiation is absorbed (mostly longwave
+radiation). UV light is absorbed by the cuticula to protect the leaves.
+The reflectance and transmittance curves are inverse curves from the
+absorptance curve. Here, infrared radiation and green light are
+reflected/transmitted. The clear difference between VIS and NIR is used
+in remote sensing for vegetation indices (e.g.~NDVI). Transmittance
+depends on the thickness of the leave.
 
 \begin{figure}
 
@@ -1801,10 +1811,10 @@ scattering}\label{light-transmission-without-scattering}
 
 The most basic radiative transfer models, do not consider scattering (no
 reflection on the leaf). The Beer-Bouguer-Lambert law describes the
-attenuation of light through a homogeneous medium with thickness dz in
-absence of scattering. The absorbed radiation is proportional to the
+attenuation of light through a homogeneous medium with thickness \(dz\)
+in absence of scattering. The absorbed radiation is proportional to the
 thickness of the medium, the amount of light that comes in and a
-constant K.
+constant \(K\).
 
 \[
 dI^{\downarrow} = -KI^\downarrow dz
@@ -1813,17 +1823,17 @@ dI^{\downarrow} = -KI^\downarrow dz
 with \(dz\): thickness; \(I^\downarrow\): incoming radiation; \(K\):
 constant; \(dI^\downarrow\): absorbed radiation in the medium.
 
-After integration we can calculate the radiation I leaving the medium
-from I0, the radiation intensity entering the medium.
+After integration we can calculate the radiation \(I\) leaving the
+medium from \(I_0\), the radiation intensity entering the medium.
 
 \[
 I^{\downarrow} = I^{\downarrow}_0\cdot e^{-Kz}
 \]
 
 For leaves in a canopy, and based on probability theory, Monsi and Saeki
-(1953) applied the Beer law for a volume with crown thickness dz, with
-randomly distributed horizontal elements (leaves) with density N (number
-of elements per volume) (Fig. \ref{fig:f39}).
+(1953) applied the Beer law for a volume with crown thickness \(dz\),
+with randomly distributed horizontal elements (leaves) with density
+\(N\) (number of elements per volume, see Fig. \ref{fig:f39}.
 
 \[
 dI^{\downarrow} = - I^{\downarrow} a N dz
@@ -1937,18 +1947,19 @@ we can calculate the actual sunlit leaf area within a certain layer:
 
 Where \(\Delta L\) is the actual amount of leaves in that layer, this
 formula calculates the difference between the sunlit fraction at the top
-of the layer minus the ``reduction of sunlit fraction''" within the
+of the layer minus the ``reduction of sunlit fraction'' within the
 layer. If we apply that formula on a full canopy we can calculate the
 sunlit leaf area of the full canopy \(L_{sun}\):
 
 \[
-L_{sun} = \frac{\left(1 - e^{-K_b  L} \right)}{K_b}
+L_{sun} = \frac{\left(1 - e^{-K_b L} \right)}{K_b}
 \]
 
 \(L_sun\): integrated over the whole canopy. Based on this equation you
 can calculated the amount of leaves that is sunlit in the canopy. And
-also the shade fraction based on the difference with the total LAI. In
-the example below (Fig. \ref{fig:f313}) the sunlit and total LAI are
+also the shade fraction based on the difference with the total LAI.
+
+In the example below (Fig. \ref{fig:f313}) the sunlit and total LAI are
 compared between a vegetation with horizontal and with vertical foliage.
 The latter has more sunlit leaves, as top leaves don't shade the
 underlaying leaves. In the horizontal foliage, more light is absorbed,
@@ -1984,12 +1995,12 @@ leaves and canopies are not distributed randomly in space, but occur
 clumped. Leaf clumping means that leaves appear in groups and that there
 are larger gaps in between. Clumping can occur at different scales: at
 leaf level, canopy level or landscape level (Fig.\ref{fig:f315}). The
-clumping factor (Ω) adjusts the amount of light that goes through the
-vegetation (more light passes through). The factor is added in the
-radiation extinction equations to adjust the extinction coefficient.
-Where a clumping factor of 1 represents randomly distributed leaves,
-while values lower then 1 represent clumped leaves (e.g.~0.74 for
-needleleaf evergreen forest).
+clumping factor (\(\Omega\)) adjusts the amount of light that goes
+through the vegetation (more light passes through). The factor is added
+in the radiation extinction equations to adjust the extinction
+coefficient. Where a clumping factor of 1 represents randomly
+distributed leaves, while values lower then 1 represent clumped leaves
+(e.g.~0.74 for needleleaf evergreen forest).
 
 \[
 I^{\downarrow} = I^{\downarrow}_{sky,b}\cdot e^{-K_b \Omega L}
@@ -2015,8 +2026,8 @@ into the canopy. The formula below represents the diffuse transmittance.
 The last part of the equation represents the contribution of a certain
 sky angle to the total sky irradiation (e.g.~contribution of zenith
 angle between Z1 and Z2 in Fig.\ref{fig:f316}). The exponential curve
-with the leaf area L is the light extinction curve, but here it is also
-integrated over the zenith angle.
+with the leaf area \(L\) is the light extinction curve, but here it is
+also integrated over the zenith angle.
 
 \[
 \tau_d = \frac{I^{\downarrow}}{I^{\downarrow}_{sky,d}} \int_0^{\pi/2} exp\left[- \frac{G(Z)}{cosZ}L \right] sinZcosZdz
@@ -2028,7 +2039,7 @@ integrated over the zenith angle.
 
 }
 
-\caption{Illustration of direct beam and diffuse radiation. The sky forms a bowl, or inverted hemisphere, over a horizontal surface. Shown is a cross section of the sky hemisphere. Direct beam (solid line) originates from the    direction of the Sun with zenith angle Ζ. Diffuse radiation (dashed lines) can be treated as independent beams of radiation each with an angle Ζ. The shaded region is the relative contribution between sky angles Ζ1 and Ζ2 to total sky irradiance.(Bonan)}\label{fig:f316}
+\caption{Illustration of direct beam and diffuse radiation. The sky forms a bowl, or inverted hemisphere, over a horizontal surface. Shown is a cross section of the sky hemisphere. Direct beam (solid line) originates from the  direction of the Sun with zenith angle Ζ. Diffuse radiation (dashed lines) can be treated as independent beams of radiation each with an angle Ζ. The shaded region is the relative contribution between sky angles Ζ1 and Ζ2 to total sky irradiance.(Bonan)}\label{fig:f316}
 \end{figure}
 
 The more leaves, the less diffuse light is transmitted through the
@@ -2053,11 +2064,12 @@ transmittance for diffuse light (omnidirectional), the solid lines
 indicate the transmittance for direct light at different solar zenith
 angles. The transmittance of diffuse light is higher than that of direct
 light for solar zenith angles greater than 40-50°, direct light
-penetrates less easy through the canopy compared to diffuse light. It is
-important to include diffuse radiation into models as it penetrates
-deeper into the canopy, it is shifted towards the blue light, which is
-used by plants for photosynthesis, and because plants depend on it in
-cloudy conditions.
+penetrates less easy through the canopy compared to diffuse light.
+
+It is important to include diffuse radiation into models as it
+penetrates deeper into the canopy, it is shifted towards the blue light,
+which is used by plants for photosynthesis, and because plants depend on
+it in cloudy conditions.
 
 \begin{figure}
 
@@ -2114,10 +2126,10 @@ light (under cloudy conditions).
 \subsection{The Two-Stream
 approximation}\label{the-two-stream-approximation}
 
-This model takes `the best of both worlds'. It is called ``two stream''
-because it calculates light penetration separately for direct and
-diffuse radiation, but it has an analytical solution. It can be used for
-multilayer models.
+This model takes ``the best of both worlds''. It is called ``two
+stream''" because it calculates light penetration separately for direct
+and diffuse radiation, but it has an analytical solution. It can be used
+for multilayer models.
 
 \begin{figure}
 
@@ -2128,9 +2140,9 @@ multilayer models.
 \caption{Fluxes for (a) direct beam and (b) diffuse radiation in the twostream approximation for a canopy with leaf area index L.(Bonan)}\label{fig:f321}
 \end{figure}
 
-The three approaches (Norman/ Goudriaan / two stream) are all based on
-the same theory. They are implemented in a different way, but the
-results are very similar for direct light. However they show substantial
+The three approaches (Norman/Goudriaan/two stream) are all based on the
+same theory. They are implemented in a different way, but the results
+are very similar for direct light. However they show substantial
 deviations for diffuse light, shaded leaves and denser canopies.
 
 \subsection{Longwave radiation}\label{longwave-radiation}
@@ -2174,15 +2186,15 @@ the average stomatal conductance of the whole forest.
 \caption{Scaling of leaf fluxes to the canopy using a big-leaf model. (a) Shown are leaf sensible heat, transpiration, and CO2 fluxes in relation to various conductances. Fluxes are exchanged between the leaf and air around the leaf. Also shown is the total resistance. (b) Shown are big-leaf canopy fluxes in which leaf fluxes are scaled by the average conductance and leaf area index and are further modified by turbulent transport in the atmospheric surface layer. Surface layer processes are commonly omitted for CO2 exchange. Only a single big leaf is shown, but separate sunlit and shaded big leaves can be similarly depicted. (Bonan)}\label{fig:f323}
 \end{figure}
 
-I tis not an easy task to integrate GPP (e.g.~calculated by the Farquhar
+It is not an easy task to integrate GPP (e.g.~calculated by the Farquhar
 model of Chapter 2) over a canopy represented by a big leaf. We cannot
 just give the total light absorbed by the canopy to a photosynthesis
 model, as we need to account for the non-linearity in the process. The
 task is easier if Amax is assumed to decrease exponentially together
 with light availability I the canopy, which is a reasonable assumption,
 as we know that leaf nitrogen content is decreasing from the top to the
-bottom of the canopy. As such we are assuming a `photosynthesis
-extinction' instead of a light extinction in the canopy.
+bottom of the canopy. As such we are assuming a ``photosynthesis
+extinction''" instead of a light extinction in the canopy.
 
 \[
 GPP = \int_0^LA(x)dx
@@ -2236,7 +2248,7 @@ to simulate leaf water potential and its influence on stomatal
 conductance. Such models are computationally expensive, especially
 because they is solved for each layer a set of equations in an iterative
 way (Fig. \ref{fig:f326}). Nevertheless, such multilayer models are very
-common I large scale land surface models. Be aware that horizontal
+common in large scale land surface models. Be aware that horizontal
 heterogeneity is not considered in these models, see later chapters for
 that.
 
@@ -2338,15 +2350,16 @@ The net radiation is the input of energy to the ecosystem which is
 dissipated via multiple loss terms: latent heat (evapotranspiration),
 sensible heat flux, ground heat flux and energy storage (in the biomass
 of the ecosystem). Most of the energy goes to the latent heat to
-well-watered active vegetation (e.g.~a beach forest in summer). It is
-really important to close the energy balance in models. All factors in
-the equation can be formulated in terms of input factors of the model,
-such as incoming radiation, and in function of the surface temperature.
-The equation below is rewriting the above equation in terms of surface
-temperature.
+well-watered active vegetation (e.g.~a beach forest in summer).
+
+It is really important to close the energy balance in models. All
+factors in the equation can be formulated in terms of input factors of
+the model, such as incoming radiation, and in function of the surface
+temperature. The equation below is rewriting the above equation in terms
+of surface temperature.
 
 \[
-\sum_{\Lambda} (1 - \rho_{\Lambda} ) S^{\downarrow}_{\Lambda} + \epsilon  L^{\downarrow} = Q_{a} \\ = \epsilon \sigma \theta_s^{4} + c_p ( \theta_s - \theta_{ref} ) g_{ac} + \frac{\lambda \left[ q_{sat} ( \theta_s ) - q_{ref} \right] }{ g_c^{-1} + g_{ac}^{-1}} + \frac{k}{\Delta z} (\theta_s - T_1)
+\sum_{\Lambda} (1 - \rho_{\Lambda} ) S^{\downarrow}_{\Lambda} + \epsilon L^{\downarrow} = Q_{a} \\ = \epsilon \sigma \theta_s^{4} + c_p ( \theta_s - \theta_{ref} ) g_{ac} + \frac{\lambda \left[ q_{sat} ( \theta_s ) - q_{ref} \right] }{ g_c^{-1} + g_{ac}^{-1}} + \frac{k}{\Delta z} (\theta_s - T_1)
 \]
 
 Where \(S\) input energy (shortwave) in a certain wave length band
@@ -2465,18 +2478,20 @@ nitrogen deposition) on the GPP (Gross Primary Production) and as well
 carbon pools below GPP and respiration activities, generally, the whole
 carbon cycle, this on a daily time interval for each pixel. It makes use
 of various satellite data (assimilate LAI) and LUE (light-use
-efficiency) models. Running these simulations on three LAI series, it
-stated that the enhancement of LAI contributed 12,4\% to the accumulated
-carbon sink. In satellite observations it was observed that the global
-leaf area index has increased over the past 40 years, and they wanted to
-investigate whether this has had an effect on global carbon sink. The
-model used in this study is driven by remote sensing data, it is a
-diagnostic and not really a process-based model. The model calculates
-the GPP based on the equation (seen today) which used LAIshade and
-LAIsun based on similar equation with exponential function, clumping
-factor and so on. The study aims to quantify how much the LAI increase
-is contributing to the simulated carbon uptake globally. Map shows the
-trends of the LAI in the world.
+efficiency) models.
+
+Running these simulations on three LAI series, it stated that the
+enhancement of LAI contributed 12,4\% to the accumulated carbon sink. In
+satellite observations it was observed that the global leaf area index
+has increased over the past 40 years, and they wanted to investigate
+whether this has had an effect on global carbon sink. The model used in
+this study is driven by remote sensing data, it is a diagnostic and not
+really a process-based model. The model calculates the GPP based on the
+equation (seen today) which used LAIshade and LAIsun based on similar
+equation with exponential function, clumping factor and so on. The study
+aims to quantify how much the LAI increase is contributing to the
+simulated carbon uptake globally. Map shows the trends of the LAI in the
+world.
 
 \begin{figure}
 
