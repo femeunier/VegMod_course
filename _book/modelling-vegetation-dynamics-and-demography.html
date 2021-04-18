@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Modelling Vegetation Dynamics and Demography | Vegetation modelling</title>
+  <meta name="description" content="Syllabus associated to the course XX taught at Ghent University" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Modelling Vegetation Dynamics and Demography | Vegetation modelling" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Syllabus associated to the course XX taught at Ghent University" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Modelling Vegetation Dynamics and Demography | Vegetation modelling" />
+  
+  <meta name="twitter:description" content="Syllabus associated to the course XX taught at Ghent University" />
+  
+
+<meta name="author" content="Hans Verbeeck, Félicien Meunier, Marc Peaucelle" />
+
+
+<meta name="date" content="2021-04-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="modelling-c-allocation-and-biogeochemical-cycles.html"/>
+<link rel="next" href="representing-functional-biodiversity-in-vegetation-models.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#the-central-role-of-vegetation-in-the-earth-system"><i class="fa fa-check"></i><b>1.1</b> The central role of vegetation in the Earth system</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#why-do-we-need-modelling"><i class="fa fa-check"></i><b>1.2</b> Why do we need modelling?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#model-types"><i class="fa fa-check"></i><b>1.3</b> Model types</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#the-history-of-vegetation-models"><i class="fa fa-check"></i><b>1.4</b> The history of vegetation models</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#components-of-a-model"><i class="fa fa-check"></i><b>1.5</b> Components of a model</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="intro.html"><a href="intro.html#processes"><i class="fa fa-check"></i><b>1.5.1</b> Processes</a></li>
+<li class="chapter" data-level="1.5.2" data-path="intro.html"><a href="intro.html#equations"><i class="fa fa-check"></i><b>1.5.2</b> Equations</a></li>
+<li class="chapter" data-level="1.5.3" data-path="intro.html"><a href="intro.html#parameters"><i class="fa fa-check"></i><b>1.5.3</b> Parameters</a></li>
+<li class="chapter" data-level="1.5.4" data-path="intro.html"><a href="intro.html#time-steps"><i class="fa fa-check"></i><b>1.5.4</b> Time Steps</a></li>
+<li class="chapter" data-level="1.5.5" data-path="intro.html"><a href="intro.html#spatial-structure"><i class="fa fa-check"></i><b>1.5.5</b> Spatial structure</a></li>
+<li class="chapter" data-level="1.5.6" data-path="intro.html"><a href="intro.html#model-code-complexity-and-uncertainty"><i class="fa fa-check"></i><b>1.5.6</b> Model code, complexity and uncertainty</a></li>
+<li class="chapter" data-level="1.5.7" data-path="intro.html"><a href="intro.html#data"><i class="fa fa-check"></i><b>1.5.7</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#modelling-workflow-and-structure-of-the-course"><i class="fa fa-check"></i><b>1.6</b> Modelling workflow and structure of the course</a></li>
+</ul></li>
+<li class="part"><span><b>I Biophysical and physiological models</b></span></li>
+<li class="chapter" data-level="2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html"><i class="fa fa-check"></i><b>2</b> Modelling plant basic processes</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#photosynthesis-models"><i class="fa fa-check"></i><b>2.1</b> Photosynthesis models</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#refreshing-the-basic-knowledge"><i class="fa fa-check"></i><b>2.1.1</b> Refreshing the basic knowledge</a></li>
+<li class="chapter" data-level="2.1.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#c3-photosynthesis"><i class="fa fa-check"></i><b>2.1.2</b> C3 photosynthesis</a></li>
+<li class="chapter" data-level="2.1.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#parameter-and-temperature-dependencies"><i class="fa fa-check"></i><b>2.1.3</b> Parameter and temperature dependencies</a></li>
+<li class="chapter" data-level="2.1.4" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#c4-photosynthesis"><i class="fa fa-check"></i><b>2.1.4</b> C4 photosynthesis</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#stomatal-models"><i class="fa fa-check"></i><b>2.2</b> Stomatal models</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#refreshing-the-basic-knowledge-1"><i class="fa fa-check"></i><b>2.2.1</b> Refreshing the basic knowledge</a></li>
+<li class="chapter" data-level="2.2.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#empirical-multiplicative-models"><i class="fa fa-check"></i><b>2.2.2</b> Empirical multiplicative models</a></li>
+<li class="chapter" data-level="2.2.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#semi-empirical-photosynthesis-based-models"><i class="fa fa-check"></i><b>2.2.3</b> Semi-empirical photosynthesis-based models</a></li>
+<li class="chapter" data-level="2.2.4" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#wue-models-and-optimality-theory"><i class="fa fa-check"></i><b>2.2.4</b> WUE models and optimality theory</a></li>
+<li class="chapter" data-level="2.2.5" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#soil-drought-stress"><i class="fa fa-check"></i><b>2.2.5</b> Soil drought stress</a></li>
+<li class="chapter" data-level="2.2.6" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#hydraulic-models"><i class="fa fa-check"></i><b>2.2.6</b> Hydraulic models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#upscaling-from-leaf-to-canopy"><i class="fa fa-check"></i><b>2.3</b> Upscaling from leaf to canopy</a></li>
+<li class="chapter" data-level="2.4" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#case-studies"><i class="fa fa-check"></i><b>2.4</b> Case studies</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#case-study-2.1-ozone-impact-on-global-gpp"><i class="fa fa-check"></i><b>2.4.1</b> Case study 2.1 Ozone impact on global GPP</a></li>
+<li class="chapter" data-level="2.4.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#case-study-2.2-drought-impact-on-rainforest-gpp"><i class="fa fa-check"></i><b>2.4.2</b> Case study 2.2 Drought impact on rainforest GPP</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html"><i class="fa fa-check"></i><b>3</b> Modelling radiation, vegetation canopies, and energy balance</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#radiative-transfer-modelling"><i class="fa fa-check"></i><b>3.2</b> Radiative transfer modelling</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#leaf-optical-properties"><i class="fa fa-check"></i><b>3.2.1</b> Leaf optical properties</a></li>
+<li class="chapter" data-level="3.2.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#light-transmission-without-scattering"><i class="fa fa-check"></i><b>3.2.2</b> Light transmission without scattering</a></li>
+<li class="chapter" data-level="3.2.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#diffuse-transmittance"><i class="fa fa-check"></i><b>3.2.3</b> Diffuse transmittance</a></li>
+<li class="chapter" data-level="3.2.4" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#the-norman-model1979"><i class="fa fa-check"></i><b>3.2.4</b> The Norman Model(1979)</a></li>
+<li class="chapter" data-level="3.2.5" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#the-goudriaan-and-van-laar-model-1994"><i class="fa fa-check"></i><b>3.2.5</b> The Goudriaan and van Laar Model (1994)</a></li>
+<li class="chapter" data-level="3.2.6" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#the-two-stream-approximation"><i class="fa fa-check"></i><b>3.2.6</b> The Two-Stream approximation</a></li>
+<li class="chapter" data-level="3.2.7" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#longwave-radiation"><i class="fa fa-check"></i><b>3.2.7</b> Longwave radiation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#representing-canopy-structure-in-models"><i class="fa fa-check"></i><b>3.3</b> Representing canopy structure in models</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#big-leaf-models"><i class="fa fa-check"></i><b>3.3.1</b> Big-leaf models</a></li>
+<li class="chapter" data-level="3.3.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#multilayer-models"><i class="fa fa-check"></i><b>3.3.2</b> Multilayer models</a></li>
+<li class="chapter" data-level="3.3.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#d-ray-tracing-models"><i class="fa fa-check"></i><b>3.3.3</b> 3D ray tracing models</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#ecosystem-energy-balance"><i class="fa fa-check"></i><b>3.4</b> Ecosystem energy balance</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#basic-principles"><i class="fa fa-check"></i><b>3.4.1</b> Basic principles</a></li>
+<li class="chapter" data-level="3.4.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#surface-radiation-balance"><i class="fa fa-check"></i><b>3.4.2</b> Surface radiation balance</a></li>
+<li class="chapter" data-level="3.4.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#bulk-surface-energy-balance"><i class="fa fa-check"></i><b>3.4.3</b> Bulk surface energy balance</a></li>
+<li class="chapter" data-level="3.4.4" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#leaf-energy-balance"><i class="fa fa-check"></i><b>3.4.4</b> Leaf energy balance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#case-studies-1"><i class="fa fa-check"></i><b>3.5</b> Case studies</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#case-study-3.1"><i class="fa fa-check"></i><b>3.5.1</b> Case study 3.1</a></li>
+<li class="chapter" data-level="3.5.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#case-study-3.2"><i class="fa fa-check"></i><b>3.5.2</b> Case study 3.2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html"><i class="fa fa-check"></i><b>4</b> Modelling temporal and seasonal dynamics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#introduction-on-temporal-dynamics"><i class="fa fa-check"></i><b>4.1</b> Introduction on temporal dynamics</a></li>
+<li class="chapter" data-level="4.2" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#phenology-the-background"><i class="fa fa-check"></i><b>4.2</b> Phenology: the background</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#trends-in-phenology"><i class="fa fa-check"></i><b>4.2.1</b> Trends in phenology</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#leaf-phenology-models"><i class="fa fa-check"></i><b>4.3</b> Leaf phenology models</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#prescribed-phenology"><i class="fa fa-check"></i><b>4.3.1</b> Prescribed phenology</a></li>
+<li class="chapter" data-level="4.3.2" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#budburst-models"><i class="fa fa-check"></i><b>4.3.2</b> Budburst models</a></li>
+<li class="chapter" data-level="4.3.3" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#snescence-models"><i class="fa fa-check"></i><b>4.3.3</b> Snescence models</a></li>
+<li class="chapter" data-level="4.3.4" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#leaf-age"><i class="fa fa-check"></i><b>4.3.4</b> Leaf age</a></li>
+<li class="chapter" data-level="4.3.5" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#phenology-in-dgvms"><i class="fa fa-check"></i><b>4.3.5</b> Phenology in DGVMs</a></li>
+<li class="chapter" data-level="4.3.6" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#phenology-in-the-tropics"><i class="fa fa-check"></i><b>4.3.6</b> Phenology in the tropics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#case-studies-2"><i class="fa fa-check"></i><b>4.4</b> Case studies</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#case-study-4.1"><i class="fa fa-check"></i><b>4.4.1</b> Case study 4.1</a></li>
+<li class="chapter" data-level="4.4.2" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#case-study-4.2"><i class="fa fa-check"></i><b>4.4.2</b> Case study 4.2</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Modelling vegetation dynamics</b></span></li>
+<li class="chapter" data-level="5" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html"><i class="fa fa-check"></i><b>5</b> Modelling C-allocation and biogeochemical cycles</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#carbon-cycle-models-stocks-and-fluxes"><i class="fa fa-check"></i><b>5.2</b> Carbon cycle models: stocks and fluxes</a></li>
+<li class="chapter" data-level="5.3" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#carbon-allocation-models"><i class="fa fa-check"></i><b>5.3</b> Carbon allocation models</a></li>
+<li class="chapter" data-level="5.4" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#soil-biogeochemistry-models"><i class="fa fa-check"></i><b>5.4</b> Soil biogeochemistry models</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#decomposition-models"><i class="fa fa-check"></i><b>5.4.1</b> Decomposition models</a></li>
+<li class="chapter" data-level="5.4.2" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#nutrient-cycle-models"><i class="fa fa-check"></i><b>5.4.2</b> NUtrient cycle models</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#water-balance-models"><i class="fa fa-check"></i><b>5.5</b> Water balance models</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html"><i class="fa fa-check"></i><b>6</b> Modelling Vegetation Dynamics and Demography</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#gap-models-area-and-cohort-based-models"><i class="fa fa-check"></i><b>6.2</b> Gap models, area and cohort based models</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#area-based-models"><i class="fa fa-check"></i><b>6.2.1</b> Area based models</a></li>
+<li class="chapter" data-level="6.2.2" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#gap-models"><i class="fa fa-check"></i><b>6.2.2</b> Gap models</a></li>
+<li class="chapter" data-level="6.2.3" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#cohort-based-models"><i class="fa fa-check"></i><b>6.2.3</b> Cohort based models</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#growth-and-allometric-relations-in-demographic-models"><i class="fa fa-check"></i><b>6.3</b> Growth and allometric relations in demographic models</a></li>
+<li class="chapter" data-level="6.4" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#competition-for-light-in-demographic-models"><i class="fa fa-check"></i><b>6.4</b> Competition for light in demographic models</a></li>
+<li class="chapter" data-level="6.5" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#competition-for-water-and-nutrients-in-demographic-models"><i class="fa fa-check"></i><b>6.5</b> Competition for water and nutrients in demographic models</a></li>
+<li class="chapter" data-level="6.6" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#seed-dispersal-and-recruitment"><i class="fa fa-check"></i><b>6.6</b> Seed dispersal and recruitment</a></li>
+<li class="chapter" data-level="6.7" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#mortality"><i class="fa fa-check"></i><b>6.7</b> Mortality</a></li>
+<li class="chapter" data-level="6.8" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#conclusion"><i class="fa fa-check"></i><b>6.8</b> Conclusion</a></li>
+<li class="chapter" data-level="6.9" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#case-study-6.1"><i class="fa fa-check"></i><b>6.9</b> Case study 6.1</a></li>
+<li class="chapter" data-level="6.10" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#case-study-6.2"><i class="fa fa-check"></i><b>6.10</b> Case study 6.2</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html"><i class="fa fa-check"></i><b>7</b> Representing functional biodiversity in vegetation models</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#functional-diversity"><i class="fa fa-check"></i><b>7.2</b> Functional diversity</a></li>
+<li class="chapter" data-level="7.3" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#representing-400.000-plant-species-in-a-single-model-the-pft-approach"><i class="fa fa-check"></i><b>7.3</b> Representing 400.000 plant species in a single model: the PFT approach</a></li>
+<li class="chapter" data-level="7.4" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#limitations-of-the-pft-concept"><i class="fa fa-check"></i><b>7.4</b> Limitations of the PFT concept</a></li>
+<li class="chapter" data-level="7.5" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#alternative-approaches-to-account-for-trait-variability"><i class="fa fa-check"></i><b>7.5</b> Alternative approaches to account for trait variability</a></li>
+<li class="chapter" data-level="7.6" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#case-study-7.1"><i class="fa fa-check"></i><b>7.6</b> Case study 7.1</a></li>
+<li class="chapter" data-level="7.7" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#case-study-7.2"><i class="fa fa-check"></i><b>7.7</b> Case study 7.2</a></li>
+</ul></li>
+<li class="part"><span><b>III Upscaling and applications</b></span></li>
+<li class="chapter" data-level="8" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html"><i class="fa fa-check"></i><b>8</b> Spatial heterogeneity, landscape scale and disturbance</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#introduction-landscape-scale"><i class="fa fa-check"></i><b>8.1</b> Introduction: landscape scale</a></li>
+<li class="chapter" data-level="8.2" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#land-use-change"><i class="fa fa-check"></i><b>8.2</b> Land use change</a></li>
+<li class="chapter" data-level="8.3" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#disturbance"><i class="fa fa-check"></i><b>8.3</b> Disturbance</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#fire"><i class="fa fa-check"></i><b>8.3.1</b> Fire</a></li>
+<li class="chapter" data-level="8.3.2" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#herbivory-case-study-8.1"><i class="fa fa-check"></i><b>8.3.2</b> Herbivory (Case study 8.1)</a></li>
+<li class="chapter" data-level="8.3.3" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#forest-management"><i class="fa fa-check"></i><b>8.3.3</b> Forest management</a></li>
+<li class="chapter" data-level="8.3.4" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#case-study-8.2"><i class="fa fa-check"></i><b>8.3.4</b> Case study 8.2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html"><i class="fa fa-check"></i><b>9</b> Upscaling from the leaf to the globe</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#spatial-and-temporal-non-linearities-cascading-effect-in-the-earth-system"><i class="fa fa-check"></i><b>9.1</b> Spatial and temporal non-linearities: Cascading effect in the Earth system</a></li>
+<li class="chapter" data-level="9.2" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#land-surface-models"><i class="fa fa-check"></i><b>9.2</b> Land surface models</a></li>
+<li class="chapter" data-level="9.3" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#dvgms-as-a-part-of-earth-system-models"><i class="fa fa-check"></i><b>9.3</b> DVGMs as a part of Earth System Models</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#one-biosphere"><i class="fa fa-check"></i><b>9.3.1</b> One Biosphere</a></li>
+<li class="chapter" data-level="9.3.2" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#atmosphere-ocean-lakes-and-urban-areas"><i class="fa fa-check"></i><b>9.3.2</b> Atmosphere, Ocean, lakes and urban areas</a></li>
+<li class="chapter" data-level="9.3.3" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#coupling-of-processes-with-different-time-steps-and-regional-scale"><i class="fa fa-check"></i><b>9.3.3</b> Coupling of processes with different time steps and regional scale</a></li>
+<li class="chapter" data-level="9.3.4" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#simulating-feedbacks"><i class="fa fa-check"></i><b>9.3.4</b> Simulating feedbacks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html"><i class="fa fa-check"></i><b>10</b> Model projections and scenario analysis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#climate-scenarios"><i class="fa fa-check"></i><b>10.1</b> Climate scenarios</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#representative-concentration-pathway-rcp-scenarios"><i class="fa fa-check"></i><b>10.1.1</b> Representative Concentration Pathway (RCP scenarios)</a></li>
+<li class="chapter" data-level="10.1.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#different-models-different-rcp"><i class="fa fa-check"></i><b>10.1.2</b> Different models, different RCP</a></li>
+<li class="chapter" data-level="10.1.3" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#use-of-rcp-in-vegetation-modelling"><i class="fa fa-check"></i><b>10.1.3</b> Use of RCP in vegetation modelling</a></li>
+<li class="chapter" data-level="10.1.4" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#how-can-we-evaluate-future-scenarios"><i class="fa fa-check"></i><b>10.1.4</b> How can we evaluate future scenarios?</a></li>
+<li class="chapter" data-level="10.1.5" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#the-central-role-of-paleo-studies-and-historical-datasets."><i class="fa fa-check"></i><b>10.1.5</b> The central role of Paleo studies and historical datasets.</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#land-use-scenarios"><i class="fa fa-check"></i><b>10.2</b> Land-use scenarios</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#construction-of-land-use-scenarios"><i class="fa fa-check"></i><b>10.2.1</b> Construction of Land-use scenarios</a></li>
+<li class="chapter" data-level="10.2.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#how-can-we-evaluate-land-use-scenarios"><i class="fa fa-check"></i><b>10.2.2</b> How can we evaluate land use scenarios?</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#management-scenarios"><i class="fa fa-check"></i><b>10.3</b> Management scenarios</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#construction-of-land-use-scenarios-1"><i class="fa fa-check"></i><b>10.3.1</b> Construction of Land-use scenarios</a></li>
+<li class="chapter" data-level="10.3.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#how-can-we-evaluate-management-scenarios"><i class="fa fa-check"></i><b>10.3.2</b> How can we evaluate management scenarios?</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#some-concrete-applications-of-vegetation-models"><i class="fa fa-check"></i><b>10.4</b> Some concrete applications of vegetation models</a></li>
+</ul></li>
+<li class="part"><span><b>IV Appendix</b></span></li>
+<li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html"><i class="fa fa-check"></i>Contributing to this document</a>
+<ul>
+<li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html#first-steps"><i class="fa fa-check"></i>First steps</a></li>
+<li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html#new-pull-request"><i class="fa fa-check"></i>New pull request</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="supporting-material.html"><a href="supporting-material.html"><i class="fa fa-check"></i>Supporting material</a></li>
+<li class="part"><span><b>V Practicals</b></span></li>
+<li class="chapter" data-level="" data-path="practical-a.html"><a href="practical-a.html"><i class="fa fa-check"></i>Practical A</a></li>
+<li class="chapter" data-level="" data-path="practical-b.html"><a href="practical-b.html"><i class="fa fa-check"></i>Practical B</a></li>
+<li class="chapter" data-level="" data-path="practical-c.html"><a href="practical-c.html"><i class="fa fa-check"></i>Practical C</a></li>
+<li class="chapter" data-level="" data-path="practical-d.html"><a href="practical-d.html"><i class="fa fa-check"></i>Practical D</a></li>
+<li class="chapter" data-level="" data-path="practical-e.html"><a href="practical-e.html"><i class="fa fa-check"></i>Practical E</a></li>
+<li class="chapter" data-level="" data-path="practical-f.html"><a href="practical-f.html"><i class="fa fa-check"></i>Practical F</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Vegetation modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modelling-vegetation-dynamics-and-demography" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Modelling Vegetation Dynamics and Demography</h1>
+<div id="introduction-2" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Introduction</h2>
+<div class="figure" style="text-align: center"><span id="fig:f61"></span>
+<img src="figures/chap6/f61_svenning_SDM.png" alt="Example of a species distribution model (SDM), used to simulate current and past species distribution (Svenning et al. 2011). LGM: Last Glacial Maximum. Such models can also be used to predict future species distributions." width="80%" />
+<p class="caption">
+Figure 6.1: Example of a species distribution model (SDM), used to simulate current and past species distribution (Svenning et al. 2011). LGM: Last Glacial Maximum. Such models can also be used to predict future species distributions.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f62"></span>
+<img src="figures/chap6/f62_demography.png" alt="Illustration of succesional forest dynamics." width="80%" />
+<p class="caption">
+Figure 6.2: Illustration of succesional forest dynamics.
+</p>
+</div>
+</div>
+<div id="gap-models-area-and-cohort-based-models" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Gap models, area and cohort based models</h2>
+<div class="figure" style="text-align: center"><span id="fig:f63"></span>
+<img src="figures/chap6/f63_3types.png" alt="Representation of vegetation patches in models. (a) Forest gap models are individual-based models and represent a landscape as patches that differ in stage of post-disturbance development. Shown are two patches, each comprised of multiple trees that differ in size and species. (b) Area-based dynamic global vegetation models (DGVMs) represent vegetation as discrete patches of plant functional types (PFTs) that differ in area. In this example, the model grid cell has six plant functional types (distinguished by canopy shape and shading) that differ in biomass (size of plant) and patch area (size of subgrid tile). (c) Ecosystem demography models define patches based on time elapsed since disturbance. Multiple plant functional types can exist within a patch and are represented as cohorts defined by plant type and size. Shown are six patches with different subgrid area and cohort assemblages. (Bonan)" width="80%" />
+<p class="caption">
+Figure 6.3: Representation of vegetation patches in models. (a) Forest gap models are individual-based models and represent a landscape as patches that differ in stage of post-disturbance development. Shown are two patches, each comprised of multiple trees that differ in size and species. (b) Area-based dynamic global vegetation models (DGVMs) represent vegetation as discrete patches of plant functional types (PFTs) that differ in area. In this example, the model grid cell has six plant functional types (distinguished by canopy shape and shading) that differ in biomass (size of plant) and patch area (size of subgrid tile). (c) Ecosystem demography models define patches based on time elapsed since disturbance. Multiple plant functional types can exist within a patch and are represented as cohorts defined by plant type and size. Shown are six patches with different subgrid area and cohort assemblages. (Bonan)
+</p>
+</div>
+<p>Another class of models, known as individual plant or ecosystem demography models, retains the complexity of individual plants or cohorts of similar plants. In these models, ecosystem properties such as carbon storage are the outcome of demographic processes.</p>
+<ul>
+<li>plant populations</li>
+<li>community composition</li>
+<li>ecosystem structure</li>
+<li>driven by demographic processes of recruitment, establishment, growth, and mortality</li>
+</ul>
+<div id="area-based-models" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Area based models</h3>
+<div class="figure" style="text-align: center"><span id="fig:f64"></span>
+<img src="figures/chap6/f64_LPJ_fllowchart.png" alt="Coupling of a dynamic global vegetation model with a land surface model. Shown are linkages among the biogeophysics, biogeochemistry, and vegetation dynamics components of the model. The lightly shaded biogeophysical processes represent the traditional hydrometeorological scope of land surface models. The darker boxes represent the greening of land surface models with the introduction of dynamic vegetation and the carbon cycle. (Bonan)" width="80%" />
+<p class="caption">
+Figure 6.4: Coupling of a dynamic global vegetation model with a land surface model. Shown are linkages among the biogeophysics, biogeochemistry, and vegetation dynamics components of the model. The lightly shaded biogeophysical processes represent the traditional hydrometeorological scope of land surface models. The darker boxes represent the greening of land surface models with the introduction of dynamic vegetation and the carbon cycle. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f65"></span>
+<img src="figures/chap6/f65_LPJ_PFTmap.png" alt="Map of LPJ simulated dominant PFTs (Sitch et al. 2003)" width="80%" />
+<p class="caption">
+Figure 6.5: Map of LPJ simulated dominant PFTs (Sitch et al. 2003)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f66"></span>
+<img src="figures/chap6/f66_LPJ_comparison_sitch.png" alt="Comparison of LPJ-simulated distributions of woody vegetation with satellite-based maps, for percentages of tree cover, partitioned according to phenology (evergreen vs. deciduous), and leaf morphology (broadleaf vs. needleleaf). (Sitch et al. 2003)" width="80%" />
+<p class="caption">
+Figure 6.6: Comparison of LPJ-simulated distributions of woody vegetation with satellite-based maps, for percentages of tree cover, partitioned according to phenology (evergreen vs. deciduous), and leaf morphology (broadleaf vs. needleleaf). (Sitch et al. 2003)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f67"></span>
+<img src="figures/chap6/f67_DGM_boreal_succession.png" alt="Boreal forest dynamics in terms of (a) percentage cover and (b) plant carbon pools as simulated by a dynamic global vegetation model. The simulation is from initially bare ground for a single model grid cell in the boreal forest over 1000 years in the absence of fire. Percentage cover is the annual extent of plant functional types in the grid cell.(Bonan)" width="80%" />
+<p class="caption">
+Figure 6.7: Boreal forest dynamics in terms of (a) percentage cover and (b) plant carbon pools as simulated by a dynamic global vegetation model. The simulation is from initially bare ground for a single model grid cell in the boreal forest over 1000 years in the absence of fire. Percentage cover is the annual extent of plant functional types in the grid cell.(Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f68"></span>
+<img src="figures/chap6/f68_amazon_dieback.png" alt="Evolution of the vegetation cover in the Amazon from a coupled climate-carbon cycle simulation with the TRIFFID DGVM and the HadCM3LC climate models. (Cox et al. 2004)" width="80%" />
+<p class="caption">
+Figure 6.8: Evolution of the vegetation cover in the Amazon from a coupled climate-carbon cycle simulation with the TRIFFID DGVM and the HadCM3LC climate models. (Cox et al. 2004)
+</p>
+</div>
+</div>
+<div id="gap-models" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Gap models</h3>
+<ul>
+<li>small scale models; landscape represented as a mosaic of hundreds of independent forest patches, each of which can differ in species composition and stage of development in response to disturbance that creates an opening in the canopy</li>
+<li>models track the establishment, growth, and death of individual trees in an area of land.</li>
+<li>Each tree is characterized by its species, stem diameter, height, and age.</li>
+<li>trees compete for light, soil moisture, and nutrients.</li>
+<li>patch undergoes temporal changes in the density, size, and composition of trees with the formation of a gap in the canopy</li>
+<li>Community composition, biomass, productivity, and biogeochemical cycles are emergent outcomes of individual trees interacting among themselves and with the environment to acquire the resources necessary for growth and survival</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:f69"></span>
+<img src="figures/chap6/f69_gap_dynamics.png" alt="Cyclic growth and thinning of trees in a forest patch during gap dynamics.(Bonan)" width="80%" />
+<p class="caption">
+Figure 6.9: Cyclic growth and thinning of trees in a forest patch during gap dynamics.(Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f610"></span>
+<img src="figures/chap6/f610_gap_model.png" alt="Depiction of a boreal forest gap model. The growth of an individual tree depends on its diameter, age, and height as modified by environmental constraints. Mortality depends on the age of the tree as modified by stress, wildfire, and insects. Regeneration depends on seed availability, the ability to sprout or layer, and site conditions. (Bonan)" width="80%" />
+<p class="caption">
+Figure 6.10: Depiction of a boreal forest gap model. The growth of an individual tree depends on its diameter, age, and height as modified by environmental constraints. Mortality depends on the age of the tree as modified by stress, wildfire, and insects. Regeneration depends on seed availability, the ability to sprout or layer, and site conditions. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f611"></span>
+<img src="figures/chap6/f611_gap_upscaling_shurgart.png" alt="General functioning of a gapmodel. As one moves to the right to left, spatial scale increases from an individual tree to a small plot to a landscape. The tree-level response shown here is the elementary growth equation from the FORET (Shugart and West 1977) model. The magnitude of the tree-mortality probablity of each tree is also determined at the tree-level depending on tree growth as an index of vigor, species longevities and other conditions. The form of the growth equation with no constraints is shown at the top and the decrement to this optimal growth equation is found below according to the particular controlling environmental factors (available light, soil moisture, etc). At the plot level, the vertical profile of light, available soil moisture, and other environmental and biogeochemical factors are calculated and tree to tree interactions are computed. Conditions for potential new seedlings for each year are determined factors such as the environmental conditions and seed sources. At the landscape model, a basic gap model can be used to represent the landscape as: (a) the summation of a Monte Carlo collection of independent random points; (b) gridded points at some spacing, (c) a tessellation of adjacent plots; (d) a spatially explicit landscape simulation with a spatial map of trees that is ‘windowed’ or updated for tree birth, growth and death by dropping a gap-model computational window onto the tree-stem map to solve for a subset of a new map. This is repeated to produce the new map. The size of this subset determines the resolution of the spatial map. (Shugart et al. 2018)" width="80%" />
+<p class="caption">
+Figure 6.11: General functioning of a gapmodel. As one moves to the right to left, spatial scale increases from an individual tree to a small plot to a landscape. The tree-level response shown here is the elementary growth equation from the FORET (Shugart and West 1977) model. The magnitude of the tree-mortality probablity of each tree is also determined at the tree-level depending on tree growth as an index of vigor, species longevities and other conditions. The form of the growth equation with no constraints is shown at the top and the decrement to this optimal growth equation is found below according to the particular controlling environmental factors (available light, soil moisture, etc). At the plot level, the vertical profile of light, available soil moisture, and other environmental and biogeochemical factors are calculated and tree to tree interactions are computed. Conditions for potential new seedlings for each year are determined factors such as the environmental conditions and seed sources. At the landscape model, a basic gap model can be used to represent the landscape as: (a) the summation of a Monte Carlo collection of independent random points; (b) gridded points at some spacing, (c) a tessellation of adjacent plots; (d) a spatially explicit landscape simulation with a spatial map of trees that is ‘windowed’ or updated for tree birth, growth and death by dropping a gap-model computational window onto the tree-stem map to solve for a subset of a new map. This is repeated to produce the new map. The size of this subset determines the resolution of the spatial map. (Shugart et al. 2018)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f612"></span>
+<img src="figures/chap6/f612_forclim_succession.png" alt="Comparison of the behavior of two versions of the gap model ForClim under current climate (years 0–800) and under conditions of climatic change (years 800–900) and under a hypothetical future constant climate (years 900–1500) at two sites in the European Alps, Bever (a, b) and Davos (c,d). Model version 2.4 (a, c) has a parabolic temperature response function for tree growth (like JABOWA model), whereas model version 2.9 (b, d) features an asymptotic response function. (Bugmann 2001)" width="80%" />
+<p class="caption">
+Figure 6.12: Comparison of the behavior of two versions of the gap model ForClim under current climate (years 0–800) and under conditions of climatic change (years 800–900) and under a hypothetical future constant climate (years 900–1500) at two sites in the European Alps, Bever (a, b) and Davos (c,d). Model version 2.4 (a, c) has a parabolic temperature response function for tree growth (like JABOWA model), whereas model version 2.9 (b, d) features an asymptotic response function. (Bugmann 2001)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f613"></span>
+<img src="figures/chap6/f613_formind_amazon.png" alt="High-resolution biomass map for the Amazon rainforest at 1000 m resolution (left) and relative frequency distributions at 40 m resolution (right) derived by linking FORMIND (IBM) simulation results with remote sensing data. (Rödig et al. 2017)" width="80%" />
+<p class="caption">
+Figure 6.13: High-resolution biomass map for the Amazon rainforest at 1000 m resolution (left) and relative frequency distributions at 40 m resolution (right) derived by linking FORMIND (IBM) simulation results with remote sensing data. (Rödig et al. 2017)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f614"></span>
+<img src="figures/chap6/f614_uvafme_russia.png" alt="Difference in UVAFME simulated total carbon biomass (tonnes of carbon per hectare (t C·ha–1) for a mature forest between year 2000 and year 2095 following 95 years of temperature and precipitation as represented by NCAR CCSM A1B and A2 scenarios.(Shuman et al 2015)" width="80%" />
+<p class="caption">
+Figure 6.14: Difference in UVAFME simulated total carbon biomass (tonnes of carbon per hectare (t C·ha–1) for a mature forest between year 2000 and year 2095 following 95 years of temperature and precipitation as represented by NCAR CCSM A1B and A2 scenarios.(Shuman et al 2015)
+</p>
+</div>
+</div>
+<div id="cohort-based-models" class="section level3" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Cohort based models</h3>
+<ul>
+<li>cohort-based models define patches based on age since disturbance and simulate the dynamics of cohorts of similar plant functional types rather than tracking every individual.</li>
+<li>Common to each model is the representation of vegetation demography, with age- and size-dependent growth and mortality and in which growth is constrained by allometric relationships of stem diameter with height, sapwood area, leaf area, and biomass. cohort models –&gt; modelling size distributions</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:f615"></span>
+<img src="figures/chap6/f615_ED_structure.png" alt="Schematic representation of the multiple hierarchical levels in the ED-2.2 model, organized by increasing level of detail from top to bottom. Static levels (grid, polygons, and sites) are assigned during the model initialization and remain constant throughout the simulation. Dynamic levels (patches and cohorts) may change during the simulation according to the dynamics of the ecosystem.(Longo et al 2019)" width="80%" />
+<p class="caption">
+Figure 6.15: Schematic representation of the multiple hierarchical levels in the ED-2.2 model, organized by increasing level of detail from top to bottom. Static levels (grid, polygons, and sites) are assigned during the model initialization and remain constant throughout the simulation. Dynamic levels (patches and cohorts) may change during the simulation according to the dynamics of the ecosystem.(Longo et al 2019)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f616"></span>
+<img src="figures/chap6/f616_ED_biophysics.png" alt="ED2.2 biophysics. Schematic of the fluxes that are solved in ED-2.2 for a single patch (thermodynamic envelope). In this example, the patch has NT cohorts, NG soil layers, and NS=1 temporary surface water. Both NG and the maximum NS are specified by the user; NT is dynamically defined by ED-2.2. Letters near the arrows are the subscripts associated with fluxes, although the flux variables have been omitted here for clarity. Solid red arrows represent heat flux with no exchange of mass, and dashed yellow arrows represent exchange of mass and associated enthalpy. Arrows that point to a single direction represent fluxes that can only go in one (non-negative) direction, and arrows pointing to both directions represent fluxes that can be positive, negative, or zero.(Longo et al 2019)" width="80%" />
+<p class="caption">
+Figure 6.16: ED2.2 biophysics. Schematic of the fluxes that are solved in ED-2.2 for a single patch (thermodynamic envelope). In this example, the patch has NT cohorts, NG soil layers, and NS=1 temporary surface water. Both NG and the maximum NS are specified by the user; NT is dynamically defined by ED-2.2. Letters near the arrows are the subscripts associated with fluxes, although the flux variables have been omitted here for clarity. Solid red arrows represent heat flux with no exchange of mass, and dashed yellow arrows represent exchange of mass and associated enthalpy. Arrows that point to a single direction represent fluxes that can only go in one (non-negative) direction, and arrows pointing to both directions represent fluxes that can be positive, negative, or zero.(Longo et al 2019)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f617"></span>
+<img src="figures/chap6/f617_ED_biogeochemistry.png" alt=" ED2.2 biogeochemistry. Schematic of the patch-level carbon cycle solved in ED-2.2 for a patch containing NT cohorts. Like Fig. 6.15, letters near the arrows are the subscripts associated with fluxes. Fluxes shown in solid yellow lines are part of the CO2 cycle, and dashed red lines are part of the carbon cycle but do not directly affect the CO2 flux.(Longo et al 2019)" width="80%" />
+<p class="caption">
+Figure 6.17:  ED2.2 biogeochemistry. Schematic of the patch-level carbon cycle solved in ED-2.2 for a patch containing NT cohorts. Like Fig. 6.15, letters near the arrows are the subscripts associated with fluxes. Fluxes shown in solid yellow lines are part of the CO2 cycle, and dashed red lines are part of the carbon cycle but do not directly affect the CO2 flux.(Longo et al 2019)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f618"></span>
+<img src="figures/chap6/f618_ED_harvard.png" alt=" Visualization of the ecosystem composition in the Harvard Forest flux tower footprint as simulated by ED2. Midsuccessional hardwoods (red) dominate, but the footprint also contains early successional hardwoods (green), pines (blue), late successional conifers (magenta) and late successional hardwoods (gray). (b) Distribution of basal area of the different plant functional types across tree diameter classes.(Medvigy et al. 2009)" width="80%" />
+<p class="caption">
+Figure 6.18:  Visualization of the ecosystem composition in the Harvard Forest flux tower footprint as simulated by ED2. Midsuccessional hardwoods (red) dominate, but the footprint also contains early successional hardwoods (green), pines (blue), late successional conifers (magenta) and late successional hardwoods (gray). (b) Distribution of basal area of the different plant functional types across tree diameter classes.(Medvigy et al. 2009)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f619"></span>
+<img src="figures/chap6/f619_ED_amazon.png" alt=" Examples of size, age, and functional structure simulated by ED-2.2, after 500 years of simulation using local meteorological forcing and active fires. (a, b) Individual realization of simulated stands for sites (a) Paracou (GYF, tropical forest); (b) Brasília (BSB, woody savanna). The number of individuals shown is proportional to the simulated stem density, the distribution in local communities is proportional to the patch area, the crown size and stem height are proportional to the cohort size, and the crown color indicates the functional group. (c, d) Distribution of cohorts as a function of size (DBH and height) and age since last disturbance (patch age) for sites (c) GYF and (d) BSB. Crown sizes are proportional to the logarithm of the stem density within each patch.(Longo et al 2019)" width="80%" />
+<p class="caption">
+Figure 6.19:  Examples of size, age, and functional structure simulated by ED-2.2, after 500 years of simulation using local meteorological forcing and active fires. (a, b) Individual realization of simulated stands for sites (a) Paracou (GYF, tropical forest); (b) Brasília (BSB, woody savanna). The number of individuals shown is proportional to the simulated stem density, the distribution in local communities is proportional to the patch area, the crown size and stem height are proportional to the cohort size, and the crown color indicates the functional group. (c, d) Distribution of cohorts as a function of size (DBH and height) and age since last disturbance (patch age) for sites (c) GYF and (d) BSB. Crown sizes are proportional to the logarithm of the stem density within each patch.(Longo et al 2019)
+</p>
+</div>
+</div>
+</div>
+<div id="growth-and-allometric-relations-in-demographic-models" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Growth and allometric relations in demographic models</h2>
+<ul>
+<li>link with growth modelling of previuous chapter</li>
+<li>allometric relationships are a critical driver of individual tree growth.</li>
+<li>Height is important for its effect on stem diameter increment, both directly through tree volume growth and indirectly through shading.</li>
+<li>Biomass allocation: empirical equations that constrain foliage, stem, and root mass for a given size tree</li>
+<li>relationship between stem diameter and leaf area drives light extinction in the canopy</li>
+<li>annual growth of a tree is calculated from its diameter and height as modified by light, climate, and site conditions.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:f620"></span>
+<img src="figures/chap6/f620_HD_allom.png" alt="Height-diameter allometry in the JABOWA individual based model.(Buggman 2001)" width="80%" />
+<p class="caption">
+Figure 6.20: Height-diameter allometry in the JABOWA individual based model.(Buggman 2001)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f621"></span>
+<img src="figures/chap6/f621_BD_allom.png" alt="Relationships between stem diameter and (a) aboveground biomass and (b) height for sugar maple, yellow birch, beech, and red spruce trees at the Hubbard Brook Experimental Forest, New Hampshire using allometric relationships. (Bonan)" width="80%" />
+<p class="caption">
+Figure 6.21: Relationships between stem diameter and (a) aboveground biomass and (b) height for sugar maple, yellow birch, beech, and red spruce trees at the Hubbard Brook Experimental Forest, New Hampshire using allometric relationships. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f622"></span>
+<img src="figures/chap6/f622_LD_allom.png" alt="Leaf area - diameter allometry in the JABOWA individual based model. (Buggman 2001)" width="80%" />
+<p class="caption">
+Figure 6.22: Leaf area - diameter allometry in the JABOWA individual based model. (Buggman 2001)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f623"></span>
+<img src="figures/chap6/f623_jabowa_growth.png" alt="The JABOWA equation of maximum tree growth plotted for a tree with Hmax = 40 m, Dmax = 285 cm, and G = 143 cm/yr. (Buggman 2001)" width="80%" />
+<p class="caption">
+Figure 6.23: The JABOWA equation of maximum tree growth plotted for a tree with Hmax = 40 m, Dmax = 285 cm, and G = 143 cm/yr. (Buggman 2001)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f624"></span>
+<img src="figures/chap6/f624_growthfactor.png" alt="Tree height and light competition in a forest gap model. (a) Height in relation to stem diameter for two species of trees. (b) Leaf area in relation to stem diameter. (c) Light profile in relation to cumulative leaf area index. (d) Light growth factors for shade tolerant and intolerant species. Height is shown for basswood (Tilia americana) and blackjack oak (Quercus marilandica) with parameters from a model of forests in eastern North America (Pastor and Post 1985). Leaf area and light extinction are from FORET (Shugart 1984). (Figure from Bonan)" width="80%" />
+<p class="caption">
+Figure 6.24: Tree height and light competition in a forest gap model. (a) Height in relation to stem diameter for two species of trees. (b) Leaf area in relation to stem diameter. (c) Light profile in relation to cumulative leaf area index. (d) Light growth factors for shade tolerant and intolerant species. Height is shown for basswood (Tilia americana) and blackjack oak (Quercus marilandica) with parameters from a model of forests in eastern North America (Pastor and Post 1985). Leaf area and light extinction are from FORET (Shugart 1984). (Figure from Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f625"></span>
+<img src="figures/chap6/f625_growth_factorbis.png" alt="Growth factors for (a) temperature (growing degree-days), (b) soil moisture, and (c) soil nitrogen illustrated for basswood and blackjack oak (Pastor and Post 1985). Basswood grows at more northern locations than blackjack oak, on wetter soils, and is intolerant of low soil nitrogen. (Bonan)" width="80%" />
+<p class="caption">
+Figure 6.25: Growth factors for (a) temperature (growing degree-days), (b) soil moisture, and (c) soil nitrogen illustrated for basswood and blackjack oak (Pastor and Post 1985). Basswood grows at more northern locations than blackjack oak, on wetter soils, and is intolerant of low soil nitrogen. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f626"></span>
+<img src="figures/chap6/f626_growth%20strategies.png" alt="Stem diameter growth in relation to age as represented in gap models. Relationships are shown for basswood (Dmax = 100 cm, hmax = 30 m, G0 = 188.7 cm y–1, maximum age 140 years) and blackjack oak (Dmax = 50 cm, hmax = 15 m, G0 = 34.0 cm y–1, maximum age 400 years). Parameter values are from Pastor and Post (1985). (Bonan)" width="80%" />
+<p class="caption">
+Figure 6.26: Stem diameter growth in relation to age as represented in gap models. Relationships are shown for basswood (Dmax = 100 cm, hmax = 30 m, G0 = 188.7 cm y–1, maximum age 140 years) and blackjack oak (Dmax = 50 cm, hmax = 15 m, G0 = 34.0 cm y–1, maximum age 400 years). Parameter values are from Pastor and Post (1985). (Bonan)
+</p>
+</div>
+</div>
+<div id="competition-for-light-in-demographic-models" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Competition for light in demographic models</h2>
+<ul>
+<li>critical driver of forest dynamics</li>
+<li>shading of smaller individuals by taller trees</li>
+<li>vertical profile of leaf area in the patch (vertical structure in which trees are arranged into canopy layers)</li>
+<li>height of a tree determines its location in the cumulative leaf area profile</li>
+<li>light extinction coefficient</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:f627"></span>
+<img src="figures/chap6/f627_light_comp.png" alt="Representation of plant canopies in vegetation dynamics models.(a) Actual canopies have complex three-dimensional structure determined by the spatial location of trees and their crown geometry. (b) Gap models simplify the canopy so that the crown of an individual tree is a thin, flat layer of leaves at the top of the tree. Shown are six trees with different heights (white vertical lines). The leaf area of each tree (black horizontal lines) spreads over the area of the patch so that the tallest tree shades all others, and so forth, through the canopy. Horizontal positioning is for illustration only. The models do not represent spatial location, only the vertical dimension. Darker shading denotes progressively less light deeper in the canopy. The ecosystem demography model (ED) uses a similar concept, but applied to cohorts rather than individual trees. (c) The perfect plasticity approximation (PPA) organizes canopies into layers. All cohorts in the overstory (white boxes) receive identical light for that layer. The understory (black boxes) receives less light. Spatial location is for illustration only. (Bonan)" width="80%" />
+<p class="caption">
+Figure 6.27: Representation of plant canopies in vegetation dynamics models.(a) Actual canopies have complex three-dimensional structure determined by the spatial location of trees and their crown geometry. (b) Gap models simplify the canopy so that the crown of an individual tree is a thin, flat layer of leaves at the top of the tree. Shown are six trees with different heights (white vertical lines). The leaf area of each tree (black horizontal lines) spreads over the area of the patch so that the tallest tree shades all others, and so forth, through the canopy. Horizontal positioning is for illustration only. The models do not represent spatial location, only the vertical dimension. Darker shading denotes progressively less light deeper in the canopy. The ecosystem demography model (ED) uses a similar concept, but applied to cohorts rather than individual trees. (c) The perfect plasticity approximation (PPA) organizes canopies into layers. All cohorts in the overstory (white boxes) receive identical light for that layer. The understory (black boxes) receives less light. Spatial location is for illustration only. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f628"></span>
+<img src="figures/chap6/f628_ppa.png" alt="Canopy organization in the perfect plasticity approximation. Shown are 10 cohorts arranged from tallest to shortest. The cumulative crown area of the six tallest cohorts (C1–C6) sums to one, and these form the overstory. The remaining cohorts (C7–C10) form the understory. The height z∗ separates the two canopy layers. (Bonan)" width="80%" />
+<p class="caption">
+Figure 6.28: Canopy organization in the perfect plasticity approximation. Shown are 10 cohorts arranged from tallest to shortest. The cumulative crown area of the six tallest cohorts (C1–C6) sums to one, and these form the overstory. The remaining cohorts (C7–C10) form the understory. The height z∗ separates the two canopy layers. (Bonan)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f629"></span>
+<img src="figures/chap6/f629_ppa_purves.png" alt="Crown shapes modelled by the Ideal Tree Distribution model (ITD) following the perfect plasticity approximation (Purves et al. 2007)" width="80%" />
+<p class="caption">
+Figure 6.29: Crown shapes modelled by the Ideal Tree Distribution model (ITD) following the perfect plasticity approximation (Purves et al. 2007)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f630"></span>
+<img src="figures/chap6/f630_canopy_dynamics.png" alt="Depiction of cohort and patch dynamics. (a) Growth of cohorts leads to crown expansion, resulting in splitting of a cohort and demotion to the understory. Shown are four overstory cohorts (C1–C4). Part of the shortest cohort (C4) is demoted to the understory to form a new cohort. (b) Mortality leads to open canopy space that can be filled by promotion of understory cohorts to the overstory. In this example, the two understory cohorts form new cohorts (C5, C6) in the overstory. Patch area is unchanged. (c) The open canopy space upon mortality can also be used to create a new patch that is filled by new cohorts. The area of the old patch decreases, and a new patch is formed from the open canopy area.(Bonan)" width="80%" />
+<p class="caption">
+Figure 6.30: Depiction of cohort and patch dynamics. (a) Growth of cohorts leads to crown expansion, resulting in splitting of a cohort and demotion to the understory. Shown are four overstory cohorts (C1–C4). Part of the shortest cohort (C4) is demoted to the understory to form a new cohort. (b) Mortality leads to open canopy space that can be filled by promotion of understory cohorts to the overstory. In this example, the two understory cohorts form new cohorts (C5, C6) in the overstory. Patch area is unchanged. (c) The open canopy space upon mortality can also be used to create a new patch that is filled by new cohorts. The area of the old patch decreases, and a new patch is formed from the open canopy area.(Bonan)
+</p>
+</div>
+</div>
+<div id="competition-for-water-and-nutrients-in-demographic-models" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Competition for water and nutrients in demographic models</h2>
+<div class="figure" style="text-align: center"><span id="fig:f631"></span>
+<img src="figures/chap6/f631_root_competition.png" alt="Illustration of resource partitioning in vegetation demographic models. (a, b) show two alternative depictions of resource partitioning in an age-since-disturbance resolving (ED-type) model. In (a) resources (water/nutrients) are resolved for each age-since-disturbance patch, meaning that different extraction levels can affect resource availability over the successional gradient, a situation made more likely by large spatial-scale disturbances. In (b) all patches share a common pool, a situation more relevant to smaller (individual) scale disturbances. (Fischer et al. 2018)" width="80%" />
+<p class="caption">
+Figure 6.31: Illustration of resource partitioning in vegetation demographic models. (a, b) show two alternative depictions of resource partitioning in an age-since-disturbance resolving (ED-type) model. In (a) resources (water/nutrients) are resolved for each age-since-disturbance patch, meaning that different extraction levels can affect resource availability over the successional gradient, a situation made more likely by large spatial-scale disturbances. In (b) all patches share a common pool, a situation more relevant to smaller (individual) scale disturbances. (Fischer et al. 2018)
+</p>
+</div>
+</div>
+<div id="seed-dispersal-and-recruitment" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Seed dispersal and recruitment</h2>
+<ul>
+<li><p>regeneration: stochastic process</p></li>
+<li><p>seeds of species are assumed to be present on-site</p></li>
+<li><p>available light at the forest floor, climate tolerances, and other site conditions determine which species become established.</p></li>
+<li><p>sprouting based on size</p></li>
+<li><p>Species are characterized by life history characteristics</p></li>
+</ul>
+</div>
+<div id="mortality" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> Mortality</h2>
+<ul>
+<li><p>stochastic process</p></li>
+<li><p>Trees die with a constant probability each year</p></li>
+<li><p>The probability of mortality increases when tree growth is less than some minimum</p></li>
+<li><p>disturbance related mortality : Wildfire and insect outbreaks can be included</p></li>
+<li><p>The occurrence of fire is treated stochastically with an annual probability of burning. An individual patch may, for example, have a 1% change of burning in any given year.</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:f632"></span>
+<img src="figures/chap6/f632_mortality_jabowa.png" alt="Changes of mortality patterns with tree age and their approximation in the JABOWA model. AIM – age-independent ‘background’ mortality; SM – stress-related mortality.(Buggman 2001)" width="80%" />
+<p class="caption">
+Figure 6.32: Changes of mortality patterns with tree age and their approximation in the JABOWA model. AIM – age-independent ‘background’ mortality; SM – stress-related mortality.(Buggman 2001)
+</p>
+</div>
+</div>
+<div id="conclusion" class="section level2" number="6.8">
+<h2><span class="header-section-number">6.8</span> Conclusion</h2>
+<div class="figure" style="text-align: center"><span id="fig:f633"></span>
+<img src="figures/chap6/f633_LM3_ppa_succession.png" alt="Forest dynamics simulated by LM3-PPA. Shown is (a) basal area of aspen (Populus tremuloides), red maple (Acer rubrum), and sugar maple (Acer saccharum) in relation to stand age. Also shown for year 80 are (b) stem diameter distribution and (c) biomass distribution. (Bonan))" width="80%" />
+<p class="caption">
+Figure 6.33: Forest dynamics simulated by LM3-PPA. Shown is (a) basal area of aspen (Populus tremuloides), red maple (Acer rubrum), and sugar maple (Acer saccharum) in relation to stand age. Also shown for year 80 are (b) stem diameter distribution and (c) biomass distribution. (Bonan))
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f634"></span>
+<img src="figures/chap6/f634_table.png" alt="Summary of the differences between area based, cohort based and individual based vegetation models." width="80%" />
+<p class="caption">
+Figure 6.34: Summary of the differences between area based, cohort based and individual based vegetation models.
+</p>
+</div>
+</div>
+<div id="case-study-6.1" class="section level2" number="6.9">
+<h2><span class="header-section-number">6.9</span> Case study 6.1</h2>
+<div class="figure" style="text-align: center"><span id="fig:f635"></span>
+<img src="figures/chap6/f635_bohn1.png" alt="Overview of drivers influencing wood production. External variables in this study are temperature, radiation and precipitation. Forest properties are divided into two groups: species composition properties (e.g. Rao’s Q as a measure of functional diversity and species distribution index OAWP) and forest structure properties (e.g. forest height, leaf area index and tree height heterogeneity). (Bohn et al. 2018)" width="80%" />
+<p class="caption">
+Figure 6.35: Overview of drivers influencing wood production. External variables in this study are temperature, radiation and precipitation. Forest properties are divided into two groups: species composition properties (e.g. Rao’s Q as a measure of functional diversity and species distribution index OAWP) and forest structure properties (e.g. forest height, leaf area index and tree height heterogeneity). (Bohn et al. 2018)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f636"></span>
+<img src="figures/chap6/f636_bohn2.png" alt="Overview of forest properties and resulting temperature sensitivity of AWP of three exemplary forests: (a) old even-aged spruce forest; (b) mature deciduous forest; (c) a quite young mixed species forest. The middle (panels d, e and f) shows the corresponding stem size distributions and provides information on the highest tree in the forest (Hforest) and species distribution index OAWP (which quantifies the suitability of a species distributed within the forest structure with regard to AWP). Each forest is treated with 320 climate time series; the last column (panels g, h and i) shows the AWP as a function of mean annual temperature (MAT). The colours indicate different inter-annual temperature amplitudes (Q95) of the used time series. (The coloured bands show the standard deviation due to the variability of the five different time series that exist for each combination of mean annual temperature and intra-annual temperature amplitude.(Bohn et al. 2018)." width="80%" />
+<p class="caption">
+Figure 6.36: Overview of forest properties and resulting temperature sensitivity of AWP of three exemplary forests: (a) old even-aged spruce forest; (b) mature deciduous forest; (c) a quite young mixed species forest. The middle (panels d, e and f) shows the corresponding stem size distributions and provides information on the highest tree in the forest (Hforest) and species distribution index OAWP (which quantifies the suitability of a species distributed within the forest structure with regard to AWP). Each forest is treated with 320 climate time series; the last column (panels g, h and i) shows the AWP as a function of mean annual temperature (MAT). The colours indicate different inter-annual temperature amplitudes (Q95) of the used time series. (The coloured bands show the standard deviation due to the variability of the five different time series that exist for each combination of mean annual temperature and intra-annual temperature amplitude.(Bohn et al. 2018).
+</p>
+</div>
+</div>
+<div id="case-study-6.2" class="section level2" number="6.10">
+<h2><span class="header-section-number">6.10</span> Case study 6.2</h2>
+<div class="figure" style="text-align: center"><span id="fig:f637"></span>
+<img src="figures/chap6/f637_levine1.png" alt="Impact of changes in soil clay fraction (A and B) and plant water stress (C and D) on AGB in the ED2 (A and C) and ED2-BL (B and D) model simulations. Four climatological conditions are shown, a 2-month dry season, a 4-month dry season, a 6-month dry season, and an 8-month dry season.(Levine et al. 2016)" width="80%" />
+<p class="caption">
+Figure 6.37: Impact of changes in soil clay fraction (A and B) and plant water stress (C and D) on AGB in the ED2 (A and C) and ED2-BL (B and D) model simulations. Four climatological conditions are shown, a 2-month dry season, a 4-month dry season, a 6-month dry season, and an 8-month dry season.(Levine et al. 2016)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:f638"></span>
+<img src="figures/chap6/f638_levine2.png" alt="(A) Change in AGB with DSL (dry season length) for remote sensing-based estimates (black and gray circles), ground-based plot measurements (blue triangles), ED2 model output (green circles), and ED2-BL model output (purple circles).(B) Distribution of AGB in the observations and the two models. (C) Change in the percentage of biomass variability, with the coefficient of variation (CV) defined as 1σ/mean. Results are for undisturbed primary vegetation forests. (Levine et al. 2016) " width="80%" />
+<p class="caption">
+Figure 6.38: (A) Change in AGB with DSL (dry season length) for remote sensing-based estimates (black and gray circles), ground-based plot measurements (blue triangles), ED2 model output (green circles), and ED2-BL model output (purple circles).(B) Distribution of AGB in the observations and the two models. (C) Change in the percentage of biomass variability, with the coefficient of variation (CV) defined as 1σ/mean. Results are for undisturbed primary vegetation forests. (Levine et al. 2016)
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modelling-c-allocation-and-biogeochemical-cycles.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="representing-functional-biodiversity-in-vegetation-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["VegMod_course.pdf", "VegMod_course.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
