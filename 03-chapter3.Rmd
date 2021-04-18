@@ -80,7 +80,7 @@ knitr::include_graphics('figures/chap3/f37_leaf_optical.jpg')
 
 The albedo of the total canopy is typically lower than that of its individual leaves, as light that is transmitted or reflected by one leave can be absorbed by another leaf (multiple scattering) (see Table below). Reflectance of needles is lower than the reflectance of broadleaves. 
 
-\breakpage
+
 
 \begin{center}
 \captionof{table}{Table showing typical reflectance and absorptance values for leaves and vegetation canopies of different Plant Functional Types (PFT).(Jones, 2014)}
