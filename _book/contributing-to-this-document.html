@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Contributing to this document | Vegetation modelling</title>
+  <meta name="description" content="Syllabus associated to the course XX taught at Ghent University" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Contributing to this document | Vegetation modelling" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Syllabus associated to the course XX taught at Ghent University" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Contributing to this document | Vegetation modelling" />
+  
+  <meta name="twitter:description" content="Syllabus associated to the course XX taught at Ghent University" />
+  
+
+<meta name="author" content="Hans Verbeeck, Félicien Meunier, Marc Peaucelle" />
+
+
+<meta name="date" content="2021-04-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="model-projections-and-scenario-analysis.html"/>
+<link rel="next" href="supporting-material.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#the-central-role-of-vegetation-in-the-earth-system"><i class="fa fa-check"></i><b>1.1</b> The central role of vegetation in the Earth system</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#why-do-we-need-modelling"><i class="fa fa-check"></i><b>1.2</b> Why do we need modelling?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#model-types"><i class="fa fa-check"></i><b>1.3</b> Model types</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#the-history-of-vegetation-models"><i class="fa fa-check"></i><b>1.4</b> The history of vegetation models</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#components-of-a-model"><i class="fa fa-check"></i><b>1.5</b> Components of a model</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="intro.html"><a href="intro.html#processes"><i class="fa fa-check"></i><b>1.5.1</b> Processes</a></li>
+<li class="chapter" data-level="1.5.2" data-path="intro.html"><a href="intro.html#equations"><i class="fa fa-check"></i><b>1.5.2</b> Equations</a></li>
+<li class="chapter" data-level="1.5.3" data-path="intro.html"><a href="intro.html#parameters"><i class="fa fa-check"></i><b>1.5.3</b> Parameters</a></li>
+<li class="chapter" data-level="1.5.4" data-path="intro.html"><a href="intro.html#time-steps"><i class="fa fa-check"></i><b>1.5.4</b> Time Steps</a></li>
+<li class="chapter" data-level="1.5.5" data-path="intro.html"><a href="intro.html#spatial-structure"><i class="fa fa-check"></i><b>1.5.5</b> Spatial structure</a></li>
+<li class="chapter" data-level="1.5.6" data-path="intro.html"><a href="intro.html#model-code-complexity-and-uncertainty"><i class="fa fa-check"></i><b>1.5.6</b> Model code, complexity and uncertainty</a></li>
+<li class="chapter" data-level="1.5.7" data-path="intro.html"><a href="intro.html#data"><i class="fa fa-check"></i><b>1.5.7</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#modelling-workflow-and-structure-of-the-course"><i class="fa fa-check"></i><b>1.6</b> Modelling workflow and structure of the course</a></li>
+</ul></li>
+<li class="part"><span><b>I Biophysical and physiological models</b></span></li>
+<li class="chapter" data-level="2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html"><i class="fa fa-check"></i><b>2</b> Modelling plant basic processes</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#photosynthesis-models"><i class="fa fa-check"></i><b>2.1</b> Photosynthesis models</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#refreshing-the-basic-knowledge"><i class="fa fa-check"></i><b>2.1.1</b> Refreshing the basic knowledge</a></li>
+<li class="chapter" data-level="2.1.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#c3-photosynthesis"><i class="fa fa-check"></i><b>2.1.2</b> C3 photosynthesis</a></li>
+<li class="chapter" data-level="2.1.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#parameter-and-temperature-dependencies"><i class="fa fa-check"></i><b>2.1.3</b> Parameter and temperature dependencies</a></li>
+<li class="chapter" data-level="2.1.4" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#c4-photosynthesis"><i class="fa fa-check"></i><b>2.1.4</b> C4 photosynthesis</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#stomatal-models"><i class="fa fa-check"></i><b>2.2</b> Stomatal models</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#refreshing-the-basic-knowledge-1"><i class="fa fa-check"></i><b>2.2.1</b> Refreshing the basic knowledge</a></li>
+<li class="chapter" data-level="2.2.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#empirical-multiplicative-models"><i class="fa fa-check"></i><b>2.2.2</b> Empirical multiplicative models</a></li>
+<li class="chapter" data-level="2.2.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#semi-empirical-photosynthesis-based-models"><i class="fa fa-check"></i><b>2.2.3</b> Semi-empirical photosynthesis-based models</a></li>
+<li class="chapter" data-level="2.2.4" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#wue-models-and-optimality-theory"><i class="fa fa-check"></i><b>2.2.4</b> WUE models and optimality theory</a></li>
+<li class="chapter" data-level="2.2.5" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#soil-drought-stress"><i class="fa fa-check"></i><b>2.2.5</b> Soil drought stress</a></li>
+<li class="chapter" data-level="2.2.6" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#hydraulic-models"><i class="fa fa-check"></i><b>2.2.6</b> Hydraulic models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#upscaling-from-leaf-to-canopy"><i class="fa fa-check"></i><b>2.3</b> Upscaling from leaf to canopy</a></li>
+<li class="chapter" data-level="2.4" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#case-studies"><i class="fa fa-check"></i><b>2.4</b> Case studies</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#case-study-2.1-ozone-impact-on-global-gpp"><i class="fa fa-check"></i><b>2.4.1</b> Case study 2.1 Ozone impact on global GPP</a></li>
+<li class="chapter" data-level="2.4.2" data-path="modelling-plant-basic-processes.html"><a href="modelling-plant-basic-processes.html#case-study-2.2-drought-impact-on-rainforest-gpp"><i class="fa fa-check"></i><b>2.4.2</b> Case study 2.2 Drought impact on rainforest GPP</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html"><i class="fa fa-check"></i><b>3</b> Modelling radiation, vegetation canopies, and energy balance</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#radiative-transfer-modelling"><i class="fa fa-check"></i><b>3.2</b> Radiative transfer modelling</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#leaf-optical-properties"><i class="fa fa-check"></i><b>3.2.1</b> Leaf optical properties</a></li>
+<li class="chapter" data-level="3.2.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#light-transmission-without-scattering"><i class="fa fa-check"></i><b>3.2.2</b> Light transmission without scattering</a></li>
+<li class="chapter" data-level="3.2.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#diffuse-transmittance"><i class="fa fa-check"></i><b>3.2.3</b> Diffuse transmittance</a></li>
+<li class="chapter" data-level="3.2.4" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#the-norman-model1979"><i class="fa fa-check"></i><b>3.2.4</b> The Norman Model(1979)</a></li>
+<li class="chapter" data-level="3.2.5" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#the-goudriaan-and-van-laar-model-1994"><i class="fa fa-check"></i><b>3.2.5</b> The Goudriaan and van Laar Model (1994)</a></li>
+<li class="chapter" data-level="3.2.6" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#the-two-stream-approximation"><i class="fa fa-check"></i><b>3.2.6</b> The Two-Stream approximation</a></li>
+<li class="chapter" data-level="3.2.7" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#longwave-radiation"><i class="fa fa-check"></i><b>3.2.7</b> Longwave radiation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#representing-canopy-structure-in-models"><i class="fa fa-check"></i><b>3.3</b> Representing canopy structure in models</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#big-leaf-models"><i class="fa fa-check"></i><b>3.3.1</b> Big-leaf models</a></li>
+<li class="chapter" data-level="3.3.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#multilayer-models"><i class="fa fa-check"></i><b>3.3.2</b> Multilayer models</a></li>
+<li class="chapter" data-level="3.3.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#d-ray-tracing-models"><i class="fa fa-check"></i><b>3.3.3</b> 3D ray tracing models</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#ecosystem-energy-balance"><i class="fa fa-check"></i><b>3.4</b> Ecosystem energy balance</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#basic-principles"><i class="fa fa-check"></i><b>3.4.1</b> Basic principles</a></li>
+<li class="chapter" data-level="3.4.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#surface-radiation-balance"><i class="fa fa-check"></i><b>3.4.2</b> Surface radiation balance</a></li>
+<li class="chapter" data-level="3.4.3" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#bulk-surface-energy-balance"><i class="fa fa-check"></i><b>3.4.3</b> Bulk surface energy balance</a></li>
+<li class="chapter" data-level="3.4.4" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#leaf-energy-balance"><i class="fa fa-check"></i><b>3.4.4</b> Leaf energy balance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#case-studies-1"><i class="fa fa-check"></i><b>3.5</b> Case studies</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#case-study-3.1"><i class="fa fa-check"></i><b>3.5.1</b> Case study 3.1</a></li>
+<li class="chapter" data-level="3.5.2" data-path="modelling-radiation-vegetation-canopies-and-energy-balance.html"><a href="modelling-radiation-vegetation-canopies-and-energy-balance.html#case-study-3.2"><i class="fa fa-check"></i><b>3.5.2</b> Case study 3.2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html"><i class="fa fa-check"></i><b>4</b> Modelling temporal and seasonal dynamics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#introduction-on-temporal-dynamics"><i class="fa fa-check"></i><b>4.1</b> Introduction on temporal dynamics</a></li>
+<li class="chapter" data-level="4.2" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#phenology-the-background"><i class="fa fa-check"></i><b>4.2</b> Phenology: the background</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#trends-in-phenology"><i class="fa fa-check"></i><b>4.2.1</b> Trends in phenology</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#leaf-phenology-models"><i class="fa fa-check"></i><b>4.3</b> Leaf phenology models</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#prescribed-phenology"><i class="fa fa-check"></i><b>4.3.1</b> Prescribed phenology</a></li>
+<li class="chapter" data-level="4.3.2" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#budburst-models"><i class="fa fa-check"></i><b>4.3.2</b> Budburst models</a></li>
+<li class="chapter" data-level="4.3.3" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#snescence-models"><i class="fa fa-check"></i><b>4.3.3</b> Snescence models</a></li>
+<li class="chapter" data-level="4.3.4" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#leaf-age"><i class="fa fa-check"></i><b>4.3.4</b> Leaf age</a></li>
+<li class="chapter" data-level="4.3.5" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#phenology-in-dgvms"><i class="fa fa-check"></i><b>4.3.5</b> Phenology in DGVMs</a></li>
+<li class="chapter" data-level="4.3.6" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#phenology-in-the-tropics"><i class="fa fa-check"></i><b>4.3.6</b> Phenology in the tropics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#case-studies-2"><i class="fa fa-check"></i><b>4.4</b> Case studies</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#case-study-4.1"><i class="fa fa-check"></i><b>4.4.1</b> Case study 4.1</a></li>
+<li class="chapter" data-level="4.4.2" data-path="modelling-temporal-and-seasonal-dynamics.html"><a href="modelling-temporal-and-seasonal-dynamics.html#case-study-4.2"><i class="fa fa-check"></i><b>4.4.2</b> Case study 4.2</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Modelling vegetation dynamics</b></span></li>
+<li class="chapter" data-level="5" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html"><i class="fa fa-check"></i><b>5</b> Modelling C-allocation and biogeochemical cycles</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#carbon-cycle-models-stocks-and-fluxes"><i class="fa fa-check"></i><b>5.2</b> Carbon cycle models: stocks and fluxes</a></li>
+<li class="chapter" data-level="5.3" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#carbon-allocation-models"><i class="fa fa-check"></i><b>5.3</b> Carbon allocation models</a></li>
+<li class="chapter" data-level="5.4" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#soil-biogeochemistry-models"><i class="fa fa-check"></i><b>5.4</b> Soil biogeochemistry models</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#decomposition-models"><i class="fa fa-check"></i><b>5.4.1</b> Decomposition models</a></li>
+<li class="chapter" data-level="5.4.2" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#nutrient-cycle-models"><i class="fa fa-check"></i><b>5.4.2</b> NUtrient cycle models</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="modelling-c-allocation-and-biogeochemical-cycles.html"><a href="modelling-c-allocation-and-biogeochemical-cycles.html#water-balance-models"><i class="fa fa-check"></i><b>5.5</b> Water balance models</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html"><i class="fa fa-check"></i><b>6</b> Modelling Vegetation Dynamics and Demography</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#gap-models-area-and-cohort-based-models"><i class="fa fa-check"></i><b>6.2</b> Gap models, area and cohort based models</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#area-based-models"><i class="fa fa-check"></i><b>6.2.1</b> Area based models</a></li>
+<li class="chapter" data-level="6.2.2" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#gap-models"><i class="fa fa-check"></i><b>6.2.2</b> Gap models</a></li>
+<li class="chapter" data-level="6.2.3" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#cohort-based-models"><i class="fa fa-check"></i><b>6.2.3</b> Cohort based models</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#growth-and-allometric-relations-in-demographic-models"><i class="fa fa-check"></i><b>6.3</b> Growth and allometric relations in demographic models</a></li>
+<li class="chapter" data-level="6.4" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#competition-for-light-in-demographic-models"><i class="fa fa-check"></i><b>6.4</b> Competition for light in demographic models</a></li>
+<li class="chapter" data-level="6.5" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#competition-for-water-and-nutrients-in-demographic-models"><i class="fa fa-check"></i><b>6.5</b> Competition for water and nutrients in demographic models</a></li>
+<li class="chapter" data-level="6.6" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#seed-dispersal-and-recruitment"><i class="fa fa-check"></i><b>6.6</b> Seed dispersal and recruitment</a></li>
+<li class="chapter" data-level="6.7" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#mortality"><i class="fa fa-check"></i><b>6.7</b> Mortality</a></li>
+<li class="chapter" data-level="6.8" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#conclusion"><i class="fa fa-check"></i><b>6.8</b> Conclusion</a></li>
+<li class="chapter" data-level="6.9" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#case-study-6.1"><i class="fa fa-check"></i><b>6.9</b> Case study 6.1</a></li>
+<li class="chapter" data-level="6.10" data-path="modelling-vegetation-dynamics-and-demography.html"><a href="modelling-vegetation-dynamics-and-demography.html#case-study-6.2"><i class="fa fa-check"></i><b>6.10</b> Case study 6.2</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html"><i class="fa fa-check"></i><b>7</b> Representing functional biodiversity in vegetation models</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#functional-diversity"><i class="fa fa-check"></i><b>7.2</b> Functional diversity</a></li>
+<li class="chapter" data-level="7.3" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#representing-400.000-plant-species-in-a-single-model-the-pft-approach"><i class="fa fa-check"></i><b>7.3</b> Representing 400.000 plant species in a single model: the PFT approach</a></li>
+<li class="chapter" data-level="7.4" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#limitations-of-the-pft-concept"><i class="fa fa-check"></i><b>7.4</b> Limitations of the PFT concept</a></li>
+<li class="chapter" data-level="7.5" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#alternative-approaches-to-account-for-trait-variability"><i class="fa fa-check"></i><b>7.5</b> Alternative approaches to account for trait variability</a></li>
+<li class="chapter" data-level="7.6" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#case-study-7.1"><i class="fa fa-check"></i><b>7.6</b> Case study 7.1</a></li>
+<li class="chapter" data-level="7.7" data-path="representing-functional-biodiversity-in-vegetation-models.html"><a href="representing-functional-biodiversity-in-vegetation-models.html#case-study-7.2"><i class="fa fa-check"></i><b>7.7</b> Case study 7.2</a></li>
+</ul></li>
+<li class="part"><span><b>III Upscaling and applications</b></span></li>
+<li class="chapter" data-level="8" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html"><i class="fa fa-check"></i><b>8</b> Spatial heterogeneity, landscape scale and disturbance</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#introduction-landscape-scale"><i class="fa fa-check"></i><b>8.1</b> Introduction: landscape scale</a></li>
+<li class="chapter" data-level="8.2" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#land-use-change"><i class="fa fa-check"></i><b>8.2</b> Land use change</a></li>
+<li class="chapter" data-level="8.3" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#disturbance"><i class="fa fa-check"></i><b>8.3</b> Disturbance</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#fire"><i class="fa fa-check"></i><b>8.3.1</b> Fire</a></li>
+<li class="chapter" data-level="8.3.2" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#herbivory-case-study-8.1"><i class="fa fa-check"></i><b>8.3.2</b> Herbivory (Case study 8.1)</a></li>
+<li class="chapter" data-level="8.3.3" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#forest-management"><i class="fa fa-check"></i><b>8.3.3</b> Forest management</a></li>
+<li class="chapter" data-level="8.3.4" data-path="spatial-heterogeneity-landscape-scale-and-disturbance.html"><a href="spatial-heterogeneity-landscape-scale-and-disturbance.html#case-study-8.2"><i class="fa fa-check"></i><b>8.3.4</b> Case study 8.2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html"><i class="fa fa-check"></i><b>9</b> Upscaling from the leaf to the globe</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#spatial-and-temporal-non-linearities-cascading-effect-in-the-earth-system"><i class="fa fa-check"></i><b>9.1</b> Spatial and temporal non-linearities: Cascading effect in the Earth system</a></li>
+<li class="chapter" data-level="9.2" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#land-surface-models"><i class="fa fa-check"></i><b>9.2</b> Land surface models</a></li>
+<li class="chapter" data-level="9.3" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#dvgms-as-a-part-of-earth-system-models"><i class="fa fa-check"></i><b>9.3</b> DVGMs as a part of Earth System Models</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#one-biosphere"><i class="fa fa-check"></i><b>9.3.1</b> One Biosphere</a></li>
+<li class="chapter" data-level="9.3.2" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#atmosphere-ocean-lakes-and-urban-areas"><i class="fa fa-check"></i><b>9.3.2</b> Atmosphere, Ocean, lakes and urban areas</a></li>
+<li class="chapter" data-level="9.3.3" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#coupling-of-processes-with-different-time-steps-and-regional-scale"><i class="fa fa-check"></i><b>9.3.3</b> Coupling of processes with different time steps and regional scale</a></li>
+<li class="chapter" data-level="9.3.4" data-path="upscaling-from-the-leaf-to-the-globe.html"><a href="upscaling-from-the-leaf-to-the-globe.html#simulating-feedbacks"><i class="fa fa-check"></i><b>9.3.4</b> Simulating feedbacks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html"><i class="fa fa-check"></i><b>10</b> Model projections and scenario analysis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#climate-scenarios"><i class="fa fa-check"></i><b>10.1</b> Climate scenarios</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#representative-concentration-pathway-rcp-scenarios"><i class="fa fa-check"></i><b>10.1.1</b> Representative Concentration Pathway (RCP scenarios)</a></li>
+<li class="chapter" data-level="10.1.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#different-models-different-rcp"><i class="fa fa-check"></i><b>10.1.2</b> Different models, different RCP</a></li>
+<li class="chapter" data-level="10.1.3" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#use-of-rcp-in-vegetation-modelling"><i class="fa fa-check"></i><b>10.1.3</b> Use of RCP in vegetation modelling</a></li>
+<li class="chapter" data-level="10.1.4" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#how-can-we-evaluate-future-scenarios"><i class="fa fa-check"></i><b>10.1.4</b> How can we evaluate future scenarios?</a></li>
+<li class="chapter" data-level="10.1.5" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#the-central-role-of-paleo-studies-and-historical-datasets."><i class="fa fa-check"></i><b>10.1.5</b> The central role of Paleo studies and historical datasets.</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#land-use-scenarios"><i class="fa fa-check"></i><b>10.2</b> Land-use scenarios</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#construction-of-land-use-scenarios"><i class="fa fa-check"></i><b>10.2.1</b> Construction of Land-use scenarios</a></li>
+<li class="chapter" data-level="10.2.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#how-can-we-evaluate-land-use-scenarios"><i class="fa fa-check"></i><b>10.2.2</b> How can we evaluate land use scenarios?</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#management-scenarios"><i class="fa fa-check"></i><b>10.3</b> Management scenarios</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#construction-of-land-use-scenarios-1"><i class="fa fa-check"></i><b>10.3.1</b> Construction of Land-use scenarios</a></li>
+<li class="chapter" data-level="10.3.2" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#how-can-we-evaluate-management-scenarios"><i class="fa fa-check"></i><b>10.3.2</b> How can we evaluate management scenarios?</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="model-projections-and-scenario-analysis.html"><a href="model-projections-and-scenario-analysis.html#some-concrete-applications-of-vegetation-models"><i class="fa fa-check"></i><b>10.4</b> Some concrete applications of vegetation models</a></li>
+</ul></li>
+<li class="part"><span><b>IV Appendix</b></span></li>
+<li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html"><i class="fa fa-check"></i>Contributing to this document</a>
+<ul>
+<li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html#first-steps"><i class="fa fa-check"></i>First steps</a></li>
+<li class="chapter" data-level="" data-path="contributing-to-this-document.html"><a href="contributing-to-this-document.html#new-pull-request"><i class="fa fa-check"></i>New pull request</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="supporting-material.html"><a href="supporting-material.html"><i class="fa fa-check"></i>Supporting material</a></li>
+<li class="part"><span><b>V Practicals</b></span></li>
+<li class="chapter" data-level="" data-path="practical-a.html"><a href="practical-a.html"><i class="fa fa-check"></i>Practical A</a></li>
+<li class="chapter" data-level="" data-path="practical-b.html"><a href="practical-b.html"><i class="fa fa-check"></i>Practical B</a></li>
+<li class="chapter" data-level="" data-path="practical-c.html"><a href="practical-c.html"><i class="fa fa-check"></i>Practical C</a></li>
+<li class="chapter" data-level="" data-path="practical-d.html"><a href="practical-d.html"><i class="fa fa-check"></i>Practical D</a></li>
+<li class="chapter" data-level="" data-path="practical-e.html"><a href="practical-e.html"><i class="fa fa-check"></i>Practical E</a></li>
+<li class="chapter" data-level="" data-path="practical-f.html"><a href="practical-f.html"><i class="fa fa-check"></i>Practical F</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Vegetation modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="contributing-to-this-document" class="section level1 unnumbered">
+<h1>Contributing to this document</h1>
+<div id="first-steps" class="section level2 unnumbered">
+<h2>First steps</h2>
+<p>First, visit the course webpage on <a href="https://github.com/femeunier/VegMod_course" class="uri">https://github.com/femeunier/VegMod_course</a>, and fork it to your own github account. Open a RStudio session and (if it is your first time with git) introduce yourself:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="contributing-to-this-document.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">&quot;FULLNAME&quot;</span></span>
+<span id="cb1-2"><a href="contributing-to-this-document.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email you@yourdomain.example.com</span></code></pre></div>
+<p>Note that you can do every single step below using the terminal and the git tabs in RStudio. Clone the newly forked folder to your local machine:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="contributing-to-this-document.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/femeunier/VegMod_course.git</span></code></pre></div>
+<p>or using SSH (to set up it first, see for instance <a href="https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh" class="uri">https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh</a>)</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="contributing-to-this-document.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:femeunier/VegMod_course.git</span></code></pre></div>
+<p>Define upstream</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="contributing-to-this-document.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> VegMod_course</span>
+<span id="cb4-2"><a href="contributing-to-this-document.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream git@github.com:femeunier/VegMod_course.git</span></code></pre></div>
+</div>
+<div id="new-pull-request" class="section level2 unnumbered">
+<h2>New pull request</h2>
+<p>Get the latest code from the main repository</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="contributing-to-this-document.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream master</span></code></pre></div>
+<p>Create a new branch (here new_branch is the new branch’s name)</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="contributing-to-this-document.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> new_branch</span></code></pre></div>
+<p>Do some coding, add files and commit them</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="contributing-to-this-document.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add filepath</span>
+<span id="cb7-2"><a href="contributing-to-this-document.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> “Message”</span></code></pre></div>
+<p>Push your changes to your github (when a feature is working, a set of bugs are fixed, or you need to share progress with others).</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="contributing-to-this-document.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin new_branch</span></code></pre></div>
+<p>Before submitting code back to the main repository, make sure that book compiles (buikd book). Open the PR online by visiting your github repository. To ease those previous steps you can take advantage of the git GUI in RStudio. To do so, create a new project from an existing directory.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="model-projections-and-scenario-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="supporting-material.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["VegMod_course.pdf", "VegMod_course.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -7,7 +7,7 @@ latex_engine: xelatex
 header-includes:
 - \usepackage{caption}
 geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
-description: Syllabus associated to the course XX taught at Ghent University
+description: Syllabus associated to the Vegetation modelling course taught at Ghent University
 classoption: oneside
 documentclass: book
 link-citations: yes
