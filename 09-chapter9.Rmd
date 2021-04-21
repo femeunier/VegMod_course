@@ -1,52 +1,75 @@
 # Upscaling from the leaf to the globe
 \chaptermark{Globe}
-Some references:
- - Scalling processes and problems, Jarvis 1995
- - upscalling in global change research, Harvey 2000
- 
-## Spatial and temporal non-linearities: Cascading effect in the Earth system
-- spatial upscalling
-- temporal upscalling
-- classification of upscalling problems:
-  - Spatial variability + process nonlinearity
-  - Minimim scale to observe the process
-  - Different processes dominate at different scales
-  - Feedbacks between scales
-  - Development of emergent properties
-  - Edge effects
-  - Temporal lag dependent on spatial scale change
-  - Collective response with differential effects
-- Solutions to upscaling problems: 
-  - Ignore (easy solution)
-  - Increase model resolution (now more and more possible thanks to computing ressources, and data assimilation)
-  - etc... ** Nice review in Harvey 2000 **
 
---> Solution depends on the application, show some examples here
-```{r figHarvey, fig.cap='Functional diversity', echo=FALSE, message=FALSE, warning=FALSE}
-#knitr::include_graphics('figures/Harvey2000.jpg')
+
+## The problem of upscaling
+
+
+```{r f91, fig.cap='Illustration of the correlation between the spatial and temporal scales at which various vegetation processes dominate. (Wolfgang Lucht, PIK)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f91_lucht.png')
 ```
 
-## Land surface models
-- Dependence to other disciplines (Biology, ecology, physics, chemistry (VOC, etc), hydrology, pedology, datascience and mathematics, etc…)
-- Figure 1.7 from Bonan
-- UCL 4.2: Land surface schemes
-- Focus on the coupling of different models and what it implies, not the technical aspects
-### Soil-Vegetation-Atmosphere-Transer models
-- Description of SVAT models, regroups what we studied in Chap1-9
+
+```{r f92, fig.cap='Illustration from the course Inventory of Forest and Nature showing the temporal and spatial scale of different carbon cycle monitoring methods and the integrative power of vegetation models.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f92_upscaling.png')
+```
+
+## Vegetation models as part of earth system models
+
+```{r f93, fig.cap='Scientific scope of (a) climate models and (b) Earth system models. Climate models simulate biogeophysical fluxes of energy, water, and momentum on land and also the hydrologic cycle. Terrestrial and marine biogeochemical cycles are new processes in Earth system models. The terrestrial carbon cycle includes carbon uptake through gross primary production (GPP) and carbon loss from autotrophic respiration, heterotrophic respiration, and wildfire. Many models also include the nitrogen cycle. Anthropogenic land use and land-cover change are additional processes. The fluxes of CO2, CH4, aerosols, biogenic volatile organic compounds (BVOCs), and wildfire chemical emissions are passed to the atmosphere to simulate atmospheric chemistry and composition. Nitrogen is carried in freshwater runoff to the ocean.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f93_ESM_bonan.png')
+```
+
+```{r f94, fig.cap='Illustration of the difference between climate models and earth system models. Climate models include the blue processes, earth system models include both the blue and green processes.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f94_ESM_GCM.png')
+```
+
+```{r f95, fig.cap='Illustration of the evolution of climate models into earth system models, with more and more processes and components added through time over the past decades.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f95_GCM_timeline.png')
+```
+
+##  MOdelling work flow
+
+```{r f96, fig.cap='Model data fusion in every step of the model development cycle. (Williams et al. 2009)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f96_willimas.png')
+```
 
 
-## DVGMs as a part of Earth System Models
-- Partially in UCL 4.3.3
+```{r f97, fig.cap='Methodological workflow of model data fusion. (Dietze: Ecological Forecasting)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f97_dietze.png')
+```
 
-### One Biosphere
-- Chapter 1 of Bonan, specifically 1.5
-- Coupling to other components
 
-### Atmosphere, Ocean, lakes and urban areas
-- Rapid desciption of other models 
-- Reference here to previous chapter on heterogeneity
+## Case study 9.1
 
-### Coupling of processes with different time steps and regional scale
 
-### Simulating feedbacks
-- Nice transition to chap 11 with future scenarii
+```{r f98, fig.cap='Carbon fluxes in CTL and experiment A. a, IAV (inter annual variability) in global mean NBP as simulated by four ESMs (CCSM4, ECHAM6, GFDL and IPSL) in coupled model experiments with (CTL) and without (experiment A; ExpA) anomalies in soil moisture. Positive NBP indicates carbon uptake. b, Standard deviations of global mean NBP, GPP and respiration and disturbance (ReD) in the two experiments. c, Drivers of change in global mean NBP variance. Global mean NBP variance decreases in the experiment with prescribed seasonal soil moisture mainly because GPP variance is reduced. GPP and ReD fluxes are not available for the IPSL model. (Humphrey et al. 2021)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f98_humphrey1.png')
+```
+
+```{r f99, fig.cap='Drivers of NBP IAV. a, b, Contribution of meteorological drivers to NBP IAV: direct soil moisture effects (NBPSM), indirect LAC-dependent (land atmosphere coupling) temperature and VPD effects (NBPLAC T\\&VPD), non-LAC-dependent temperature and VPD effects (NBPnonLAC T\\&VPD ) and radiation (R) effects (NBPR) globally (a; mean of the four models ±1σ) and from local to global scales (b). (Humphrey et al. 2021)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f99_humprey2.png')
+```
+
+## Case study 9.2
+
+
+```{r f910, fig.cap='Validation of LPJ model at the site level. Comparison between simulated and observed Net Ecosystem Exchange at 6 fluxtower sites in Europe. (Sitch et al. 2003) ', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f910_sitch1.png')
+```
+
+```{r f911, fig.cap='Validation of the LPJ model at the site level. Observed vs. simulated soil moisture at seven sites.(Sitch et al. 2003)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f911_sitch2.png')
+```
+
+```{r f912, fig.cap='Validation of LPJ at the global scale, comparison with observed annual runoff per latitude. (Sitch et al. 2003)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f912_sitch3.png')
+```
+
+```{r f913, fig.cap='Global coparison of LPJ simulated distributions of woody vegetation with sattelite based maps. (Sitch et al. 2003)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f913_sitch4.png')
+```
+
+```{r f914, fig.cap='LPJ simulated vs. reconstructed interannual variation in net ecosystem exchange for the globe. (Sitch et al. 2003)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap9/f914_sitch5.png')
+```
