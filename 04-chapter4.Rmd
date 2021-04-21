@@ -103,7 +103,7 @@ GDD = \sum_{T>T_{base}}(T-T_{base}) \\
 budburst:GDD>F^*
 $$
 
-Identify some threshold value of GDD $F^∗$ that corresponds to the metric of interest, which is budburst in this case. Similar models can be made for fruiting or harvest.
+Identify some threshold value of GDD $F^{∗}$ that corresponds to the metric of interest, which is budburst in this case. Similar models can be made for fruiting or harvest.
 
 **Photoperiod**
 
