@@ -5,6 +5,7 @@
 
 ## Introduction
 
+In Part I of the course we focused on modelling fluxes, but ecosystem dynamics involve other aspects (biogeochemistry, demography, biodiversity) that determine its functioning. The aspects, discussed in Part II, are typically important at large temporal and spatial scales than the processes that determine fluxes. In this chapter we will focus on the biogeochemical perspective, studying the full cycle of carbon or nutrients, accounting for pools and fluxes. The biogeochemical perspective is illustrated by the Figure \@ref(fig:f51). Bauters et al. (2019) studied a landscape with forests of different age on the same soil and with the same climate (a chronosequence). Figure \@ref(fig:f51)b shows the classical description of these forests in terms of stem density, basal area and tree height. While Figure \@ref(fig:f51)a shows the situation from a biogeochemical perspective, focusing on aboveground an below ground carbon pools (not accounting for the number of trees etc.).
 
 ```{r f51, fig.cap='Forest succession. (a) the biogeochemical perspective: variation of aboveground carbon (AGC) and soil organic carbon (SOC) along the forest succession in the Maringa-Lopori-Wamba landscape (DR Congo. Young: recently abandoned farmland, 5–25 years; SYoung: second growth young forest, 25–30 years; SOld: second growth old forest, approx. 150–300 years; Old-Mix: old growth mixed forest, 1700 years; Old-Gil: old growth Gilbertiodendron forest.BA stands for basal area. Error bars represent standard deviations. Percentages are stock values relative to the value of Old-Mix forest. The dashed horizontal line indicates the regional mean AGC of old growth forests across Central Africa (Lewis et al., 2013). (b) the forest structure perspective: Variation of four forest structure plot variables along the successional stages at our study site. Bars represent mean plot values per successional stage. Error bars represent standard deviations. BA stands for basal area. Error bars represent standard deviations. No standard deviations were calculated for Old-Mix because of its single plot replicate. Significant differences across forest types are indicated by different letters per type (p < 0.05)(Bauters et al. 2019)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f51_bauters.png')
@@ -12,44 +13,84 @@ knitr::include_graphics('figures/chap5/f51_bauters.png')
 
 ## Carbon cycle models: stocks and fluxes
 
-
-This chapter will develop the ecological foundation and mathematics to describe ecosystem carbon dynamics using biogeochemical models.
-Biogeochemical models abstract an ecosystem as pools of carbon and the flows of carbon among these pools.
-
-Biogeochemical models simulate processes of allocation of photosynthetic carbon gain to plant parts (e.g., foliage, fine root, wood), turnover of plant biomass as litterfall, transformation of litter to soil organic matter, and carbon loss during respiration.
-
-Principles: 
-- net carbon input is equal to gross primary production minus autotrophic respiration;
-- carbon flows from donor to receiver pools at a rate that depends on the donor pool size and its chemical quality as modified by the environment;
-- mass balance is maintained as carbon flows through the system of interconnected pools;
-- decay of litter and soil organic matter releases CO 2 as heterotrophic respiration.
-
-Models:
-a system of first-order, linear differential equations to describe carbon pools and fluxes (typically time step of one day)
-
-Pools and fluxes to be included:
-- Carbon gain from gross primary production  minus autotrophic respiration
-- Allocation of carbon to growth of leaves, wood, and roots pools (partitioning varies with light availability, soil temperature, soil moisture, and nutrients + temporal for leaves (ref to phenology)
-- Carbon turnover (comprising litterfall, background mortality, and disturbances) + turnover rates depending on the plant material
-- litter pools: metabolic litter, structural litter, coarse woody debris (vary in chemical quality and turnover rate; base turnover rates are modified for soil temperature and soil moisture (environmental scaling factors))
-- decomposition to soil organic matter pools: fast SOM, slow SOM, passive SOM (vary in chemical quality and turnover time)
-- portion of the decomposition flow lost as heterotrophic respiration
+In this section we refresh your knowledge on the carbon cycle and translate that into a basic carbon cycle model. We typically study carbon pools and fluxes (Figure \@ref(fig:f52)). The fluxes are the flow of carbon between pools, e.g litter fall, respiration,... The gross primary productivity (GPP) is the photosynthesis at the ecosystem level and is the largest gross flux. The carbon taken up by photosynthesis is allocated to different plant parts (roots, stems, leaves). This is a key process, as the pool where the carbon is ending up will determine the residence time and the potential long-term carbon storage in the system. In addition to GPP and allocation, the carbon balance is controlled by autotrophic and heterotrophic respiration and carbon turnover (liter fall, mortality and disturbances). As we will discuss later in this chapter, in parallel with carbon fluxes we can also study nutrient fluxes between the different plant an soil pools. 
 
 ```{r f52, fig.cap='Forest carbon cycle: stocks and fluxes.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f52_stocks_fluxes.png')
 ```
 
+The carbon cycle of ecosystems is typically studied in terms of productivity (Figure \@ref(fig:f53)). The net primary productivity (NPP) is the net production of the vegetation calculated as the difference between the GPP and the autotrophic respiration. A positive NPP corresponds to a net carbon uptake (growth) of the vegetation. If we subtract from the NPP the heterotrophic respiration we get the net ecosystem productivity (NEP), which is the full carbon balance of the ecosystem (vegetation + soil). A positive value of NEP means carbon uptake by the ecosystem from the atmosphere. Atmospheric scientists are estimating the NEP by using fluxtowers. In that case the measure the net ecosystem exchange (NEE) as estimate of NEP. Remark: for fluxtower measurements an opposite sign convention is used, where a negative NEE means a net carbon uptake, corresponding to a positive NEP. 
+
+When “non-respiratory” components are taken into account you get the net biome productivity (NBP):
+
+$$ NEP = GPP - R_a - R_h = NPP - R_h $$
+
 ```{r f53, fig.cap='Definitions of productivity terms in the carbon cycle (Schulze et al. 2000)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f53_GPP_NBP.png')
 ```
 
-```{r f54, fig.cap='Structure of the nine-pool CASA-CNP biogeochemical model (Wang et al. 2010). Plant carbon mass consists of leaf c1, fine root c2, and wood c3. Net primary production is allocated to plant material in proportion to bi. Plant residue becomes metabolic litter c4, structural litter c5, or coarse woody debris c6. These pools decompose to fast c7, slow c8, and passive c9 soil organic matter. Pools differ in base turnover rate ki. Lines indicate carbon pathways, with aij the fraction of carbon turnover from pool j that enters pool i after heterotrophic respiration loss. Curved arrows denote heterotrophic respiration fluxes for each pathway. Shown are representative allocation and turnover rates for evergreen broadleaf forest. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+When considering all carbon stocks and fluxes in an ecosystem (Figure \@ref(fig:f52)), it is striking that usually only a few components are (or can be) measured. In most monitoring plots only carbon stocks in wood (inventories) and soil (soil sampling) are observed. In terms of fluxes, woody productivity and litterfall are the most commonly observed. In some cases NEE is observed by eddy covariance fluxtowers and sometimes soil respiration is observed via chamber measurements. All other stocks and fluxes are hard to measure (e.g. root growth, ...). In that respect vegetation models are very usefull to estimate those stocks and fluxes that cannot be measured and to close the full carbon cycle of the ecosystem.
+
+Biogeochemical models for the carbon cycle are relatively simple models, essentially doing the bookkeeping of the carbon stocks. These models follow a few key principles:
+
+- the net carbon input of the ecosystem is calculated by substracting the autotrophic respiration ($R_a$) from the GPP: $NPP = GPP - R_a$
+
+- Within the ecosystem, carbon flows (fluxes) between donor to receiver pools are depending on: Donor pool size, Chemical quality, and the Environment
+
+- Mass balance must be maintained (no carbon can be lost, except via respiration to the atmosphere)
+
+- Decay of litter and soil organic matter releases CO2 heterotrophic respiration ($R_h$).
+
+These principles result in in a system of first order linear differential equations (see CASA CNP model below). The above-mentioned principles are common to any type of ecosystem, which has facilitated the wide use of biogeochemical models in global vegetation models.
+
+The GPP is calculated based on the various photosynthesis models that were presented in chapter 2. Some models calculate $R_a$ as a constant fraction of GPP (example: $R_a=0.5 \cdot GPP$), but most biogeochemical models consider the autotrophic respiration as the sum of maintenance and growth respiration. 
+
+$$ R_a = R_m + R_g$$
+
+The maintenance respiration ($R_m$) is the cost to support living biomass (including the repair of membranes and proteins). $R_m$ is temperature dependent and therefore typically Q10 or Arrhenius functions are used. In addition, $R_m$ is proportional to the amount of biomass of specific organs and the type of tissue. Leaves and fine roots are fore example more costly, depending on their protein content. 
+
+The growth respiration ($R_g$) is the cost of synthesis of new biomass, and is independent of temperature. Some models assume a fixed fraction of NPP ($R_g= 0.25 \cdot NPP$). Growth has a double carbon cost: the cost to of C to incorporate into the biomass and the energy (respiration) needed to drive the biosynthetic reactions. If you know the biochemical constitution of the plant tissue (leaf, wood, etc.), we can calculate the cost of transforming basic sugars into the complex molecules (e.g. lignin) out of which the plant/tree is build. 
+To illustrate the functioning of biogeochemical model, we will study in detail the CASA CNP model (Figure \@ref(fig:f54)). This model has 9 pools: 3 plants pools, 3 litter pools and 3 soil organic matter pools. The three litter pools are: structural litter (not yet decomposed), metabolic litter (easy decomposable), CWD (coarse woody debris, dead branches lying on the forest floor). 
+The model essentially consists of 9 equations that calculate the change of each carbon pool over time, which is calculated by summing up the incoming carbon and subtracting the outging caron of each pool. 
+The change of carbon content of each plant pool is calculated according to the equations below, where the input is determined by the NPP which is the carbon available for growth:
+
+$$\frac{dc_1}{dt} = b_1 NPP - \xi_1 k_1 c_1 $$
+$$\frac{dc_2}{dt} = b_2 NPP - k_2 c_2 $$
+
+$$\frac{dc_3}{dt} = b_3 NPP - k_3 c_3 $$
+
+Where $b_i$ are allocations factors to leaves, roots and wood respectively. These allocation factors may vary over time with phenology and are specific for their pool, the CASA-CNP model uses constant fractions.
+
+$k_i$ are turnover rates for plant and organic matter pools in litter and soil. The example values in the figures are given for broadleaved forest. These turnover rates can be modified for environmental conditions, for examples for leaf turnover by the factor $\xi_1$. If a turnover rate (e.g. for leaves) is higher than 1, it means that leaves are replaced more than one time per year.
+The change of carbon content of each litter and soil pool is calculated by the following equations:
+
+$$\frac{dc_4}{dt} = a_{41} \xi_1 k_1 c_1 + a_{42} k_2 c_2 - \xi_4 k_4 c_4 $$
+
+$$\frac{dc_7}{dt} = a_{74} \xi_4 k_4 c_4 + a_{75} \xi_5 k_5 c_5 + a_{76} \xi_6 k_6 c_6 - \xi_7 k_7 c_7 $$
+Where the turnover rates $k_i$ are modified for soil temperature and moisture using the $\xi_i$ factors and where the $a$ factors depend on lignin content and C/N ratio of the respective pools. The a factors can be calculated as:
+
+$$a_{ij} = (1 - r_{ij}) f_{ij} $$
+with: 
+
+$f_{ij}$ = fraction that is allocated from j to i, and $r_ij$ = fraction lost as heterotrophic respiration $R_h$ (represented by the small arrows in Figure \@ref(fig:f54)).
+
+Biogeochemical models like CASA-CNP can work on various timesteps. Some models simulate the allocation and biogeochemistry on a daily calculation step, others use a monthly or annual time step. 
+
+The equations of the CASA-CNP model, and any similar biogeochemical model can also be written in generalized matrix form, with PFT specific parameters, to calculate the biogeochemical pools and fluxes in a rather efficient way. 
+
+Other biogeochemical models work in a very similar way, but the implementation can differ strongly (e.g. the number of pools considered, the environmental factors accounted for, etc.).
+
+```{r f54, fig.cap='Structure of the nine-pool CASA-CNP biogeochemical model (Wang et al. 2010). Plant carbon mass consists of leaf c1, fine root c2, and wood c3. Net primary production is allocated to plant material in proportion to bi. Plant residue becomes metabolic litter c4, structural litter c5, or coarse woody debris c6. These pools decompose to fast c7, slow c8, and passive c9 soil organic matter. Pools differ in base turnover rate ki. Lines indicate carbon pathways, with aij the fraction of carbon turnover from pool j that enters pool i after heterotrophic respiration loss. Curved arrows denote heterotrophic respiration fluxes for each pathway. Shown are representative allocation and turnover rates for evergreen broadleaf forest. (Bonan)', out.width='60%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f54_casa_cnp.png')
 ```
+
+Figure \@ref(fig:f55) illustrates the result of a simulation over 1000 years by the CASA-CNP model. It illustrated that long time scales are needed to bring carbon pools at equilibrium. Plant pools reach there maximum carbon stocks relatively quickly, while SOM pools needs more time, illustrating that old forest keep on sequestering CO2 for centuries in this simulation. The broadleaved evergreen forest simulated here, needs more than 3000 years to reach equilibrium. The residence time of carbon in the respective carbon pools is also very different. 
 
 ```{r f55, fig.cap='Carbon dynamics of evergreen broadleaf forest using parameters described in (Bonan Table 17.3 and Table 17.4) with net primary production equal to 1000 g C m–2 y–1. The thick black line denotes soil organic matter at equilibrium.Definitions of productivity terms in the carbon cycle. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f55_casa_result.png')
 ```
+
+The carbon turnover rate is the inverse of the residence time. Figure \@ref(fig:f56) illustrates that long term carbon storage depends a lot on allocation towards pools with various turnover times (in the boxes in Figure \@ref(fig:f56)). Leaf level respiration fluxes result in very short turnover times, while carbon allocated to wood has a much longer turnover in the system. 
 
 ```{r f56, fig.cap='Turnover of carbon in terrestrial ecosystems (Schulze 2000).', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f56_turnover.png')
@@ -58,46 +99,81 @@ knitr::include_graphics('figures/chap5/f56_turnover.png')
 
 ## Carbon allocation models
 
-- allocation parameters
-- fixed allocation and dynamic allocation (specified by biome or based on environmental conditions)
-- Optimality models: plants optimally allocate resources to balance light acquisition (foliage), structural support and water transport (stems), and water and nutrient uptake (roots).
-- allocation based on scaling relationships among plant components (specified ratios of foliage, root, and wood biomass)
+As indicated at the end of the previous section, carbon allocation is a key process for the ecosystem carbon cycle. It is the process which determines the carbon accumulation in various plant components (leaves, wood, roots), and it affects the structural characteristics of the plant (leaf area, rooting profile, plant height) which determine resource acquisition (e.g. higher leaf area results in higher photosynthesis of the plant or ecosystem). However, the process-based knowledge on carbon allocation is limited. It is uncertain how carbon allocation varies with environmental factors. We know that plants allocate more to roots when soils are dry or nutrient poor and we know that plants allocate more to leaves when light is limiting, but the exact process are unknown or unquantified. It is clear that plants are constantly adjusting their allocation to prevent an overwhelming limitation by one resource, which tends to make plants limited by multiple resources. Allocation is usually studied/observed very roughly, by studying aboveground/belowground biomass ratios or sapwood/leaf area ratio. 
 
-- Turnover rates vary depending on plant material and are specified as a fraction of biomass.
-- Turnover rates are commonly estimated as the inverse of residence time or longevity
-
--  biogeochemical models can be applied to any type of ecosystem such as grassland, savanna, forest, shrubland, and tundra
+Due to our limited knowledge of the underlying processes, growth of plants and the allocation processes can only be showed by means of a schematic model (e.g. Figure \@ref(fig:f57)) because there exists no fully physiological model that describes the distribution of assimilates over the different organs. In the example of Figure \@ref(fig:f57) also the interaction with the nutrient cycle is accounted for. 
 
 ```{r f57, fig.cap='Schematic model of internal carbon, water and nutrient pools and fluxes within the plant (full lines) as well as important feedbacks and regulation (dashed lines). regylating factors are climate (a), stomata and impact of water balance on carbon allocation (b, c, d, e) and nutrient impacts (f) (Schulze and Chapin 1987).', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f57_schulze_alloc.png')
 ```
 
+Current carbon allocation models make use of one of the following approaches:
+
+1. Time-invariant partitioning coefficients (per PFT or climate type)
+2. Empirical algorithms with variable allocation in response to environment
+3. Functional relations affected by resource limitations (e.g. balance in sapwood and leaf area) (scaling relationships)
+4. Optimality approaches that balance multiple resource limitations (e.g. optimize allocation to maximize NPP, or to balance water (root) and light (leaves) acquisition and water transport (stem))
+5. More mechanistic approaches (for single plants) (e.g. explicitly simulating phloem transport, etc...)
+
+The example of Figure \@ref(fig:f58) illustrates the dependency of allocation factors of the CTEM model to environmental factors (light availability) for dry and wet soils. 
+
 ```{r f58, fig.cap='Biomass allocation to leaf, root, and wood in relation to relative light availability f1 for (a) wet (f2 = 1) and (b) dry (f2 = 0.5) soil as in Arora and Boer (2005).', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f58_alloc_factors.png')
 ```
+
+We know that plants (trees) have a storage pool of (labile) carbon (NSC: non-structural carbohydrates), which they can use to buffer variation in resource supply. Many models account for such a storage pool, example to allow for initial leaf growth in spring for deciduous vegetation. Such a buffer allows plants to acquire most resources when they are abundant and use accumulated carbon when needed for growth. Plants as such follow ‘economic rules’ similar to those of business firms. The actual implementation of a storage pool differs from model to model (as illustrated in Figure \@ref(fig:f59)). 
 
 ```{r f59, fig.cap='Two different representations of plant growth. (a) Autotrophic respiration Ra is subtracted from gross primary production (GPP) and the remaining carbon is allocated to the growth of leaves, wood, and roots. (b) GPP first enters a storage pool from which maintenance respiration Rm is subtracted. The remaining carbon is allocated to growth after accounting for growth respiration Rg.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f59_storage_pool.jpg')
 ```
 
-```{r f510, fig.cap='The Swiss Canopy Crane (SCC) free air CO2 enrichment (FACE) experiment  conducted in a mature mixed deciduous forest near Hofstetten, 15 km south of Basel, Switzerland. Fatichi et al.2013. ', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+It is important to mention here that the allocation process is tightly linked with phenology (as discussed in chapter 4). Phenology will determine how some allocation factors will vary over time, for example determined by the timing of budburst and senescence. 
+
+## Case Study 5.1
+
+In this case study the Thetys-Chloris model, with detailed carbon allocation, was tested for a FACE experiment in Switzerland. A FACE (free air CO2 enrichment) is an experimental setup on open air where and ecosystem is exposed to elevated $CO_2$ as global change experiment (Figure \@ref(fig:f510)). In the Swiss setup a tubing system in the tree crowns is used to continuously spray CO2 in the experimental plot. The site also has a ‘canopy-crane’ used for direct in-situ measurement on the leaves of the trees. Multiple supporting measurements are executed (sap flow, stomatal conductance, litterfall, stem growth) for model-data comparison. 
+
+
+```{r f510, fig.cap='The Swiss Canopy Crane (SCC) free air CO2 enrichment (FACE) experiment conducted in a mature mixed deciduous forest near Hofstetten, 15 km south of Basel, Switzerland. Fatichi et al.2013. ', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f510_face.png')
 ```
+
+The study illustrate that the model works well to simulated carbon, water and energy fluxes (Figure \@ref(fig:f511)), however testing of the model remains difficult for carbon allocation (Figure \@ref(fig:f512)).
+
+
 ```{r f511, fig.cap='A comparison between observed sapflow and simulated transpiration in relative units for the Swiss Crane forest stand in ambient (AMB) and elevated (ELE) CO2 conditions during the growing season of 2004 (subplots a and c) and 2005 (subplots b and d). Scatter plots of daily sums (subplots a and b) and time series for two representative five day periods (subplots c and d) are shown. Fatichi et al. 2013.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f511_fatichi_sf.png')
 ```
+
+
 ```{r f512, fig.cap='A comparison between observations [OBS. (1)] (solid lines) with uncertainty bounds (colored area) and model simulations (SIM., triangles) of stem growth (species averaged) per unit surface area for the period of 2000 through 2010 in ambient (AMB.) and elevated (ELE.) CO2 conditions. The stand carbon increments using only the Acrown derived for trees equipped with dendrometers in ambient and elevated conditions [OBS. (2)] in the upscaling are also reported (dashed lines). Fatichi et al. 2013.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f512_fatichi_growth.png')
 ```
+
+Figure \@ref(fig:f513) illustrates the strength of this models that allows to simulated the dynamics of all carbon pools at the species level. It shows that beech is more drought-sensitive than oak at this site, with a clear impact of the 2003 drought on the reserves and sapwood pools for beech.
 
 ```{r f513, fig.cap='The simulated dynamics of green aboveground, living sapwood, fine roots and carbohydrate reserves carbon pools of (a) Fagus sylvatica (Fs) and (b) Quercus petraea (Qp) under ambient (dashed lines) and elevated (solid lines) CO2 conditions for the period of 2001 through 2010.Fatichi et al. 2013', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f513_fatichi_pools.png')
 ```
 
+It is important that in many detailed site level studies, such as the one illustrated here, parameter optimalisation is applied to get an as good as possible match between simulated results and measured data. Such model tuning can be achieved in an automated way, for example by algorithms that minimize the mismatch between model output and data, or by manual tuning of specific parameters to achieve a better fit. 
 
 ## Soil biogeochemistry models
 
+In this section we take a closer look to the soil component of biogeochemical models. We are not only considering the carbon cycle here, but also nutrients cycling (for which plants also play a key role of course). It is important to be aware that carbon cycling (decomposition) is a standard process in most vegetation models, while the nitrogen cycle has only been included in vegetation models during the last decade. The P cycle is currently only included in a handful of models, will other nutrients (Mg, K, ..) are usually not accounted for at all.
+
 ### Decomposition models
+
+Decomposition is the physical and chemical breakdown of dead organic matter. It is an important process as it (1) provides energy for microbial growth, (2) releases nutrients for plant uptake and (3) influences ecosystem carbon storage (and therefore the global climate). Decomposition basically consists of 3 processes: (1) leaching of soluble materials by water, (2) fragmentation of organic matter by soil fauna (which increases the surface for microbial attack), (3) chemical alteration of the organic material. As such the decomposition process changes the chemical composition of the detritus, breaks down the organic matter to CO2 and nutrients and forms recalcitrant compounds. 
+
+Decomposition models assume that the decay rate of organic matter over time is proportional to the amount of material in the litter pool and a decay rate k. 
+
+$$\frac{dm}{dt} = -k m $$
+
+When integrating this relation over time we can calculate the litter mass in function of time following an exponential decline:
+
+$$m(t) = m_0 e^{-kt} $$
+where the decay rate $k$ depends on substrate quantity and quality (Figure \@ref(fig:f514)), the properties of the microbial community and the physical environment. To account for the physical environment, many models correct the decay rate for soil temperature, pH and/or soil water content. Figure \@ref(fig:f514bis) gives an overview of the various factors controlling decomposition. 
 
 ```{r f514, fig.cap='Mass decline over time during decomposition of different plant materials.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f514_leaf_decomp.png')
@@ -106,6 +182,12 @@ knitr::include_graphics('figures/chap5/f514_leaf_decomp.png')
 ```{r f514bis, fig.cap='Controling factors on the decomposition process. The thickness of the arrows are proportional to the level of control. (CHapin).', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f514_chapin_decomp_controls.png')
 ```
+
+Some models use specific decay rates for each type of SOC depending on its composition (C/N ratio, lignin content (Figure \@ref(fig:f516)),...). This results in models with multiple SOC and litter pools with specific decay rates (as illustrated earlier with the CASA-CNP model). A decomposition model with three pools will then have the following form:
+
+$$m(t) = m_1 e^{-k_1t} + m_2 e^{-k_2t} + m_3 e^{-k_3t} $$
+
+Based on such a model, one can simulate the different phases of decomposition depending on the composition of the remaining litter (Figure \@ref(fig:f515)). In phase 1 the leaching dominates. In phase two we still have a relatively high value of $k$, because the labile substrates are broken down. In phase 3 a low value of $k$, reflects the recalcitrant substrates that predominate. Figure \@ref(fig:f515) also illustrates the fact that the time scale of decomposition heavily depends on the environment, with a much longer time scale in the arctic compared to the tropics where conditions are much more favorable (warm and humid) for decomposition.
 
 ```{r f515, fig.cap='Phases of decomposition over time depending on the constitution of the remaing litter.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f515_decomp_phases.png')
@@ -116,37 +198,45 @@ knitr::include_graphics('figures/chap5/f515_decomp_phases.png')
 knitr::include_graphics('figures/chap5/f516_decay_lignin.png')
 ```
 
+Some recent vegetation models use a ‘litter cohort model’ in their soil biogeochemical component (Figure \@ref(fig:f517)). These models track each litter type at different stages of decomposition (litter cohorts). Such models can assign a specific decay rate to each litter cohort and can simulate transfer of organic material between cohorts. Within a cohort the C/N ration can change over time, impact the decay rate.
+
 ```{r f517, fig.cap='Decomposition as represented by a litter cohort model. Foliage, twig, root, and wood litter form individual cohorts with an initial carbon, nitrogen, and lignin mass. Each box represents an individual cohort for a particular year. Foliage litter can vary in initial quality, represented by multiple litter cohorts. The cohorts decompose over time, immobilize nitrogen, and transfer to humus upon reaching a critical nitrogen concentration. Fresh wood first passes through a well-decayed wood pool (WDW) before becoming humus. Humus decomposes and mineralizes nitrogen.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f517_litter_cohort.png')
 ```
+
+Figure \@ref(fig:f518) illustrates the structure of the DAYCENT model, which is a recent full biogeochemical soil model (based on the original CENTRY model, which is reference in the field). It shows the complex structure of this very detailed model, which considers cohorts in different stages of decay with different k values, tracking lignin contents, accounting for the impact of temperature, soil water pH, aerobic conditions, texture, et cetera. It is important to mention here that most of the global vegetation models do not have such a detailed biogeochemical soil component. Current developments in soil biogeochemical models are focusing on implementing multiple soil layers, the specific conditions of permafrost soils and impact of the composition of the soil microbial community.
 
 ```{r f518, fig.cap='Example of a full soil biogeochemical model DAYCENT. Litter, soil organic matter, and coarse woody debris pools and fluxes represented. The model has leaf, fine root, and three coarse woody debris litter flux inputs (u1–u5) and twelve carbon pools (c1–c12). Shown are litter flux partitioning parameters bij, base decomposition rates kii (per year), fractional carbon transfer fij, and respiration fraction rij. Solid lines indicate decomposition pathways, with curved arrows denoting heterotrophic respiration fluxes for each pathway. DAYCENT allows for photodegradation from solar radiation, but that was not included in Bonan et al. (2013). Nor was leaching loss included. (a) Leaves decompose as surface material represented by two litter pools and two organic matter pools (shown on the left). Fine roots decompose as belowground material represented by two litter pools and three organic matter pools (shown on the right). The actual decomposition rate varies with soil temperature T, soil moisture θ, and pH. Belowground decomposition additionally varies with anaerobic conditions (O2), cultivation, and soil texture. Structural litter decomposition also depends on lignin fraction flig. The total turnover of the surface slow pool depends on decomposition and mixing, with a fraction to the belowground slow pool and the remainder to the surface active pool. The C/N of organic matter differs among pools and varies with soil mineral nitrogen. Shown is the minimum and maximum value for each pool and (in parentheses) the soil mineral nitrogen (g N m–2) for the minimum C/N. (b) Coarse woody debris decomposes to the active and slow pools. Fine-branch and large-wood debris flows to surface pools, and coarse root flows to belowground pools.(Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f518_daycent.png')
 ```
 
-### NUtrient cycle models
+### Nutrient cycle models
 
-- similar to carbon with an associated nitrogen pool and transfer.
-- cycling of nitrogen can be represented by a system of linear differential equations similar to that for carbon.
+We will only discuss nutrient cycles (and the associated models) superficially here. Many other (soil) courses in the program focus on nutrient cycles. Implementation of nutrient cycles in vegetation/soil models is pretty similar as the carbon biogeochemistry models discussed above. When there is a carbon model into place, a nitrogen model can be implemented by tracking for each carbon pool or flux an associated N pool or flux. However, the soil nitrogen cycle is more complex than the soil carbon cycle (Figure \@ref(fig:f519)) because we need to account for:
 
-- allocation of plant nitrogen uptake  up to plant pools
-- loss of nitrogen in litterfall +  portion is reabsorbed
-
-- soil nitrogen cycle is more complex (various forms)
-- decomposition of litter and soil organic matter, (mineralization and immobilization)
-- nitrification, denitrification, leaching, ammonia volatilization
-
-- additional inputs from biological nitrogen fixation, atmospheric deposition, and fertilizer
-
+- Reabsorption of N from litter fall and reallocation of N from leaves during senescence
+- N has gas forms: N2, NH3, N2O, NO (losses)
+- Plants use inorganic ions nitrate ($NO_3^{-}$ and ammonium ($NH_4^{+}$)
+- Multiple input processes: biological fixation, atmospheric deposition, fertilizer
+- Specific role of micro-organisms
 
 ```{r f519, fig.cap='Depiction of the nitrogen cycle. Circles indicate various pools (solid lines) or gaseous losses (dashed lines). Boxes denote processes. Also shown are natural inputs from biological nitrogen fixation and anthropogenic inputs from nitrogen deposition, fertilizer, and manure.(Bonan).', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f519_N_cycle.png')
 ```
 
+Research in the past decade has shown the important impact of the nitrogen cycle on carbon cycle simulations (e.g. a decrease of NPP when soil N is limiting). Figure \@ref(fig:f520) illustrates that recent earth system models (with and without accounting for N) simulated a global carbon sink which is smaller when accounting for nitrogen limitation. This shows that up until last IPCC report (where models did not account for the N cycle) future potential carbon stocks have been over estimated. So, the importance of implementing the N cycle in global models in widely accepted. However, a variety of approaches exists, where models differ largely in the way they represent:
+- N impact on photosynthesis
+- N uptake processes
+- Constant or variant C:N ratios
+- Competition for soil mineral N by plants and microbial community
+
 ```{r f520, fig.cap='Cumulative C sequestration from the CMIP5 models and plausible range of C sequestration considering N constraints (CMIP5-N) for the HadGEM2-ES and IPSL-CM5A-LR models. Zhaele et al. 2015', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f520_zhaele.png')
 ```
 
+## Case study 5.2
+
+In the second case study of this chapter, we take a closer look to one of the first global models (JSBACH) that accounted for the P cycle. The study presents how the P cycle was implemented and tested the impact on the global land carbon cycle. Figure \@ref(fig:f521) illustrates how the N and P cycle are implemented in JSBACH and how these nutrient cycles are interacting with the C cycle. The model allowed for global simulated maps of phosphorus in vegetation and soil, which illustrate the low P content in tropical areas.
 
 ```{r f521, fig.cap='Schematic representation of pools and fluxes in JSBACH. Solid arrows indicate carbon fluxes and dashed arrows nutrient fluxes. The plant compartment consists of the three C pools: active (leaves and non-lignified tissue), wood (stem and branches) and reserve (sugar and starches). The litter compartment consists of non-lignified litter, and woody litter (lignified litter and fast-decomposing soil organic matter).The soil compartment consists of one pool (slow) representing slow-decomposing organic matter. All carbon pools except the reserve pool have a corresponding nutrient pool with variable C :N: P ratio (slow, non-lignified litter) or fixed C :N: P ratio (rest). There is one mobile plant pool representing mobile nutrients stored internally in plants. Soil mineral nitrogen is represented by a single pool (soil mineral pool), while mineral P is represented by labile (available) pool and sorbed pool. The opposing triangles indicated that the flux is controlled by phosphorus (red triangles), nitrogen (blue triangles) or both (mixed triangles).Goll et al. 2012', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f521_goll_jsbach.png')
@@ -157,6 +247,7 @@ knitr::include_graphics('figures/chap5/f521_goll_jsbach.png')
 knitr::include_graphics('figures/chap5/f522_goll_Pmaps.png')
 ```
 
+The study compared simulation of the accumulated land carbon uptake between 1860 and 2100 with and without the nutrient cycles activated in the model. The results show a simulated global land carbon sink which was 13% lower when the N cycle was accounted for (mainly contributed by effects in the high latitudes). When the P cycle was accounted for the sink was even 16% lower (mainly contributed by tropical ecosystems). The combined N and P cycle resulted in a 25% lower land sink (Figures \@ref(fig:f523) and \@ref(fig:f524)). 
 
 ```{r f523, fig.cap='The simulated change in land carbon storage under the SRES A1B scenario. Shown are the 10-yr mean of soil temperature (a), the CO2 concentration as used in the forcing simulation (b), the resulting change in total land C storage (c), and the changes in the two main land compartments vegetation (d) and soil (e). Goll et al. 2012.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap5/f523_goll_sink.png')
@@ -168,14 +259,6 @@ knitr::include_graphics('figures/chap5/f524_gool_sink_map.png')
 ```
 
 
-
-
-
 ## Water balance models
 
-- focus on the surface energy balance and vertical water movement in the soil–plant atmosphere system (e.g., soil moisture control of evapotranspiration)
-
-- Specific components in terrestrial biosphere models:  
-Interception, throughfall, stemflow, infiltration, surface runoff, soil water redistribution, subsurface runoff, snow melt, evaporation, transpiration, plant water uptake, stomatal conductance
-
-
+We will not focus on water balance models in this course. As these are discussed in detail in hydrology courses. However, it is important to mention the key role of water balance models here, which are usually an integral part of vegetation models. The water balance is essential to simulate the energy balance of the system via evapotranspiration (latent heat flux). Moreover, reliable soil water balance models (see soil physics course) are essential to simulate water availability. It is also important to mention that the C allocation model will influence the water cycle. More allocation to leaves will result in high transpiration and a higher rainfall interception. 
