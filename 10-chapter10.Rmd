@@ -1,47 +1,83 @@
-# Model projections and scenario analysis
+# Model simulations, projections and scenario analysis
 \chaptermark{Projections}
-<!-- Not in UCL -->
-<!-- How is it used? By who? Not only policies (IPCC) but several applications.  -->
+
+## Simulation setup
+
+
+```{r f101, fig.cap='Sequention of the different parts of a simulaion setup: the model spinup, the historical run, and the scenarion run.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_1_simu.png')
+```
+
+```{r f102, fig.cap='The principle of the construction of a historical global climate reanalysis dataset. Global observations are combined with a climate model to obtain a complete gridded consistent global dataset. (ECMWF) ', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_2_ECMWF.png')
+```
+
+```{r f103, fig.cap='Example of a model spinup for teh LPJguess educational model. PFTs are initialized during the spinup, before a scenario run is performed.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_3_LPJguess_spinup.png')
+```
+
+```{r f104, fig.cap='Pre indusrial (pre 1850) spinup run for the CLM 5.0 model, showing various model state variables reaching equilibrium.', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_4_CLM_spinup.png')
+```
+
+
+## Model experiments
+
+## Paleo studies
+
+```{r f105, fig.cap='a) Simulated mid-Holocene biome distribution in  different models (ESMs) based on the PFT method, b) pollen-based biome reconstructions of the mid-Holocene biome distribution (BIOME6000 database)and c) the best neighbour score (BNS) for all individual sites showing the agreement of the reconstructed biomes and the biome distribution in the neighbourhood of the sites, ranging from 0 (no grid cell in the surrounding area shows the same biome as reconstructed) to 1 (the grid cell locating the site and the record at the site indicate the samebiome). (Dallmeyer et al. 2019) ', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_5_paleo.png')
+```
+
+
 
 ## Climate scenarios
-### Representative Concentration Pathway (RCP scenarios)
-- How scenarios are defined
-- How current emissions are measured and attributed to different factors? 
 
-### Different models, different RCP 
-- The central role of ESM: coupling to Atmosphere and Ocean and feedbacks
-- Here refers to preivous Chapter 10
-- list some examples and differences: IPSL, HadGEM, etc...
+```{r f106, fig.cap='Atmospheric CO2 concentration for the 21st century accoring to the IPCC Representative Concentration Pathways. (IPCC)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_6_RCPs.png')
+```
 
-### Use of RCP in vegetation modelling
-- ENSEMBLE simulations
-- IPCC
-- Example of applications
+```{r f107, fig.cap='Long-term mean summer (June, July, August) net ecosystem productivity by model (2000–2005), as simulated by the models participating to the Model Intercomparison Project of the North American Carbon Program (NACP-MIP). A positive sign indicates net terrestrial carbon uptake from the atmosphere, while a negative sign signifies net carbon release to the atmosphere. Prognostic models are shown above with a green background; diagnostic models are below with a purple background. (Huntzinger et al. 2012)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_7_huntzinger.png')
+```
 
-### How can we evaluate future scenarios? 
-- FACE
-- Rainfall exclusion experiments
-- Natural gradient (Iceland and soil temperature based on volcano and geothermy)
+```{r f108, fig.cap='Model Ensemble of 5 DGVMs, run for multiple climate SRES climate scenarios as simulated by the HAdGCM global climate model. Global mean land climatology (temperature, 1C, red; precipitation, mm/yr, blue),atmospheric CO2 content (black) and simulated land–atmosphere exchange over the 20th century by HyLand (HYL, black), Lund–Potsdam–Jena (LPJ, yellow), ORCHIDEE (ORC, blue), Sheffield (SHE, green), and TRIFFID (TRI, red). Red and blue dashes represent periods of strong El Nino (red) and La Nina (blue), respectively. Linear regressions are also plotted through the temperature and precipitation data. (Sitch et al. 2008) ', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_8_Sitch_ensemble.png')
+```
 
-### The central role of Paleo studies and historical datasets. 
-- Good performance for past and current conditions is mandatory to evaluate future scenarios
-- Here remind the central role of experiments and monitoring
+```{r f109, fig.cap='Model Ensemble of 5 DGVMs, here compared for 1 SRES climate scenario as simulated by the HAdGCM global climate model. Change in land carbon storage (TotC) and component vegetation (CV) and soils (CS) carbon stocks between 1860 and 2099 from the coupled climate-carbon cycle simulation under Special Report Emission Scenarios (SRES) emission scenario A1F1 (units are Pg C) for HyLand (HYL), Lund–Potsdam–Jena (LPJ), ORCHIDEE (ORC), Sheffield (SHE) and TRIFFID (TRI). (Sitch et al. 2008)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_9_sitch_ensemble.png')
+```
 
-## Land-use scenarios
-### Construction of Land-use scenarios
-- Hyde for historical land-use, https://themasites.pbl.nl/tridion/en/themasites/hyde/
-- Scenario for future land-use
+```{r f1010, fig.cap='Model Ensemble of 5 DGVMs, here th eresponse of the 5 models in compared for 2 SRES climate scenarios as simulated by the HAdGCM global climate model. Change in land carbon uptake, PgCyr-1, (top panels) relative to the present day (mean 1980–1999) for five Dynamic Global Vegetation Models (DGVMs) from coupled climate-carbon cycle simulations with two Special Report Emission Scenarios (SRES) emission scenarios, A1FI (solid lines), B1 (dashed lines), bracketing the range in emissions. Change in global vegetation (middle panels) and soil carbon (top panels), Pg C, between 2100 and 2000 under scenarios A1FI (solid lines) and B1 (dashed lines) for HyLand (HYL,black), Lund–Potsdam–Jena (LPJ, yellow), ORCHIDEE (ORC, blue), Sheffield (SHE, green), and TRIFFID (TRI, red). Note: only LPJ is run with interannual variations in climate. (Sitch et al. 2008)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_10_sitch_ensemble.png')
+```
 
---> We can follow the same structure as for RCP? 
+```{r f1011, fig.cap='Tropical forest biomass predictions for the Americas (a), Africa (b) and Asia (c) by the MOSES–TRIFFID model forced by 22 climate models. Climate models emulated are colour-coded, from dark blue to dark red for decreasing year 2100 values of Cv. Grey regions and squares are committed Cv values with climate constant at year 2100 values, and small dashes link back to the same model in transient predictions. Committed equilibrium values are year-independent, hence the x-axis break (small vertical bars). Normalized estimates of Cv from inventory data (2.5%, mean and 97.5% confidence levels) are the short black curves for Americas and Africa. Horizontal lines (large dashes) are estimated pre-industrial values, year 1860 (Huntingford et al. 2013)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_11_huntingford.png')
+```
 
-### How can we evaluate land use scenarios? 
-- Based on historical data
-- Remote sensing 
+```{r f1012, fig.cap='Comparing ESMs for multiple RCPs. Cumulative C sequestration from a few CMIP5 models and plausible range of C sequestration considering N constraints (CMIP5-N) for the HadGEM2-ES, IPSL-CM5A-LR, MPIESM-LR, and CESM1(BGC) models.(Zaehle et al. 2015)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_12_zaehle.png')
+```
+
+
+
+## Land use scenarios
+
+```{r f1013, fig.cap='Historical land use scenario for the Amazon (INPE)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_13_LU_inpe.png')
+```
+
+
 
 ## Management scenarios
-### Construction of Land-use scenarios
 
-### How can we evaluate management scenarios? 
+```{r f1014, fig.cap=' Simulating th eimpact of restoration on hydrology. Predicted total runoff from a study area of semi arid forests in SW-USA by the LANDIS II model, normalized by area, from 1990 to 2110 under future vegetation distributions and restoration rates. Precipitation inputs are not adjusted to account for the effects of climate change. The top row of panels shows runoff for a median (50th percentile) annual precipitation and the bottom row of panels shows runoff for a 10-yr drought (10th percentile) annual precipitation scenario. Values are means and SD across model runs. (Donnell et al. 2018)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_14_restoration.png')
+```
 
-## Some concrete applications of vegetation models
-- As a conclusion of the whole course I see a nice diagram that we constructed throughout the course with small boxes added to each others and we link that to all the possible application 
+
+```{r f1015, fig.cap=' Setup of simulation experiments in a study on European forest management scenarios.The experiments are described in publication of Lyussaert et al. 2018.Simulations with the ORCHIDEE-CAN vegetation model are shown in black and simulations with LMDzORCAN (couple climate model) are shown in red. Blue boxes denote intermediate calculations using the simulation results.The simulations shown in this figure correspond to runs with reduced air temperature (BBESTT2M), maximized surface albedo (BESTALBEDO), minimized surface albedo (BWORSTALBEDO), maximized carbon sink (BBESTLCA), minimized carbon sink (BWORSTLCA) and business as usual (BWAC). BWAC, BWAC-P1 and BWAC-P2 were used to calculate the minimal model noise. (Luyssaert et al. 2018)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+knitr::include_graphics('figures/chap10/f10_15_luyssaert.png')
+```
