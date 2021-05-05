@@ -26,7 +26,7 @@ From the perspective of vegetation dynamics we can consider three types of veget
 
 What are plant functional types (PFT)? They represent broad groupings of plant species that share similar characteristics (e.g. growth form) and roles (e.g. photosynthetic pathway) in ecosystem function. However, PFTs have a different meaning in demographic models and area-based models. In the latter, they represent an ecosystem functional type, whereas in cohort/individual based models they represent a specific plant type.
 
-```{r f63, fig.cap='Representation of vegetation patches in models. (a) Forest gap models are individual-based models and represent a landscape as patches that differ in stage of post-disturbance development. Shown are two patches, each comprised of multiple trees that differ in size and species. (b) Area-based dynamic global vegetation models (DGVMs) represent vegetation as discrete patches of plant functional types (PFTs) that differ in area. In this example, the model grid cell has six plant functional types (distinguished by canopy shape and shading) that differ in biomass (size of plant) and patch area (size of subgrid tile). (c) Ecosystem demography models define patches based on time elapsed since disturbance. Multiple plant functional types can exist within a patch and are represented as cohorts defined by plant type and size. Shown are six patches with different subgrid area and cohort assemblages. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+```{r f63, fig.cap='Representation of vegetation patches in models. (a) Forest gap models are individual-based models and represent a landscape as patches that differ in stage of post-disturbance development. Shown are two patches, each comprised of multiple trees that differ in size and species. (b) Area-based dynamic global vegetation models (DGVMs) represent vegetation as discrete patches of plant functional types (PFTs) that differ in area. In this example, the model grid cell has six plant functional types (distinguished by canopy shape and shading) that differ in biomass (size of plant) and patch area (size of subgrid tile). (c) Ecosystem demography models define patches based on time elapsed since disturbance. Multiple plant functional types can exist within a patch and are represented as cohorts defined by plant type and size. Shown are six patches with different subgrid area and cohort assemblages. (Bonan)', out.width='50%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap6/f63_3types.png')
 ```
 
@@ -185,7 +185,7 @@ M_{leaf}=cD^2
 $$
 with $M_{leaf}$ the mass of leaves, $D$ the diameter and $c$ an empirical coefficient. 
 
-```{r f622, fig.cap='Leaf area - diameter allometry in the JABOWA individual based model. (Buggman 2001)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+```{r f622, fig.cap='Leaf area - diameter allometry in the JABOWA individual based model. (Buggman 2001)', out.width='60%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap6/f622_LD_allom.png')
 ```
 
@@ -214,7 +214,7 @@ knitr::include_graphics('figures/chap6/f625_growth_factorbis.png')
 
 Figure \@ref(fig:f626) shows the growth functions of the two species discussed above. Basswood is more a pioneer species as its peak annual growth falls early, whereas oak is more a climax tree, as its peak falls later and is more spread over time. The maximum growth shown on these curves is then corrected by the growth factor which is shown  in the figures above.
 
-```{r f626, fig.cap='Stem diameter growth in relation to age as represented in gap models. Relationships are shown for basswood (Dmax = 100 cm, hmax = 30 m, G0 = 188.7 cm y–1, maximum age 140 years) and blackjack oak (Dmax = 50 cm, hmax = 15 m, G0 = 34.0 cm y–1, maximum age 400 years). Parameter values are from Pastor and Post (1985). (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+```{r f626, fig.cap='Stem diameter growth in relation to age as represented in gap models. Relationships are shown for basswood (Dmax = 100 cm, hmax = 30 m, G0 = 188.7 cm y–1, maximum age 140 years) and blackjack oak (Dmax = 50 cm, hmax = 15 m, G0 = 34.0 cm y–1, maximum age 400 years). Parameter values are from Pastor and Post (1985). (Bonan)', out.width='60%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap6/f626_growth strategies.png')
 ```
 
@@ -230,7 +230,7 @@ Among various demographic models, there are different approaches. Some models as
 Both methods have advantages and disadvantages: e.g. shading by neighboring trees is not accounted for in the PPA model, while it is in some way included in the flat crown approach.
 
 
-```{r f627, fig.cap='Representation of plant canopies in vegetation dynamics models.(a) Actual canopies have complex three-dimensional structure determined by the spatial location of trees and their crown geometry. (b) Gap models simplify the canopy so that the crown of an individual tree is a thin, flat layer of leaves at the top of the tree. Shown are six trees with different heights (white vertical lines). The leaf area of each tree (black horizontal lines) spreads over the area of the patch so that the tallest tree shades all others, and so forth, through the canopy. Horizontal positioning is for illustration only. The models do not represent spatial location, only the vertical dimension. Darker shading denotes progressively less light deeper in the canopy. The ecosystem demography model (ED) uses a similar concept, but applied to cohorts rather than individual trees. (c) The perfect plasticity approximation (PPA) organizes canopies into layers. All cohorts in the overstory (white boxes) receive identical light for that layer. The understory (black boxes) receives less light. Spatial location is for illustration only. (Bonan)', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+```{r f627, fig.cap='Representation of plant canopies in vegetation dynamics models.(a) Actual canopies have complex three-dimensional structure determined by the spatial location of trees and their crown geometry. (b) Gap models simplify the canopy so that the crown of an individual tree is a thin, flat layer of leaves at the top of the tree. Shown are six trees with different heights (white vertical lines). The leaf area of each tree (black horizontal lines) spreads over the area of the patch so that the tallest tree shades all others, and so forth, through the canopy. Horizontal positioning is for illustration only. The models do not represent spatial location, only the vertical dimension. Darker shading denotes progressively less light deeper in the canopy. The ecosystem demography model (ED) uses a similar concept, but applied to cohorts rather than individual trees. (c) The perfect plasticity approximation (PPA) organizes canopies into layers. All cohorts in the overstory (white boxes) receive identical light for that layer. The understory (black boxes) receives less light. Spatial location is for illustration only. (Bonan)', out.width='50%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap6/f627_light_comp.png')
 ```
 
@@ -290,7 +290,7 @@ From that perspective, these models could be used to replace standard species di
 
 Figure \@ref(fig:f633) b shows the stem density at a certain point in time during the simulation. It shows a typical pattern, namely that of multiple small diameter trees, and only a few large diameter trees. Subplot c shows the biomass distribution over the diameter classes. Here we see that most of the biomass is concentrated in the trees with an average diameter, and less in trees with a small, or large diameter. The results of this model can be related to inventory data to validate the model output.
 
-```{r f633, fig.cap='Forest dynamics simulated by LM3-PPA. Shown is (a) basal area of aspen (Populus tremuloides), red maple (Acer rubrum), and sugar maple (Acer saccharum) in relation to stand age. Also shown for year 80 are (b) stem diameter distribution and (c) biomass distribution. (Bonan))', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+```{r f633, fig.cap='Forest dynamics simulated by LM3-PPA. Shown is (a) basal area of aspen (Populus tremuloides), red maple (Acer rubrum), and sugar maple (Acer saccharum) in relation to stand age. Also shown for year 80 are (b) stem diameter distribution and (c) biomass distribution. (Bonan))', out.width='60%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap6/f633_LM3_ppa_succession.png')
 ```
 
@@ -330,7 +330,7 @@ knitr::include_graphics('figures/chap6/f637_levine1.png')
 
 The next Figure \@ref(fig:f638) shows the same pattern, in A, the green dots show a gradual decrease of AGB with increasing dry season length, while the purple dots (big leaf model) remain at the same level until a threshold is reached and the system goes to an AGB of zero. The black dots show what is observed via satellites, and correspond more to the green dots. 
 
-```{r f638, fig.cap='(A) Change in AGB with DSL (dry season length) for remote sensing-based estimates (black and gray circles), ground-based plot measurements (blue triangles), ED2 model output (green circles), and ED2-BL model output (purple circles).(B) Distribution of AGB in the observations and the two models. (C) Change in the percentage of biomass variability, with the coefficient of variation (CV) defined as 1σ/mean. Results are for undisturbed primary vegetation forests. (Levine et al. 2016) ', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+```{r f638, fig.cap='(A) Change in AGB with DSL (dry season length) for remote sensing-based estimates (black and gray circles), ground-based plot measurements (blue triangles), ED2 model output (green circles), and ED2-BL model output (purple circles).(B) Distribution of AGB in the observations and the two models. (C) Change in the percentage of biomass variability, with the coefficient of variation (CV) defined as 1σ/mean. Results are for undisturbed primary vegetation forests. (Levine et al. 2016) ', out.width='60%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap6/f638_levine2.png')
 ```
 
