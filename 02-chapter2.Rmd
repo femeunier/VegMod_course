@@ -260,7 +260,7 @@ The temperature functions also have dependence factors.
 The Farquhar model has 4 input variables: $O_i$, $C_i$, $PAR$ and $T_{leaf}$. Light depends on how the radiation is penetrating the canopy **-> see lecture 3**. $O_i$ is assumed to be equal to the oxygen concentration in the atmosphere.  Leaf temperature $T_{leaf}$ is in most models assumed to be equal to air temperature or can be calculated based on an energy balance. $C_i$ is calculated based on gas diffusion through the stomates -> you need an extra model to fully simulate the behavior of the stomates.
 
 
-```{r f210, fig.cap='Equations of the full Farquhar model', out.width='80%', fig.asp=.75, fig.align='center',echo=FALSE}
+```{r f210, fig.cap='Equations of the full Farquhar model', out.width='100%', fig.asp=.75, fig.align='center',echo=FALSE}
 knitr::include_graphics('figures/chap2/full_farquhar.png')
 ```
 
